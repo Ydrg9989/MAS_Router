@@ -23,3 +23,6 @@ __pycache__/
 /data/cache/
 /data/runs/
 *.parquet
+
+# Embedded checkout, not part of this repo
+.cursor/research-paper-internal-review/
