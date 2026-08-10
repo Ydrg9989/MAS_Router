@@ -1089,3 +1089,144 @@ domain, 80 calibration and 160 test. Nothing has been run. Stage A on this suite
 comparison with `hard366-a` at $4.56, and **discrimination must be checked before any protocol is
 priced**: if the pool agrees on nearly every task, no comparison can separate anything and the suite
 needs to get harder rather than larger (D-020).
+
+---
+
+## D-033 — Build the router before buying more capabilities. The headroom is real, and selection variance eats all of it
+
+**Decision.** Do not buy the eight-capability expansion the previous entry proposed. Build
+`q(x, S, p)` first on data already banked, because it costs nothing and it turned out to answer a
+different and more important question than the expansion would have.
+
+**Why the expansion was dropped.** The candidates available in the local cache - gsm8k, ai2_arc,
+mmlu-redux, MATH-500 at mixed levels - are close to saturated for these pools. A group in which every
+organization ties contributes an argmax over ties, which is noise; four such groups would pull the
+reproducibility statistic *toward* the null rather than stabilising it. That is D-020's saturation
+failure re-entering through the door marked "more groups". The genuinely distinct hard capabilities
+in the cache are already in `crosscap240`.
+
+**What was built instead.** [`mas_harness/metrics/routing.py`](mas_harness/metrics/routing.py), the
+first honest implementation of the direction's actual proposal: predict which organization solves a
+task from features available in advance, then route on the prediction. D-030 noted this had never
+been built and so had never been refuted. It is now built and it is now refuted.
+
+**The baseline was leaking too, which no earlier entry noticed.**
+`utility.fixed_best_selection` maximises utility over the set it is scored on, so when D-030 compared
+a router against "the best fixed configuration", the comparator had itself seen the test outcomes.
+Everything in the new module is frozen on calibration tasks, and a test asserts the baseline scores
+zero where the calibration winner is the test loser.
+
+**Result, over 60 stratified resplits per cell.** Mean gain over the frozen fixed-best baseline, in
+accuracy points, with both suites on the same three pools and the same 30 organizations:
+
+| suite | strong4 | decorrelated4 | correlated4 | mean headroom |
+|---|---:|---:|---:|---:|
+| `hard366` | +0.33 | −0.53 | −0.42 | 7.1 |
+| `crosscap240` | +0.08 | −1.78 | +0.03 | 9.6 |
+
+Between four and eleven points of oracle headroom exist in every cell, and no leak-free rule claims
+any of it. Semantic k-nearest-neighbour routing is equally flat (+1.40 to −1.36). Cross-capability
+tasks did not help: their three cells average −0.56 against −0.21 for the homogeneous suite, which is
+the opposite of what D-032 predicted.
+
+**One split would have produced two false findings.** On the manifest split of `crosscap-decorr4` the
+best single agent beat the best organization by 10.7 points at p=0.001, and the model scored +2.5 at
+p=0.070. Over resplits those are +0.39 and −1.78. Single-split routing numbers are not reportable at
+these sample sizes, and `routing_over_splits` is now the reporting unit.
+
+**The diagnosis, which is the part worth keeping.** The shuffled-embedding control - same model, same
+30 choices, task-embedding association destroyed - loses 1 to 2.8 points in every cell. So choosing
+per task at all costs about two points of variance here. The real embedding beats its own shuffled
+twin in 5 of 6 cells, meaning the semantic representation genuinely carries information; it is worth
+about what the selection variance costs, and the two cancel. The binding constraint is not the task
+representation, which is where both the report and the literature put it. It is that picking one of
+30 organizations from ~100 calibration tasks is itself a high-variance operation - the same effect
+costs the *fixed* baseline 1.9 to 2.9 points, with a spread of 3.2 to 5.3.
+
+**The sample-size defence was tested and fails.**
+[`scripts/measure_routing_pooled.py`](scripts/measure_routing_pooled.py) pools the two suites into
+569 unique tasks over 15 domains and sweeps calibration from 57 to 398 tasks. The gain is flat in all
+three pools across a sevenfold increase (`strong4` +0.27 to +0.37, `decorrelated4` −1.02 to −1.22,
+`correlated4` +0.24 to −0.67) while the headroom stays at 4.1-9.7 points. The spread halves as
+calibration grows, so the estimate becomes more precise and stays at zero. The null is an absence,
+not a detection failure.
+
+**The group-count defence fails in the same run.** D-032's remaining hope was that `crosscap240`'s
+0.735 off-dominant reproducibility on `decorrelated4` was real and merely under-powered at four
+groups. At fifteen groups it reads 0.100, 0.257 and 0.291 - all below the 0.5 floor, on all three
+pools. Overall reproducibility is genuinely above the null (0.62-0.70 against 0.17-0.31, p=0.000)
+and the dominant configuration's groups reproduce at 0.90-1.00, so the metric is working; it is the
+*departures* that are noise. One organization is broadly best per pool and the per-domain variety
+around it is not real.
+
+**Consequence for the direction.** Delegation as "a better task representation improves routing" is
+closed. Three independent lines agree: no reproducible per-domain winner at 15 groups, no gain from a
+leak-free learned router at any calibration size, and no gain from semantic nearest-neighbour
+routing. This entry originally added a fourth claim - that 4-11 points of oracle headroom nonetheless
+sit unclaimed - and **D-034 withdraws it.** The headroom is what a maximum over thirty noisy
+organizations produces when no organization is better suited to any task. Selection variance is still
+the correct description of why routing loses to doing nothing; there is simply also nothing for it to
+win.
+
+---
+
+## D-034 — There was no prize. The oracle headroom is the maximum of a wide noisy family, not a routing opportunity
+
+**Decision.** Withdraw the claim, made in D-033 and in every pool screen since D-021, that a
+substantial routing opportunity exists over the best fixed organization. Report headroom only
+against a no-interaction null from now on, and treat any bare "oracle minus best" figure as
+uninterpretable.
+
+**Why the check was run.** D-033 concluded that 4-11 accuracy points went unclaimed by every
+leak-free router at every calibration size. That is a strange result to leave standing: a real,
+large, systematically unreachable opportunity is a much stronger claim than a null, and it rested
+entirely on a statistic - per-task maximum minus one organization - that is large whenever the
+family is wide and the members fail semi-independently. Thirty organizations at roughly 85% accuracy
+will contain a correct one on almost every task, whether or not any of them suits it.
+
+**The null.** An additive logistic model of outcome on organization and task, main effects only, fit
+to the observed table and used to simulate replacements
+([`routing.headroom_against_no_interaction`](mas_harness/metrics/routing.py)). Organization
+accuracies and task difficulties are preserved exactly; the organization-by-task interaction is
+removed. That interaction is the whole content of "different organizations suit different tasks", so
+the null is the hypothesis the delegation direction has been trying to reject.
+
+**Result: observed headroom does not exceed the null in any cell.** Against the best organization on
+the same tasks, so selection noise is absent from both sides:
+
+| suite / pool | observed | null | excess | p |
+|---|---:|---:|---:|---:|
+| `hard366` / `strong4` | 7.00 | 6.97 | +0.02 | 0.635 |
+| `hard366` / `decorrelated4` | 7.41 | 8.95 | −1.54 | 0.940 |
+| `hard366` / `correlated4` | 3.70 | 6.16 | −2.46 | 0.995 |
+| `crosscap240` / `strong4` | 10.00 | 9.56 | +0.44 | 0.430 |
+| `crosscap240` / `decorrelated4` | 8.18 | 10.84 | −2.66 | 0.970 |
+| `crosscap240` / `correlated4` | 6.25 | 7.30 | −1.05 | 0.845 |
+
+Five of six sit below the null. The largest excess is +0.44 points at p=0.43.
+
+**The apparent exception was the baseline, again.** Measured against the calibration-picked fixed
+organization rather than the best one, `crosscap240`/`decorrelated4` reads +5.24 at p=0.010. That is
+the same cell that produced the 0.735 off-dominant reproducibility (killed at 15 groups) and the
+10.7-point single-agent anomaly (killed by resplitting). Its calibration draw selected an
+organization scoring 0.736 on test where a single agent scored 0.843; the excess is that error. Every
+positive result this project has recorded on `decorrelated4` has now failed on re-measurement three
+times (D-027, D-029, here), which is itself worth remembering.
+
+**This is the coherent explanation for everything since D-029.** No reproducible per-domain winner on
+`hard366`, none on 134 SWE-bench systems, none at 15 domains on the pooled suite, a flat routing
+learning curve from 57 to 398 calibration tasks, and no gain from semantic nearest-neighbour routing.
+Those are five symptoms. The cause is that the outcome tables contain no organization-by-task
+interaction to find.
+
+**What is now suspect elsewhere.** The pool-headroom precondition (D-021, D-023) that decided which
+pools received priced episodes computes `P(at least one member correct) - best member` over four
+agents. Four is a narrower family than thirty, so the inflation is smaller, but it is the same
+statistic and 8.20, 9.29 and 4.92 points have never been tested against this null. Any future use of
+headroom as a gate must carry the null with it, in the same commit, as D-030 required of criteria.
+
+**What survives.** Not a method and not an opportunity, but an apparatus and a negative: a dense
+counterfactual grid of 30 organizations by 569 tasks on three pools, leak-free routing evaluation
+with frozen baselines, and four independent falsification tools (permutation nulls, split-half
+reproducibility with an absolute floor, shuffled-representation controls, and this no-interaction
+simulation) that between them retired four positive results the project had previously believed.

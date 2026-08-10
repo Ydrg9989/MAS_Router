@@ -859,3 +859,155 @@ off-dominant statistic averages two or three groups, so it swings between pools 
 be sampling alone. Sixty tasks per group is adequate; four groups is not. The next round should add
 capabilities rather than tasks - gsm8k, ai2_arc, MATH-500 and MMLU-Pro are all in the local cache and
 would take the design to eight groups for roughly $4.
+
+---
+
+## 2026-08-10 — the first leak-free router, on both suites and all three pools. $0
+
+**What was built.** [`mas_harness/metrics/routing.py`](mas_harness/metrics/routing.py) fits
+`q(x, S, p)`, the probability that a coalition running a protocol solves a task, and routes each
+test task to its argmax. Task features are frozen MiniLM embeddings of the prompt, reduced by a PCA
+fit on calibration tasks alone; organization features are protocol, membership, size and member
+competence measured on calibration singletons. Twelve tests in
+[`tests/test_routing.py`](tests/test_routing.py) cover planted signal, planted noise, and the two
+leaks that manufactured the earlier delegation results.
+
+**Both leaks from D-030 are closed, including one in the baseline.**
+`utility.fixed_best_selection` chooses its single configuration by maximising utility *on the set it
+is then scored on*, so the "baseline any router must beat" was itself an oracle over configurations.
+Every baseline here is frozen on calibration tasks before it sees a test task, and a test asserts it
+scores zero on data where the calibration winner is the test loser.
+
+**Design, identical in all six cells.** Both suites ran on the same three pools with the same two
+free protocols, so every cell offers the same 30 organizations and differs only in the tasks. 366
+tasks (123 calibration) for `hard366`, 240 (79) for `crosscap240`.
+
+**The single manifest split looked promising and was noise.** On `crosscap-decorr4` the best single
+agent beat the best organization by 10.7 points (p=0.001) and `q_theta` scored +2.5 (p=0.070). Over
+60 stratified resplits those became +0.39 and −1.78. Reporting one split would have produced two
+false findings, so `routing_over_splits` now repeats the whole evaluation and the resplit mean is
+the number of record.
+
+**Result: nothing captures the headroom, on either suite.** Mean gain over the frozen fixed-best
+baseline across 60 resplits, in accuracy points:
+
+| suite / pool | headroom | q_theta | shuffled control | semantic kNN | selection gap |
+|---|---:|---:|---:|---:|---:|
+| `hard366` / `strong4` | 8.29 | +0.33 | −0.32 | +1.40 | +2.89 |
+| `hard366` / `decorrelated4` | 8.54 | −0.53 | −1.09 | −0.16 | +2.22 |
+| `hard366` / `correlated4` | 4.44 | −0.42 | −1.32 | −0.51 | +1.91 |
+| `crosscap240` / `strong4` | 9.38 | +0.08 | −2.80 | +1.01 | +2.11 |
+| `crosscap240` / `decorrelated4` | 11.10 | −1.78 | −1.18 | −0.96 | +2.85 |
+| `crosscap240` / `correlated4` | 8.43 | +0.03 | −1.99 | −1.36 | +2.02 |
+
+`q_theta` is ahead of doing nothing in 13-47% of splits depending on the cell, never a majority. The
+cross-capability suite does **not** rescue routing: its three cells average −0.56 against −0.21 for
+the homogeneous suite, the opposite of the D-032 prediction.
+
+**But the representation is not worthless, and that is the interesting part.** The shuffled-embedding
+control loses 1-3 points in every cell, so *choosing per task at all* costs about two points of
+variance when there are 30 organizations and ~100 calibration tasks. The real embedding beats its own
+shuffled twin in 5 of 6 cells. The semantic signal is real and worth roughly what the selection
+variance costs, which nets to zero. Selection variance, not representation quality, is what is
+binding.
+
+**The same effect appears in the baseline.** Identifying one fixed best organization from calibration
+data costs 1.9-2.9 points on average, with a spread of 3.2-5.3 points - a quarter to a half of the
+headroom being competed for, spent before any routing happens.
+
+---
+
+## 2026-08-10 — pooled suites: the learning curve is flat and the group-count fix fails. $0
+
+**Why pool.** Two questions were open. Whether the routing null is an absence or a sample-size
+result, which needs a learning curve; and whether `crosscap240`'s off-dominant reproducibility of
+0.735 was real, which needs more than the two groups it averaged. Both suites ran on the same three
+pools with the same two free protocols and share 37 GPQA tasks, so they concatenate into 569 unique
+tasks over 15 domains with calibration sets up to 398 - four times either suite alone, and the group
+count the previous entry said was the binding limitation.
+
+**The learning curve does not exist.** Mean `q_theta` gain over frozen fixed-best, 40 resplits per
+point, as calibration grows sevenfold:
+
+| calibration tasks | 57 | 114 | 199 | 284 | 398 |
+|---|---:|---:|---:|---:|---:|
+| `strong4` | +0.27 | −0.21 | −0.20 | +0.15 | +0.37 |
+| `decorrelated4` | −1.02 | −1.28 | −0.86 | −1.12 | −1.22 |
+| `correlated4` | +0.24 | −0.61 | −1.03 | −1.04 | −0.67 |
+
+Flat in all three pools, against 4.1-9.7 points of headroom that stays available throughout. The
+spread halves as calibration grows - `correlated4` goes from sd 1.94 to 0.68 - so the estimate
+becomes *more* precise and stays at zero. This is the strongest form the negative can take: not
+"we could not detect a gain" but "there is no gain to detect at any calibration size this design
+can reach".
+
+**The shuffled control does not improve either**, holding at −0.8 to −2.3 across the whole sweep. The
+cost of choosing per task is not a small-sample effect that more calibration data pays off.
+
+**Fifteen groups kill the crosscap reproducibility result.** The previous entry attributed the
+swing between pools to averaging two or three groups and predicted more capabilities would settle
+it. It settles it against the hypothesis:
+
+| pool | reproducibility | null | dominance | off-dominant | verdict |
+|---|---:|---:|---:|---:|---|
+| `strong4` | 0.636 | 0.232 | 0.67 | 0.100 (5) | no evidence |
+| `decorrelated4` | 0.703 | 0.171 | 0.67 | 0.257 (5) | no evidence |
+| `correlated4` | 0.622 | 0.313 | 0.47 | 0.291 (8) | no evidence |
+
+Overall reproducibility is far above the null in all three pools (p=0.000) and the groups won by the
+dominant configuration reproduce at 0.90-1.00. But the departures - the only part routing could act
+on - reproduce at 0.10 to 0.29, all below the 0.5 floor. `decorrelated4`'s 0.735 on `crosscap240`
+was an average over two groups and did not survive contact with fifteen.
+
+**Reading.** Both open questions are now closed in the same direction, and they agree with the
+routing result rather than merely accompanying it: there is one broadly best organization per pool,
+the per-domain departures from it are noise, and a router therefore has nothing to learn - which is
+exactly what a flat learning curve at zero looks like from the modelling side.
+
+---
+
+## 2026-08-10 — the headroom was never there. $0
+
+**The check.** Every headroom figure this project has reported is a per-task maximum minus one
+organization. That statistic is large whenever the family is wide and noisy: thirty organizations
+that are each 85% accurate and fail semi-independently will contain a correct one on almost every
+task, whether or not any of them is *suited* to it. Before concluding that a real prize goes
+unclaimed, the prize had to be tested
+([`scripts/check_oracle_headroom.py`](scripts/check_oracle_headroom.py)).
+
+**The null.** An additive logistic model of outcome on organization and task, main effects only, is
+fit to each observed table and used to simulate replacement tables. Every organization keeps its
+overall accuracy, every task keeps its difficulty, and the organization-by-task interaction - the
+entire content of "different organizations suit different tasks" - is removed. Headroom is then
+recomputed on the simulated tables.
+
+**Observed headroom is at or below the no-interaction null in all six cells.** Measured against the
+best organization on the same tasks, so that selection noise is absent from both sides:
+
+| suite / pool | observed | null | excess | p |
+|---|---:|---:|---:|---:|
+| `hard366` / `strong4` | 7.00 | 6.97 | +0.02 | 0.635 |
+| `hard366` / `decorrelated4` | 7.41 | 8.95 | −1.54 | 0.940 |
+| `hard366` / `correlated4` | 3.70 | 6.16 | −2.46 | 0.995 |
+| `crosscap240` / `strong4` | 10.00 | 9.56 | +0.44 | 0.430 |
+| `crosscap240` / `decorrelated4` | 8.18 | 10.84 | −2.66 | 0.970 |
+| `crosscap240` / `correlated4` | 6.25 | 7.30 | −1.05 | 0.845 |
+
+**The one apparent exception was a baseline artifact.** Measured against the calibration-picked fixed
+organization, `crosscap240`/`decorrelated4` showed +5.24 over the null at p=0.010 - the same cell
+that produced the 0.735 off-dominant reproducibility and the 10.7-point single-agent anomaly. Its
+calibration draw picked a fixed organization that scored 0.736 on test when a single agent scored
+0.843, and the inflated gap is that mistake, not an interaction. Against the best organization on
+test it reads −2.66.
+
+**What this settles.** The four to eleven points of "unclaimed headroom" reported throughout this
+project, including in the entry immediately above, are what maximising over a wide noisy family
+produces when there is nothing to find. No router failed to capture a prize; there was no prize. The
+flat learning curve, the unreproducible per-domain departures, and the null routing gain are three
+views of one fact.
+
+**A precondition needs re-examining.** The pool-headroom gate that decided which pools received
+priced episodes (D-021, D-023) uses the same statistic, `P(at least one member correct) - best
+member`, over four agents rather than thirty organizations. Four is a much narrower family so the
+inflation is smaller, but it is the same inflation and those figures - 8.20, 9.29 and 4.92 points -
+have not been tested against this null.

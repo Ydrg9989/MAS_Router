@@ -13,13 +13,25 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
       NO GO. A pre-registered confirmatory test refuted the one governance mechanism that looked real
       (D-026, D-027).
 
-## The delegation phase (the direction the gate chose)
+## The delegation phase — closed, see D-029 through D-034
 
-- [ ] **Task encoder, set-valued organization model, selector.** Listed below as unwritten; they are
-      now the critical path. Training data is on disk and replayable at zero cost: 4,392 banked answers
-      and 57,489 episodes across three pools.
-- [ ] **Widen the protocol family before leaning on configuration dominance.** Seven protocols give too
-      few configurations for the 75% ceiling to be meaningful, and `decorrelated4` sits exactly on it.
+- [x] **Task encoder, organization model, selector.** Built as
+      [`mas_harness/metrics/routing.py`](mas_harness/metrics/routing.py) and run on all six
+      pool-by-suite cells. No gain over a frozen fixed-best baseline at calibration sizes from 57 to
+      398 tasks. D-033.
+- [x] **Test whether the null is a sample-size result.** It is not: the learning curve is flat over a
+      sevenfold increase in calibration data while its spread halves.
+- [x] **Test whether four capability groups were too few.** Fifteen domains on the pooled suite give
+      off-dominant reproducibility of 0.10-0.29, below the 0.5 floor on all three pools.
+- [x] **Test whether the headroom was ever real.** It was not. Against a null preserving organization
+      accuracies and task difficulties but removing their interaction, observed headroom is at or
+      below chance in all six cells. D-034.
+- [ ] **Re-test the pool-headroom precondition against the same null.** D-021 and D-023 gated real
+      spending on 8.20, 9.29 and 4.92 points computed with the statistic D-034 just retired. Four
+      agents is a narrower family than thirty organizations so the inflation is smaller, but it has
+      not been measured. Free.
+- [ ] **Decide what the paper is.** The apparatus and the negative are solid and unusually well
+      controlled; no positive method survives. See D-034's closing paragraph.
 - [ ] **Pre-register before testing the two sign-stable patterns**: `independent_judge` never hurting,
       `expert_verifier` and plain majority never helping. D-027 records why they are not findings yet.
 - [ ] **Write up governance as an influence result rather than an accuracy one.** Mask-flip rates of

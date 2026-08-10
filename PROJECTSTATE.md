@@ -14,6 +14,19 @@ test of the one mechanism that looked real refuted it.
 records by `scripts/collect_report_data.py`. Read that before the log, which is chronological and
 therefore contains superseded numbers.
 
+**Delegation has since been closed as well, and the report above predates that.** The direction was
+pursued on the `delegation` branch through a cross-capability suite (`crosscap240`, D-032) and then
+through the learned router the direction had always proposed but never built (D-033). The router
+exists, is leak-free, and gains nothing at calibration sizes from 57 to 398 tasks. **D-034 explains
+why: there is nothing to win.** The "oracle headroom" this project has quoted since D-021 is what a
+per-task maximum over a wide, semi-independent family produces by itself; against a null that
+preserves organization accuracies and task difficulties while removing the organization-by-task
+interaction, observed headroom is at or below chance in all six pool-by-suite cells. See D-029
+through D-034 and the last four `EXPERIMENT_LOG.md` entries.
+
+**Any headroom figure elsewhere in this file predates that null and should not be read as an
+opportunity**, including the per-pool table below, which was the gate for buying priced episodes.
+
 ## Status at a glance
 
 | Layer | State | Where |
@@ -34,11 +47,12 @@ therefore contains superseded numbers.
 | Task discrimination screen | works, run on 3 pools | `mas_harness/analysis/discrimination.py` |
 | Pool headroom precondition | works, run on 3 pools | `mas_harness/analysis/headroom.py` |
 | Candidate pool selector | works, 12 models screened | `mas_harness/analysis/pool_select.py` |
-| Learned models (encoder, set model, selector) | not written | see `TODO.md` |
+| Winner reproducibility (split-half + null) | works, run on 15 domains | `mas_harness/metrics/stability.py` |
+| Learned router `q(x, S, p)` + baseline ladder | works, run on 6 cells, no gain | `mas_harness/metrics/routing.py` |
 | Coding domain (EvalPlus) | not available, no sandbox | see `TODO.md` |
 | GPUs / local vLLM | host has no GPU at all | see `TODO.md` |
 
-324 tests pass and `ruff check` is clean over `mas_harness`, `scripts` and `tests`.
+391 tests pass and `ruff check` is clean over `mas_harness`, `scripts` and `tests`.
 
 Five manifests are built and content-hashed: `hard366` (the main suite, 366 tasks selected for
 difficulty — GPQA-Diamond 122, MATH-500 level 5 122, hard MMLU-Pro sources 122), `screen120` (a
