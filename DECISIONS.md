@@ -1296,3 +1296,54 @@ Giving up 1.9 accuracy points on average for a quarter of the cost is a genuine 
 cost-adjusted comparison may favour routing. So the supported claim is narrow: routing does not buy
 accuracy over aggregation, and its case is efficiency. Any cost-adjusted claim must be measured, not
 asserted, since the four pools differ in per-call price by more than an order of magnitude.
+
+---
+
+## D-036 — The efficiency case for routing does not survive a properly posed budget comparison, and a linear cost penalty is the wrong way to ask
+
+**Decision.** Close the routing question. Routing buys neither accuracy (D-035) nor accuracy per
+dollar. Record the convex-hull artefact as a methodological finding in its own right, because it
+produced a convincing false positive twice in a row in this analysis.
+
+**What was open.** D-035 established that a domain router with ground-truth capability labels loses
+1.9 accuracy points to plain majority voting while making one call instead of four, and flagged the
+cost-adjusted comparison as the strongest remaining argument for routing - to be measured, not
+asserted.
+
+**Two formulations that produced a false positive.** Sweeping `accuracy - lambda * cost` and
+reporting the best gap over twelve lambdas gave +4 to +16 points at p<=0.006, with lambda and the
+comparison rival both chosen on the data that scored them: the D-034 artefact, self-inflicted. Moving
+that selection to a held-out half of the test tasks and averaging over 200 resplits *still* gave +2.6
+to +16.6 points, positive in 86 to 100 per cent of splits. Leak-free, resplit-stable, and wrong.
+
+**The reason, which generalises beyond this project.** Sweeping a linear penalty over a set of points
+traces only the *upper convex hull* of that set. An organization that is Pareto-efficient but sits
+inside the hull is unreachable by the global policy at every lambda. A routed policy mixes per
+capability and can land in that concave region, so it appears to dominate the global frontier while
+merely filling a gap the sweep cannot reach. Any paper comparing a mixed or routed policy against a
+lambda-swept fixed baseline is exposed to this, and holding out data does not fix it, because the
+artefact is in the shape of the question rather than in the selection.
+
+**The formulation without the blind spot.** Fix a budget in dollars per task; each policy takes the
+most accurate organization it can afford. This reaches the full Pareto frontier rather than its hull,
+has no penalty parameter, and matches the constraint a deployer actually has. Budgets are set to the
+distinct organization prices, the points at which the affordable set changes
+([`scripts/measure_cost_frontier.py`](scripts/measure_cost_frontier.py)).
+
+**Result.** At an unconstrained budget routing loses in all six pool-by-suite cells, by 0.48 to 3.15
+points, positive in 2 to 29 per cent of 200 resplits. Across roughly twenty budgets per cell the
+curve is negative at most points. At the tightest budget in every cell all capabilities receive the
+same organization, so routing degenerates to the global policy exactly where the budget binds hardest.
+
+**The one exception, and what it actually is.** `crosscap240`/`correlated4` at $0.000453 per task
+gains +11.53 points, positive in 100% of 200 splits. The cause is that an organization's price varies
+by capability, so one whose average price exceeds the budget remains affordable on the domains where
+its prompts and answers are short. That is real and a legitimate use of a budget, but it is
+priced-by-domain arbitrage rather than delegation, and it appears in one cell of six at one narrow
+band of budgets. It does not support a routing claim.
+
+**Cost accounting note.** Episode records show $0 for bank replays and Stage A records show $0 for
+cache hits, so both would have understated deployment cost and inverted the comparison. Every call
+here is repriced from its four token buckets against the run's frozen price snapshot;
+`independent_majority` over k members is charged for k, and `single_expert` for the single member it
+consults, its predictor reading calibration accuracy by domain rather than the current task's answers.

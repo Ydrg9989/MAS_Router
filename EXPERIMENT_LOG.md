@@ -1110,3 +1110,63 @@ calibration and no router.
 one call where the vote makes four. Losing 1.9 points on average at a quarter of the cost is a real
 trade, and a cost-adjusted comparison could favour routing. The claim this supports is therefore
 narrow and specific: routing does not buy *accuracy* over aggregation. Its case is efficiency.
+
+---
+
+## 2026-08-10 — the efficiency case does not survive either, and two wrong ways to ask. $0
+
+**What was being tested.** The qualification above, which was the last live argument for routing:
+that per-capability selection buys accuracy per dollar even though it does not buy accuracy. Both
+policies are chosen on the same calibration tasks from the same 30 organizations, and differ only in
+whether the choice is made once for the suite or once per capability
+([`scripts/measure_cost_frontier.py`](scripts/measure_cost_frontier.py)). Cost is repriced from token
+buckets against each run's frozen snapshot, so cache hits are charged what a first run would pay;
+`independent_majority` over k members is charged for k, and `single_expert` for the one member it
+consults, since its predictor reads calibration accuracy and never inspects the current answers.
+
+**Two formulations that flattered routing, and why.** A first pass swept a cost penalty
+`accuracy - lambda * cost` and took the best gap over twelve lambdas, comparing against the most
+favourable rival, giving +4 to +16 points at p<=0.006. Both the lambda and the rival were chosen on
+the data that scored them, which is the D-034 artefact exactly. Moving that selection to a held-out
+half of the test tasks and averaging over 200 resplits still gave +2.6 to +16.6 points, positive in
+86 to 100 per cent of splits, which looked like a genuine result.
+
+It was not. Sweeping a linear penalty over a set of points traces only the *upper convex hull* of
+that set, so any organization that is Pareto-efficient while sitting inside the hull is invisible to
+the global policy at every lambda. A routed policy mixes per capability and can land precisely in
+that concave region, appearing to beat the global frontier while merely filling a gap the sweep can
+never reach. The gain was an artefact of the question's shape.
+
+**The formulation without a blind spot.** Fix a budget in dollars per task and let each policy take
+the most accurate organization it can afford. That reaches the full Pareto frontier rather than its
+hull, needs no penalty parameter, and is the form a deployer's constraint actually takes. Budgets are
+the distinct organization prices, so they are exactly the points where the affordable set changes.
+
+**Result: routing loses at an unconstrained budget, in all six cells.** Mean gain over 200 resplits,
+routed minus global:
+
+| suite | pool | unlimited budget | positive in |
+|---|---|---:|---:|
+| `hard366` | `strong4` | −3.15 pp | 2% |
+| `hard366` | `decorrelated4` | −1.70 pp | 9% |
+| `hard366` | `correlated4` | −2.48 pp | 8% |
+| `crosscap240` | `strong4` | −0.48 pp | 29% |
+| `crosscap240` | `decorrelated4` | −1.97 pp | 11% |
+| `crosscap240` | `correlated4` | −3.94 pp | 7% |
+
+**And it mostly loses under tight budgets too.** Across roughly twenty budgets per cell the curve is
+negative at most points. The one substantial exception is `crosscap240`/`correlated4` at
+$0.000453 per task: +11.53 points, positive in 100% of 200 splits, with the routed policy spending
+$0.000397 against the global policy's $0.000315, both inside budget.
+
+**That exception is not capability specialisation.** The routed policy wins there because an
+organization's price *varies by capability* - shorter prompts and shorter answers on some domains -
+so an organization whose average price exceeds the budget is still affordable on the domains where it
+is cheap. Real, and a legitimate way to spend a budget, but a different claim from "different tasks
+suit different organizations", and confined to one cell of six at one narrow band of budgets. At the
+very tightest budget in every one of the six cells, all capabilities receive the *same* organization,
+so routing degenerates to the global policy exactly where the budget binds hardest.
+
+**Conclusion.** The efficiency case that D-035 left open does not survive a properly posed budget
+comparison. Routing buys neither accuracy nor accuracy per dollar over choosing one organization
+well. The residual effect that does exist is priced-by-domain arbitrage, not delegation.

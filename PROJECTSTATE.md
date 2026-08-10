@@ -192,10 +192,12 @@ with it.
   have now been measured and agree (Spearman 0.028-0.105 with real embeddings, 0.048-0.063 with the
   fallback), so the criterion is not an artifact of the fallback — but any given run's report must be
   read for which method it used.
-- **The delegation criterion passing is thinner than it looks.** Configuration dominance reads 41.7%,
-  58.3% and 75.0% across the three pools against a 75% ceiling, so on `decorrelated4` it passes by a
-  margin of exactly zero. With only seven protocols there are few configurations to dominate, and the
-  number will move as protocol families are added.
+- **The delegation criterion that opened this phase has since been retired.** Configuration dominance
+  read 41.7%, 58.3% and 75.0% across the three pools against a 75% ceiling, so `decorrelated4` passed
+  by a margin of exactly zero, and the statistic is diluted by adding protocols rather than measuring
+  anything about tasks (D-029). It is superseded by split-half winner reproducibility in
+  [`mas_harness/metrics/stability.py`](mas_harness/metrics/stability.py). Any figure quoting
+  configuration dominance predates D-029 and should not be carried forward.
 - Harsanyi decomposition is exact and therefore exponential in pool size. Fine at four or
   five agents; it refuses above twelve.
 - Planning token figures are now measured (300 input / 4,200 output per call) but remain deliberately
@@ -207,16 +209,40 @@ with it.
   selected *because* protocols differ there, so `independent_majority` reads 0.667 on a 15-task slice
   against 0.8497 on all 366.
 
+## Where the delegation direction ended
+
+Delegation is closed, and the closure is thorough rather than inconclusive. Nothing about per-task
+selection survives, and each failure has a measured cause:
+
+- **No learned router gains anything** over a frozen fixed-best baseline, at calibration sizes from 57
+  to 398 tasks, on either suite and all three pools (D-033).
+- **The headroom it was chasing was never real.** Against a null that preserves every organization's
+  accuracy and every task's difficulty but removes their interaction, observed headroom is at or below
+  chance in all six cells, and on the 134-system SWE-bench Verified matrix it sits *below* the null
+  (D-034).
+- **The null is not vacuous, and the positive control explains the negative.** Eight real agents with
+  per-capability spreads up to 0.833 still do not beat it, including a pool selected to be maximally
+  disjoint (excess −2.16, p=0.883). For seven of the eight, the strongest capability is the same one:
+  the profiles are near-monotone transformations of a single difficulty ordering, which is main-effect
+  structure and exactly what the null models. Specialisation is also self-cancelling for a per-task
+  maximum, since an agent that collapses on a capability leaves the union of successes on the same
+  tasks it creates an opportunity on (D-035).
+- **Aggregation already collects the exploitable part.** A domain router given ground-truth capability
+  labels beats the best single agent in two pools of three but not plain majority voting (−0.6, −7.5,
+  +2.5 points), which needs no representation, no calibration and no router (D-035).
+- **The efficiency defence fails too.** Under a per-task budget, routing loses in all six cells by
+  0.48 to 3.15 points. The one exception is priced-by-domain arbitrage, not delegation (D-036).
+
+Three methodological findings came out of this that are reusable independently of the negative
+result: the headroom illusion, specialisation cancelling itself for maximum-type statistics, and the
+convex-hull artefact that makes any lambda-swept cost comparison flatter a mixed or routed policy.
+
 ## Next actions
 
-The gate chose delegation, so the next phase is the delegation direction: representing tasks by which
-agent organizations succeed on them rather than by semantics.
-
-1. Write the learned models `TODO.md` lists as missing — task encoder, set-valued organization model,
-   selector — and train them on the banked outcomes. The data is already on disk: 4,392 answers and
-   57,489 episodes across three pools, all replayable at zero cost.
-2. Widen the protocol family before leaning on configuration dominance. Seven protocols give too few
-   configurations for the 75% ceiling to mean much, and one pool already sits exactly on it.
+1. Decide what the paper is. `TODO.md` records the choice; the apparatus and the negative are solid
+   and unusually well controlled, and there are now three methodological contributions to build on.
+2. Extend the null to the public matrices already on disk — `swebench_pro`, `gso`, `terminalbench` and
+   the two `TwinRouterBench` matrices — for external validity at zero cost.
 3. Pre-register the two sign-stable patterns before testing them: `independent_judge` never hurting,
    `expert_verifier` and plain majority never helping. D-027 explains why they are not yet findings.
 4. Report the governance material as an influence result, which is what replicated: mask-flip rates of

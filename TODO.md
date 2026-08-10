@@ -13,7 +13,7 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
       NO GO. A pre-registered confirmatory test refuted the one governance mechanism that looked real
       (D-026, D-027).
 
-## The delegation phase — closed, see D-029 through D-034
+## The delegation phase — closed, see D-029 through D-036
 
 - [x] **Task encoder, organization model, selector.** Built as
       [`mas_harness/metrics/routing.py`](mas_harness/metrics/routing.py) and run on all six
@@ -26,12 +26,27 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
 - [x] **Test whether the headroom was ever real.** It was not. Against a null preserving organization
       accuracies and task difficulties but removing their interaction, observed headroom is at or
       below chance in all six cells. D-034.
-- [ ] **Re-test the pool-headroom precondition against the same null.** D-021 and D-023 gated real
-      spending on 8.20, 9.29 and 4.92 points computed with the statistic D-034 just retired. Four
-      agents is a narrower family than thirty organizations so the inflation is smaller, but it has
-      not been measured. Free.
+- [x] **Re-test the pool-headroom precondition against the same null.** Done over four agents as
+      singleton organizations, the family D-021 and D-023 actually used: excess headroom +1.33
+      (p=0.330), −0.14 and +2.44 (p=0.203). The precondition that gated real spending does not clear
+      the null either. D-035.
+- [x] **Run the positive control the null needed.** Eight distinct agents on 238 `crosscap240` tasks
+      with per-capability spreads to 0.833, and a pool selected on calibration to be maximally
+      disjoint: excess −2.16 (p=0.883). The null cannot be beaten even by a pool assembled to beat it,
+      and the reason is that for seven of eight agents the strongest capability is the same one.
+      D-035.
+- [x] **Measure the efficiency case D-035 left open.** Under a per-task budget, routing loses in all
+      six cells (−0.48 to −3.15 points, positive in 2-29% of 200 resplits). The lambda-swept version
+      that showed +2.6 to +16.6 points was a convex-hull artefact. D-036.
 - [ ] **Decide what the paper is.** The apparatus and the negative are solid and unusually well
-      controlled; no positive method survives. See D-034's closing paragraph.
+      controlled; no positive method survives. There are now three distinct methodological findings
+      to build on rather than one: the headroom illusion (D-034), specialisation being
+      self-cancelling for a per-task maximum (D-035), and the convex-hull artefact in lambda-swept
+      cost comparisons (D-036).
+- [ ] **Apply the null to the public matrices already on disk.** `agent-psychometrics` has
+      `swebench_pro`, `gso` and `terminalbench` alongside the verified split already used, and
+      `TwinRouterBench/data` has static and dynamic matrices. Free external validity for D-034 and
+      D-036 beyond our own eight agents.
 - [ ] **Pre-register before testing the two sign-stable patterns**: `independent_judge` never hurting,
       `expert_verifier` and plain majority never helping. D-027 records why they are not findings yet.
 - [ ] **Write up governance as an influence result rather than an accuracy one.** Mask-flip rates of
