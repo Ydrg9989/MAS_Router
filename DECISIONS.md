@@ -1230,3 +1230,19 @@ counterfactual grid of 30 organizations by 569 tasks on three pools, leak-free r
 with frozen baselines, and four independent falsification tools (permutation nulls, split-half
 reproducibility with an absolute floor, shuffled-representation controls, and this no-interaction
 simulation) that between them retired four positive results the project had previously believed.
+
+**The result generalises, which is what makes it a contribution rather than a post-mortem.** Applied
+to 134 independently built agent systems on 479 SWE-bench Verified instances
+([`scripts/check_headroom_swebench.py`](scripts/check_headroom_swebench.py)), the observed gap
+between the best single system and "at least one system solves it" is *below* the no-interaction null
+at every family size from 4 to 134: 8.33 against 10.22 points at four systems, rising to 14.58
+against 17.23 at all 134. The headline gap grows with family width, as a maximum over a wider noisy
+family must, and the null grows faster. The excess is negative throughout, so real agent systems are
+*less* complementary than independence predicts - they share base models and failure modes.
+
+**Scope of the claim.** It concerns per-task *selection*, which is what routing needs. It is not an
+argument against *aggregation*: voting over semi-independent members beats the best member under
+precisely the independence this null assumes, which is why whole-pool majority vote is the one
+organizational fact that reproduced everywhere (D-029). The distinction is the paper: complementarity
+in the aggregation sense is real and routine, while the per-task assignment of tasks to systems that
+the routing literature quotes the same statistic to motivate is not there.

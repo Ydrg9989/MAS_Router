@@ -592,12 +592,22 @@ def headroom_against_no_interaction(
     if len(train) < 4 or len(test) < 4:
         return {"note": "too few tasks"}
 
+    from scipy import sparse
+
     n_org, n_task = grid.correct.shape
     org_index = np.repeat(np.arange(n_org), n_task)
     task_index = np.tile(np.arange(n_task), n_org)
-    design = np.zeros((n_org * n_task, n_org + n_task))
-    design[np.arange(len(org_index)), org_index] = 1.0
-    design[np.arange(len(task_index)), n_org + task_index] = 1.0
+    # One row per organization-task pair with exactly two non-zeros. Dense, this is 300 MB for the
+    # 134-system SWE-bench matrix; sparse it is a few megabytes.
+    n_rows = n_org * n_task
+    design = sparse.csr_matrix(
+        (
+            np.ones(2 * n_rows),
+            np.column_stack([org_index, n_org + task_index]).reshape(-1),
+            np.arange(0, 2 * n_rows + 1, 2),
+        ),
+        shape=(n_rows, n_org + n_task),
+    )
     labels = grid.correct.reshape(-1)
 
     def headroom(correct: np.ndarray) -> tuple[float, float]:

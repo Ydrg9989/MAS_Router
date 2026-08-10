@@ -1011,3 +1011,40 @@ priced episodes (D-021, D-023) uses the same statistic, `P(at least one member c
 member`, over four agents rather than thirty organizations. Four is a much narrower family so the
 inflation is smaller, but it is the same inflation and those figures - 8.20, 9.29 and 4.92 points -
 have not been tested against this null.
+
+---
+
+## 2026-08-10 — the same illusion on 134 public agent systems. $0
+
+**Why this matters more than the internal result.** A null that only fires on this project's own
+grid says the pools were unlucky. The statistic it retires - best single system against "at least one
+system solves it" - is the standard motivation for agent routing, selection and ensembling, so the
+question is whether it holds up anywhere. SWE-bench Verified through `agent-psychometrics` is the
+hardest available test: 134 independently built systems, different scaffolds, base models, labs and
+years, on 479 instances
+([`scripts/check_headroom_swebench.py`](scripts/check_headroom_swebench.py)).
+
+**Observed headroom is below the no-interaction null at every pool size.**
+
+| systems | best single | oracle | headroom | null | excess | p |
+|---:|---:|---:|---:|---:|---:|---:|
+| 4 | 0.804 | 0.887 | 8.33 | 10.22 | −1.88 | 0.940 |
+| 8 | 0.804 | 0.896 | 9.17 | 12.12 | −2.95 | 0.970 |
+| 16 | 0.804 | 0.921 | 11.67 | 14.07 | −2.40 | 0.955 |
+| 32 | 0.804 | 0.929 | 12.50 | 14.92 | −2.42 | 0.965 |
+| 134 | 0.804 | 0.950 | 14.58 | 17.23 | −2.65 | 0.970 |
+
+The headline gap grows from 8 to 15 points as the family widens, exactly as it should when the
+statistic is measuring family width rather than complementarity, and the null grows faster
+throughout. At no size does the observed gap exceed what independent failure produces.
+
+**The excess is consistently negative, which is its own finding.** Real agent systems are *less*
+complementary than independence would predict - they share base models, training data and failure
+modes - so the honest reading is not merely "there is no bonus" but "there is a correlation penalty".
+
+**Scope, carefully.** This concerns per-task *selection*: the claim that different systems suit
+different tasks, which is what a router needs. It says nothing against *aggregation*. Voting over
+semi-independent members genuinely beats the best member under exactly the independence this null
+assumes, which is the Condorcet effect and is why D-029 found whole-pool majority vote to be the one
+reproducible organizational fact. Complementarity in the aggregation sense is real here; what does
+not exist is a per-task assignment of tasks to systems.
