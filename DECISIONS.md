@@ -885,3 +885,162 @@ spending, the open question is whether these tasks are answerable by this model 
 cheaper design change would be to require the answer letter *before* the explanation, which caps the
 cost of non-termination at zero — but it alters every aggregator prompt and therefore invalidates the
 whole priced cache, so it belongs to the next round rather than this one.
+
+---
+
+## D-029 — The delegation GO was an artifact. A criterion that cannot fail is not evidence, and neither of delegation's two criteria had a noise control
+
+**Decision.** `protocol_dominance` is retired as evidence. Any claim that the best organization
+depends on the task must show that the per-group winner **reproduces** across a split of that group's
+tasks, and specifically that the groups *departing* from the single best configuration reproduce.
+Implemented in [`mas_harness/metrics/stability.py`](mas_harness/metrics/stability.py).
+
+**Why.** The gate awarded delegation a GO on two criteria. The first, configuration dominance, is
+noise. Shuffling protocol labels within each task destroys every real protocol difference while
+preserving task difficulty and the domain structure; dominance on the shuffled data reads 54-59%
+against observed values of 42-67%, and the null's 95th percentile lands on **75.0%** — the gate's own
+threshold. Observed dominance is *below* the null mean in two of three pools, and
+`P(null >= observed)` is 0.76, 0.97 and 0.38. The criterion passes at about the rate noise passes it.
+
+The cause is the denominator. The priced subsets hold a median of 8-15 tasks per domain and the
+thinnest domains hold **one to three**, so a domain's "winning protocol" is frequently just whichever
+protocol got a single task right. Adding protocols would have made this worse while appearing to help:
+averaged over random sub-families, dominance falls from 74-85% at four protocols to 58-75% at seven,
+purely by dilution. The planned "widen the protocol family" fix would have moved the number away from
+the threshold and measured nothing.
+
+**What replaces it, and what it says.** Reproducibility is measured on the two free protocols across
+**all 366 tasks and all 15 coalitions** — better powered than the priced subset and free, since those
+episodes were already banked. The result is the same in all three pools and both groupings:
+
+| pool | dominant configuration | groups it wins | reproducibility on it | groups departing | reproducibility off it | null |
+|---|---|---:|---:|---:|---:|---:|
+| `strong4` | `independent_majority[0-1-2-3]` | 8 | 0.98 | 4 | **0.01** | 0.28 |
+| `decorrelated4` | `independent_majority[0-1-2-3]` | 9 | 0.92 | 3 | **0.02** | 0.20 |
+| `correlated4` | `independent_majority[0-1-2-3]` | 7 | 1.00 | 5 | **0.15** | 0.38 |
+
+The one reproducible fact is *run majority vote over the whole pool*. Every domain that picks anything
+else is not merely unproven — it reproduces **below** the noise floor. There is nothing to route over.
+
+Aggregate reproducibility looks healthy (0.65-0.69, p <= 0.0033) and is entirely carried by the
+domains the dominant configuration wins. That is why the report separates the two: averaging them
+conceals the only quantity routing depends on.
+
+**The second criterion is untested and suspect for the same reason.** Semantic-versus-organizational
+Spearman of 0.048-0.063 was read as the organizational space capturing something semantics does not.
+But that space is built from per-task utility vectors over configurations, and this record establishes
+that those vectors are mostly noise. **Noise is uncorrelated with semantics too.** The criterion has no
+permutation null, so it cannot presently distinguish "a real organizational structure orthogonal to
+meaning" from "no structure at all". It must not be cited until it has one.
+
+**Consequence.** All three directions now fail on the MVP data, and delegation fails for a more
+interesting reason than the other two: not that the effect is small, but that the measurement could
+not have come out any other way. No further spending on extending the priced protocols — the
+authorized ~$120-180 would have bought more of the axis with no reproducible signal.
+
+**The cost of catching it here.** $0. The check ran on banked episodes, before the branch's first
+protocol was written. Had it run after, the new protocols would have lowered dominance, the criterion
+would have passed by a wider margin, and the artifact would have been reported as a fix.
+
+---
+
+## D-030 — Delegation's second criterion also cannot fail, and the routing evidence for the direction leaks the answer
+
+**Decision.** The semantic-versus-organizational similarity criterion is retired alongside
+configuration dominance (D-029). Routing regret computed in the organizational or capability space
+is withdrawn as evidence for anything. A task space may only be credited with routing value if its
+coordinates for a task are available **before** any configuration is run on that task.
+
+**The criterion passes identically on noise.** Rebuilding the organizational space from outcomes
+whose configuration labels are shuffled within each task destroys all differential fit while leaving
+task difficulty intact. The criterion cannot tell the difference
+([`scripts/audit_delegation_criterion.py`](scripts/audit_delegation_criterion.py)):
+
+| pool | observed rho | noise rho | observed differing | noise differing |
+|---|---:|---:|---:|---:|
+| `strong4` | +0.0275 | +0.0350 | 100.0% | 99.7% |
+| `decorrelated4` | +0.0411 | +0.0428 | 99.5% | 99.5% |
+| `correlated4` | +0.0629 | +0.0578 | 99.5% | 99.8% |
+
+The logic was inverted from the start. The criterion rewards *low* correlation with semantics and
+*high* neighbour disagreement, and a structureless space maximises both. It was satisfied most
+easily by having nothing to say. Both of delegation's criteria therefore passed for the same reason:
+neither had a null, and neither could fail.
+
+**The routing evidence leaks.** `nearest_neighbour_routing_regret` locates a test task in the space,
+takes its nearest *training* task and adopts that task's best configuration. In the semantic space
+that is legitimate, because a prompt embedding exists before anything runs. In the organizational and
+capability spaces the test task's coordinates **are its own outcomes**, so its nearest neighbour is a
+task solved by the same configurations and the adopted configuration is one that already solved it.
+Near-oracle regret is the signature of the leak, not a result:
+
+| pool | semantic (honest) | capability (leaks) | organizational (leaks) | fixed best |
+|---|---:|---:|---:|---:|
+| `strong4` | 0.0902 (**−0.0123**) | 0.0244 | 0.0079 | 0.0779 |
+| `decorrelated4` | 0.1189 (**+0.0316**) | 0.0324 | 0.0160 | 0.1505 |
+| `correlated4` | 0.0494 (**−0.0124**) | 0.0206 | 0.0123 | 0.0370 |
+
+**The only honest router loses to a fixed best configuration in two pools of three**, and its one win
+is on the pool whose results have failed to replicate twice already (D-027, D-029). This agrees with
+D-029 from an independent direction: if the reproducible fact is "run majority vote over the whole
+pool", then a fixed configuration is hard to beat and a router should indeed fail.
+
+**What is actually untested.** The direction's real proposal was to *predict* a task's delegation
+fingerprint from features known in advance, then route on the prediction. That was never built, so it
+has not been refuted — but the evidence offered for it was two criteria that could not fail and a
+regret comparison that read the labels. Nothing currently supports starting the encoder.
+
+**Consequence.** All three directions fail on the MVP data. Delegation is not merely unsupported; the
+apparatus that supported it was measuring nothing, on both criteria and in the operational test. Any
+replacement criterion ships with a permutation null and a leakage check in the same commit as the
+criterion itself.
+
+---
+
+## D-031 — Specialisation does not rescue delegation. 134 real agent systems across 8 codebases show no reproducible per-domain winner
+
+**Decision.** Do not build a specialised pool or new task adapters on the current evidence. The
+hypothesis was pre-tested for $0 on public data and failed under conditions considerably more
+favourable than the proposed experiment
+([`scripts/pretest_specialist_routing.py`](scripts/pretest_specialist_routing.py)).
+
+**The hypothesis.** D-029 and D-030 could be explained by pool composition rather than by the absence
+of routing: four strong generalists on three flavours of hard STEM may simply have nothing to route
+between. The remedy would be a specialised pool on a heterogeneous suite - which needs new sources,
+new evaluators, and fresh Stage A banks.
+
+**The free test.** `agent-psychometrics` ships SWE-bench Verified as a dense matrix of 134
+independently built agent systems by 479 instances, grouped by the repository each instance patches
+(8 repositories with at least 12 instances). This is far more heterogeneous than any four-model pool:
+different scaffolds, different base models, different labs, different years, on eight distinct
+codebases. If specialisation-based routing exists anywhere, it should be visible here.
+
+| pool | accuracy range | reproducibility | null | off-dominant | verdict |
+|---|---|---:|---:|---:|---|
+| top 8 | 0.772-0.804 | 0.114 | 0.185 | 0.040 | NO EVIDENCE |
+| top 16 | 0.745-0.804 | 0.119 | 0.097 | 0.073 | NO EVIDENCE |
+| top 32 | 0.710-0.804 | 0.072 | 0.056 | 0.007 | NO EVIDENCE |
+| all 134 | 0.004-0.804 | 0.073 | 0.011 | 0.009 | NO EVIDENCE |
+
+The winning system for a repository survives a resplit of that repository's instances between 0.7%
+and 7.3% of the time. One system, `trae_doubao_seed_code`, is the argmax in the plurality of
+repositories at every pool size, and every repository that departs from it departs unreproducibly.
+
+**A floor was added to the metric, because it produced a false positive here.** At 134 candidates the
+permutation null collapses to 0.011 - the argmax of 134 noisy systems essentially never survives a
+resplit - so an off-dominant reproducibility of 0.009 cleared it and the report read EVIDENCE. That
+is the same failure mode as D-029: a comparison that cannot fail once its reference point degenerates.
+`variety_is_reproducible` now also requires the winner to replicate on at least half of random
+half-splits (`MIN_REPRODUCIBILITY`), which is the weakest absolute statement under which "the best
+configuration for this group is X" means anything.
+
+**What this does and does not establish.** Eight Python repositories differ in knowledge but not in
+*capability*: they are all software engineering. A suite spanning code, competition mathematics and
+theory of mind would be more heterogeneous than astropy against django, and this result does not
+close that off. What it does is move the burden of proof. Specialisation was the leading explanation
+for the D-029 null, and in the largest public agent-by-task matrix available it does not produce
+reproducible per-group winners at any pool size. A specialised pool should not be bought until some
+cheaper evidence says routing signal exists.
+
+**Cost of the test.** $0, against an estimated several hundred dollars and multiple weeks for the
+adapters, evaluators and banks the specialised design would have required.
