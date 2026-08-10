@@ -221,6 +221,115 @@ def _mmlu_pro_specs(rows: list[dict[str, Any]], *, stem_only: bool) -> list[Task
     return [s for s in specs if s is not None]
 
 
+CRUXEVAL_PROMPT = """\
+You are given a Python function and an input. Determine exactly what the function returns.
+
+{code}
+
+What does this function return when called as follows?
+
+{call}
+
+Reason about the execution step by step, then give the exact return value as a Python literal."""
+
+AIME_PROMPT = """\
+Solve the following competition mathematics problem. The answer is an integer between 0 and 999.
+
+{problem}"""
+
+TOM_PROMPT = """\
+Read the following story carefully and answer the question about what the characters know or \
+believe. Characters do not observe events that happen while they are absent.
+
+{story}
+
+Question: {question}"""
+
+
+def _cruxeval_specs(rows: list[dict[str, Any]]) -> list[TaskSpec]:
+    """Code output prediction: given a function and an input, name the return value.
+
+    Chosen over a code-*generation* benchmark deliberately. Generation needs sandboxed execution to
+    grade, which is a subsystem rather than an adapter, and its pass/fail depends on the harness as
+    much as the model. Output prediction demands the same execution reasoning and grades by
+    comparing a Python literal, which is deterministic and free.
+    """
+    specs: list[TaskSpec] = []
+    for row in rows:
+        code = str(row.get("code") or "").strip()
+        argument = str(row.get("input") or "").strip()
+        expected = str(row.get("output") or "").strip()
+        if not code or not expected:
+            continue
+        spec = TaskSpec(
+            task_id=f"cruxeval::{row.get('id')}",
+            suite="cruxeval",
+            domain="code_reasoning",
+            answer_type="python_literal",
+            prompt=CRUXEVAL_PROMPT.format(code=code, call=f"f({argument})"),
+            ground_truth=expected,
+            payload={"code": code, "input": argument, "output": expected},
+        )
+        specs.append(spec)
+    return specs
+
+
+def _aime_specs(rows: list[dict[str, Any]], *, year_tag: str) -> list[TaskSpec]:
+    """Competition mathematics with integer answers, harder than MATH-500 level 5."""
+    specs: list[TaskSpec] = []
+    for index, row in enumerate(rows):
+        problem = str(row.get("Problem") or row.get("question") or "").strip()
+        answer = str(row.get("Answer") or row.get("answer") or "").strip()
+        if not problem or not answer:
+            continue
+        identifier = row.get("ID") or row.get("id") or index
+        spec = TaskSpec(
+            task_id=f"aime::{year_tag}::{identifier}",
+            suite="aime",
+            domain="competition_math",
+            answer_type="integer",
+            prompt=AIME_PROMPT.format(problem=problem),
+            ground_truth=answer,
+            payload={"problem": problem, "answer": answer, "year": year_tag},
+        )
+        specs.append(spec)
+    return specs
+
+
+def _exploretom_specs(rows: list[dict[str, Any]], *, false_belief_only: bool) -> list[TaskSpec]:
+    """Theory of mind: track what a character believes, not what is true.
+
+    ``false_belief_only`` keeps the stories where a character's belief diverges from reality, which
+    are the discriminating ones. Where belief and reality agree, reading comprehension suffices and
+    every agent answers alike - the saturation failure of D-020 in a different costume.
+    """
+    specs: list[TaskSpec] = []
+    for index, row in enumerate(rows):
+        if false_belief_only and not row.get("sprop=is_false_belief_story_1st_and_2nd"):
+            continue
+        story = str(row.get("infilled_story") or row.get("story_structure") or "").strip()
+        question = str(row.get("question") or "").strip()
+        answer = str(row.get("expected_answer") or "").strip()
+        if not story or not question or not answer:
+            continue
+        spec = TaskSpec(
+            task_id=f"exploretom::{row.get('sprop=global_idx', index)}::{index}",
+            suite="exploretom",
+            domain="theory_of_mind",
+            answer_type="short_text",
+            prompt=TOM_PROMPT.format(story=story, question=question),
+            ground_truth=answer,
+            payload={
+                "question": question,
+                "answer": answer,
+                "nth_order": row.get("qprop=nth_order"),
+                "false_belief": bool(row.get("sprop=is_false_belief_story_1st_and_2nd")),
+            },
+        )
+        specs.append(spec)
+    return specs
+
+
 def _finalize(spec: TaskSpec, *, dataset_answer: Any = None) -> TaskSpec | None:
     """Fill in the prompt and ground truth from the upstream evaluator, or drop the task.
 
@@ -347,6 +456,17 @@ def _select(entry: dict[str, Any], *, seed: int) -> list[TaskSpec]:
         specs = _gpqa_specs(rows)
     elif suite == "mmlu_pro":
         specs = _mmlu_pro_specs(rows, stem_only=bool(entry.get("stem_only", True)))
+    elif suite == "cruxeval":
+        specs = _cruxeval_specs(rows)
+    elif suite == "aime":
+        # Both years carry suite "aime"; 2024 and 2025 differ only in provenance.
+        specs = _aime_specs(rows, year_tag="2024")
+        if entry.get("include_2025", True):
+            specs += _aime_specs(list(SOURCES["aime2025"].rows()), year_tag="2025")
+    elif suite == "exploretom":
+        specs = _exploretom_specs(
+            rows, false_belief_only=bool(entry.get("false_belief_only", True))
+        )
     else:
         raise AssertionError(f"unhandled suite {suite!r}")
 

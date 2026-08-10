@@ -1,0 +1,58 @@
+# Four capabilities that are genuinely different, as the condition D-031 could not rule out.
+#
+# Every suite run so far has been one capability wearing three hats. hard366 is GPQA-Diamond,
+# MATH-500 level 5 and MMLU-Pro theoremQA/scibench: three flavours of hard technical reasoning, on
+# which four generalists have nothing to route between. D-029 found exactly one reproducible fact
+# there - run majority vote over the whole pool - and D-031 found the same on 134 real agent systems
+# across 8 SWE-bench repositories, which differ in knowledge but are all software engineering.
+#
+# The remaining possibility is that routing needs tasks that demand different *kinds* of thinking,
+# not different subject matter. This suite is that test:
+#
+#   cruxeval        predict a Python function's return value. Execution reasoning: simulate state
+#                   through loops and mutations. Graded by comparing a Python literal, so no
+#                   sandbox is needed and grading is deterministic.
+#   aime            competition mathematics, integer answers. Multi-step symbolic derivation, and
+#                   harder than MATH-500 level 5.
+#   exploretom      theory of mind, restricted to stories where a character's belief diverges from
+#                   reality. Social inference, with no technical content at all.
+#   gpqa_diamond    graduate science. The anchor: it is the one capability the existing pools have
+#                   already been measured on, so the new suites can be compared against a known
+#                   quantity rather than against each other alone.
+#
+# Sized at 60 per capability rather than the 122 of hard366. AIME caps the balance at 60 (30 from
+# 2024 and 30 from 2025), and balance is worth more here than raw count: the delegation metric
+# splits each domain's tasks in half, and hard366's median of 8-15 tasks per domain is precisely why
+# its per-domain winners were noise (D-029). Sixty per group is four to seven times thicker.
+#
+# This is a screening suite. Run Stage A on it and check discrimination *before* pricing any
+# protocol: if the pool agrees on nearly every task, no protocol comparison can separate anything,
+# and the suite must get harder rather than larger (D-020).
+
+manifest_id: crosscap240
+description: >-
+  Four capabilities, 60 tasks each: code execution reasoning (CRUXEval), competition mathematics
+  (AIME 2024+2025), theory of mind (ExploreToM false-belief), and graduate science (GPQA-Diamond).
+  Built to test whether reproducible per-domain winners appear when tasks demand different kinds of
+  reasoning rather than different subject matter.
+seed: 20260810
+
+# Same third as hard366: the predicted expert must be chosen from calibration data only (D-004).
+calibration_fraction: 0.34
+
+suites:
+  - suite: cruxeval
+    n: 60
+
+  - suite: aime
+    n: 60
+    include_2025: true
+
+  - suite: exploretom
+    n: 60
+    # Stories where belief and reality agree are answerable by reading comprehension alone, so
+    # every agent gets them right and they contribute nothing to a protocol comparison.
+    false_belief_only: true
+
+  - suite: gpqa_diamond
+    n: 60

@@ -1044,3 +1044,48 @@ cheaper evidence says routing signal exists.
 
 **Cost of the test.** $0, against an estimated several hundred dollars and multiple weeks for the
 adapters, evaluators and banks the specialised design would have required.
+
+---
+
+## D-032 — A cross-capability suite, because every suite so far has been one capability in three costumes
+
+**Decision.** Add `cruxeval`, `aime` and `exploretom` as first-class suites and build
+[`configs/suites/crosscap240.yaml`](configs/suites/crosscap240.yaml): 60 tasks each of code
+execution reasoning, competition mathematics, theory of mind, and graduate science.
+
+**Why these four.** D-029 found one reproducible fact on `hard366` and D-031 found the same on 134
+agent systems across 8 SWE-bench repositories. Both share a weakness: `hard366` is GPQA-Diamond,
+MATH-500 level 5 and MMLU-Pro theoremQA/scibench, which is hard technical reasoning three times over,
+and eight Python repositories differ in knowledge but are all software engineering. Neither can
+distinguish "routing does not exist" from "these tasks demand the same thing". This suite demands
+four different things, and theory of mind in particular shares no technical content with the others.
+
+**Design choices that follow from earlier failures.**
+
+*Sixty per domain, not 122.* The delegation metric splits each domain's tasks in half, and
+`hard366`'s median of 8-15 tasks per domain is precisely why its per-domain winners were noise
+(D-029). Sixty is four to seven times thicker. AIME caps the balance at 60 - thirty problems from
+2024 and thirty from 2025 - and balance is worth more than raw count here.
+
+*Output prediction rather than code generation.* CRUXEval asks what a function returns. Generation
+would need sandboxed execution, which is a subsystem rather than an adapter, and its pass rate would
+depend on the harness as much as on the model. Output prediction demands the same execution
+reasoning and grades by comparing a Python literal.
+
+*False-belief stories only.* ExploreToM stories where belief and reality agree are answerable by
+reading comprehension, so every agent gets them right and they contribute nothing to a protocol
+comparison - D-020's saturation failure in a different costume. The filter cuts 13,309 rows to 7,316.
+
+*Tagged answers, and extraction that refuses to guess.* These answers are a Python literal, an
+integer and a short noun phrase, none of which a terminal-token rule can recover without recreating
+D-011, where prose ending in a letter became a confident vote. The prompt mandates `[ANSWER]...
+[/ANSWER]` and extraction requires it, with one fallback for an explicit "the answer is". Anything
+else is a parse failure, which keeps abstention distinguishable from error. Tests assert that the
+worked example in each instruction actually parses, since the D-011 bug was exactly a mandated format
+the extractor did not implement.
+
+**Status.** Adapters, manifest and 38 tests are in; the manifest builds to 240 tasks balanced 60 per
+domain, 80 calibration and 160 test. Nothing has been run. Stage A on this suite is roughly $3-6 by
+comparison with `hard366-a` at $4.56, and **discrimination must be checked before any protocol is
+priced**: if the pool agrees on nearly every task, no comparison can separate anything and the suite
+needs to get harder rather than larger (D-020).

@@ -39,6 +39,10 @@ from teamwork.tasks.mmlu_pro_problem_task import MMLUProProblemTask
 CHOICE_SUITES = frozenset({"gpqa_diamond", "mmlu_pro", "distributed_synth"})
 MATH_SUITES = frozenset({"math500"})
 
+# Suites evaluated natively rather than through ``teamwork`` (D-032). Their answers are a Python
+# literal, a bounded integer, or a short noun phrase, none of which the upstream extractors handle.
+NATIVE_SUITES = frozenset({"cruxeval", "aime", "exploretom"})
+
 _UPSTREAM_CLASSES: dict[str, type] = {
     "math500": Math500ProblemTask,
     "gpqa_diamond": GPQADiamondProblemTask,
@@ -147,6 +151,130 @@ class StrictChoice:
         return ""
 
 
+class TaggedAnswer:
+    """Extraction for answers that are neither a letter nor a number (D-032).
+
+    The cross-capability suites answer with a Python literal, an integer, or a short noun phrase.
+    None of those can be recovered by a terminal-token rule without reintroducing exactly the D-011
+    failure: prose ending in a word would become an answer, and an abstention would become a
+    confident one. So the prompt mandates an explicit delimiter and extraction requires it.
+
+    Requiring the tag makes an unparseable response a *parse failure* rather than a wrong answer,
+    which keeps abstention distinguishable from error. The rate is recorded per suite, because a
+    suite whose parse-failure rate is high is measuring formatting rather than capability.
+    """
+
+    OPEN, CLOSE = "[ANSWER]", "[/ANSWER]"
+    TAGGED = re.compile(r"\[ANSWER\](.*?)\[/ANSWER\]", re.DOTALL | re.IGNORECASE)
+    # Accepted only when the mandated tag is absent: a final line that names the answer outright.
+    FALLBACK = re.compile(
+        r"""(?:the\s+)?(?:final\s+)?answer\s+is\s*:?\s*(.+?)\s*$""", re.IGNORECASE | re.MULTILINE
+    )
+
+    @classmethod
+    def extract(cls, text: str) -> str:
+        text = (text or "").strip()
+        if not text:
+            return ""
+        # The last tag wins: models restate themselves and the final answer is the one meant.
+        if matches := cls.TAGGED.findall(text):
+            return matches[-1].strip().strip("`").strip()
+        if matches := cls.FALLBACK.findall(text):
+            return matches[-1].strip().strip("`").strip().rstrip(".")
+        return ""
+
+
+def _normalise_literal(value: str) -> str:
+    """Canonical form of a Python literal, so ``[1, 2]`` and ``[1,2]`` agree.
+
+    Falls back to the whitespace-collapsed string when the value does not parse, which covers
+    outputs the model wrote in a slightly different but still recognisable form.
+    """
+    import ast
+
+    text = (value or "").strip()
+    if not text:
+        return ""
+    for candidate in (text, text.rstrip(".")):
+        try:
+            return repr(ast.literal_eval(candidate))
+        except (ValueError, SyntaxError):
+            continue
+    return " ".join(text.split())
+
+
+def _normalise_integer(value: str) -> str:
+    """AIME answers are integers in 0-999. Tolerates ``\\boxed{42}``, ``042`` and ``1,000``."""
+    text = (value or "").strip()
+    if boxed := re.findall(r"\\boxed\{\s*(-?[\d,]+)\s*\}", text):
+        text = boxed[-1]
+    digits = re.findall(r"-?\d[\d,]*", text)
+    if not digits:
+        return ""
+    try:
+        return str(int(digits[-1].replace(",", "")))
+    except ValueError:
+        return ""
+
+
+_ARTICLES = re.compile(r"^\s*(?:the|a|an)\s+", re.IGNORECASE)
+
+
+def _normalise_phrase(value: str) -> str:
+    """Short noun phrases, compared without articles, case, or trailing punctuation."""
+    text = (value or "").strip().strip("\"'`")
+    text = re.sub(r"[.,;:!?]+$", "", text)
+    text = _ARTICLES.sub("", text)
+    return " ".join(text.lower().split())
+
+
+_NORMALISERS = {
+    "python_literal": _normalise_literal,
+    "integer": _normalise_integer,
+    "short_text": _normalise_phrase,
+}
+
+
+class NativeEvaluator:
+    """Deterministic scoring for the cross-capability suites, with no upstream dependency."""
+
+    def __init__(self, spec: TaskSpec):
+        if spec.answer_type not in _NORMALISERS:
+            raise ValueError(
+                f"no native evaluator for answer_type {spec.answer_type!r}; "
+                f"known: {sorted(_NORMALISERS)}"
+            )
+        self.spec = spec
+        self._normalise = _NORMALISERS[spec.answer_type]
+
+    def extract(self, text: str) -> str:
+        return TaggedAnswer.extract(text)
+
+    def extract_loose(self, text: str) -> str:
+        return self.extract(text)
+
+    def extraction_diagnostics(self, text: str) -> dict[str, Any]:
+        extracted = self.extract(text)
+        return {
+            "strict": extracted,
+            "loose": extracted,
+            "disagree": False,
+            "loose_invented_answer": False,
+        }
+
+    def score(self, text: str) -> bool:
+        return self.score_extracted(self.extract(text))
+
+    def score_extracted(self, extracted: str) -> bool:
+        return self.equivalent(extracted, self.spec.ground_truth)
+
+    def equivalent(self, first: str, second: str) -> bool:
+        """As with the upstream evaluator, an abstention matches nothing, including itself."""
+        if not first or not second:
+            return False
+        return self._normalise(first) == self._normalise(second)
+
+
 class Evaluator(Protocol):
     """Deterministic answer extraction and scoring for one task."""
 
@@ -243,8 +371,10 @@ class TeamworkEvaluator:
             return first.strip() == second.strip()
 
 
-def build_evaluator(spec: TaskSpec) -> TeamworkEvaluator:
+def build_evaluator(spec: TaskSpec) -> TeamworkEvaluator | NativeEvaluator:
     """Build the deterministic evaluator for a task spec."""
+    if spec.suite in NATIVE_SUITES:
+        return NativeEvaluator(spec)
     return TeamworkEvaluator(spec)
 
 
@@ -260,6 +390,23 @@ def answer_format_instruction(spec: TaskSpec) -> str:
         return (
             "End your response with EXACTLY this format: The answer is 'X' "
             "where X is the letter of the correct option."
+        )
+    if spec.answer_type == "python_literal":
+        return (
+            "End your response with the function's return value as a Python literal, "
+            "wrapped in [ANSWER] and [/ANSWER] tags. "
+            "For example: [ANSWER][(4, 1), (2, 3)][/ANSWER]."
+        )
+    if spec.answer_type == "integer":
+        return (
+            "End your response with the integer answer wrapped in [ANSWER] and [/ANSWER] tags. "
+            "For example: [ANSWER]42[/ANSWER]."
+        )
+    if spec.answer_type == "short_text":
+        return (
+            "End your response with the answer as a short phrase copied exactly from the story, "
+            "wrapped in [ANSWER] and [/ANSWER] tags. "
+            "For example: [ANSWER]wooden desk drawer[/ANSWER]."
         )
     return (
         "End your response with your final answer wrapped in \\boxed{}. "

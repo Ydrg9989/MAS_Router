@@ -31,34 +31,55 @@ class ArrowSource:
     suite: str
     hf_repo: str  # e.g. "HuggingFaceH4/MATH-500"
     shard_glob: str  # e.g. "math-500-test.arrow"
+    # Datasets split across named configs, each contributing one shard under the same file
+    # name. AIME 2025 ships as AIME2025-I and AIME2025-II; globbing without the config would
+    # match both and silently keep whichever was written last, halving the suite.
+    configs: tuple[str, ...] = ()
+    # HF's cache directory name is not simply the lowercased repo: CamelCase is snake-cased, so
+    # "facebook/ExploreToM" lands in "facebook___explore_to_m". Rather than reimplement a rule that
+    # is theirs to change, a source may state its directory outright.
+    cache_dirname_override: str | None = None
 
     @property
     def cache_dirname(self) -> str:
-        # HF replaces "/" with "___" and lowercases the dataset name component.
+        if self.cache_dirname_override:
+            return self.cache_dirname_override
         namespace, name = self.hf_repo.split("/", 1)
         return f"{namespace}___{name.lower()}"
 
-    def resolve(self) -> Path:
+    def _resolve_one(self, config: str | None) -> Path:
         root = hf_datasets_root()
-        relative = f"{self.cache_dirname}/*/*/*/{self.shard_glob}"
-        pattern = str(root / relative)
+        relative = f"{self.cache_dirname}/{config or '*'}/*/*/{self.shard_glob}"
         matches = sorted(root.glob(relative))
         if not matches:
             raise FileNotFoundError(
-                f"no cached Arrow shard for {self.hf_repo} (suite {self.suite!r}).\n"
-                f"Looked for: {pattern}\n"
+                f"no cached Arrow shard for {self.hf_repo} (suite {self.suite!r}"
+                f"{f', config {config}' if config else ''}).\n"
+                f"Looked for: {root / relative}\n"
                 f"Either the dataset is not cached under HF_HOME={os.environ.get('HF_HOME')} "
                 f"or the shard name changed."
             )
-        # Multiple revisions can be cached; the most recent wins.
+        # Multiple revisions of one config can be cached; the most recent wins.
         return Path(max(matches, key=lambda p: Path(p).stat().st_mtime))
+
+    def resolve(self) -> Path:
+        """The single shard, for sources that have one. Raises for multi-config sources."""
+        if self.configs:
+            raise ValueError(
+                f"{self.suite!r} spans {len(self.configs)} configs; use resolve_all()"
+            )
+        return self._resolve_one(None)
+
+    def resolve_all(self) -> list[Path]:
+        return [self._resolve_one(c) for c in self.configs] if self.configs \
+            else [self._resolve_one(None)]
 
     def rows(self) -> Iterator[dict[str, Any]]:
         from datasets import Dataset
 
-        dataset = Dataset.from_file(str(self.resolve()))
-        for row in dataset:
-            yield dict(row)
+        for shard in self.resolve_all():
+            for row in Dataset.from_file(str(shard)):
+                yield dict(row)
 
 
 SOURCES: dict[str, ArrowSource] = {
@@ -67,6 +88,22 @@ SOURCES: dict[str, ArrowSource] = {
         "gpqa_diamond", "fingertap/GPQA-Diamond", "gpqa-diamond-test.arrow"
     ),
     "mmlu_pro": ArrowSource("mmlu_pro", "TIGER-Lab/MMLU-Pro", "mmlu-pro-test.arrow"),
+    # The cross-capability suites (D-032). Each demands something the hard-STEM suites do not,
+    # which is the condition D-031 could not rule out.
+    "cruxeval": ArrowSource("cruxeval", "cruxeval-org/cruxeval", "cruxeval-test.arrow"),
+    "aime": ArrowSource("aime", "Maxwell-Jia/AIME_2024", "aime_2024-train.arrow"),
+    "aime2025": ArrowSource(
+        "aime2025",
+        "opencompass/AIME2025",
+        "aime2025-test.arrow",
+        configs=("AIME2025-I", "AIME2025-II"),
+    ),
+    "exploretom": ArrowSource(
+        "exploretom",
+        "facebook/ExploreToM",
+        "explore_to_m-train.arrow",
+        cache_dirname_override="facebook___explore_to_m",
+    ),
 }
 
 # MMLU-Pro categories the research report calls "knowledge-intensive STEM".
