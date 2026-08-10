@@ -1,0 +1,92 @@
+[project]
+name = "mas-harness"
+version = "0.1.0"
+description = "Shared experiment harness for heterogeneous multi-agent LLM systems: task x agent pool x protocol/coalition x seed -> outcome, transcript, cost, latency, metadata"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    # LLM clients
+    "httpx>=0.27",
+    "openai>=1.40",      # required to import teamwork.backends
+    "anthropic>=0.40",   # required to import teamwork.backends
+    # config / schema
+    "pydantic>=2.7",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    # data
+    "pyarrow>=16.0",
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "datasets>=3.0",
+    # analysis
+    "scipy>=1.13",
+    "scikit-learn>=1.5",
+    "statsmodels>=0.14",
+    "sympy>=1.13",       # required by teamwork math evaluator
+    # ux
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+figures = ["matplotlib>=3.9"]
+irt = ["pyro-ppl>=1.9", "torch>=2.0"]
+# Real text embeddings for the delegation direction's semantic-similarity baseline. Without
+# it, metrics.delegation.semantic_space silently falls back to TF-IDF character n-grams, which
+# measure surface form rather than meaning — and the delegation claim is precisely that
+# organizational similarity differs from *semantic* similarity, so a weak semantic baseline
+# would make that claim trivially true. The go/no-go gate labels the fallback WEAK FALLBACK
+# for this reason. Heavy (pulls torch), hence an extra rather than a core dependency.
+delegation = ["sentence-transformers>=3.0"]
+
+[project.scripts]
+mas-freepilot = "mas_harness.analysis.free_pilot:main"
+mas-manifest = "mas_harness.tasks.manifest:main"
+mas-bank = "mas_harness.runners.answer_bank:main"
+mas-episodes = "mas_harness.runners.episodes:main"
+mas-gonogo = "mas_harness.analysis.gonogo:main"
+mas-doctor = "mas_harness.doctor:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["mas_harness*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# Pinned explicitly so `ruff check` means the same thing across ruff versions: a clean run is
+# evidence, and a rule set that drifts with the installed version is not.
+select = ["E", "F", "I", "B", "C4", "UP", "SIM", "RET", "ARG", "PTH"]
+ignore = [
+    # Broad excepts are deliberate at the boundaries: a malformed generation, an unparseable
+    # upstream answer, or a missing optional dependency must degrade, never abort a paid run.
+    # Each site says so and narrows the consequence instead.
+    "BLE001",
+    # `from __future__ import annotations` is on everywhere, so quoted self-references and
+    # typing imports are harmless and clearer than the alternatives.
+    "UP037",
+    "UP035",
+    # Keyword-built kwargs dicts read better than literals where they are then splatted.
+    "C408",
+    # Rewriting `x if cond else y` chains and nested ifs is not always clearer.
+    "SIM108",
+    # The protocol registry's `calls_per_episode` lambdas take (coalition_size, rounds) because
+    # that is the interface the cost planner calls; a constant-cost protocol ignoring both is
+    # the point, not an oversight.
+    "ARG005",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Fixtures legitimately take arguments they only forward, and unused pytest fixture params are
+# how a test declares a dependency on setup.
+"tests/*" = ["ARG001", "ARG002", "ARG005"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

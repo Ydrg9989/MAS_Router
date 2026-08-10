@@ -1,0 +1,33 @@
+# MVP task suite: the 90-task phenomenon-discovery experiment from the research report
+# (30 math, 30 knowledge multiple choice, 30 additional knowledge-intensive).
+#
+# The report's third MVP domain is "HiddenBench or code". Neither is available yet:
+# HiddenBench is not in the workspace and there is no code-execution path (see TODO.md).
+# MMLU-Pro STEM stands in as a third domain so the MVP has three genuinely different
+# task distributions; it is a knowledge domain, not a substitute for controlled
+# distributed information.
+#
+# At 90 tasks this is explicitly a phenomenon-discovery experiment, not a powered test of
+# a 5-point difference: the report's own power table puts 80% power for an 8-point paired
+# effect at ~366 tasks.
+
+manifest_id: mvp90
+description: >-
+  MVP 90-task suite: MATH-500 (demonstrable reasoning), GPQA-Diamond (hard science
+  multiple choice), MMLU-Pro STEM (knowledge-intensive multiple choice).
+seed: 20260804
+
+# Share of tasks reserved for calibration. The predicted expert must be selected from
+# calibration data only (D-004), so this cannot be zero.
+calibration_fraction: 0.34
+
+suites:
+  - suite: math500
+    n: 30
+
+  - suite: gpqa_diamond
+    n: 30
+
+  - suite: mmlu_pro
+    n: 30
+    stem_only: true

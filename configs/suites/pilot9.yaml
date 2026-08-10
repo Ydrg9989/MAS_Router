@@ -1,0 +1,38 @@
+# Nine-task calibration pilot: three from each MVP domain.
+#
+# Purpose is measurement, not inference. Nine tasks cannot support any claim about protocols;
+# what they can do is replace the research report's *assumed* token counts (1,200 input /
+# 500 output per call, 4,000 for an aggregator) with measured ones, so that every later cost
+# estimate is grounded. The report schedules this as a day-11 milestone.
+#
+# Deliberately spread across all three domains because the quantity being measured varies by
+# domain: MATH-500 requires visible chain-of-thought and long boxed answers, while the two
+# multiple-choice suites need only a letter. Piloting on one domain would give a token figure
+# that generalises to nothing.
+#
+# The other thing this pilot checks is truncation. Every agent is capped at max_tokens 1024
+# and GPT-5-mini is a reasoning model whose thinking tokens are billed as output, so it can
+# spend the whole allowance before stating an answer. A truncated response is not a wrong
+# answer, it is a missing measurement, and it would show up as a parse failure that quietly
+# biases every governance metric downstream. Check finish_reason before trusting anything.
+
+manifest_id: pilot9
+description: >-
+  Nine-task token-and-truncation calibration pilot across MATH-500, GPQA-Diamond and
+  MMLU-Pro STEM. Measurement only; too small for any inferential claim.
+seed: 20260805
+
+# Meaningless at this size, but must be non-zero: the expert predictor refuses to fit
+# without a calibration split (D-004).
+calibration_fraction: 0.34
+
+suites:
+  - suite: math500
+    n: 3
+
+  - suite: gpqa_diamond
+    n: 3
+
+  - suite: mmlu_pro
+    n: 3
+    stem_only: true

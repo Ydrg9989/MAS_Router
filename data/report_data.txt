@@ -1,0 +1,264 @@
+
+==============================================================================
+1. SPEND AND VOLUME BY RUN
+==============================================================================
+  run                     answers  episodes  paid calls      cost
+  cand4-a                    1462         0         982 $  0.3604
+  correlated4-a              1464     18945        1233 $ 18.7074
+  correlated4-a-retry        1464        21          29 $  2.9917
+  decorr4-a                  1464     19350        2035 $ 19.1790
+  decorr4-a-retry            1464        30          44 $  3.2407
+  decorrelated4-a            1464         0         246 $  0.2607
+  hard366-a                  1464     18300        1416 $  4.5553
+  mvp366-a                    118         0         114 $  0.5889
+  pilot9-a                     32         0          32 $  0.0433
+  pilot9-b                     36       315         117 $  0.7037
+  probe-fixed                  48         0          47 $  0.2607
+  probe-gpqa                   44         0          44 $  0.4629
+  screen-a                    718         0         718 $  2.4307
+  screen-strong               720         0         720 $  7.0632
+  strong4-a                  1464     19194        1933 $ 20.0922
+  strong4-a-retry            1464        24         280 $  4.1927
+  TOTAL                     14890     76179        9990 $ 85.1334
+
+==============================================================================
+2. CANDIDATE SCREEN: accuracy, commit rate, non-termination
+==============================================================================
+  agent                    n    acc  commit  unfin  out tok   $/call  admitted
+  llama4scout            484  0.643   1.000  0.000      791 $0.00033  yes
+  deepseek32             486  0.860   1.000  0.000     1267 $0.00059  yes
+  grok43                 120  0.875   1.000  0.000     1329 $0.00368  yes
+  gpt5mini               366  0.883   1.000  0.000     2227 $0.00452  yes
+  novalite               486  0.498   0.996  0.004      699 $0.00018  yes
+  mistral-small          366  0.604   0.992  0.008     1140 $0.00030  yes
+  gptoss120b             486  0.821   0.990  0.006     1413 $0.00044  yes
+  qwen3-30b              366  0.795   0.984  0.016     3352 $0.00091  yes
+  ring26                 120  0.825   0.967  0.017     1820 $0.00116  yes
+  kimi-k2-thinking       120  0.825   0.925  0.075     6927 $0.01748  NO (D-022)
+  nemotron3ultra         120  0.808   0.850  0.150     5254 $0.01568  NO (D-022)
+  glm52                  120  0.775   0.808  0.183     4751 $0.01176  NO (D-022)
+  minimax-m27            120  0.675   0.792  0.208     6921 $0.00909  NO (D-022)
+  gemini25flash          366  0.623   0.757  0.077     2951 $0.00745  NO (D-022)
+  gemini25flash-hi       120  0.558   0.650  0.150     4484 $0.01128  NO (D-022)
+  glm45air               118  0.534   0.602  0.398     7985 $0.00748  NO (D-022)
+
+==============================================================================
+3. POOL DEFINITIONS
+==============================================================================
+
+  strong4  (run strong4-a)
+    id=0 grok43          x-ai/grok-4.3                              family=xai          T=0.0 max_tokens=16384
+    id=1 gpt5mini        openai/gpt-5-mini                          family=openai       T=0.0 max_tokens=16384
+    id=2 deepseek32      deepseek/deepseek-v3.2-exp                 family=deepseek     T=0.0 max_tokens=16384
+    id=3 llama4scout     meta-llama/llama-4-scout                   family=meta         T=0.0 max_tokens=16384
+    AGGREGATOR      anthropic/claude-sonnet-5                  T=0.0 max_tokens=16384
+
+  decorrelated4  (run decorr4-a)
+    id=0 gptoss120b      openai/gpt-oss-120b                        family=openai-oss   T=0.0 max_tokens=16384
+    id=1 mistral-small   mistralai/mistral-small-3.2-24b-instruct   family=mistral      T=0.0 max_tokens=16384
+    id=2 llama4scout     meta-llama/llama-4-scout                   family=meta         T=0.0 max_tokens=16384
+    id=3 ring26          inclusionai/ring-2.6-1t                    family=inclusionai  T=0.0 max_tokens=16384
+    AGGREGATOR      anthropic/claude-sonnet-5                  T=0.0 max_tokens=16384
+
+  correlated4  (run correlated4-a)
+    id=0 gpt5mini        openai/gpt-5-mini                          family=openai       T=0.0 max_tokens=16384
+    id=1 deepseek32      deepseek/deepseek-v3.2-exp                 family=deepseek     T=0.0 max_tokens=16384
+    id=2 gptoss120b      openai/gpt-oss-120b                        family=openai-oss   T=0.0 max_tokens=16384
+    id=3 qwen3-30b       qwen/qwen3-30b-a3b-instruct-2507           family=qwen         T=0.0 max_tokens=16384
+    AGGREGATOR      anthropic/claude-sonnet-5                  T=0.0 max_tokens=16384
+
+==============================================================================
+4. STAGE A PER POOL
+==============================================================================
+
+  strong4-a
+    grok43          n= 366 acc=0.8852 commit=1.0000 unfinished=0.0000
+    gpt5mini        n= 366 acc=0.8825 commit=1.0000 unfinished=0.0000
+    deepseek32      n= 366 acc=0.8661 commit=1.0000 unfinished=0.0000
+    llama4scout     n= 366 acc=0.6585 commit=1.0000 unfinished=0.0000
+
+  decorr4-a
+    ring26          n= 366 acc=0.8470 commit=0.9727 unfinished=0.0219
+    gptoss120b      n= 366 acc=0.8251 commit=0.9891 unfinished=0.0082
+    llama4scout     n= 366 acc=0.6585 commit=1.0000 unfinished=0.0000
+    mistral-small   n= 366 acc=0.6038 commit=0.9918 unfinished=0.0082
+
+  correlated4-a
+    gpt5mini        n= 366 acc=0.8825 commit=1.0000 unfinished=0.0000
+    deepseek32      n= 366 acc=0.8661 commit=1.0000 unfinished=0.0000
+    gptoss120b      n= 366 acc=0.8251 commit=0.9891 unfinished=0.0082
+    qwen3-30b       n= 366 acc=0.7951 commit=0.9836 unfinished=0.0164
+
+==============================================================================
+5. HEADROOM AND DISCRIMINATION PER POOL
+==============================================================================
+
+  strong4-a
+    individual accuracy: {'grok43': 0.8852459016393442, 'gpt5mini': 0.8825136612021858, 'deepseek32': 0.8661202185792349, 'llama4scout': 0.6584699453551912}
+    ceiling 96.72%  best member 88.52%  headroom 8.20pp
+    dominance gap 0.27pp  competence range 22.68pp
+    error corr mean +0.408  max +0.554
+    pairwise: {'grok43 / gpt5mini': 0.4809503062827506, 'grok43 / deepseek32': 0.5129766033824427, 'grok43 / llama4scout': 0.24685138810016247, 'gpt5mini / deepseek32': 0.5542613492759808, 'gpt5mini / llama4scout': 0.3098023375948975, 'deepseek32 / llama4scout': 0.3428759943631114}
+    ADMISSIBLE at 8pp: True
+    discriminating 39.9%  dilution eligible 15.3%  mean agent acc 0.8231
+    classes: {'MINORITY_CORRECT': 23, 'TIE': 33, 'MAJORITY_CORRECT': 90, 'UNANIMOUS_WRONG': 12, 'UNANIMOUS_CORRECT': 208}
+    by suite: {'gpqa_diamond': {'n_tasks': 122, 'mean_agent_accuracy': 0.75, 'classes': {'MAJORITY_CORRECT': 35, 'UNANIMOUS_CORRECT': 56, 'MINORITY_CORRECT': 13, 'TIE': 12, 'UNANIMOUS_WRONG': 6}, 'discriminating_frac': 0.4918032786885246, 'dilution_eligible_frac': 0.20491803278688525}, 'math500': {'n_tasks': 122, 'mean_agent_accuracy': 0.8524590163934426, 'classes': {'MAJORITY_CORRECT': 41, 'UNANIMOUS_CORRECT': 63, 'UNANIMOUS_WRONG': 2, 'TIE': 11, 'MINORITY_CORRECT': 5}, 'discriminating_frac': 0.4672131147540984, 'dilution_eligible_frac': 0.13114754098360656}, 'mmlu_pro': {'n_tasks': 122, 'mean_agent_accuracy': 0.8668032786885246, 'classes': {'UNANIMOUS_CORRECT': 89, 'TIE': 10, 'MAJORITY_CORRECT': 14, 'MINORITY_CORRECT': 5, 'UNANIMOUS_WRONG': 4}, 'discriminating_frac': 0.23770491803278687, 'dilution_eligible_frac': 0.12295081967213115}}
+    stage B plan: 146 discriminating + 33 control
+
+  decorr4-a
+    individual accuracy: {'gptoss120b': 0.825136612021858, 'mistral-small': 0.6038251366120219, 'llama4scout': 0.6584699453551912, 'ring26': 0.8469945355191257}
+    ceiling 93.99%  best member 84.70%  headroom 9.29pp
+    dominance gap 2.19pp  competence range 24.32pp
+    error corr mean +0.382  max +0.624
+    pairwise: {'gptoss120b / mistral-small': 0.3330244701268241, 'gptoss120b / llama4scout': 0.32067989972469313, 'gptoss120b / ring26': 0.6235536660892944, 'mistral-small / llama4scout': 0.46504408549526693, 'mistral-small / ring26': 0.2609170703701315, 'llama4scout / ring26': 0.286069891711052}
+    ADMISSIBLE at 8pp: True
+    discriminating 49.5%  dilution eligible 24.6%  mean agent acc 0.7336
+    classes: {'MINORITY_CORRECT': 33, 'TIE': 57, 'MAJORITY_CORRECT': 91, 'UNANIMOUS_WRONG': 22, 'UNANIMOUS_CORRECT': 163}
+    by suite: {'gpqa_diamond': {'n_tasks': 122, 'mean_agent_accuracy': 0.6229508196721312, 'classes': {'MAJORITY_CORRECT': 29, 'MINORITY_CORRECT': 19, 'UNANIMOUS_WRONG': 10, 'TIE': 27, 'UNANIMOUS_CORRECT': 37}, 'discriminating_frac': 0.6147540983606558, 'dilution_eligible_frac': 0.3770491803278688}, 'math500': {'n_tasks': 122, 'mean_agent_accuracy': 0.7848360655737705, 'classes': {'MAJORITY_CORRECT': 39, 'UNANIMOUS_CORRECT': 55, 'UNANIMOUS_WRONG': 7, 'TIE': 13, 'MINORITY_CORRECT': 8}, 'discriminating_frac': 0.4918032786885246, 'dilution_eligible_frac': 0.1721311475409836}, 'mmlu_pro': {'n_tasks': 122, 'mean_agent_accuracy': 0.7930327868852459, 'classes': {'UNANIMOUS_CORRECT': 71, 'TIE': 17, 'MAJORITY_CORRECT': 23, 'MINORITY_CORRECT': 6, 'UNANIMOUS_WRONG': 5}, 'discriminating_frac': 0.3770491803278688, 'dilution_eligible_frac': 0.1885245901639344}}
+    stage B plan: 181 discriminating + 29 control
+
+  correlated4-a
+    individual accuracy: {'gpt5mini': 0.8825136612021858, 'deepseek32': 0.8661202185792349, 'gptoss120b': 0.825136612021858, 'qwen3-30b': 0.7950819672131147}
+    ceiling 93.17%  best member 88.25%  headroom 4.92pp
+    dominance gap 1.64pp  competence range 8.74pp
+    error corr mean +0.579  max +0.622
+    pairwise: {'gpt5mini / deepseek32': 0.5542613492759808, 'gpt5mini / gptoss120b': 0.5915404645236355, 'gpt5mini / qwen3-30b': 0.592571575515178, 'deepseek32 / gptoss120b': 0.5583222730900267, 'deepseek32 / qwen3-30b': 0.5557739371552375, 'gptoss120b / qwen3-30b': 0.6216590914189913}
+    ADMISSIBLE at 8pp: False
+    discriminating 23.5%  dilution eligible 10.9%  mean agent acc 0.8422
+    classes: {'MINORITY_CORRECT': 14, 'TIE': 26, 'MAJORITY_CORRECT': 46, 'UNANIMOUS_WRONG': 25, 'UNANIMOUS_CORRECT': 255}
+    by suite: {'gpqa_diamond': {'n_tasks': 122, 'mean_agent_accuracy': 0.7459016393442623, 'classes': {'UNANIMOUS_CORRECT': 73, 'UNANIMOUS_WRONG': 14, 'MAJORITY_CORRECT': 14, 'TIE': 14, 'MINORITY_CORRECT': 7}, 'discriminating_frac': 0.28688524590163933, 'dilution_eligible_frac': 0.1721311475409836}, 'math500': {'n_tasks': 122, 'mean_agent_accuracy': 0.9036885245901639, 'classes': {'MAJORITY_CORRECT': 26, 'UNANIMOUS_CORRECT': 84, 'UNANIMOUS_WRONG': 6, 'MINORITY_CORRECT': 1, 'TIE': 5}, 'discriminating_frac': 0.26229508196721313, 'dilution_eligible_frac': 0.04918032786885246}, 'mmlu_pro': {'n_tasks': 122, 'mean_agent_accuracy': 0.8770491803278688, 'classes': {'UNANIMOUS_CORRECT': 98, 'TIE': 7, 'MAJORITY_CORRECT': 6, 'MINORITY_CORRECT': 6, 'UNANIMOUS_WRONG': 5}, 'discriminating_frac': 0.1557377049180328, 'dilution_eligible_frac': 0.10655737704918032}}
+    stage B plan: 86 discriminating + 43 control
+
+==============================================================================
+6. PROTOCOL ACCURACY AND EFFECT VS single_expert
+==============================================================================
+
+  strong4-a  (n=178 tasks all seven protocols ran)
+    expert_veto                  0.8764   +3.37pp  disc=  8  p=0.0703
+    chair_information_seeking    0.8764   +3.37pp  disc= 26  p=0.3269   | excl. 7 non-terminating: +5.85pp p=0.0525
+    independent_judge            0.8483   +0.56pp  disc= 25  p=1.0000   | excl. 7 non-terminating: +2.92pp p=0.3833
+    expert_verifier              0.8427   +0.00pp  disc=  8  p=1.0000
+    debate_vote                  0.8427   +0.00pp  disc= 22  p=1.0000
+    single_expert                0.8427   +0.00pp  disc=  0  p=1.0000
+    independent_majority         0.8427   +0.00pp  disc= 18  p=1.0000
+    protocol spread 3.37pp (FAIL at the 8pp gate)
+
+  decorr4-a  (n=210 tasks all seven protocols ran)
+    debate_vote                  0.8857   +5.24pp  disc= 27  p=0.0522
+    independent_judge            0.8810   +4.76pp  disc= 28  p=0.0872   | excl. 9 non-terminating: +6.97pp p=0.0066
+    chair_information_seeking    0.8810   +4.76pp  disc= 26  p=0.0755   | excl. 3 non-terminating: +5.31pp p=0.0433
+    single_expert                0.8333   +0.00pp  disc=  0  p=1.0000
+    independent_majority         0.8238   -0.95pp  disc= 18  p=0.8145
+    expert_verifier              0.8190   -1.43pp  disc= 15  p=0.6072
+    expert_veto                  0.8143   -1.90pp  disc= 14  p=0.4240
+    protocol spread 7.14pp (FAIL at the 8pp gate)
+
+  correlated4-a  (n=129 tasks all seven protocols ran)
+    independent_judge            0.8760   +0.00pp  disc= 18  p=1.0000   | excl. 6 non-terminating: +3.25pp p=0.4240
+    single_expert                0.8760   +0.00pp  disc=  0  p=1.0000
+    expert_verifier              0.8682   -0.78pp  disc=  3  p=1.0000
+    chair_information_seeking    0.8450   -3.10pp  disc= 20  p=0.5034   | excl. 5 non-terminating: -0.81pp p=1.0000
+    debate_vote                  0.8372   -3.88pp  disc= 19  p=0.3593
+    independent_majority         0.8295   -4.65pp  disc= 16  p=0.2101
+    expert_veto                  0.8140   -6.20pp  disc= 12  p=0.0386
+    protocol spread 6.20pp (FAIL at the 8pp gate)
+
+  Holm-Bonferroni over all protocol-vs-expert tests, three pools:
+    p_raw=0.0386 p_adj=0.6943         correlated4-a|expert_veto
+    p_raw=0.0522 p_adj=0.8881         decorr4-a|debate_vote
+    p_raw=0.0703 p_adj=1.0000         strong4-a|expert_veto
+    p_raw=0.0755 p_adj=1.0000         decorr4-a|chair_information_seeking
+    p_raw=0.0872 p_adj=1.0000         decorr4-a|independent_judge
+    p_raw=0.2101 p_adj=1.0000         correlated4-a|independent_majority
+    p_raw=0.3269 p_adj=1.0000         strong4-a|chair_information_seeking
+    p_raw=0.3593 p_adj=1.0000         correlated4-a|debate_vote
+    p_raw=0.4240 p_adj=1.0000         decorr4-a|expert_veto
+    p_raw=0.5034 p_adj=1.0000         correlated4-a|chair_information_seeking
+    p_raw=0.6072 p_adj=1.0000         decorr4-a|expert_verifier
+    p_raw=0.8145 p_adj=1.0000         decorr4-a|independent_majority
+    p_raw=1.0000 p_adj=1.0000         strong4-a|independent_judge
+    p_raw=1.0000 p_adj=1.0000         strong4-a|expert_verifier
+    p_raw=1.0000 p_adj=1.0000         strong4-a|debate_vote
+    p_raw=1.0000 p_adj=1.0000         strong4-a|independent_majority
+    p_raw=1.0000 p_adj=1.0000         correlated4-a|independent_judge
+    p_raw=1.0000 p_adj=1.0000         correlated4-a|expert_verifier
+
+==============================================================================
+7. INFLUENCE: single-member mask flip rates
+==============================================================================
+
+  strong4-a
+    independent_majority     overall   5.5%  (1464 pairs)
+      per member: grok43 10.9%, gpt5mini 4.9%, deepseek32 5.5%, llama4scout 0.5%
+    single_expert            overall  25.0%  (1464 pairs)
+      per member: grok43 42.6%, gpt5mini 49.2%, deepseek32 8.2%, llama4scout 0.0%
+
+  decorr4-a
+    independent_majority     overall   8.5%  (1464 pairs)
+      per member: gptoss120b 16.4%, mistral-small 2.5%, llama4scout 3.8%, ring26 11.2%
+    single_expert            overall  24.5%  (1464 pairs)
+      per member: gptoss120b 29.5%, mistral-small 0.0%, llama4scout 0.0%, ring26 68.6%
+
+  correlated4-a
+    independent_majority     overall   5.3%  (1464 pairs)
+      per member: gpt5mini 9.0%, deepseek32 6.0%, gptoss120b 4.4%, qwen3-30b 1.6%
+    single_expert            overall  25.0%  (1464 pairs)
+      per member: gpt5mini 76.2%, deepseek32 16.4%, gptoss120b 0.0%, qwen3-30b 7.4%
+
+==============================================================================
+8. GO/NO-GO GATE PER POOL
+==============================================================================
+
+  strong4-a
+    [FAIL] governance  protocol spread                    observed    3.371  n=178
+           threshold: >= 8pp between best and worst protocol
+    [FAIL] governance  correct-answer dilution            observed    7.947  n=151
+           threshold: >= 15% of tasks where the PREDICTED expert is correct
+    [PASS] governance  intervention flip rate             observed   25.000  n=2928
+           threshold: >= 10% of masked messages change the decision
+    [PASS] delegation  configuration dominance            observed   41.667  n=12
+           threshold: <= 75% of domains won by one configuration (higher kills the direction)
+    [PASS] delegation  semantic vs organizational similarity observed    0.048  n=366
+           threshold: Spearman correlation < 0.5 AND >= 20% differing nearest neighbours
+    [FAIL] coalition   top-k gap                          observed    8.197  n=366
+           threshold: >= 15% of tasks where the best same-size coalition beats top-k by >= 5pp
+    governance   PARTIAL - some thresholds met, some not
+    delegation   GO
+    coalition    NO GO on the stated thresholds
+    selection    delegation
+
+  decorr4-a
+    [FAIL] governance  protocol spread                    observed    7.143  n=210
+           threshold: >= 8pp between best and worst protocol
+    [FAIL] governance  correct-answer dilution            observed    5.143  n=175
+           threshold: >= 15% of tasks where the PREDICTED expert is correct
+    [PASS] governance  intervention flip rate             observed   24.522  n=2928
+           threshold: >= 10% of masked messages change the decision
+    [PASS] delegation  configuration dominance            observed   75.000  n=12
+           threshold: <= 75% of domains won by one configuration (higher kills the direction)
+    [PASS] delegation  semantic vs organizational similarity observed    0.048  n=366
+           threshold: Spearman correlation < 0.5 AND >= 20% differing nearest neighbours
+    [FAIL] coalition   top-k gap                          observed    9.290  n=366
+           threshold: >= 15% of tasks where the best same-size coalition beats top-k by >= 5pp
+    governance   PARTIAL - some thresholds met, some not
+    delegation   GO
+    coalition    NO GO on the stated thresholds
+    selection    delegation
+
+  correlated4-a
+    [FAIL] governance  protocol spread                    observed    6.202  n=129
+           threshold: >= 8pp between best and worst protocol
+    [FAIL] governance  correct-answer dilution            observed   10.619  n=113
+           threshold: >= 15% of tasks where the PREDICTED expert is correct
+    [PASS] governance  intervention flip rate             observed   25.000  n=2928
+           threshold: >= 10% of masked messages change the decision
+    [PASS] delegation  configuration dominance            observed   58.333  n=12
+           threshold: <= 75% of domains won by one configuration (higher kills the direction)
+    [PASS] delegation  semantic vs organizational similarity observed    0.063  n=366
+           threshold: Spearman correlation < 0.5 AND >= 20% differing nearest neighbours
+    [FAIL] coalition   top-k gap                          observed    4.918  n=366
+           threshold: >= 15% of tasks where the best same-size coalition beats top-k by >= 5pp
+    governance   PARTIAL - some thresholds met, some not
+    delegation   GO
+    coalition    NO GO on the stated thresholds
+    selection    delegation

@@ -1,0 +1,107 @@
+# Candidate models for a comparable-competence pool. A measuring instrument, not a pool.
+#
+# This config is never used for Stage B. It exists to run Stage A over screen120 and answer one
+# question: which models land in the same competence band as each other on this suite, while
+# coming from different pretraining lineages so their errors have a chance to decorrelate.
+#
+# Why this is needed at all (D-021). The openrouter4 pool leaves 4.37pp of headroom for every
+# governance rule combined, because gpt5mini is 8.7pp above the next member and 27.9pp above the
+# weakest. Coalitions containing it average 3.01pp of headroom; coalitions without it average
+# 9.84pp. Peer competence is the design variable, so it has to be measured rather than assumed —
+# and public benchmark numbers do not transfer, both because this suite is drawn from the hardest
+# available material and because several of these agents are configured systems rather than
+# vendor defaults.
+#
+# Selection criteria for the slate, in order:
+#   1. A distinct family from every other candidate, since shared lineage means shared failure
+#      modes and complementarity is the thing being measured.
+#   2. Plausibly in the 0.60-0.85 band on hard STEM, which is where qwen3-30b (0.795),
+#      gemini25flash (0.623) and mistral-small (0.604) already sit.
+#   3. Cheap enough that screening all six costs under $2.
+#
+# agent_id is 0..5 here purely to satisfy the schema. Do not run coalition enumeration on this
+# config: six agents is 63 coalitions and none of it would mean anything, since these models are
+# candidates rather than a team.
+
+pool_id: candidates
+description: >-
+  Six candidate models screened on screen120 to find a comparable-competence peer pool. Stage A
+  only. Families: Google, Meta, OpenAI open-weights, Zhipu, DeepSeek, Amazon.
+
+agents:
+  # Google, re-measured. Its 0.623 on hard366-a was depressed by a 2,048-token reasoning clamp
+  # added to stop non-termination, so that figure describes our workaround as much as the model.
+  # 8192 is four times the clamp and still well inside the 16384 output cap, so the runaway
+  # behaviour stays bounded while the model gets room to actually think.
+  - agent_id: 0
+    name: gemini25flash-hi
+    provider: openrouter
+    model: google/gemini-2.5-flash
+    family: google
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+    extra_body:
+      reasoning:
+        max_tokens: 8192
+
+  - agent_id: 1
+    name: llama4scout
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    family: meta
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # Cheapest candidate by an order of magnitude ($0.037/$0.17 per M) and a reasoning model, so
+  # it is the one most likely to land in the upper band at negligible cost.
+  - agent_id: 2
+    name: gptoss120b
+    provider: openrouter
+    model: openai/gpt-oss-120b
+    family: openai-oss
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: glm45air
+    provider: openrouter
+    model: z-ai/glm-4.5-air
+    family: zhipu
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 4
+    name: deepseek32
+    provider: openrouter
+    model: deepseek/deepseek-v3.2-exp
+    family: deepseek
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # Included as a deliberate low-band option. If the peer band that emerges is the lower one
+  # (mistral-small and gemini sit at ~0.61), a fourth member near there is worth having, and
+  # the gemini25flash + mistral-small pair showed the largest headroom of any coalition (17.21pp)
+  # precisely because both are weak and wrong about different things.
+  - agent_id: 5
+    name: novalite
+    provider: openrouter
+    model: amazon/nova-lite-v1
+    family: amazon
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Unused by Stage A; present because the schema requires it.
+aggregator:
+  name: claude-sonnet
+  provider: openrouter
+  model: anthropic/claude-sonnet-4.6
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

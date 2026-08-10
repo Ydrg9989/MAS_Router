@@ -1,0 +1,86 @@
+# The control pool: four near-equal peers whose errors coincide. The refutation of D-021 (D-023).
+#
+# This is the most competence-homogeneous pool available from the measured candidates — 1.65pp from
+# best member to second, against 3.02pp for the treatment pool — and it still fails the headroom bar:
+#
+#   ceiling 93.13%   best member 88.19%   headroom 4.95pp   dominance gap 1.65pp
+#   mean pairwise error correlation +0.579   four distinct families
+#
+# That is the point of paying for it. D-021 read the `hard366-a` failure as one dominant agent
+# compressing headroom, and the obvious remedy was a pool of equals. This pool *is* that remedy, and
+# it has half the treatment pool's headroom anyway, because its four members are strong for the same
+# reasons and therefore wrong about the same things. Without it, a governance effect found on
+# `decorrelated4` and absent on `openrouter4` would be attributable to either dominance or
+# correlation, since `openrouter4` differs on both. This pool holds dominance at its minimum and
+# varies only correlation, which is what makes the mechanism identifiable.
+#
+# It is therefore expected to produce a small effect, and that is the prediction being tested rather
+# than a reason to skip it. A null here alongside an effect on `decorrelated4` is the result; an
+# effect here would falsify D-023 and would mean protocol spread comes from somewhere other than the
+# headroom this analysis bounds.
+#
+# Note that headroom bounds the "governance beats the best member" direction, while the gate asks for
+# spread between the best and worst protocol, which a *bad* protocol can also produce. So this pool
+# failing the headroom bar does not predict a failed gate; it predicts that any spread found here
+# comes from protocols losing accuracy rather than winning it. The free half of Stage B measures the
+# discordance rate between protocols directly and at no cost, which settles that before anything is
+# priced.
+#
+# Composition notes. `gpt5mini` and `qwen3-30b` are banked from `hard366-a`, `deepseek32` and
+# `gptoss120b` from `cand4-a`, all at temperature 0.0 and max_tokens 16384, so Stage A against this
+# config is entirely cache hits. `gptoss120b` and `qwen3-30b` appear in both pools by design: with
+# two members shared, the pool contrast is carried by the two that differ.
+#
+# agent_id must be 0..3: coalition enumeration bitmasks over these ids.
+
+pool_id: correlated4
+description: >-
+  Four near-equal peers whose errors correlate at +0.579, leaving only 4.95pp of headroom at n=364.
+  The control that shows competence homogeneity is not sufficient; contrast against decorrelated4.
+
+agents:
+  - agent_id: 0
+    name: gpt5mini
+    provider: openrouter
+    model: openai/gpt-5-mini
+    family: openai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 1
+    name: deepseek32
+    provider: openrouter
+    model: deepseek/deepseek-v3.2-exp
+    family: deepseek
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 2
+    name: gptoss120b
+    provider: openrouter
+    model: openai/gpt-oss-120b
+    family: openai-oss
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: qwen3-30b
+    provider: openrouter
+    model: qwen/qwen3-30b-a3b-instruct-2507
+    family: qwen
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Not a pool member (agent_id -1). Identical to decorrelated4's aggregator (D-024).
+aggregator:
+  name: claude-sonnet5
+  provider: openrouter
+  model: anthropic/claude-sonnet-5
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

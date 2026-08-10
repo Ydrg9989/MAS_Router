@@ -1,0 +1,66 @@
+# Measurement-only variant of openrouter4.yaml with a deliberately over-generous token cap.
+#
+# Not for experiments. Its only purpose is to find out how long these models actually reason on
+# the hardest domain when nothing stops them, so that the real pool's max_tokens can be set
+# from a measured distribution instead of a guess. Two guesses have already been wrong: 1024
+# truncated 28% of responses, and 8192 still truncated 25% on GPQA-Diamond, where output
+# averaged 3,713 tokens with the 90th percentile sitting exactly at the cap.
+#
+# Truncation is not a neutral loss. It falls hardest on the models that reason at length, so it
+# quietly flatters terse models: in the halted mvp366-a run, Mistral-Small averaged 557 output
+# tokens and never truncated, while Gemini and GPT-5-mini averaged nearly 4,000 and truncated
+# constantly. Any competence ranking measured under a binding cap is partly a verbosity
+# ranking, and the whole expert-based half of this project depends on that ranking being real.
+#
+# Everything except max_tokens is identical to openrouter4.yaml, so the measurement transfers.
+
+pool_id: openrouter4_probe
+description: >-
+  Token-limit probe. Identical to openrouter4 except max_tokens, raised far above any observed
+  completion so that the natural length distribution can be measured rather than assumed.
+
+agents:
+  - agent_id: 0
+    name: gpt5mini
+    provider: openrouter
+    model: openai/gpt-5-mini
+    family: openai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 24576
+
+  - agent_id: 1
+    name: gemini25flash
+    provider: openrouter
+    model: google/gemini-2.5-flash
+    family: google
+    role: generalist
+    temperature: 0.0
+    max_tokens: 24576
+
+  - agent_id: 2
+    name: qwen3-30b
+    provider: openrouter
+    model: qwen/qwen3-30b-a3b-instruct-2507
+    family: qwen
+    role: generalist
+    temperature: 0.0
+    max_tokens: 24576
+
+  - agent_id: 3
+    name: mistral-small
+    provider: openrouter
+    model: mistralai/mistral-small-3.2-24b-instruct
+    family: mistral
+    role: generalist
+    temperature: 0.0
+    max_tokens: 24576
+
+aggregator:
+  name: claude-sonnet
+  provider: openrouter
+  model: anthropic/claude-sonnet-4.6
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 24576

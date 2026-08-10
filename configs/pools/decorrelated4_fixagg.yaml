@@ -1,0 +1,49 @@
+pool_id: decorrelated4_fixagg
+description: Four peers with decorrelated errors (+0.382) and 9.29pp of governance
+  headroom at n=366. The treatment pool for the epistemic-governance experiment; contrast
+  against correlated4, which is matched on dominance and differs on correlation. Aggregator
+  reasoning clamped to 4096 tokens so visible output is guaranteed room (see D-028).
+agents:
+- agent_id: 0
+  name: gptoss120b
+  provider: openrouter
+  model: openai/gpt-oss-120b
+  family: openai-oss
+  role: generalist
+  temperature: 0.0
+  max_tokens: 16384
+- agent_id: 1
+  name: mistral-small
+  provider: openrouter
+  model: mistralai/mistral-small-3.2-24b-instruct
+  family: mistral
+  role: generalist
+  temperature: 0.0
+  max_tokens: 16384
+- agent_id: 2
+  name: llama4scout
+  provider: openrouter
+  model: meta-llama/llama-4-scout
+  family: meta
+  role: generalist
+  temperature: 0.0
+  max_tokens: 16384
+- agent_id: 3
+  name: ring26
+  provider: openrouter
+  model: inclusionai/ring-2.6-1t
+  family: inclusionai
+  role: generalist
+  temperature: 0.0
+  max_tokens: 16384
+aggregator:
+  name: claude-sonnet5
+  provider: openrouter
+  model: anthropic/claude-sonnet-5
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384
+  extra_body:
+    reasoning:
+      max_tokens: 4096

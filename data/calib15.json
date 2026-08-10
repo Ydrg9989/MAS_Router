@@ -1,0 +1,17 @@
+[
+  "gpqa_diamond::108",
+  "gpqa_diamond::117",
+  "gpqa_diamond::85",
+  "math500::test/algebra/291.json",
+  "math500::test/counting_and_probability/51.json",
+  "math500::test/counting_and_probability/894.json",
+  "math500::test/intermediate_algebra/956.json",
+  "math500::test/number_theory/1090.json",
+  "math500::test/prealgebra/1128.json",
+  "math500::test/prealgebra/1655.json",
+  "mmlu_pro::10640::theoremQA-EECS",
+  "mmlu_pro::10641::theoremQA-EECS",
+  "mmlu_pro::4259::scibench-matter",
+  "mmlu_pro::8219::theoremQA-Math",
+  "mmlu_pro::9443::theoremQA-Physics"
+]

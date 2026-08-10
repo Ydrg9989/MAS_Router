@@ -1,0 +1,110 @@
+# Six strong candidates from unrepresented lineages. A measuring instrument, not a pool.
+#
+# The question this screen exists to answer. D-023 found that on the first candidate slate, error
+# decorrelation and competence trade off: across the 35 four-member subsets, mean pool accuracy
+# correlates with mean pairwise error correlation at +0.741, so the only pools clearing the 8pp
+# headroom gate average 0.673 accuracy while the most homogeneous pool (1.7pp from best to second)
+# fails it at 5.83pp. If that trade-off is a property of LLMs, the paper must state it as a limit.
+# If it is a property of *this slate* — nine models of which four share heavy Western web pretraining
+# and two are small — then a strong decorrelated pool exists and is worth $3 to find.
+#
+# Selection criteria, in order:
+#   1. A lineage not already measured. `gpt5mini`, `gptoss120b`, `deepseek32`, `qwen3-30b`,
+#      `gemini25flash`, `llama4scout`, `mistral-small`, `novalite` and `glm45air` are banked, and
+#      the four strong ones among them correlate at +0.54 to +0.65. Divergent pretraining is the
+#      only lever we have on that, and it cannot be bought with a bigger model from a measured family.
+#   2. Plausibly at or above 0.78 on hard STEM, which is where the existing strong band sits
+#      (`gpt5mini` 0.858, `deepseek32` 0.842, `gptoss120b` 0.808, `qwen3-30b` 0.775 on screen120).
+#   3. Under $1.50 in / $6.00 out per M, so screening all six on 120 tasks stays near $3.
+#
+# Anthropic is deliberately absent even though Claude Haiku would qualify on competence: Claude is
+# the neutral aggregator for every protocol that needs a third party, and a pool member sharing the
+# aggregator's lineage would confound the aggregation baselines with self-preference.
+#
+# Expect some of these to fail the commit-rate floor of 0.95 (D-022) rather than the accuracy bar.
+# Four of the six are explicit reasoning models, and long chains are precisely what produced
+# `gemini25flash`'s 0.757 and `glm45air`'s 0.602. max_tokens is 16384 for all, which bounds the
+# worst case at roughly $5 for the screen even if every response runs to the wall.
+
+pool_id: candidates_strong
+description: >-
+  Six high-competence candidates from lineages not yet measured, screened on screen120 to test
+  whether error decorrelation is available at high accuracy. Stage A only.
+
+agents:
+  # xAI. The only frontier-tier lab in the slate and the most expensive candidate at $1.25/$2.50.
+  - agent_id: 0
+    name: grok43
+    provider: openrouter
+    model: x-ai/grok-4.3
+    family: xai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # Moonshot. The explicit thinking variant, chosen over kimi-k2.6 because reasoning traces are
+  # what lift hard STEM and the commit-rate floor will catch it if they do not terminate.
+  - agent_id: 1
+    name: kimi-k2-thinking
+    provider: openrouter
+    model: moonshotai/kimi-k2-thinking
+    family: moonshot
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # Zhipu, retested. glm45air failed on reliability (0.602 commit), not on competence, and that is
+  # a claim about one small distilled model rather than about the family. glm-5.2 is the current
+  # full-size model; if it also fails to commit, the family is out on evidence rather than on one
+  # data point.
+  - agent_id: 2
+    name: glm52
+    provider: openrouter
+    model: z-ai/glm-5.2
+    family: zhipu
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: minimax-m27
+    provider: openrouter
+    model: minimax/minimax-m2.7
+    family: minimax
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # InclusionAI's reasoning line, 1T total parameters at $0.075/$0.625 — the cheapest plausible
+  # strong candidate in the snapshot by an order of magnitude.
+  - agent_id: 4
+    name: ring26
+    provider: openrouter
+    model: inclusionai/ring-2.6-1t
+    family: inclusionai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # NVIDIA. Lineage is the least certain in this slate: earlier Nemotron generations were derived
+  # from Llama, so if this one correlates tightly with llama4scout the family label is wrong and the
+  # measurement says so. Included because that is a cheap thing to find out.
+  - agent_id: 5
+    name: nemotron3ultra
+    provider: openrouter
+    model: nvidia/nemotron-3-ultra-550b-a55b
+    family: nvidia
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Unused by Stage A. Sonnet 5 rather than 4.6: same family, newer, and $2/$10 against $3/$15, which
+# matters because the aggregator drives 87% of the priced Stage-B cost.
+aggregator:
+  name: claude-sonnet5
+  provider: openrouter
+  model: anthropic/claude-sonnet-5
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

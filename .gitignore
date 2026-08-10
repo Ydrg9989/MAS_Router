@@ -1,0 +1,25 @@
+# ---- upstream reference clones (read-only, pinned in UPSTREAM.md) ----
+/agent-psychometrics/
+/agent-scaling/
+/multi-agent-teams-hold-experts-back/
+/TwinRouterBench/
+
+# ---- environment ----
+.venv/
+.uv-cache/
+.tmp/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# ---- secrets ----
+.env
+
+# ---- generated experiment data ----
+# Response caches and raw runs are large and reproducible; manifests and
+# analysis outputs are small and ARE tracked (see data/.gitignore).
+/data/cache/
+/data/runs/
+*.parquet

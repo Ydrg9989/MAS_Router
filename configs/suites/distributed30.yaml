@@ -1,0 +1,58 @@
+# The distributed-information condition (D-010): 30 tasks derived from MMLU-Pro STEM by
+# partitioning each question's option set across a four-member team.
+#
+# This is the substitute for HiddenBench, which is not obtainable. It is NOT HiddenBench and
+# its numbers are not comparable to published HiddenBench results; every task carries
+# suite: distributed_synth so the two can never be pooled by accident.
+#
+# What the condition does: each member sees the question stem plus a subset of the lettered
+# options, and only `n_holders` members can see the correct one. A member who cannot see the
+# correct option provably cannot state it, so this separates "wrong because it lacks the
+# evidence" from "wrong because it reasons badly" — which is the distinction the whole
+# epistemic-governance direction rests on.
+#
+# The sharp prediction: with a unique holder, `independent_majority` is outvoted by
+# construction whenever the uninformed members answer anyway, while
+# `chair_information_seeking` and `expert_veto` are the two protocols that can recover the
+# answer (one can ask for the missing evidence, the other lets a lone holder overturn a
+# majority). Run those four protocols together or the comparison says nothing.
+#
+# Absolute accuracy here is not comparable to the full-information suites: showing a member
+# 3 of 10 options moves its prior from 1/10 to 1/3. Compare across protocols within this
+# suite, not against mvp90.
+
+manifest_id: distributed30
+description: >-
+  Distributed-information condition: 30 MMLU-Pro STEM questions with the option set
+  partitioned across a 4-member team, exactly one member holding the correct option.
+  Constructed substitute for HiddenBench (D-010), never comparable to it.
+seed: 20260805
+
+calibration_fraction: 0.34
+
+suites:
+  - suite: distributed_synth
+    derive_from: mmlu_pro
+    n: 30
+    stem_only: true
+
+    # Must match the pool this suite is run with: private briefings are keyed by agent_id,
+    # and Stage A refuses to run if a required agent is missing from the pool.
+    # These are the four agent_ids in configs/pools/openrouter4.yaml.
+    agent_ids: [0, 1, 2, 3]
+
+    # Exactly one member can see the correct option. This is the sharp condition. Raise it
+    # to 2 for a weaker control in which a correct pair can carry a plurality.
+    n_holders: 1
+
+    # This is the COOPERATIVE arm: members are told the options were divided and are given a
+    # way to decline. The uninformed abstention rate then measures calibration, and a
+    # majority that still steamrolls the lone holder did so having been warned.
+    #
+    # The PRESSURE arm is configs/suites/distributed30_pressure.yaml, which sets both flags
+    # false so every uninformed member must pick from what it holds and the holder is
+    # outnumbered by construction. Run both. On its own, the cooperative arm can only show
+    # that models abstain sensibly, and the pressure arm can only show that a forced-wrong
+    # majority wins — neither is a claim about protocols without the other.
+    announce_structure: true
+    allow_declining: true

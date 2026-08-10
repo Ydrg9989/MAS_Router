@@ -1,0 +1,97 @@
+# The treatment pool: four peers whose errors decorrelate. Selected, not assembled (D-023).
+#
+# Chosen by `pool_select` over the nine candidates that passed the commit-rate floor (D-022), scored
+# on all 366 tasks rather than on the 120-task screen, because the screen's ranking did not survive
+# the full suite: `ring26` looked like a strict improvement at n=120 and turned out to cost 1.1pp of
+# headroom at n=366. One task is 0.27pp here and 0.83pp there, and pools separated by two tasks are
+# not separated at all.
+#
+#   headroom 9.29pp   dominance gap 2.19pp   mean pairwise error correlation +0.382
+#   ceiling 92.62%   best member 84.70%   mean member accuracy 0.734   four distinct families
+#
+# Selected on the design's identifying requirement rather than on headroom alone: the treatment must
+# be *matched* to `correlated4.yaml` on dominance and *separated* from it on error correlation, since
+# that is the only way a difference in outcome is attributable to correlation. Against the control's
+# 1.65pp dominance and +0.579 correlation, the three admissible candidates compare as:
+#
+#   pool                                                dom    corr   head   |d dom|  d corr
+#   gptoss120b, llama4scout, mistral-small, ring26     2.19  +0.382   9.29     0.54    0.197  <-
+#   gptoss120b, llama4scout, mistral-small, qwen3-30b  3.01  +0.409   9.84     1.36    0.170
+#   gptoss120b, llama4scout, qwen3-30b, ring26         2.19  +0.447   8.74     0.54    0.132
+#
+# The first wins on both criteria at once, giving up 0.55pp of a ceiling that no protocol reaches
+# anyway. Headroom is a bound on what governance could win, not a prediction of what it does win, so
+# trading a little of it for a cleaner contrast is the right direction.
+#
+# The cost of the choice, which the paper must state, and which is now a measured claim rather than a
+# caveat about a cheap slate. Across ten models from ten lineages, *none* of the fifteen four-member
+# pools drawn only from the strong band (accuracy >= 0.77) reaches 8pp of headroom; the best is
+# 7.50pp, and every one has error correlation between +0.517 and +0.612. That includes `grok43` at
+# 0.875 with a perfect commit rate, from a lab whose pretraining shares nothing obvious with the
+# others. The frontier is monotone: 12.50pp of headroom at mean accuracy 0.60, 10.83pp at 0.75,
+# 8.33pp at 0.78, and nothing at 0.80. So a correct answer recovered here is one a moderately strong
+# set of agents produced, and no result from this pool licenses the claim that governance beats the
+# best available model. It licenses the claim that governance recovers information a pool already
+# holds, and that how much there is to recover is set by decorrelation.
+#
+# Composition notes. `mistral-small` is banked from `hard366-a`, `gptoss120b` and `llama4scout` from
+# `cand4-a`, `ring26` from this pool's own earlier revision, all at temperature 0.0 and max_tokens
+# 16384, so a Stage-A run against this config is entirely cache hits and costs nothing. `gpt5mini` is
+# deliberately absent: it is the dominant agent whose 8.7pp lead produced the `hard366-a` failure, and
+# it belongs in the control pool rather than here.
+#
+# agent_id must be 0..3: coalition enumeration bitmasks over these ids.
+
+pool_id: decorrelated4
+description: >-
+  Four peers with decorrelated errors (+0.382) and 9.29pp of governance headroom at n=366. The
+  treatment pool for the epistemic-governance experiment; contrast against correlated4, which is
+  matched on dominance and differs on correlation.
+
+agents:
+  - agent_id: 0
+    name: gptoss120b
+    provider: openrouter
+    model: openai/gpt-oss-120b
+    family: openai-oss
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 1
+    name: mistral-small
+    provider: openrouter
+    model: mistralai/mistral-small-3.2-24b-instruct
+    family: mistral
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 2
+    name: llama4scout
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    family: meta
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: ring26
+    provider: openrouter
+    model: inclusionai/ring-2.6-1t
+    family: inclusionai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Not a pool member (agent_id -1). Identical to correlated4's aggregator, because the two pools
+# differ only in their members and a varying judge would confound that contrast (D-024).
+aggregator:
+  name: claude-sonnet5
+  provider: openrouter
+  model: anthropic/claude-sonnet-5
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

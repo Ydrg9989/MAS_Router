@@ -1,0 +1,55 @@
+# The powered main suite, rebuilt around material this pool cannot already solve.
+#
+# Supersedes mvp366.yaml, which was balanced across domains but not across difficulty. On that
+# suite the pool scored 12/12 on MATH-500 and 12/12 on MMLU-Pro STEM, and the pilot Stage B run
+# returned identical outcomes for all seven protocols on every task: zero discordant pairs.
+#
+# The reason is structural rather than statistical. When four agents independently give the
+# same answer, every protocol returns that answer by construction, so the task contributes a
+# concordant pair to every comparison and nothing at all to a McNemar test. The spread between
+# the best and worst protocol is therefore bounded above by the fraction of tasks on which the
+# agents disagree — 11% on the old suite, against a gate threshold of 8pp. No amount of extra
+# sampling fixes that; only harder tasks do (D-020).
+#
+# Once truncation was fixed, GPQA-Diamond measured 66.7% discriminating and 33.3%
+# dilution-eligible on the same pool. So the signal exists and the previous suite was hiding
+# it. Each domain here is drawn from the hardest material available:
+#
+#   GPQA-Diamond   all 198 are graduate-level by construction; 122 sampled.
+#   MATH-500       level 5 only, the hardest of five bands (134 available, 122 used).
+#   MMLU-Pro STEM  theoremQA and scibench only (1,065 available). These two sub-corpora are
+#                  substantially harder than ori_mmlu, which supplies most of MMLU-Pro and
+#                  which saturated on the previous suite.
+#
+# Balance is kept at 122 per domain because the delegation direction stratifies by domain
+# throughout and leave-one-domain-out is ill-conditioned if one domain is much thinner. GPQA's
+# 198 rows cap any balanced design.
+#
+# This suite is a *candidate pool*, not the final Stage B scope. Stage A runs over all 366 and
+# then mas_harness.analysis.discrimination selects the tasks where protocols can actually
+# differ. That screening is free: Stage A is the screen, and the answers it examines are the
+# same ones Stage B replays, so nothing is paid for twice.
+
+manifest_id: hard366
+description: >-
+  Powered 366-task suite selected for difficulty: GPQA-Diamond, MATH-500 level 5, and the
+  theoremQA/scibench subsets of MMLU-Pro STEM. Built to contain tasks on which a heterogeneous
+  pool actually disagrees, since protocol comparisons are blind to tasks where it does not.
+seed: 20260805
+
+# The predicted expert must be selected from calibration data only (D-004), so this cannot be
+# zero. A third of 366 leaves 124 calibration tasks, enough to rank four agents per domain.
+calibration_fraction: 0.34
+
+suites:
+  - suite: gpqa_diamond
+    n: 122
+
+  - suite: math500
+    n: 122
+    levels: [5]
+
+  - suite: mmlu_pro
+    n: 122
+    stem_only: true
+    sources: [theoremQA, scibench]

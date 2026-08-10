@@ -1,0 +1,80 @@
+# The four candidates that survived the reliability screen, extended to the full hard366 suite.
+#
+# A measuring instrument, not a pool — same status as candidates.yaml. It exists to finish the
+# Stage-A bank so that headroom for any pool composed of these models can be verified at n=366
+# rather than at the n=120 of the screen, where one task is 0.83pp and the gate margin is two tasks.
+#
+# Why these four and not the six of candidates.yaml. The screen measured commit rate — the share of
+# responses that yield a readable answer at all — alongside accuracy, and it separated the slate
+# cleanly. glm45air commits on 0.602 of calls and gemini25flash-hi on 0.650, against 0.98-1.00 for
+# everything else. An abstention is scored as wrong (D-019), so a broken instrument is wrong on a
+# different set of items than a working one and registers as complementary: it inflates headroom,
+# which is exactly the quantity the pool selector maximizes. Both are therefore excluded as
+# instruments rather than ranked as candidates (D-022).
+#
+# gemini25flash-hi also answers the question it was added to ask. Raising its reasoning budget from
+# 2,048 to 8,192 tokens made it worse on every axis: accuracy 0.551 against 0.653 for the clamped
+# configuration on the same tasks, non-termination 0.150 against 0.077, commit rate 0.650 against
+# 0.757. The clamp was not suppressing its performance, so openrouter4 keeps it.
+#
+# Running Stage A with this config populates the content-addressed response cache, which is what
+# makes the later Stage-A run for whichever pool is chosen cost nothing: the cache is keyed on
+# (model, messages, temperature, max_tokens, seed) and not on pool identity or agent_id. The
+# per-pool Stage-A run is still required, because Stage B keys the bank on (task, agent_id, seed)
+# and agent ids are pool-local.
+#
+# Measured cost per 100 calls on hard366-a and screen-a: deepseek32 $0.06, gptoss120b $0.05,
+# llama4scout $0.03, novalite $0.02. All four are an order of magnitude below gpt5mini ($0.45) and
+# gemini25flash ($0.75), so the peer direction is also the cheap one.
+
+pool_id: candidates4
+description: >-
+  The four reliable candidates from the screen, banked over the full hard366 suite so that pool
+  headroom can be verified at n=366. Stage A only; do not run Stage B on this config.
+
+agents:
+  - agent_id: 0
+    name: deepseek32
+    provider: openrouter
+    model: deepseek/deepseek-v3.2-exp
+    family: deepseek
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 1
+    name: gptoss120b
+    provider: openrouter
+    model: openai/gpt-oss-120b
+    family: openai-oss
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 2
+    name: llama4scout
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    family: meta
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: novalite
+    provider: openrouter
+    model: amazon/nova-lite-v1
+    family: amazon
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Unused by Stage A; present because the schema requires it.
+aggregator:
+  name: claude-sonnet
+  provider: openrouter
+  model: anthropic/claude-sonnet-4.6
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

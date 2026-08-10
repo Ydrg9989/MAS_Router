@@ -1,0 +1,81 @@
+# Four strong peers whose errors still decorrelate — the pool that tests whether the accuracy cost
+# D-023 recorded is real or an artifact of which models had been banked.
+#
+# D-023 concluded that decorrelation is available only at low absolute accuracy, because the nine
+# candidates then measured on the full suite showed headroom correlating with mean pool accuracy at
+# −0.618. That conclusion was drawn from a slate that did not include `grok43`, which was screened
+# but never banked past 120 tasks: at 0.875 accuracy and a 1.000 commit rate it is the strongest and
+# most reliable agent measured anywhere in this project, and it is *concise*, averaging 1,329 output
+# tokens where `kimi-k2-thinking` averages 6,927.
+#
+# On the 120 shared screen tasks this pool reads:
+#
+#   headroom 8.33pp   dominance gap 1.67pp   error correlation +0.415   mean accuracy 0.794
+#
+# against the treatment pool's 10.83pp headroom at 0.723 mean accuracy. So the trade is roughly
+# 2.5pp of ceiling for 7pp of member competence — and if it survives at n=366 it is the pool the
+# governance claim should be made on, because "a neutral rule recovers answers that a vote of *strong*
+# agents discards" is a far harder claim to dismiss than the same sentence about weak agents.
+#
+# Why it is worth measuring rather than assuming. The n=120 margin over the 8pp gate is 0.33pp, which
+# is 0.4 tasks — indistinguishable from zero, and the `ring26` episode is the cautionary case: it
+# improved every criterion at n=120 and lost 1.1pp of headroom at n=366. This pool is therefore a
+# candidate under test, not a replacement for `decorrelated4.yaml`. It costs $0.91 to find out,
+# because `gpt5mini` (hard366-a), `deepseek32` and `llama4scout` (cand4-a) are already banked on all
+# 366 tasks and only `grok43` needs the remaining 246.
+#
+# Two families deliberately overlap nothing with the control's failure mode: `xai` and `meta` are
+# absent from `correlated4.yaml`, and `llama4scout` is the low-competence member that supplies most of
+# the decorrelation here, exactly as it does in the treatment pool.
+
+pool_id: strong4
+description: >-
+  Four strong peers (mean accuracy 0.794) with decorrelated errors, testing whether governance
+  headroom survives at high competence or only exists among weak agents.
+
+agents:
+  - agent_id: 0
+    name: grok43
+    provider: openrouter
+    model: x-ai/grok-4.3
+    family: xai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 1
+    name: gpt5mini
+    provider: openrouter
+    model: openai/gpt-5-mini
+    family: openai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 2
+    name: deepseek32
+    provider: openrouter
+    model: deepseek/deepseek-v3.2-exp
+    family: deepseek
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: llama4scout
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    family: meta
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Fixed across every priced pool so the pool contrast is not confounded with judge identity (D-024).
+aggregator:
+  name: claude-sonnet5
+  provider: openrouter
+  model: anthropic/claude-sonnet-5
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

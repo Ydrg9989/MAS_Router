@@ -1,0 +1,104 @@
+# Four heterogeneous agents, all served through OpenRouter (D-006).
+#
+# Heterogeneity here is deliberately across model *families*, not sizes: the research
+# questions are about complementarity and influence, both of which collapse if every agent
+# shares a pretraining lineage and therefore shares failure modes.
+#
+# IMPORTANT: these slugs come from the research report and prices move. Before any paid
+# run, confirm every slug still resolves:
+#
+#   python -m mas_harness.doctor --pool configs/pools/openrouter4.yaml --check-prices
+#
+# agent_id must be 0..n-1: coalition enumeration bitmasks over these ids.
+#
+# max_tokens is 16384 for every agent, measured rather than chosen, and revised twice. The
+# pilot9-a run capped everyone at 1024 and lost 28% of responses to finish_reason "length";
+# 8192 looked sufficient on nine tasks but still truncated 25% once the run reached
+# GPQA-Diamond, where output averages 3,713 tokens. The probe-gpqa run lifted the cap to
+# 24,576 to measure the natural distribution: the longest response that terminated on its own
+# was 13,606 tokens (Qwen3-30B), against 6,742 for GPT-5-mini and 1,023 for Mistral-Small.
+# 16384 clears all of them.
+#
+# Truncation is not a wrong answer, it is a missing measurement, and it is a *biased* one: it
+# falls hardest on the agents that reason at length, so a binding cap quietly turns a
+# competence ranking into a verbosity ranking. That is fatal for the expert-based protocols,
+# which exist to exploit competence differences (D-018).
+#
+# Raising the cap is nearly free, because a model that finishes in 500 tokens is not billed
+# for headroom it did not use. It is also not a cost control: some upstream providers ignore
+# max_tokens outright, and Qwen returned 8,629 tokens under an 8192 cap. Cost is bounded by
+# the spend ledger, which charges what the provider reports (D-017).
+
+pool_id: openrouter4
+description: >-
+  Four-family heterogeneous pool for the MVP: OpenAI, Google, Qwen and Mistral, with
+  Claude reserved as the neutral aggregator so aggregation cost never depends on coalition
+  membership.
+
+agents:
+  - agent_id: 0
+    name: gpt5mini
+    provider: openrouter
+    model: openai/gpt-5-mini
+    family: openai
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  # Gemini needs a bounded reasoning budget or it does not reliably stop. Measured in the
+  # probe-gpqa run: on 5 of 12 GPQA questions it ran to a 24,576-token wall, emitting up to
+  # 88,000 characters of unterminated chemistry that circled through possibilities without
+  # concluding. Its responses that *did* terminate never exceeded 4,712 tokens, so this is a
+  # non-termination failure rather than long reasoning, and no achievable max_tokens fixes it.
+  #
+  # `reasoning: {enabled: false}` does not help — it still ran to the wall. Capping the
+  # reasoning budget does: the same question then finished in 4,706 tokens with a boxed
+  # answer. Combined with the three provider errors in the same run, leaving this unset would
+  # cost roughly two thirds of Gemini's GPQA answers, and those losses fall on the hardest
+  # items, which is exactly where the governance phenomena live.
+  #
+  # This makes Gemini a *configured system* rather than the vendor default, and the paper must
+  # say so. No accuracy claim about "Gemini 2.5 Flash" is licensed by this pool; the claim is
+  # about this agent as deployed. The alternative was dropping the model and with it the
+  # four-family heterogeneity the pool exists to provide.
+  - agent_id: 1
+    name: gemini25flash
+    provider: openrouter
+    model: google/gemini-2.5-flash
+    family: google
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+    extra_body:
+      reasoning:
+        max_tokens: 2048
+
+  - agent_id: 2
+    name: qwen3-30b
+    provider: openrouter
+    model: qwen/qwen3-30b-a3b-instruct-2507
+    family: qwen
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+  - agent_id: 3
+    name: mistral-small
+    provider: openrouter
+    model: mistralai/mistral-small-3.2-24b-instruct
+    family: mistral
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+# Not a pool member (agent_id -1); used by protocols that need a neutral third party.
+# The report recommends restricting the strong model to aggregation and validation rather
+# than using it for every call.
+aggregator:
+  name: claude-sonnet
+  provider: openrouter
+  model: anthropic/claude-sonnet-4.6
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384

@@ -1,0 +1,45 @@
+# The powered main suite: 366 tasks, 122 from each of the three MVP domains.
+#
+# 366 is not a round number chosen for convenience. It is what the research report's own power
+# table requires for 80% power to detect an 8-percentage-point paired difference between two
+# protocols at alpha = 0.05, which is the smallest effect the report treats as scientifically
+# interesting. mvp90 was sized against a budget that assumed expensive models; the pilot9-b
+# measurements showed Stage A costs $0.0019 per call, so the powered design costs $2.84 to
+# generate answers for and the constraint moved entirely to the aggregator protocols
+# (see EXPERIMENT_LOG.md, 2026-08-05).
+#
+# Why the paired design is what makes 366 sufficient: every protocol reads the *same* Stage-A
+# answer bank (D-001), so comparisons are exactly paired and the relevant test is McNemar on
+# discordant pairs rather than a two-sample test. An unpaired design at this effect size would
+# need several times as many tasks.
+#
+# Balanced 122/122/122 rather than proportional to the source datasets, because the analysis
+# stratifies by domain throughout: the delegation direction asks whether nearest neighbours
+# differ between semantic and organizational similarity, and leave-one-domain-out is
+# meaningless if one domain is much thinner than the others. GPQA-Diamond has only 198 rows
+# total, which caps any balanced design at 198 per domain.
+
+manifest_id: mvp366
+description: >-
+  Powered 366-task main suite: MATH-500 (demonstrable reasoning), GPQA-Diamond (hard science
+  multiple choice), MMLU-Pro STEM (knowledge-intensive multiple choice), balanced across all
+  three so that domain-stratified and leave-one-domain-out analyses are well conditioned.
+seed: 20260805
+
+# Share of tasks reserved for calibration. The predicted expert must be selected from
+# calibration data only (D-004), so this cannot be zero. At 366 tasks a third leaves 124
+# calibration tasks, comfortably enough to rank four agents per domain, and 242 test tasks —
+# still above the ~200 the power table needs for a 10-point effect if the calibration split
+# had to grow.
+calibration_fraction: 0.34
+
+suites:
+  - suite: math500
+    n: 122
+
+  - suite: gpqa_diamond
+    n: 122
+
+  - suite: mmlu_pro
+    n: 122
+    stem_only: true

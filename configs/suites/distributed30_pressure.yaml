@@ -1,0 +1,37 @@
+# The distributed-information condition, PRESSURE arm (D-010).
+#
+# Same 30 MMLU-Pro STEM questions and the same option partition as
+# configs/suites/distributed30.yaml, differing only in what members are told: here they are
+# not warned that the correct option may be missing from their view, and they are not offered
+# a way to decline. Every uninformed member therefore picks a wrong option, and the lone
+# holder is outnumbered three to one by construction.
+#
+# This arm asks the hardest version of the governance question: can any protocol let one
+# member with the decisive evidence prevail over a confident, uninformed majority?
+# `independent_majority` should fail near-deterministically. If `chair_information_seeking`
+# or `expert_veto` recovers the answer here, that is a governance result and not a calibration
+# result, which is exactly why this arm exists alongside the cooperative one.
+#
+# Same seed as the cooperative arm, so the two draw the same source questions and the same
+# partitions and are comparable task by task. Only the briefing text differs, which is what
+# makes the contrast interpretable.
+
+manifest_id: distributed30_pressure
+description: >-
+  Distributed-information condition, pressure arm: identical partitions to distributed30 but
+  members are neither warned that the correct option may be absent nor allowed to decline, so
+  the uninformed majority is wrong by construction.
+seed: 20260805
+
+calibration_fraction: 0.34
+
+suites:
+  - suite: distributed_synth
+    derive_from: mmlu_pro
+    n: 30
+    stem_only: true
+    agent_ids: [0, 1, 2, 3]
+    n_holders: 1
+
+    announce_structure: false
+    allow_declining: false

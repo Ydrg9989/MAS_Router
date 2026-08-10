@@ -1,0 +1,2593 @@
+{
+  "schema_version": 1,
+  "manifest_id": "distributed30_pressure",
+  "created_at": "2026-08-05T07:14:50+00:00",
+  "seed": 20260805,
+  "description": "Distributed-information condition, pressure arm: identical partitions to distributed30 but members are neither warned that the correct option may be absent nor allowed to decline, so the uninformed majority is wrong by construction.",
+  "content_hash": "b9b0bc9f23db2052e71342d104a513f677e2c2a371ae1563f24a0cc210def2b8",
+  "n_tasks": 30,
+  "counts_by_suite": {
+    "distributed_synth": 30
+  },
+  "counts_by_domain": {
+    "biology": 5,
+    "chemistry": 5,
+    "computer science": 5,
+    "engineering": 5,
+    "math": 5,
+    "physics": 5
+  },
+  "splits": {
+    "calibration": [
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics"
+    ],
+    "test": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ],
+    "lodo_train::biology": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ],
+    "lodo_test::biology": [
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology"
+    ],
+    "lodo_train::chemistry": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ],
+    "lodo_test::chemistry": [
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan"
+    ],
+    "lodo_train::computer science": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ],
+    "lodo_test::computer science": [
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science"
+    ],
+    "lodo_train::engineering": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ],
+    "lodo_test::engineering": [
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines"
+    ],
+    "lodo_train::math": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ],
+    "lodo_test::math": [
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math"
+    ],
+    "lodo_train::physics": [
+      "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "distributed_synth::mmlu_pro::8943::theoremQA-Math"
+    ],
+    "lodo_test::physics": [
+      "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "distributed_synth::mmlu_pro::9978::stemez-Optics"
+    ]
+  },
+  "tasks": [
+    {
+      "task_id": "distributed_synth::mmlu_pro::10128::stemez-Physics",
+      "suite": "distributed_synth",
+      "domain": "physics",
+      "answer_type": "choice",
+      "prompt": "The dew point (the temperature at which the water vapor in a given sample of air becomes saturated and condensation be-comes possible) of a mass of air at 15°C is 10°C. Calculate the relative humidity and the mass of 1 liter of the moist air if the barometric height is 76 cm of mercury. The gram- molecular weight of air is 28.9 g and the saturated aqueous vapor pressures at 10°C and 15°C are 9.2 mm of mercury and 12.8 mm of mercury, respectively.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "D",
+      "payload": {
+        "question_id": 10128,
+        "question": "The dew point (the temperature at which the water vapor in a given sample of air becomes saturated and condensation be-comes possible) of a mass of air at 15°C is 10°C. Calculate the relative humidity and the mass of 1 liter of the moist air if the barometric height is 76 cm of mercury. The gram- molecular weight of air is 28.9 g and the saturated aqueous vapor pressures at 10°C and 15°C are 9.2 mm of mercury and 12.8 mm of mercury, respectively.",
+        "options": [
+          "Relative Humidity: 68%, Mass of 1 liter moist air: 1.3 g",
+          "Relative Humidity: 78%, Mass of 1 liter moist air: 1.28 g",
+          "Relative Humidity: 82%, Mass of 1 liter moist air: 1.22 g",
+          "Relative Humidity: 71.9%, Mass of 1 liter moist air: 1.2346 g",
+          "Relative Humidity: 80%, Mass of 1 liter moist air: 1.25 g",
+          "Relative Humidity: 70%, Mass of 1 liter moist air: 1.5 g",
+          "Relative Humidity: 65%, Mass of 1 liter moist air: 1.2 g",
+          "Relative Humidity: 67%, Mass of 1 liter moist air: 1.35 g",
+          "Relative Humidity: 72.5%, Mass of 1 liter moist air: 1.19 g",
+          "Relative Humidity: 75%, Mass of 1 liter moist air: 1.1 g"
+        ],
+        "answer": "D",
+        "source_task_id": "mmlu_pro::10128::stemez-Physics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "B",
+              "D"
+            ],
+            "1": [
+              "G",
+              "I",
+              "J"
+            ],
+            "2": [
+              "C",
+              "F",
+              "H"
+            ],
+            "3": [
+              "C",
+              "E",
+              "G"
+            ]
+          },
+          "gold": "D",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) Relative Humidity: 68%, Mass of 1 liter moist air: 1.3 g\nB) Relative Humidity: 78%, Mass of 1 liter moist air: 1.28 g\nD) Relative Humidity: 71.9%, Mass of 1 liter moist air: 1.2346 g\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nG) Relative Humidity: 65%, Mass of 1 liter moist air: 1.2 g\nI) Relative Humidity: 72.5%, Mass of 1 liter moist air: 1.19 g\nJ) Relative Humidity: 75%, Mass of 1 liter moist air: 1.1 g\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nC) Relative Humidity: 82%, Mass of 1 liter moist air: 1.22 g\nF) Relative Humidity: 70%, Mass of 1 liter moist air: 1.5 g\nH) Relative Humidity: 67%, Mass of 1 liter moist air: 1.35 g\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nC) Relative Humidity: 82%, Mass of 1 liter moist air: 1.22 g\nE) Relative Humidity: 80%, Mass of 1 liter moist air: 1.25 g\nG) Relative Humidity: 65%, Mass of 1 liter moist air: 1.2 g\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::10365::ori_mmlu-machine_learning",
+      "suite": "distributed_synth",
+      "domain": "computer science",
+      "answer_type": "choice",
+      "prompt": "Statement 1| RELUs are not monotonic, but sigmoids are monotonic. Statement 2| Neural networks trained with gradient descent with high probability converge to the global optimum.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "J",
+      "payload": {
+        "question_id": 10365,
+        "question": "Statement 1| RELUs are not monotonic, but sigmoids are monotonic. Statement 2| Neural networks trained with gradient descent with high probability converge to the global optimum.",
+        "options": [
+          "True, False",
+          "True, True",
+          "Both statements are partially true",
+          "Statement 1 cannot be determined, Statement 2 is false",
+          "Both statements cannot be determined",
+          "False, False",
+          "Statement 1 is false, Statement 2 cannot be determined",
+          "Statement 1 cannot be determined, Statement 2 is true",
+          "Statement 1 is true, Statement 2 cannot be determined",
+          "False, True"
+        ],
+        "answer": "J",
+        "source_task_id": "mmlu_pro::10365::ori_mmlu-machine_learning",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            1
+          ],
+          "holder_agent_ids": [
+            1
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "D",
+              "E"
+            ],
+            "1": [
+              "G",
+              "H",
+              "J"
+            ],
+            "2": [
+              "B",
+              "C",
+              "E"
+            ],
+            "3": [
+              "B",
+              "F",
+              "I"
+            ]
+          },
+          "gold": "J",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) True, False\nD) Statement 1 cannot be determined, Statement 2 is false\nE) Both statements cannot be determined\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nG) Statement 1 is false, Statement 2 cannot be determined\nH) Statement 1 cannot be determined, Statement 2 is true\nJ) False, True\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) True, True\nC) Both statements are partially true\nE) Both statements cannot be determined\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) True, True\nF) False, False\nI) Statement 1 is true, Statement 2 cannot be determined\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::10437::theoremQA-EECS",
+      "suite": "distributed_synth",
+      "domain": "computer science",
+      "answer_type": "choice",
+      "prompt": "In an IPv4 datagram, the value of the total-length field is $(00 \\mathrm{~A} 0)_{16}$ and the value of the headerlength (HLEN) is (5) $1_{16}$. How many bytes of payload are being carried by the datagram?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "F",
+      "payload": {
+        "question_id": 10437,
+        "question": "In an IPv4 datagram, the value of the total-length field is $(00 \\mathrm{~A} 0)_{16}$ and the value of the headerlength (HLEN) is (5) $1_{16}$. How many bytes of payload are being carried by the datagram?",
+        "options": [
+          "220",
+          "240",
+          "150",
+          "180",
+          "100",
+          "140",
+          "160",
+          "200",
+          "260",
+          "120"
+        ],
+        "answer": "F",
+        "source_task_id": "mmlu_pro::10437::theoremQA-EECS",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            2
+          ],
+          "holder_agent_ids": [
+            2
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "C",
+              "D",
+              "I"
+            ],
+            "1": [
+              "A",
+              "E",
+              "H"
+            ],
+            "2": [
+              "D",
+              "F",
+              "H"
+            ],
+            "3": [
+              "B",
+              "G",
+              "J"
+            ]
+          },
+          "gold": "F",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nC) 150\nD) 180\nI) 260\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) 220\nE) 100\nH) 200\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nD) 180\nF) 140\nH) 200\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) 240\nG) 160\nJ) 120\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::10639::ori_mmlu-computer_security",
+      "suite": "distributed_synth",
+      "domain": "computer science",
+      "answer_type": "choice",
+      "prompt": "Failed sessions allow brute-force attacks on access credentials. This type of attacks are done in which layer of the OSI model?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "J",
+      "payload": {
+        "question_id": 10639,
+        "question": "Failed sessions allow brute-force attacks on access credentials. This type of attacks are done in which layer of the OSI model?",
+        "options": [
+          "Data-link Layer",
+          "Transport layer",
+          "Interface layer",
+          "Security layer",
+          "Application layer",
+          "Physical layer",
+          "Network layer",
+          "Communication layer",
+          "Presentation layer",
+          "Session layer"
+        ],
+        "answer": "J",
+        "source_task_id": "mmlu_pro::10639::ori_mmlu-computer_security",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "G",
+              "J"
+            ],
+            "1": [
+              "C",
+              "D",
+              "E"
+            ],
+            "2": [
+              "E",
+              "F",
+              "H"
+            ],
+            "3": [
+              "B",
+              "G",
+              "I"
+            ]
+          },
+          "gold": "J",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) Data-link Layer\nG) Network layer\nJ) Session layer\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nC) Interface layer\nD) Security layer\nE) Application layer\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nE) Application layer\nF) Physical layer\nH) Communication layer\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) Transport layer\nG) Network layer\nI) Presentation layer\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::10697::theoremQA-EECS",
+      "suite": "distributed_synth",
+      "domain": "computer science",
+      "answer_type": "choice",
+      "prompt": "Let $X$ be uniformly distributed over $\\{1, 2, \\ldots, m\\}$. Assume $m=2^n$ . We ask random questions: Is $X\\in S_1$? Is $X\\in S_2$? ... until only one integer remains. All $2^m$ subsets of $\\{1, 2, \\ldots, m\\}$ are equally likely. Suppose we ask $n+\\sqrt{n}$ random questions. Use Markov's inequality to find the probability of error (one or more wrong objects remaining) when $n$ goes to infinity?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "D",
+      "payload": {
+        "question_id": 10697,
+        "question": "Let $X$ be uniformly distributed over $\\{1, 2, \\ldots, m\\}$. Assume $m=2^n$ . We ask random questions: Is $X\\in S_1$? Is $X\\in S_2$? ... until only one integer remains. All $2^m$ subsets of $\\{1, 2, \\ldots, m\\}$ are equally likely. Suppose we ask $n+\\sqrt{n}$ random questions. Use Markov's inequality to find the probability of error (one or more wrong objects remaining) when $n$ goes to infinity?",
+        "options": [
+          "0.3",
+          "0.4",
+          "0.1",
+          "0.0",
+          "0.7",
+          "0.2",
+          "0.5",
+          "1.0",
+          "0.8",
+          "0.6"
+        ],
+        "answer": "D",
+        "source_task_id": "mmlu_pro::10697::theoremQA-EECS",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            1
+          ],
+          "holder_agent_ids": [
+            1
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "G",
+              "J"
+            ],
+            "1": [
+              "A",
+              "D",
+              "H"
+            ],
+            "2": [
+              "B",
+              "C",
+              "I"
+            ],
+            "3": [
+              "C",
+              "F",
+              "J"
+            ]
+          },
+          "gold": "D",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) 0.7\nG) 0.5\nJ) 0.6\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) 0.3\nD) 0.0\nH) 1.0\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) 0.4\nC) 0.1\nI) 0.8\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nC) 0.1\nF) 0.2\nJ) 0.6\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+      "suite": "distributed_synth",
+      "domain": "computer science",
+      "answer_type": "choice",
+      "prompt": "Which is the largest asymptotically?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 10750,
+        "question": "Which is the largest asymptotically?",
+        "options": [
+          "O(n^2)",
+          "O(n^3)",
+          "O(sqrt(n))",
+          "O(2^n)",
+          "O(log n)",
+          "O(n log n)",
+          "O(log log n)",
+          "O(1)",
+          "O(n)"
+        ],
+        "answer": "A",
+        "source_task_id": "mmlu_pro::10750::ori_mmlu-high_school_computer_science",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "F",
+              "I"
+            ],
+            "1": [
+              "D",
+              "E",
+              "G"
+            ],
+            "2": [
+              "D",
+              "H",
+              "I"
+            ],
+            "3": [
+              "A",
+              "C",
+              "H"
+            ]
+          },
+          "gold": "A",
+          "n_options": 9,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) O(n^3)\nF) O(n log n)\nI) O(n)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nD) O(2^n)\nE) O(log n)\nG) O(log log n)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nD) O(2^n)\nH) O(1)\nI) O(n)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) O(n^2)\nC) O(sqrt(n))\nH) O(1)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::11386::stemez-ElectricalMachines",
+      "suite": "distributed_synth",
+      "domain": "engineering",
+      "answer_type": "choice",
+      "prompt": "(i) A 1000 kVA, 4600 V, three-phase, wye-connected alternator has an armature resistance of 2 ohms per phase and a synchronous armature reactance, X_s, of 20 ohms per phase. Find the full-load generated voltage per phase at: (a) Unity power factor (b) A power factor of 0.75 lagging (ii) Repeat part (i) to determine the generated voltage per phase at full load with: (a) A leading load of 0.75 PF (b) A leading load of 0.4 PF.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "C",
+      "payload": {
+        "question_id": 11386,
+        "question": "(i) A 1000 kVA, 4600 V, three-phase, wye-connected alternator has an armature resistance of 2 ohms per phase and a synchronous armature reactance, X_s, of 20 ohms per phase. Find the full-load generated voltage per phase at: (a) Unity power factor (b) A power factor of 0.75 lagging (ii) Repeat part (i) to determine the generated voltage per phase at full load with: (a) A leading load of 0.75 PF (b) A leading load of 0.4 PF.",
+        "options": [
+          "3600 V/phase, 4600 V/phase, 2200 V/phase, 1200 V/phase",
+          "3950 V/phase, 4950 V/phase, 2450 V/phase, 1450 V/phase",
+          "3845 V/phase, 4820 V/phase, 2360 V/phase, 1315 V/phase",
+          "3800 V/phase, 4800 V/phase, 2350 V/phase, 1320 V/phase",
+          "4000 V/phase, 5000 V/phase, 2500 V/phase, 1500 V/phase",
+          "3900 V/phase, 4900 V/phase, 2400 V/phase, 1400 V/phase",
+          "3700 V/phase, 4700 V/phase, 2300 V/phase, 1300 V/phase",
+          "3650 V/phase, 4650 V/phase, 2250 V/phase, 1250 V/phase",
+          "3850 V/phase, 4850 V/phase, 2380 V/phase, 1335 V/phase",
+          "3750 V/phase, 4750 V/phase, 2280 V/phase, 1285 V/phase"
+        ],
+        "answer": "C",
+        "source_task_id": "mmlu_pro::11386::stemez-ElectricalMachines",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "C",
+              "E",
+              "H"
+            ],
+            "1": [
+              "B",
+              "D",
+              "F"
+            ],
+            "2": [
+              "A",
+              "I",
+              "J"
+            ],
+            "3": [
+              "D",
+              "G",
+              "H"
+            ]
+          },
+          "gold": "C",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nC) 3845 V/phase, 4820 V/phase, 2360 V/phase, 1315 V/phase\nE) 4000 V/phase, 5000 V/phase, 2500 V/phase, 1500 V/phase\nH) 3650 V/phase, 4650 V/phase, 2250 V/phase, 1250 V/phase\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nB) 3950 V/phase, 4950 V/phase, 2450 V/phase, 1450 V/phase\nD) 3800 V/phase, 4800 V/phase, 2350 V/phase, 1320 V/phase\nF) 3900 V/phase, 4900 V/phase, 2400 V/phase, 1400 V/phase\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nA) 3600 V/phase, 4600 V/phase, 2200 V/phase, 1200 V/phase\nI) 3850 V/phase, 4850 V/phase, 2380 V/phase, 1335 V/phase\nJ) 3750 V/phase, 4750 V/phase, 2280 V/phase, 1285 V/phase\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nD) 3800 V/phase, 4800 V/phase, 2350 V/phase, 1320 V/phase\nG) 3700 V/phase, 4700 V/phase, 2300 V/phase, 1300 V/phase\nH) 3650 V/phase, 4650 V/phase, 2250 V/phase, 1250 V/phase\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::11435::ori_mmlu-electrical_engineering",
+      "suite": "distributed_synth",
+      "domain": "engineering",
+      "answer_type": "choice",
+      "prompt": "The moving coil-meters, damping is provided by\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "I",
+      "payload": {
+        "question_id": 11435,
+        "question": "The moving coil-meters, damping is provided by",
+        "options": [
+          "the resistance of the coil.",
+          "the inertia of the coil.",
+          "the coil spring attached to the moving.",
+          "the electric charge in the coil.",
+          "the magnetic field created by the coil.",
+          "damping vane in the airtight chamber.",
+          "the friction between the coil and the frame.",
+          "the gravitational pull on the coil.",
+          "the aluminium frame of the coil."
+        ],
+        "answer": "I",
+        "source_task_id": "mmlu_pro::11435::ori_mmlu-electrical_engineering",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            2
+          ],
+          "holder_agent_ids": [
+            2
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "D",
+              "E"
+            ],
+            "1": [
+              "A",
+              "G",
+              "H"
+            ],
+            "2": [
+              "C",
+              "F",
+              "I"
+            ],
+            "3": [
+              "D",
+              "E",
+              "G"
+            ]
+          },
+          "gold": "I",
+          "n_options": 9,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) the inertia of the coil.\nD) the electric charge in the coil.\nE) the magnetic field created by the coil.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) the resistance of the coil.\nG) the friction between the coil and the frame.\nH) the gravitational pull on the coil.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nC) the coil spring attached to the moving.\nF) damping vane in the airtight chamber.\nI) the aluminium frame of the coil.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nD) the electric charge in the coil.\nE) the magnetic field created by the coil.\nG) the friction between the coil and the frame.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::11440::stemez-Thermodynamics",
+      "suite": "distributed_synth",
+      "domain": "engineering",
+      "answer_type": "choice",
+      "prompt": "Two pounds of oxygen undergo a polytropic process in which they are compressed from an initial state of 14 psia and 70°F, to a final pressure of 98 psia along a path for which PV^1.3 = C. Using the polytropic equation calculate, (a) the heat transferred, and (b) the change of entropy for this process. Assume that for oxygen R = 0.062 Btu/1bm-°R c_p = 0.217 Btu/1bm-°R\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "I",
+      "payload": {
+        "question_id": 11440,
+        "question": "Two pounds of oxygen undergo a polytropic process in which they are compressed from an initial state of 14 psia and 70°F, to a final pressure of 98 psia along a path for which PV^1.3 = C. Using the polytropic equation calculate, (a) the heat transferred, and (b) the change of entropy for this process. Assume that for oxygen R = 0.062 Btu/1bm-°R c_p = 0.217 Btu/1bm-°R",
+        "options": [
+          "(a) - 34.2 Btu, (b) - 0.0166 Btu/°R",
+          "(a) - 36.2 Btu, (b) + 0.0034 Btu/°R",
+          "(a) - 28.2 Btu, (b) - 0.0666 Btu/°R",
+          "(a) - 32.2 Btu, (b) - 0.0366 Btu/°R",
+          "(a) - 30.2 Btu, (b) - 0.0566 Btu/°R",
+          "(a) - 29.2 Btu, (b) - 0.0566 Btu/°R",
+          "(a) - 35.2 Btu, (b) - 0.0066 Btu/°R",
+          "(a) - 27.2 Btu, (b) - 0.0766 Btu/°R",
+          "(a) - 31.2 Btu, (b) - 0.0466 Btu/°R",
+          "(a) - 33.2 Btu, (b) - 0.0266 Btu/°R"
+        ],
+        "answer": "I",
+        "source_task_id": "mmlu_pro::11440::stemez-Thermodynamics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "D",
+              "H"
+            ],
+            "1": [
+              "A",
+              "E",
+              "J"
+            ],
+            "2": [
+              "B",
+              "C",
+              "F"
+            ],
+            "3": [
+              "E",
+              "G",
+              "I"
+            ]
+          },
+          "gold": "I",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) (a) - 36.2 Btu, (b) + 0.0034 Btu/°R\nD) (a) - 32.2 Btu, (b) - 0.0366 Btu/°R\nH) (a) - 27.2 Btu, (b) - 0.0766 Btu/°R\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) (a) - 34.2 Btu, (b) - 0.0166 Btu/°R\nE) (a) - 30.2 Btu, (b) - 0.0566 Btu/°R\nJ) (a) - 33.2 Btu, (b) - 0.0266 Btu/°R\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) (a) - 36.2 Btu, (b) + 0.0034 Btu/°R\nC) (a) - 28.2 Btu, (b) - 0.0666 Btu/°R\nF) (a) - 29.2 Btu, (b) - 0.0566 Btu/°R\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nE) (a) - 30.2 Btu, (b) - 0.0566 Btu/°R\nG) (a) - 35.2 Btu, (b) - 0.0066 Btu/°R\nI) (a) - 31.2 Btu, (b) - 0.0466 Btu/°R\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::11687::stemez-Electromagnetics",
+      "suite": "distributed_synth",
+      "domain": "engineering",
+      "answer_type": "choice",
+      "prompt": "Prescribe, by an appropriate unit vector, the direction in which a positive test charge should be moved from (1, 3, - 1) in the fieldE= - xa_x + ya_y + 3a_z to experience (a) a maximum opposing force; (b) a maximum aiding force.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "E",
+      "payload": {
+        "question_id": 11687,
+        "question": "Prescribe, by an appropriate unit vector, the direction in which a positive test charge should be moved from (1, 3, - 1) in the fieldE= - xa_x + ya_y + 3a_z to experience (a) a maximum opposing force; (b) a maximum aiding force.",
+        "options": [
+          "0.688a_x + 0.229a_y + 0.688a_z, -0.688a_x - 0.229a_y - 0.688a_z",
+          "0.229a_x + 0.229a_y + 0.688a_z, -0.229a_x - 0.229a_y - 0.688a_z",
+          "0.229a_x - 0.688a_y + 0.688a_z, - 0.229a_x + 0.688a_y - 0.688a_z",
+          "0.229a_x + 0.688a_y + 0.229a_z, -0.229a_x - 0.688a_y - 0.229a_z",
+          "0.229a_x - 0.688a_y - 0.688a_z, - 0.229a_x + 0.688a_y + 0.688a_z",
+          "0.688a_x - 0.229a_y + 0.229a_z, -0.688a_x + 0.229a_y - 0.229a_z",
+          "0.688a_x + 0.688a_y - 0.229a_z, -0.688a_x - 0.688a_y + 0.229a_z",
+          "-0.229a_x + 0.688a_y + 0.688a_z, 0.229a_x - 0.688a_y - 0.688a_z",
+          "0.688a_x - 0.229a_y - 0.688a_z, - 0.688a_x + 0.229a_y + 0.688a_z",
+          "0.688a_x - 0.688a_y + 0.229a_z, - 0.688a_x + 0.688a_y - 0.229a_z"
+        ],
+        "answer": "E",
+        "source_task_id": "mmlu_pro::11687::stemez-Electromagnetics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "D",
+              "E"
+            ],
+            "1": [
+              "C",
+              "H",
+              "I"
+            ],
+            "2": [
+              "F",
+              "G",
+              "I"
+            ],
+            "3": [
+              "A",
+              "C",
+              "J"
+            ]
+          },
+          "gold": "E",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) 0.229a_x + 0.229a_y + 0.688a_z, -0.229a_x - 0.229a_y - 0.688a_z\nD) 0.229a_x + 0.688a_y + 0.229a_z, -0.229a_x - 0.688a_y - 0.229a_z\nE) 0.229a_x - 0.688a_y - 0.688a_z, - 0.229a_x + 0.688a_y + 0.688a_z\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nC) 0.229a_x - 0.688a_y + 0.688a_z, - 0.229a_x + 0.688a_y - 0.688a_z\nH) -0.229a_x + 0.688a_y + 0.688a_z, 0.229a_x - 0.688a_y - 0.688a_z\nI) 0.688a_x - 0.229a_y - 0.688a_z, - 0.688a_x + 0.229a_y + 0.688a_z\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nF) 0.688a_x - 0.229a_y + 0.229a_z, -0.688a_x + 0.229a_y - 0.229a_z\nG) 0.688a_x + 0.688a_y - 0.229a_z, -0.688a_x - 0.688a_y + 0.229a_z\nI) 0.688a_x - 0.229a_y - 0.688a_z, - 0.688a_x + 0.229a_y + 0.688a_z\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) 0.688a_x + 0.229a_y + 0.688a_z, -0.688a_x - 0.229a_y - 0.688a_z\nC) 0.229a_x - 0.688a_y + 0.688a_z, - 0.229a_x + 0.688a_y - 0.688a_z\nJ) 0.688a_x - 0.688a_y + 0.229a_z, - 0.688a_x + 0.688a_y - 0.229a_z\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::11831::stemez-ElectricalMachines",
+      "suite": "distributed_synth",
+      "domain": "engineering",
+      "answer_type": "choice",
+      "prompt": "voltage = 250J = 1.2 n-m-sec^2 line current = 95 amperes speed = 863 rpm armature resistance = 0.10 ohm field resistance = 225 ohms The d-c machine is to be used as a separately excited generator. It is to deliver a full load current of 95 amperes at a voltage of 250 when driven at a constant speed of 900 rpm. The field is supplied from a constant voltage source of 250 volts. Determine, (a) the gross field circuit resistance and field current for the stated full load conditions, (b) the electromagnetic torque and power, (c) the no load terminal voltage and the voltage regulation in percent.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "J",
+      "payload": {
+        "question_id": 11831,
+        "question": "voltage = 250J = 1.2 n-m-sec^2 line current = 95 amperes speed = 863 rpm armature resistance = 0.10 ohm field resistance = 225 ohms The d-c machine is to be used as a separately excited generator. It is to deliver a full load current of 95 amperes at a voltage of 250 when driven at a constant speed of 900 rpm. The field is supplied from a constant voltage source of 250 volts. Determine, (a) the gross field circuit resistance and field current for the stated full load conditions, (b) the electromagnetic torque and power, (c) the no load terminal voltage and the voltage regulation in percent.",
+        "options": [
+          "gross field circuit resistance and field current: 220 ohms, 1.2 amp; electromagnetic torque and power: 260 newton-meters, 25,000 watts; no-load terminal voltage and voltage regulation: 260 volts, 3.5%",
+          "gross field circuit resistance and field current: 210 ohms, 1.3 amp; electromagnetic torque and power: 270 newton-meters, 24,000 watts; no-load terminal voltage and voltage regulation: 270 volts, 4.5%",
+          "gross field circuit resistance and field current: 222 ohms, 1.13 amp; electromagnetic torque and power: 263 newton-meters, 24,400 watts; no-load terminal voltage and voltage regulation: 263 volts, 5.2%",
+          "gross field circuit resistance and field current: 200 ohms, 1.5 amp; electromagnetic torque and power: 250 newton-meters, 23,000 watts; no-load terminal voltage and voltage regulation: 250 volts, 4%",
+          "gross field circuit resistance and field current: 225 ohms, 1.1 amp; electromagnetic torque and power: 248 newton-meters, 22,320 watts; no-load terminal voltage and voltage regulation: 248 volts, 0.8%",
+          "gross field circuit resistance and field current: 235 ohms, 1.06 amp; electromagnetic torque and power: 258 newton-meters, 23,700 watts; no-load terminal voltage and voltage regulation: 258 volts, 3.2%",
+          "gross field circuit resistance and field current: 230 ohms, 1.09 amp; electromagnetic torque and power: 265 newton-meters, 24,800 watts; no-load terminal voltage and voltage regulation: 265 volts, 6%",
+          "gross field circuit resistance and field current: 215 ohms, 1.16 amp; electromagnetic torque and power: 255 newton-meters, 23,500 watts; no-load terminal voltage and voltage regulation: 255 volts, 2%",
+          "gross field circuit resistance and field current: 240 ohms, 1.04 amp; electromagnetic torque and power: 253 newton-meters, 22,770 watts; no-load terminal voltage and voltage regulation: 253 volts, 1.2%",
+          "gross field circuit resistance and field current: 218.3 ohms, 1.144 amp; electromagnetic torque and power: 261 newton-meters, 24,650 watts; no-load terminal voltage and voltage regulation: 259.5 volts, 3.8%"
+        ],
+        "answer": "J",
+        "source_task_id": "mmlu_pro::11831::stemez-ElectricalMachines",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            1
+          ],
+          "holder_agent_ids": [
+            1
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "D",
+              "F",
+              "I"
+            ],
+            "1": [
+              "B",
+              "H",
+              "J"
+            ],
+            "2": [
+              "A",
+              "E",
+              "G"
+            ],
+            "3": [
+              "C",
+              "D",
+              "F"
+            ]
+          },
+          "gold": "J",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nD) gross field circuit resistance and field current: 200 ohms, 1.5 amp; electromagnetic torque and power: 250 newton-meters, 23,000 watts; no-load terminal voltage and voltage regulation: 250 volts, 4%\nF) gross field circuit resistance and field current: 235 ohms, 1.06 amp; electromagnetic torque and power: 258 newton-meters, 23,700 watts; no-load terminal voltage and voltage regulation: 258 volts, 3.2%\nI) gross field circuit resistance and field current: 240 ohms, 1.04 amp; electromagnetic torque and power: 253 newton-meters, 22,770 watts; no-load terminal voltage and voltage regulation: 253 volts, 1.2%\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nB) gross field circuit resistance and field current: 210 ohms, 1.3 amp; electromagnetic torque and power: 270 newton-meters, 24,000 watts; no-load terminal voltage and voltage regulation: 270 volts, 4.5%\nH) gross field circuit resistance and field current: 215 ohms, 1.16 amp; electromagnetic torque and power: 255 newton-meters, 23,500 watts; no-load terminal voltage and voltage regulation: 255 volts, 2%\nJ) gross field circuit resistance and field current: 218.3 ohms, 1.144 amp; electromagnetic torque and power: 261 newton-meters, 24,650 watts; no-load terminal voltage and voltage regulation: 259.5 volts, 3.8%\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nA) gross field circuit resistance and field current: 220 ohms, 1.2 amp; electromagnetic torque and power: 260 newton-meters, 25,000 watts; no-load terminal voltage and voltage regulation: 260 volts, 3.5%\nE) gross field circuit resistance and field current: 225 ohms, 1.1 amp; electromagnetic torque and power: 248 newton-meters, 22,320 watts; no-load terminal voltage and voltage regulation: 248 volts, 0.8%\nG) gross field circuit resistance and field current: 230 ohms, 1.09 amp; electromagnetic torque and power: 265 newton-meters, 24,800 watts; no-load terminal voltage and voltage regulation: 265 volts, 6%\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nC) gross field circuit resistance and field current: 222 ohms, 1.13 amp; electromagnetic torque and power: 263 newton-meters, 24,400 watts; no-load terminal voltage and voltage regulation: 263 volts, 5.2%\nD) gross field circuit resistance and field current: 200 ohms, 1.5 amp; electromagnetic torque and power: 250 newton-meters, 23,000 watts; no-load terminal voltage and voltage regulation: 250 volts, 4%\nF) gross field circuit resistance and field current: 235 ohms, 1.06 amp; electromagnetic torque and power: 258 newton-meters, 23,700 watts; no-load terminal voltage and voltage regulation: 258 volts, 3.2%\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3030::stemez-Biology",
+      "suite": "distributed_synth",
+      "domain": "biology",
+      "answer_type": "choice",
+      "prompt": "A typical bacterial cell has a cell wall and plasma membrane. If the cell wall is removed by treatment withlysozyme, an enzyme that selectively dissolves the cell wall material, will the bacteria live? Explain. What is the biochemicaldifference between the cell walls of bacteria, and plants?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 3030,
+        "question": "A typical bacterial cell has a cell wall and plasma membrane. If the cell wall is removed by treatment withlysozyme, an enzyme that selectively dissolves the cell wall material, will the bacteria live? Explain. What is the biochemicaldifference between the cell walls of bacteria, and plants?",
+        "options": [
+          "The bacterial cell can live without its cell wall in an isotonic medium, where the osmotic pressure is equal to the bacterial protoplasm. The cell wall of bacteria is composed of insoluble peptidoglycan, while the cell wall in eucaryotes is composed of cellulose.",
+          "The bacterial cell will immediately die without its cell wall, as the plasma membrane alone cannot withstand osmotic pressure. The cell wall of bacteria is similar to that of plants, both composed of cellulose.",
+          "The bacterial cell can live without its cell wall as long as it is provided with an external structural support. The cell wall of bacteria is composed of a complex mixture of proteins and carbohydrates, distinct from the cellulose-based cell walls of plants.",
+          "The cell wall in eucaryotes is composed of peptidoglycan.",
+          "The bacterial cell can only live without its cell wall in a hypertonic medium, where the osmotic pressure is higher outside than inside the bacterial protoplasm. The cell wall of bacteria is composed of chitin, while the cell wall in eucaryotes is composed of cellulose.",
+          "The bacterial cell can survive without its cell wall in a hypotonic medium, where the osmotic pressure is lower outside than inside the bacterial protoplasm. The cell wall of bacteria is made of glycoproteins, in contrast to the cellulose in plant cell walls.",
+          "The bacterial cell cannot survive without its cell wall in any circumstances.",
+          "The cell wall of bacteria is composed of lipids.",
+          "The bacterial cell wall can regenerate quickly after removal, allowing the bacteria to survive without it temporarily. The biochemical difference is that bacterial cell walls have a higher lipid content compared to the cellulose-rich cell walls of plants.",
+          "The bacterial cell cannot live without its cell wall because it provides essential nutrients. The cell walls of bacteria are made primarily of lignin, whereas plant cell walls are composed of cellulose and lignin."
+        ],
+        "answer": "A",
+        "source_task_id": "mmlu_pro::3030::stemez-Biology",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "F",
+              "G"
+            ],
+            "1": [
+              "D",
+              "G",
+              "H"
+            ],
+            "2": [
+              "C",
+              "I",
+              "J"
+            ],
+            "3": [
+              "A",
+              "B",
+              "F"
+            ]
+          },
+          "gold": "A",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) The bacterial cell can only live without its cell wall in a hypertonic medium, where the osmotic pressure is higher outside than inside the bacterial protoplasm. The cell wall of bacteria is composed of chitin, while the cell wall in eucaryotes is composed of cellulose.\nF) The bacterial cell can survive without its cell wall in a hypotonic medium, where the osmotic pressure is lower outside than inside the bacterial protoplasm. The cell wall of bacteria is made of glycoproteins, in contrast to the cellulose in plant cell walls.\nG) The bacterial cell cannot survive without its cell wall in any circumstances.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nD) The cell wall in eucaryotes is composed of peptidoglycan.\nG) The bacterial cell cannot survive without its cell wall in any circumstances.\nH) The cell wall of bacteria is composed of lipids.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nC) The bacterial cell can live without its cell wall as long as it is provided with an external structural support. The cell wall of bacteria is composed of a complex mixture of proteins and carbohydrates, distinct from the cellulose-based cell walls of plants.\nI) The bacterial cell wall can regenerate quickly after removal, allowing the bacteria to survive without it temporarily. The biochemical difference is that bacterial cell walls have a higher lipid content compared to the cellulose-rich cell walls of plants.\nJ) The bacterial cell cannot live without its cell wall because it provides essential nutrients. The cell walls of bacteria are made primarily of lignin, whereas plant cell walls are composed of cellulose and lignin.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) The bacterial cell can live without its cell wall in an isotonic medium, where the osmotic pressure is equal to the bacterial protoplasm. The cell wall of bacteria is composed of insoluble peptidoglycan, while the cell wall in eucaryotes is composed of cellulose.\nB) The bacterial cell will immediately die without its cell wall, as the plasma membrane alone cannot withstand osmotic pressure. The cell wall of bacteria is similar to that of plants, both composed of cellulose.\nF) The bacterial cell can survive without its cell wall in a hypotonic medium, where the osmotic pressure is lower outside than inside the bacterial protoplasm. The cell wall of bacteria is made of glycoproteins, in contrast to the cellulose in plant cell walls.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3123::stemez-Biology",
+      "suite": "distributed_synth",
+      "domain": "biology",
+      "answer_type": "choice",
+      "prompt": "Describe locomotion in the amoeba.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "B",
+      "payload": {
+        "question_id": 3123,
+        "question": "Describe locomotion in the amoeba.",
+        "options": [
+          "Amoebas move by rolling over their surface in a continuous motion.",
+          "The locomotion of amoeba involves the projection of a pseudopodium, into which the inner endoplasm flows, causing the organism to advance. This process is often irregular and responsive to environmental stimulation.",
+          "Locomotion in amoebas is achieved through a series of rapid, snake-like slithering movements.",
+          "The amoeba relies on wind currents to drift from one location to another.",
+          "The amoeba moves by jumping from one place to another.",
+          "The amoeba propels itself forward using tiny hair-like structures called cilia.",
+          "The amoeba uses flagella for locomotion.",
+          "The amoeba moves by contracting and expanding its body.",
+          "Amoebas use jet propulsion by expelling water from their bodies to move.",
+          "The amoeba secretes a slime trail and glides forward with rhythmic muscle contractions."
+        ],
+        "answer": "B",
+        "source_task_id": "mmlu_pro::3123::stemez-Biology",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "E",
+              "I"
+            ],
+            "1": [
+              "F",
+              "G",
+              "H"
+            ],
+            "2": [
+              "A",
+              "C",
+              "F"
+            ],
+            "3": [
+              "D",
+              "E",
+              "J"
+            ]
+          },
+          "gold": "B",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) The locomotion of amoeba involves the projection of a pseudopodium, into which the inner endoplasm flows, causing the organism to advance. This process is often irregular and responsive to environmental stimulation.\nE) The amoeba moves by jumping from one place to another.\nI) Amoebas use jet propulsion by expelling water from their bodies to move.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nF) The amoeba propels itself forward using tiny hair-like structures called cilia.\nG) The amoeba uses flagella for locomotion.\nH) The amoeba moves by contracting and expanding its body.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nA) Amoebas move by rolling over their surface in a continuous motion.\nC) Locomotion in amoebas is achieved through a series of rapid, snake-like slithering movements.\nF) The amoeba propels itself forward using tiny hair-like structures called cilia.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nD) The amoeba relies on wind currents to drift from one location to another.\nE) The amoeba moves by jumping from one place to another.\nJ) The amoeba secretes a slime trail and glides forward with rhythmic muscle contractions.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3401::stemez-Genetics",
+      "suite": "distributed_synth",
+      "domain": "biology",
+      "answer_type": "choice",
+      "prompt": "What are the different types of point mutations?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "B",
+      "payload": {
+        "question_id": 3401,
+        "question": "What are the different types of point mutations?",
+        "options": [
+          "Frame shift mutations and nucleotide repeats",
+          "Base substitutions and small insertions and deletions",
+          "Base additions and large insertions",
+          "Silent mutations and missense mutations",
+          "Duplication mutations and triplet repeat expansions",
+          "Inversion mutations and base modifications",
+          "Transitions and transversions",
+          "Nonsense mutations and splice site mutations",
+          "Nucleotide flipping and deletions",
+          "Single nucleotide polymorphisms and chromosomal rearrangements"
+        ],
+        "answer": "B",
+        "source_task_id": "mmlu_pro::3401::stemez-Genetics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "D",
+              "E"
+            ],
+            "1": [
+              "A",
+              "H",
+              "J"
+            ],
+            "2": [
+              "C",
+              "D",
+              "F"
+            ],
+            "3": [
+              "B",
+              "G",
+              "I"
+            ]
+          },
+          "gold": "B",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) Frame shift mutations and nucleotide repeats\nD) Silent mutations and missense mutations\nE) Duplication mutations and triplet repeat expansions\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) Frame shift mutations and nucleotide repeats\nH) Nonsense mutations and splice site mutations\nJ) Single nucleotide polymorphisms and chromosomal rearrangements\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nC) Base additions and large insertions\nD) Silent mutations and missense mutations\nF) Inversion mutations and base modifications\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) Base substitutions and small insertions and deletions\nG) Transitions and transversions\nI) Nucleotide flipping and deletions\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3441::ori_mmlu-college_biology",
+      "suite": "distributed_synth",
+      "domain": "biology",
+      "answer_type": "choice",
+      "prompt": "Cleavage symmetry arising from early cell divisions that occur at an oblique angle to the polar axis is known as\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "H",
+      "payload": {
+        "question_id": 3441,
+        "question": "Cleavage symmetry arising from early cell divisions that occur at an oblique angle to the polar axis is known as",
+        "options": [
+          "rotational cleavage",
+          "radial cleavage",
+          "transverse cleavage",
+          "holoblastic cleavage",
+          "concentric cleavage",
+          "superficial cleavage",
+          "bilateral cleavage",
+          "spiral cleavage",
+          "meroblastic cleavage",
+          "oblique cleavage"
+        ],
+        "answer": "H",
+        "source_task_id": "mmlu_pro::3441::ori_mmlu-college_biology",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "G",
+              "H"
+            ],
+            "1": [
+              "A",
+              "D",
+              "J"
+            ],
+            "2": [
+              "B",
+              "F",
+              "J"
+            ],
+            "3": [
+              "B",
+              "C",
+              "I"
+            ]
+          },
+          "gold": "H",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) concentric cleavage\nG) bilateral cleavage\nH) spiral cleavage\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) rotational cleavage\nD) holoblastic cleavage\nJ) oblique cleavage\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) radial cleavage\nF) superficial cleavage\nJ) oblique cleavage\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) radial cleavage\nC) transverse cleavage\nI) meroblastic cleavage\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3471::stemez-Biology",
+      "suite": "distributed_synth",
+      "domain": "biology",
+      "answer_type": "choice",
+      "prompt": "What hormones are involved with the changes that occur in a pubescent female and male?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "H",
+      "payload": {
+        "question_id": 3471,
+        "question": "What hormones are involved with the changes that occur in a pubescent female and male?",
+        "options": [
+          "Cortisol, aldosterone, and adrenal androgens",
+          "Insulin, glucagon, and somatostatin",
+          "Cholecystokinin, ghrelin, and leptin",
+          "Vasopressin, erythropoietin, and renin",
+          "Epinephrine, norepinephrine, and dopamine",
+          "Melatonin, serotonin, and endorphins",
+          "Growth hormone, prolactin, and oxytocin",
+          "FSH (follicle stimulating hormone), LH (luteinizing hormone), estrogen, progesterone, and testosterone",
+          "Calcitonin, parathyroid hormone, and vitamin D",
+          "Thyroxine (T4) and triiodothyronine (T3)"
+        ],
+        "answer": "H",
+        "source_task_id": "mmlu_pro::3471::stemez-Biology",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            1
+          ],
+          "holder_agent_ids": [
+            1
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "G",
+              "J"
+            ],
+            "1": [
+              "A",
+              "H",
+              "I"
+            ],
+            "2": [
+              "B",
+              "C",
+              "D"
+            ],
+            "3": [
+              "B",
+              "F",
+              "G"
+            ]
+          },
+          "gold": "H",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) Epinephrine, norepinephrine, and dopamine\nG) Growth hormone, prolactin, and oxytocin\nJ) Thyroxine (T4) and triiodothyronine (T3)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) Cortisol, aldosterone, and adrenal androgens\nH) FSH (follicle stimulating hormone), LH (luteinizing hormone), estrogen, progesterone, and testosterone\nI) Calcitonin, parathyroid hormone, and vitamin D\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) Insulin, glucagon, and somatostatin\nC) Cholecystokinin, ghrelin, and leptin\nD) Vasopressin, erythropoietin, and renin\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) Insulin, glucagon, and somatostatin\nF) Melatonin, serotonin, and endorphins\nG) Growth hormone, prolactin, and oxytocin\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3756::stemez-Chemistry",
+      "suite": "distributed_synth",
+      "domain": "chemistry",
+      "answer_type": "choice",
+      "prompt": "An automobile travelling at 10 miles per hour produces 0.33 1b of CO gas per mile. How many moles of CO are produced per mile?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 3756,
+        "question": "An automobile travelling at 10 miles per hour produces 0.33 1b of CO gas per mile. How many moles of CO are produced per mile?",
+        "options": [
+          "5.4 moles per mile",
+          "9.0 moles per mile",
+          "2.5 moles per mile",
+          "7.3 moles per mile",
+          "3.8 moles per mile",
+          "4.8 moles per mile",
+          "4.1 moles per mile",
+          "5.9 moles per mile",
+          "8.1 moles per mile",
+          "6.2 moles per mile"
+        ],
+        "answer": "A",
+        "source_task_id": "mmlu_pro::3756::stemez-Chemistry",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "H",
+              "I"
+            ],
+            "1": [
+              "B",
+              "E",
+              "F"
+            ],
+            "2": [
+              "C",
+              "E",
+              "G"
+            ],
+            "3": [
+              "A",
+              "D",
+              "J"
+            ]
+          },
+          "gold": "A",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) 3.8 moles per mile\nH) 5.9 moles per mile\nI) 8.1 moles per mile\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nB) 9.0 moles per mile\nE) 3.8 moles per mile\nF) 4.8 moles per mile\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nC) 2.5 moles per mile\nE) 3.8 moles per mile\nG) 4.1 moles per mile\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) 5.4 moles per mile\nD) 7.3 moles per mile\nJ) 6.2 moles per mile\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::3929::stemez-Chemistry",
+      "suite": "distributed_synth",
+      "domain": "chemistry",
+      "answer_type": "choice",
+      "prompt": "A sulfuric acid solution has a density of 1.8 g/ml and is 90% H_2SO_4 by weight. What weight of H_2SO_4, is present in 1000 ml of the solution? What is themolarityof the solution? the normality?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "J",
+      "payload": {
+        "question_id": 3929,
+        "question": "A sulfuric acid solution has a density of 1.8 g/ml and is 90% H_2SO_4 by weight. What weight of H_2SO_4, is present in 1000 ml of the solution? What is themolarityof the solution? the normality?",
+        "options": [
+          "1260 g, 12.8 M, 25.6 N",
+          "1440 g, 14.4 M, 28.8 N",
+          "900 g, 9.1 M, 18.2 N",
+          "1500 g, 15.0 M, 30.0 N",
+          "1350 g, 13.7 M, 27.4 N",
+          "1080 g, 11.0 M, 22.0 N",
+          "1530 g, 15.5 M, 31.0 N",
+          "1800 g, 18.0 M, 36.0 N",
+          "1980 g, 20.0 M, 40.0 N",
+          "1620 g, 16.5 M, 33.0 N"
+        ],
+        "answer": "J",
+        "source_task_id": "mmlu_pro::3929::stemez-Chemistry",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "E",
+              "J"
+            ],
+            "1": [
+              "F",
+              "G",
+              "I"
+            ],
+            "2": [
+              "A",
+              "C",
+              "I"
+            ],
+            "3": [
+              "D",
+              "H",
+              "I"
+            ]
+          },
+          "gold": "J",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) 1440 g, 14.4 M, 28.8 N\nE) 1350 g, 13.7 M, 27.4 N\nJ) 1620 g, 16.5 M, 33.0 N\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nF) 1080 g, 11.0 M, 22.0 N\nG) 1530 g, 15.5 M, 31.0 N\nI) 1980 g, 20.0 M, 40.0 N\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nA) 1260 g, 12.8 M, 25.6 N\nC) 900 g, 9.1 M, 18.2 N\nI) 1980 g, 20.0 M, 40.0 N\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nD) 1500 g, 15.0 M, 30.0 N\nH) 1800 g, 18.0 M, 36.0 N\nI) 1980 g, 20.0 M, 40.0 N\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::4027::stemez-Chemistry",
+      "suite": "distributed_synth",
+      "domain": "chemistry",
+      "answer_type": "choice",
+      "prompt": "The normal boiling point of benzene is 80.10°C. When 1 mole of a solute is dissolved in 1000 g of benzene, the boiling point of the resulting solution is 82.73°C. When 1.2 g of elemental sulfur is dissolved in 50 g of benzene, the boiling point of the solution is 80.36°C. What is the molecular weight of sulfur?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "E",
+      "payload": {
+        "question_id": 4027,
+        "question": "The normal boiling point of benzene is 80.10°C. When 1 mole of a solute is dissolved in 1000 g of benzene, the boiling point of the resulting solution is 82.73°C. When 1.2 g of elemental sulfur is dissolved in 50 g of benzene, the boiling point of the solution is 80.36°C. What is the molecular weight of sulfur?",
+        "options": [
+          "180 (g / mole)",
+          "420 (g / mole)",
+          "600 (g / mole)",
+          "300 (g / mole)",
+          "240 (g / mole)",
+          "480 (g / mole)",
+          "90 (g / mole)",
+          "150 (g / mole)",
+          "120 (g / mole)",
+          "360 (g / mole)"
+        ],
+        "answer": "E",
+        "source_task_id": "mmlu_pro::4027::stemez-Chemistry",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            2
+          ],
+          "holder_agent_ids": [
+            2
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "C",
+              "H"
+            ],
+            "1": [
+              "A",
+              "G",
+              "H"
+            ],
+            "2": [
+              "E",
+              "F",
+              "I"
+            ],
+            "3": [
+              "B",
+              "D",
+              "J"
+            ]
+          },
+          "gold": "E",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) 420 (g / mole)\nC) 600 (g / mole)\nH) 150 (g / mole)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) 180 (g / mole)\nG) 90 (g / mole)\nH) 150 (g / mole)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nE) 240 (g / mole)\nF) 480 (g / mole)\nI) 120 (g / mole)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) 420 (g / mole)\nD) 300 (g / mole)\nJ) 360 (g / mole)\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::4151::stemez-Chemistry",
+      "suite": "distributed_synth",
+      "domain": "chemistry",
+      "answer_type": "choice",
+      "prompt": "A reacts with B in a one-step reaction to give C. The rate constant for the reaction is 2.0 × 10^-3 M^-1 sec^-1. If 0.50 mole of A and 0.30 mole of B are placed in a 0.50 liter-box, what is the initial rate of the reaction?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "G",
+      "payload": {
+        "question_id": 4151,
+        "question": "A reacts with B in a one-step reaction to give C. The rate constant for the reaction is 2.0 × 10^-3 M^-1 sec^-1. If 0.50 mole of A and 0.30 mole of B are placed in a 0.50 liter-box, what is the initial rate of the reaction?",
+        "options": [
+          "0.60 × 10^-3 M/sec",
+          "0.80× 10^-3 M/sec",
+          "0.40 × 10^-3 M/sec",
+          "2.40 × 10^-3 M/sec",
+          "0.30 × 10^-3 M/sec",
+          "1.00× 10^-3 M/sec",
+          "1.20× 10^-3 M/sec",
+          "1.80 × 10^-3 M/sec",
+          "2.00 × 10^-3 M/sec",
+          "1.50× 10^-3 M/sec"
+        ],
+        "answer": "G",
+        "source_task_id": "mmlu_pro::4151::stemez-Chemistry",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "D",
+              "J"
+            ],
+            "1": [
+              "B",
+              "C",
+              "F"
+            ],
+            "2": [
+              "A",
+              "E",
+              "I"
+            ],
+            "3": [
+              "B",
+              "G",
+              "H"
+            ]
+          },
+          "gold": "G",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) 0.80× 10^-3 M/sec\nD) 2.40 × 10^-3 M/sec\nJ) 1.50× 10^-3 M/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nB) 0.80× 10^-3 M/sec\nC) 0.40 × 10^-3 M/sec\nF) 1.00× 10^-3 M/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nA) 0.60 × 10^-3 M/sec\nE) 0.30 × 10^-3 M/sec\nI) 2.00 × 10^-3 M/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) 0.80× 10^-3 M/sec\nG) 1.20× 10^-3 M/sec\nH) 1.80 × 10^-3 M/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::4264::scibench-quan",
+      "suite": "distributed_synth",
+      "domain": "chemistry",
+      "answer_type": "choice",
+      "prompt": "Calculate the energy of one mole of UV photons of wavelength $300 \\mathrm{~nm}$ and compare it with a typical single-bond energy of $400 \\mathrm{~kJ} / \\mathrm{mol}$.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "H",
+      "payload": {
+        "question_id": 4264,
+        "question": "Calculate the energy of one mole of UV photons of wavelength $300 \\mathrm{~nm}$ and compare it with a typical single-bond energy of $400 \\mathrm{~kJ} / \\mathrm{mol}$.",
+        "options": [
+          "450 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "700 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "250 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "350 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "600 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "200 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "300 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "399 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "500 $\\mathrm{~kJ} / \\mathrm{mol}$",
+          "550 $\\mathrm{~kJ} / \\mathrm{mol}$"
+        ],
+        "answer": "H",
+        "source_task_id": "mmlu_pro::4264::scibench-quan",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "H",
+              "I"
+            ],
+            "1": [
+              "E",
+              "F",
+              "J"
+            ],
+            "2": [
+              "B",
+              "D",
+              "E"
+            ],
+            "3": [
+              "C",
+              "F",
+              "G"
+            ]
+          },
+          "gold": "H",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) 450 $\\mathrm{~kJ} / \\mathrm{mol}$\nH) 399 $\\mathrm{~kJ} / \\mathrm{mol}$\nI) 500 $\\mathrm{~kJ} / \\mathrm{mol}$\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nE) 600 $\\mathrm{~kJ} / \\mathrm{mol}$\nF) 200 $\\mathrm{~kJ} / \\mathrm{mol}$\nJ) 550 $\\mathrm{~kJ} / \\mathrm{mol}$\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) 700 $\\mathrm{~kJ} / \\mathrm{mol}$\nD) 350 $\\mathrm{~kJ} / \\mathrm{mol}$\nE) 600 $\\mathrm{~kJ} / \\mathrm{mol}$\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nC) 250 $\\mathrm{~kJ} / \\mathrm{mol}$\nF) 200 $\\mathrm{~kJ} / \\mathrm{mol}$\nG) 300 $\\mathrm{~kJ} / \\mathrm{mol}$\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+      "suite": "distributed_synth",
+      "domain": "math",
+      "answer_type": "choice",
+      "prompt": "All of Bella’s photos are in 8 photo books. Each photo book has 25 photos. Which expression shows how to find the total number of photos Bella has?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 7712,
+        "question": "All of Bella’s photos are in 8 photo books. Each photo book has 25 photos. Which expression shows how to find the total number of photos Bella has?",
+        "options": [
+          "25 × 8",
+          "8 + 25",
+          "25 + 25",
+          "25 × 25",
+          "8 – 25",
+          "25 – 8",
+          "25 + 8",
+          "8 ÷ 25",
+          "25 ÷ 8",
+          "8 × 8"
+        ],
+        "answer": "A",
+        "source_task_id": "mmlu_pro::7712::ori_mmlu-elementary_mathematics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            1
+          ],
+          "holder_agent_ids": [
+            1
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "C",
+              "F",
+              "J"
+            ],
+            "1": [
+              "A",
+              "F",
+              "H"
+            ],
+            "2": [
+              "E",
+              "G",
+              "I"
+            ],
+            "3": [
+              "B",
+              "D",
+              "J"
+            ]
+          },
+          "gold": "A",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nC) 25 + 25\nF) 25 – 8\nJ) 8 × 8\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) 25 × 8\nF) 25 – 8\nH) 8 ÷ 25\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nE) 8 – 25\nG) 25 + 8\nI) 25 ÷ 8\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) 8 + 25\nD) 25 × 25\nJ) 8 × 8\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::8007::ori_mmlu-high_school_statistics",
+      "suite": "distributed_synth",
+      "domain": "math",
+      "answer_type": "choice",
+      "prompt": "A group of scientists wanted to estimate the proportion of geese returning to the same site for the next breeding season. Suppose they decided to increase the sample size from 200 to 2,000. How will this affect the distribution of the sample proportion?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "G",
+      "payload": {
+        "question_id": 8007,
+        "question": "A group of scientists wanted to estimate the proportion of geese returning to the same site for the next breeding season. Suppose they decided to increase the sample size from 200 to 2,000. How will this affect the distribution of the sample proportion?",
+        "options": [
+          "The shape of the distribution of the sample proportion will change significantly.",
+          "There will be no noticeable change in the distribution of the sample proportion.",
+          "The distribution of the sample proportion will become more uniform.",
+          "The distribution of the sample proportion will become skewed.",
+          "The distribution of the sample proportion will be more spread out.",
+          "The distribution of the sample proportion will more closely resemble the binomial distribution.",
+          "The distribution of the sample proportion will be less spread out.",
+          "The spread of the distribution of the sample proportion will remain unaffected."
+        ],
+        "answer": "G",
+        "source_task_id": "mmlu_pro::8007::ori_mmlu-high_school_statistics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            2
+          ],
+          "holder_agent_ids": [
+            2
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "D"
+            ],
+            "1": [
+              "A",
+              "F"
+            ],
+            "2": [
+              "C",
+              "G"
+            ],
+            "3": [
+              "E",
+              "H"
+            ]
+          },
+          "gold": "G",
+          "n_options": 8,
+          "visible_size": 2,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) There will be no noticeable change in the distribution of the sample proportion.\nD) The distribution of the sample proportion will become skewed.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) The shape of the distribution of the sample proportion will change significantly.\nF) The distribution of the sample proportion will more closely resemble the binomial distribution.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nC) The distribution of the sample proportion will become more uniform.\nG) The distribution of the sample proportion will be less spread out.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nE) The distribution of the sample proportion will be more spread out.\nH) The spread of the distribution of the sample proportion will remain unaffected.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::8037::ori_mmlu-college_mathematics",
+      "suite": "distributed_synth",
+      "domain": "math",
+      "answer_type": "choice",
+      "prompt": "Suppose A and B are n × n matrices with real entries. Which of the follow are TRUE?\nI. The trace of A^2 is nonnegative.\nII. If A^2 = A, then the trace of A is nonnegative.\nIII. The trace of AB is the product of the traces of A and B.\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "G",
+      "payload": {
+        "question_id": 8037,
+        "question": "Suppose A and B are n × n matrices with real entries. Which of the follow are TRUE?\nI. The trace of A^2 is nonnegative.\nII. If A^2 = A, then the trace of A is nonnegative.\nIII. The trace of AB is the product of the traces of A and B.",
+        "options": [
+          "All of them",
+          "I, II and III",
+          "I only",
+          "I and III only",
+          "II, III and I",
+          "III only",
+          "II only",
+          "I and II only",
+          "II and III only",
+          "None of them"
+        ],
+        "answer": "G",
+        "source_task_id": "mmlu_pro::8037::ori_mmlu-college_mathematics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "B",
+              "E",
+              "H"
+            ],
+            "1": [
+              "A",
+              "B",
+              "F"
+            ],
+            "2": [
+              "D",
+              "I",
+              "J"
+            ],
+            "3": [
+              "A",
+              "C",
+              "G"
+            ]
+          },
+          "gold": "G",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nB) I, II and III\nE) II, III and I\nH) I and II only\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) All of them\nB) I, II and III\nF) III only\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nD) I and III only\nI) II and III only\nJ) None of them\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) All of them\nC) I only\nG) II only\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+      "suite": "distributed_synth",
+      "domain": "math",
+      "answer_type": "choice",
+      "prompt": "A shelf has four books on it. The weight, in pounds, of each of the four books on the shelf is 2.5, 3.2, 2.7, 2.3 Which inequality represents the weight, w, of any book chosen from the shelf?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "I",
+      "payload": {
+        "question_id": 8678,
+        "question": "A shelf has four books on it. The weight, in pounds, of each of the four books on the shelf is 2.5, 3.2, 2.7, 2.3 Which inequality represents the weight, w, of any book chosen from the shelf?",
+        "options": [
+          "w > 3.2",
+          "w > 2.9",
+          "w > 2.3",
+          "w > 2.5",
+          "w < 3.2",
+          "w < 2.4",
+          "w < 2.7",
+          "w > 3.0",
+          "w < 3.3",
+          "w < 3.1"
+        ],
+        "answer": "I",
+        "source_task_id": "mmlu_pro::8678::ori_mmlu-elementary_mathematics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            1
+          ],
+          "holder_agent_ids": [
+            1
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "D",
+              "J"
+            ],
+            "1": [
+              "B",
+              "H",
+              "I"
+            ],
+            "2": [
+              "E",
+              "F",
+              "G"
+            ],
+            "3": [
+              "C",
+              "E",
+              "J"
+            ]
+          },
+          "gold": "I",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) w > 3.2\nD) w > 2.5\nJ) w < 3.1\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nB) w > 2.9\nH) w > 3.0\nI) w < 3.3\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nE) w < 3.2\nF) w < 2.4\nG) w < 2.7\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nC) w > 2.3\nE) w < 3.2\nJ) w < 3.1\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::8943::theoremQA-Math",
+      "suite": "distributed_synth",
+      "domain": "math",
+      "answer_type": "choice",
+      "prompt": "Assuming $x$ and $y$ are both 2-d random variable. The covariance matrix of $x=((1,2),(2,3),(3,5),(4,4))$, $y=((3,4),(1,5),(5,3),(3,3))$ is $Cov$. What is the trace of $Cov$?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 8943,
+        "question": "Assuming $x$ and $y$ are both 2-d random variable. The covariance matrix of $x=((1,2),(2,3),(3,5),(4,4))$, $y=((3,4),(1,5),(5,3),(3,3))$ is $Cov$. What is the trace of $Cov$?",
+        "options": [
+          "-0.166",
+          "1.234",
+          "0.000",
+          "0.456",
+          "-0.577",
+          "2.718",
+          "-2.345",
+          "3.142",
+          "1.732",
+          "-1.234"
+        ],
+        "answer": "A",
+        "source_task_id": "mmlu_pro::8943::theoremQA-Math",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            2
+          ],
+          "holder_agent_ids": [
+            2
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "F",
+              "G"
+            ],
+            "1": [
+              "B",
+              "G",
+              "H"
+            ],
+            "2": [
+              "A",
+              "H",
+              "I"
+            ],
+            "3": [
+              "C",
+              "D",
+              "J"
+            ]
+          },
+          "gold": "A",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) -0.577\nF) 2.718\nG) -2.345\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nB) 1.234\nG) -2.345\nH) 3.142\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nA) -0.166\nH) 3.142\nI) 1.732\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nC) 0.000\nD) 0.456\nJ) -1.234\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::9289::stemez-Physics",
+      "suite": "distributed_synth",
+      "domain": "physics",
+      "answer_type": "choice",
+      "prompt": "What is the inductive reactance of a coil of 20millihenries inductance when it is connected to a 60 cycle line?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "B",
+      "payload": {
+        "question_id": 9289,
+        "question": "What is the inductive reactance of a coil of 20millihenries inductance when it is connected to a 60 cycle line?",
+        "options": [
+          "4.2 ohms",
+          "7.5 ohms",
+          "5 ohms",
+          "10 ohms",
+          "9 ohms",
+          "6.5 ohms",
+          "8.5 ohms",
+          "3 ohms",
+          "12 ohms",
+          "2.8 ohms"
+        ],
+        "answer": "B",
+        "source_task_id": "mmlu_pro::9289::stemez-Physics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "D",
+              "E",
+              "H"
+            ],
+            "1": [
+              "D",
+              "E",
+              "F"
+            ],
+            "2": [
+              "G",
+              "I",
+              "J"
+            ],
+            "3": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "gold": "B",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nD) 10 ohms\nE) 9 ohms\nH) 3 ohms\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nD) 10 ohms\nE) 9 ohms\nF) 6.5 ohms\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nG) 8.5 ohms\nI) 12 ohms\nJ) 2.8 ohms\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) 4.2 ohms\nB) 7.5 ohms\nC) 5 ohms\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::9663::stemez-Optics",
+      "suite": "distributed_synth",
+      "domain": "physics",
+      "answer_type": "choice",
+      "prompt": "What is the speed of an electromagnetic wave in empty space?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 9663,
+        "question": "What is the speed of an electromagnetic wave in empty space?",
+        "options": [
+          "3.00 × 10^8 m/sec",
+          "1.50 × 10^8 m/sec",
+          "5.00 × 10^8 m/sec",
+          "2.50 × 10^8 m/sec",
+          "3.50 × 10^8 m/sec",
+          "3.25 × 10^8 m/sec",
+          "2.75 × 10^8 m/sec",
+          "1.00 × 10^8 m/sec",
+          "4.00 × 10^8 m/sec",
+          "2.00 × 10^8 m/sec"
+        ],
+        "answer": "A",
+        "source_task_id": "mmlu_pro::9663::stemez-Optics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            0
+          ],
+          "holder_agent_ids": [
+            0
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "A",
+              "D",
+              "I"
+            ],
+            "1": [
+              "C",
+              "F",
+              "H"
+            ],
+            "2": [
+              "B",
+              "G",
+              "J"
+            ],
+            "3": [
+              "E",
+              "F",
+              "I"
+            ]
+          },
+          "gold": "A",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nA) 3.00 × 10^8 m/sec\nD) 2.50 × 10^8 m/sec\nI) 4.00 × 10^8 m/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nC) 5.00 × 10^8 m/sec\nF) 3.25 × 10^8 m/sec\nH) 1.00 × 10^8 m/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) 1.50 × 10^8 m/sec\nG) 2.75 × 10^8 m/sec\nJ) 2.00 × 10^8 m/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nE) 3.50 × 10^8 m/sec\nF) 3.25 × 10^8 m/sec\nI) 4.00 × 10^8 m/sec\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::9926::ori_mmlu-high_school_physics",
+      "suite": "distributed_synth",
+      "domain": "physics",
+      "answer_type": "choice",
+      "prompt": "A person stands on a scale in an elevator. He notices that the scale reading is less than his usual weight. Which of the following could possibly describe the motion of the elevator?\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "G",
+      "payload": {
+        "question_id": 9926,
+        "question": "A person stands on a scale in an elevator. He notices that the scale reading is less than his usual weight. Which of the following could possibly describe the motion of the elevator?",
+        "options": [
+          "It is moving in a circular motion.",
+          "It is moving upward and speeding up.",
+          "It is moving upward at a constant speed.",
+          "It is moving downward at a constant speed.",
+          "It is stationary at the top floor.",
+          "It is stationary at the bottom floor.",
+          "It is moving upward and slowing down.",
+          "It is moving sideways.",
+          "It is moving downward and slowing down."
+        ],
+        "answer": "G",
+        "source_task_id": "mmlu_pro::9926::ori_mmlu-high_school_physics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            2
+          ],
+          "holder_agent_ids": [
+            2
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "C",
+              "D",
+              "E"
+            ],
+            "1": [
+              "D",
+              "F",
+              "I"
+            ],
+            "2": [
+              "B",
+              "C",
+              "G"
+            ],
+            "3": [
+              "A",
+              "H",
+              "I"
+            ]
+          },
+          "gold": "G",
+          "n_options": 9,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nC) It is moving upward at a constant speed.\nD) It is moving downward at a constant speed.\nE) It is stationary at the top floor.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nD) It is moving downward at a constant speed.\nF) It is stationary at the bottom floor.\nI) It is moving downward and slowing down.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nB) It is moving upward and speeding up.\nC) It is moving upward at a constant speed.\nG) It is moving upward and slowing down.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nA) It is moving in a circular motion.\nH) It is moving sideways.\nI) It is moving downward and slowing down.\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    },
+    {
+      "task_id": "distributed_synth::mmlu_pro::9978::stemez-Optics",
+      "suite": "distributed_synth",
+      "domain": "physics",
+      "answer_type": "choice",
+      "prompt": "A circular opening of radius 0.8mm in an opaque screen is illuminated by plane waves of monochromatic light and the emergent light allowed to fall on a movable screen. As the screen is gradually brought toward the aperture, it is found that a succession of alternately light and dark spots appear at the center of the diffraction patterns. (a) If a bright spot appears for the second time when the distance from the screen to the position of the screen required for a bright spot to appear for the first time is 36.2 cm, find the wavelength of the light. (b) If a dark spot appears for the second time when the distance between the screen and the position of the screen required for a dark spot to appear for the first time is 36.2 cm, find the wavelength of the light. (c) Find at what distance from the screen to the aperture a bright spot appeared for the first time (refer to part (a)). (d) Find at what distance from the screen to the aperture a dark spot appeared for the first time (refer to part (b)).\n\nThe answer options for this question have been divided among your team. You can see only some of them.",
+      "ground_truth": "B",
+      "payload": {
+        "question_id": 9978,
+        "question": "A circular opening of radius 0.8mm in an opaque screen is illuminated by plane waves of monochromatic light and the emergent light allowed to fall on a movable screen. As the screen is gradually brought toward the aperture, it is found that a succession of alternately light and dark spots appear at the center of the diffraction patterns. (a) If a bright spot appears for the second time when the distance from the screen to the position of the screen required for a bright spot to appear for the first time is 36.2 cm, find the wavelength of the light. (b) If a dark spot appears for the second time when the distance between the screen and the position of the screen required for a dark spot to appear for the first time is 36.2 cm, find the wavelength of the light. (c) Find at what distance from the screen to the aperture a bright spot appeared for the first time (refer to part (a)). (d) Find at what distance from the screen to the aperture a dark spot appeared for the first time (refer to part (b)).",
+        "options": [
+          "Wavelength of light for bright spot: 1.25 × 10^-6 m, Wavelength of light for dark spot: 460mμ, First bright spot: 57 cm, First dark spot: 69 cm",
+          "Wavelength of light for bright spot: 1.17 × 10^-6 m, Wavelength of light for dark spot: 442mμ, First bright spot: 54.7 cm, First dark spot: 72.4 cm",
+          "Wavelength of light for bright spot: 1.5 × 10^-6 m, Wavelength of light for dark spot: 500mμ, First bright spot: 55 cm, First dark spot: 72 cm",
+          "Wavelength of light for bright spot: 1.3 × 10^-6 m, Wavelength of light for dark spot: 450mμ, First bright spot: 56 cm, First dark spot: 70 cm",
+          "Wavelength of light for bright spot: 1.4 × 10^-6 m, Wavelength of light for dark spot: 480mμ, First bright spot: 58 cm, First dark spot: 74 cm",
+          "Wavelength of light for bright spot: 1.0 × 10^-6 m, Wavelength of light for dark spot: 420mμ, First bright spot: 52 cm, First dark spot: 75 cm",
+          "Wavelength of light for bright spot: 1.3 × 10^-6 m, Wavelength of light for dark spot: 465mμ, First bright spot: 56.5 cm, First dark spot: 70.5 cm",
+          "Wavelength of light for bright spot: 1.2 × 10^-6 m, Wavelength of light for dark spot: 440mμ, First bright spot: 54 cm, First dark spot: 73 cm",
+          "Wavelength of light for bright spot: 1.1 × 10^-6 m, Wavelength of light for dark spot: 435mμ, First bright spot: 53 cm, First dark spot: 71 cm",
+          "Wavelength of light for bright spot: 1.15 × 10^-6 m, Wavelength of light for dark spot: 450mμ, First bright spot: 55.5 cm, First dark spot: 71.5 cm"
+        ],
+        "answer": "B",
+        "source_task_id": "mmlu_pro::9978::stemez-Optics",
+        "source_suite": "mmlu_pro",
+        "distributed": {
+          "n_positions": 4,
+          "required_agent_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "holder_positions": [
+            3
+          ],
+          "holder_agent_ids": [
+            3
+          ],
+          "n_holders": 1,
+          "visible_by_agent_id": {
+            "0": [
+              "E",
+              "F",
+              "J"
+            ],
+            "1": [
+              "A",
+              "C",
+              "H"
+            ],
+            "2": [
+              "D",
+              "G",
+              "H"
+            ],
+            "3": [
+              "B",
+              "E",
+              "I"
+            ]
+          },
+          "gold": "B",
+          "n_options": 10,
+          "visible_size": 3,
+          "announce_structure": false,
+          "allow_declining": false,
+          "arm": "pressure",
+          "seed": 20260805
+        }
+      },
+      "hidden_context": {
+        "0": "These are the answer options you can see:\n\nE) Wavelength of light for bright spot: 1.4 × 10^-6 m, Wavelength of light for dark spot: 480mμ, First bright spot: 58 cm, First dark spot: 74 cm\nF) Wavelength of light for bright spot: 1.0 × 10^-6 m, Wavelength of light for dark spot: 420mμ, First bright spot: 52 cm, First dark spot: 75 cm\nJ) Wavelength of light for bright spot: 1.15 × 10^-6 m, Wavelength of light for dark spot: 450mμ, First bright spot: 55.5 cm, First dark spot: 71.5 cm\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "1": "These are the answer options you can see:\n\nA) Wavelength of light for bright spot: 1.25 × 10^-6 m, Wavelength of light for dark spot: 460mμ, First bright spot: 57 cm, First dark spot: 69 cm\nC) Wavelength of light for bright spot: 1.5 × 10^-6 m, Wavelength of light for dark spot: 500mμ, First bright spot: 55 cm, First dark spot: 72 cm\nH) Wavelength of light for bright spot: 1.2 × 10^-6 m, Wavelength of light for dark spot: 440mμ, First bright spot: 54 cm, First dark spot: 73 cm\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "2": "These are the answer options you can see:\n\nD) Wavelength of light for bright spot: 1.3 × 10^-6 m, Wavelength of light for dark spot: 450mμ, First bright spot: 56 cm, First dark spot: 70 cm\nG) Wavelength of light for bright spot: 1.3 × 10^-6 m, Wavelength of light for dark spot: 465mμ, First bright spot: 56.5 cm, First dark spot: 70.5 cm\nH) Wavelength of light for bright spot: 1.2 × 10^-6 m, Wavelength of light for dark spot: 440mμ, First bright spot: 54 cm, First dark spot: 73 cm\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown.",
+        "3": "These are the answer options you can see:\n\nB) Wavelength of light for bright spot: 1.17 × 10^-6 m, Wavelength of light for dark spot: 442mμ, First bright spot: 54.7 cm, First dark spot: 72.4 cm\nE) Wavelength of light for bright spot: 1.4 × 10^-6 m, Wavelength of light for dark spot: 480mμ, First bright spot: 58 cm, First dark spot: 74 cm\nI) Wavelength of light for bright spot: 1.1 × 10^-6 m, Wavelength of light for dark spot: 435mμ, First bright spot: 53 cm, First dark spot: 71 cm\n\nThe full option set was divided among the 4 members of your team. Other members can see options you cannot.\n\nChoose the best of the options listed above. Do not name a letter you have not been shown."
+      }
+    }
+  ]
+}

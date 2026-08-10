@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "manifest_id": "pilot9",
+  "created_at": "2026-08-05T07:43:30+00:00",
+  "seed": 20260805,
+  "description": "Nine-task token-and-truncation calibration pilot across MATH-500, GPQA-Diamond and MMLU-Pro STEM. Measurement only; too small for any inferential claim.",
+  "content_hash": "ce98dca618c6dc19160fd609104c05e828efc12c7660c19213151f76d98413e0",
+  "n_tasks": 9,
+  "counts_by_suite": {
+    "gpqa_diamond": 3,
+    "math500": 3,
+    "mmlu_pro": 3
+  },
+  "counts_by_domain": {
+    "algebra": 1,
+    "biology": 1,
+    "chemistry": 1,
+    "computer science": 1,
+    "counting & probability": 1,
+    "geometry": 1,
+    "gpqa_science": 3
+  },
+  "splits": {
+    "calibration": [
+      "gpqa_diamond::183"
+    ],
+    "test": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::38",
+      "math500::test/algebra/2157.json",
+      "math500::test/counting_and_probability/199.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::3124::stemez-Biology",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_train::algebra": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38",
+      "math500::test/counting_and_probability/199.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::3124::stemez-Biology",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_test::algebra": [
+      "math500::test/algebra/2157.json"
+    ],
+    "lodo_train::biology": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38",
+      "math500::test/algebra/2157.json",
+      "math500::test/counting_and_probability/199.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_test::biology": [
+      "mmlu_pro::3124::stemez-Biology"
+    ],
+    "lodo_train::chemistry": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38",
+      "math500::test/algebra/2157.json",
+      "math500::test/counting_and_probability/199.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::3124::stemez-Biology"
+    ],
+    "lodo_test::chemistry": [
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_train::computer science": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38",
+      "math500::test/algebra/2157.json",
+      "math500::test/counting_and_probability/199.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::3124::stemez-Biology",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_test::computer science": [
+      "mmlu_pro::10456::ori_mmlu-machine_learning"
+    ],
+    "lodo_train::counting & probability": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38",
+      "math500::test/algebra/2157.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::3124::stemez-Biology",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_test::counting & probability": [
+      "math500::test/counting_and_probability/199.json"
+    ],
+    "lodo_train::geometry": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38",
+      "math500::test/algebra/2157.json",
+      "math500::test/counting_and_probability/199.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::3124::stemez-Biology",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_test::geometry": [
+      "math500::test/geometry/106.json"
+    ],
+    "lodo_train::gpqa_science": [
+      "math500::test/algebra/2157.json",
+      "math500::test/counting_and_probability/199.json",
+      "math500::test/geometry/106.json",
+      "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "mmlu_pro::3124::stemez-Biology",
+      "mmlu_pro::4027::stemez-Chemistry"
+    ],
+    "lodo_test::gpqa_science": [
+      "gpqa_diamond::128",
+      "gpqa_diamond::183",
+      "gpqa_diamond::38"
+    ]
+  },
+  "tasks": [
+    {
+      "task_id": "gpqa_diamond::128",
+      "suite": "gpqa_diamond",
+      "domain": "gpqa_science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nIdentify compound E in the following reaction scheme.\nCompound A, when reacted with HCN, produces compound B.\nCompound B, upon reduction with H2 in the presence of Pd, forms compound C.\nCompound C, upon reaction with HNO2, forms compound D.\nCompound D, upon elimination of an inert gas, forms compound E.\nHints:\na) Compound A, when reacted with an unknown phosphorous ylide, forms 1,2-dimethyl-4-(propan-2-ylidene)cyclopentane.\nb) The IR spectrum of compound A exhibits a strong peak at around 1750 cm^-1 whereas, IR spectrum of compound E exhibits strong peak at around 1715 cm^-1.\n\nA. 2,2,3,4-tetramethylcyclobutan-1-one\nB. 2,3,4-trimethylcyclopentan-1-one\nC. 3,4-dimethylcyclohexan-1-one\nD. 4-methylcycloheptan-1-one\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be EXACTLY just the capitalized letter (A, B, C, or D) corresponding to the correct option.",
+      "ground_truth": "C",
+      "payload": {
+        "question": "Identify compound E in the following reaction scheme.\nCompound A, when reacted with HCN, produces compound B.\nCompound B, upon reduction with H2 in the presence of Pd, forms compound C.\nCompound C, upon reaction with HNO2, forms compound D.\nCompound D, upon elimination of an inert gas, forms compound E.\nHints:\na) Compound A, when reacted with an unknown phosphorous ylide, forms 1,2-dimethyl-4-(propan-2-ylidene)cyclopentane.\nb) The IR spectrum of compound A exhibits a strong peak at around 1750 cm^-1 whereas, IR spectrum of compound E exhibits strong peak at around 1715 cm^-1.\n\nA. 2,2,3,4-tetramethylcyclobutan-1-one\nB. 2,3,4-trimethylcyclopentan-1-one\nC. 3,4-dimethylcyclohexan-1-one\nD. 4-methylcycloheptan-1-one",
+        "answer": "C"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "gpqa_diamond::183",
+      "suite": "gpqa_diamond",
+      "domain": "gpqa_science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nImagine an operator $\\vec{P}$ of a system have components $P_x, P_y$ and $P_z$. The matrix form of the  operator $P_x$ has components in the first row as $(0, \\hbar/\\sqrt{2}, 0)$, that in the second row as $(\\hbar/\\sqrt{2}, 0, \\hbar/\\sqrt{2})$ and that in the third row as $(0,\\hbar/\\sqrt{2},0)$.  The matrix form of the  operator $P_y$ has components in the first row as $(0, -i \\hbar/\\sqrt{2}, 0)$, that in the second row as $(i \\hbar/\\sqrt{2}, 0, -i \\hbar/\\sqrt{2})$ and that in the third row as $(0,i \\hbar/\\sqrt{2},0)$. Similarly, matrix form of the  operator $P_z$ has components in the first row as $(\\hbar, 0, 0)$, that in the second row as $(0, 0, 0)$ and that in the third row as $(0,0, -\\hbar)$. The basis vectors here are the eigenvectors of $P_z$. The system is found in the eigenstate of $P_x$ corresponding to the eigenvalue $-\\hbar$. To be more specific, the explicit form of the state of the system is given by the column vector having elements $(-1/2, 1/\\sqrt{2}, -1/2)$. What is the uncertainty $\\Delta P_z $ of $P_z$\n\nA. \\hbar/\\sqrt{2}\n\nB. \\hbar/2\nC. \\hbar\n\nD. \\sqrt{2}\\hbar\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be EXACTLY just the capitalized letter (A, B, C, or D) corresponding to the correct option.",
+      "ground_truth": "A",
+      "payload": {
+        "question": "Imagine an operator $\\vec{P}$ of a system have components $P_x, P_y$ and $P_z$. The matrix form of the  operator $P_x$ has components in the first row as $(0, \\hbar/\\sqrt{2}, 0)$, that in the second row as $(\\hbar/\\sqrt{2}, 0, \\hbar/\\sqrt{2})$ and that in the third row as $(0,\\hbar/\\sqrt{2},0)$.  The matrix form of the  operator $P_y$ has components in the first row as $(0, -i \\hbar/\\sqrt{2}, 0)$, that in the second row as $(i \\hbar/\\sqrt{2}, 0, -i \\hbar/\\sqrt{2})$ and that in the third row as $(0,i \\hbar/\\sqrt{2},0)$. Similarly, matrix form of the  operator $P_z$ has components in the first row as $(\\hbar, 0, 0)$, that in the second row as $(0, 0, 0)$ and that in the third row as $(0,0, -\\hbar)$. The basis vectors here are the eigenvectors of $P_z$. The system is found in the eigenstate of $P_x$ corresponding to the eigenvalue $-\\hbar$. To be more specific, the explicit form of the state of the system is given by the column vector having elements $(-1/2, 1/\\sqrt{2}, -1/2)$. What is the uncertainty $\\Delta P_z $ of $P_z$\n\nA. \\hbar/\\sqrt{2}\n\nB. \\hbar/2\nC. \\hbar\n\nD. \\sqrt{2}\\hbar",
+        "answer": "A"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "gpqa_diamond::38",
+      "suite": "gpqa_diamond",
+      "domain": "gpqa_science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nConsider an oscillating charge distribution, which is spheroid in shape (with the symmetry axis along z-axis). Because it oscillates, it would radiate at a wavelength \\lambda. In the radiation zone, the radiated power per unit solid angle will be a function f of \\lambda and the angle \\theta (with z-axis), along which the power is measured. If the maximum power thus radiated is A, the fraction of A that will be radiated at an angle \\theta = 30^0 and a possible form of f are, respectively,\n\nA. 1/2, \\lambda^(-4)\nB. 3/4, \\lambda^(-6)\nC. 1/4, \\lambda^(-3)\nD. 1/4, \\lambda^(-4)\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be EXACTLY just the capitalized letter (A, B, C, or D) corresponding to the correct option.",
+      "ground_truth": "B",
+      "payload": {
+        "question": "Consider an oscillating charge distribution, which is spheroid in shape (with the symmetry axis along z-axis). Because it oscillates, it would radiate at a wavelength \\lambda. In the radiation zone, the radiated power per unit solid angle will be a function f of \\lambda and the angle \\theta (with z-axis), along which the power is measured. If the maximum power thus radiated is A, the fraction of A that will be radiated at an angle \\theta = 30^0 and a possible form of f are, respectively,\n\nA. 1/2, \\lambda^(-4)\nB. 3/4, \\lambda^(-6)\nC. 1/4, \\lambda^(-3)\nD. 1/4, \\lambda^(-4)",
+        "answer": "B"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "math500::test/algebra/2157.json",
+      "suite": "math500",
+      "domain": "algebra",
+      "answer_type": "boxed_math",
+      "prompt": "You are a mathematician working on a team to solve a complex math problem.\n\nHere is the problem:\nSolve for $x$: $2^{2x} = 256^\\frac{1}{2}$.\n\nPlease solve this problem carefully. You must show your reasoning step-by-step.\nYour final answer must be a single numerical value or expression wrapped in \\boxed{}.\nFor example: \\boxed{42} or \\boxed{\\frac{1}{2}}.",
+      "ground_truth": "2",
+      "payload": {
+        "problem": "Solve for $x$: $2^{2x} = 256^\\frac{1}{2}$.",
+        "solution": "\\begin{align*}\n2^{2x} & =256^{\\frac{1}{2}} \\\\\n2^{2x} & =(2^8)^{\\frac{1}{2}} \\\\\n2^{2x} & =(2^4) \\\\\n2x & = 4 \\\\\nx & = \\boxed{2}\n\\end{align*}",
+        "dataset_answer": "2",
+        "gt_matches_dataset_answer": true
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "math500::test/counting_and_probability/199.json",
+      "suite": "math500",
+      "domain": "counting & probability",
+      "answer_type": "boxed_math",
+      "prompt": "You are a mathematician working on a team to solve a complex math problem.\n\nHere is the problem:\nWhat is the shortest distance that can be travelled if you start at any point, $A$, $B$, $C$, or $D$, and visit the other three points once?\n\n[asy]\npair A,B,C, D;\nA = (-3,3); B = (3,0); C = (0, -4); D = (0,0);\ndraw(D--B--C--cycle); draw(D--A--B--cycle);draw(D--A--C--cycle);\nlabel(\"$A$\", A, NW);label(\"$B$\", B, E); label(\"$C$\", C, S);label(\"$D$\", D, NE);\nlabel(\"3\", D--B, S); label(\"6\", A--B, NE); label(\"6\", A--C, SW); label(\"4\", D--C, NW+N);\nlabel(\"5\", A--D, SE+NE); label(\"5\", C--B, E);\n[/asy]\n\nPlease solve this problem carefully. You must show your reasoning step-by-step.\nYour final answer must be a single numerical value or expression wrapped in \\boxed{}.\nFor example: \\boxed{42} or \\boxed{\\frac{1}{2}}.",
+      "ground_truth": "13",
+      "payload": {
+        "problem": "What is the shortest distance that can be travelled if you start at any point, $A$, $B$, $C$, or $D$, and visit the other three points once?\n\n[asy]\npair A,B,C, D;\nA = (-3,3); B = (3,0); C = (0, -4); D = (0,0);\ndraw(D--B--C--cycle); draw(D--A--B--cycle);draw(D--A--C--cycle);\nlabel(\"$A$\", A, NW);label(\"$B$\", B, E); label(\"$C$\", C, S);label(\"$D$\", D, NE);\nlabel(\"3\", D--B, S); label(\"6\", A--B, NE); label(\"6\", A--C, SW); label(\"4\", D--C, NW+N);\nlabel(\"5\", A--D, SE+NE); label(\"5\", C--B, E);\n[/asy]",
+        "solution": "To visit all four points, we notice that we must travel along at least three different segments. The sum of the shortest three segments is $3+4+5=12$, but we quickly notice that it is impossible to start at one point and visit the other three points by traveling on a path with length $12$ ($DB$, $BC$, and $CD$ do not let us visit point $A$, and it is not possible to travel on $AD$, $CD$, and $BD$ in a continuous path). We now look for a path with length $13$ and notice that traveling from point $A$ to $D$ to $B$ to $C$ works. Alternatively, $B$ to $D$ to $C$ to $A$ also works. Both paths have length $\\boxed{13}$.",
+        "dataset_answer": "13",
+        "gt_matches_dataset_answer": true
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "math500::test/geometry/106.json",
+      "suite": "math500",
+      "domain": "geometry",
+      "answer_type": "boxed_math",
+      "prompt": "You are a mathematician working on a team to solve a complex math problem.\n\nHere is the problem:\nTwo sides of a triangle are each $8$ units long. If the third side has a whole number length, what is the greatest possible perimeter, in units, for the triangle?\n\nPlease solve this problem carefully. You must show your reasoning step-by-step.\nYour final answer must be a single numerical value or expression wrapped in \\boxed{}.\nFor example: \\boxed{42} or \\boxed{\\frac{1}{2}}.",
+      "ground_truth": "31",
+      "payload": {
+        "problem": "Two sides of a triangle are each $8$ units long. If the third side has a whole number length, what is the greatest possible perimeter, in units, for the triangle?",
+        "solution": "The Triangle Inequality says that the sum of the lengths of any two sides must be greater than the length of the third side. That means $8+8=16$ must be greater than the length of the third side. The third side has a whole number length, so the greatest possible length is 15 units. That makes the perimeter $8+8+15=\\boxed{31}$ units.",
+        "dataset_answer": "31",
+        "gt_matches_dataset_answer": true
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "mmlu_pro::10456::ori_mmlu-machine_learning",
+      "suite": "mmlu_pro",
+      "domain": "computer science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nHere is the question:\nStatement 1| Industrial-scale neural networks are normally trained on CPUs, not GPUs. Statement 2| The ResNet-50 model has over 1 billion parameters.\n\nHere are the options:\nA. False, True for ResNet-101 model only\nB. True, True for ResNet-152 model only\nC. False, False for ResNet-101 model only\nD. True, True\nE. True, False for ResNet-101 model only\nF. False, False for ResNet-152 model only\nG. False, False\nH. True, False\nI. True, True for ResNet-101 model only\nJ. False, True\n\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be in the format: \"The answer is X\" where X is a single letter (A through J) corresponding to the correct option.",
+      "ground_truth": "G",
+      "payload": {
+        "question_id": 10456,
+        "question": "Statement 1| Industrial-scale neural networks are normally trained on CPUs, not GPUs. Statement 2| The ResNet-50 model has over 1 billion parameters.",
+        "options": [
+          "False, True for ResNet-101 model only",
+          "True, True for ResNet-152 model only",
+          "False, False for ResNet-101 model only",
+          "True, True",
+          "True, False for ResNet-101 model only",
+          "False, False for ResNet-152 model only",
+          "False, False",
+          "True, False",
+          "True, True for ResNet-101 model only",
+          "False, True"
+        ],
+        "answer": "G"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "mmlu_pro::3124::stemez-Biology",
+      "suite": "mmlu_pro",
+      "domain": "biology",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nHere is the question:\nWhat factors affect the rate of transpiration?\n\nHere are the options:\nA. Temperature, humidity, and air currents\nB. Plant species, root depth, and wind speed\nC. Soil fertility, irrigation methods, and cloud cover\nD. Water salinity, leaf color, and time of day\nE. Leaf surface area, stem length, and moon phase\nF. Soil pH, plant age, and rainfall\nG. Atmospheric pressure, plant height, and sunlight\nH. Sunlight, soil type, and plant species\nI. Bark thickness, seed size, and ambient noise levels\nJ. Carbon dioxide levels, night temperature, and altitude\n\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be in the format: \"The answer is X\" where X is a single letter (A through J) corresponding to the correct option.",
+      "ground_truth": "A",
+      "payload": {
+        "question_id": 3124,
+        "question": "What factors affect the rate of transpiration?",
+        "options": [
+          "Temperature, humidity, and air currents",
+          "Plant species, root depth, and wind speed",
+          "Soil fertility, irrigation methods, and cloud cover",
+          "Water salinity, leaf color, and time of day",
+          "Leaf surface area, stem length, and moon phase",
+          "Soil pH, plant age, and rainfall",
+          "Atmospheric pressure, plant height, and sunlight",
+          "Sunlight, soil type, and plant species",
+          "Bark thickness, seed size, and ambient noise levels",
+          "Carbon dioxide levels, night temperature, and altitude"
+        ],
+        "answer": "A"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "mmlu_pro::4027::stemez-Chemistry",
+      "suite": "mmlu_pro",
+      "domain": "chemistry",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nHere is the question:\nThe normal boiling point of benzene is 80.10°C. When 1 mole of a solute is dissolved in 1000 g of benzene, the boiling point of the resulting solution is 82.73°C. When 1.2 g of elemental sulfur is dissolved in 50 g of benzene, the boiling point of the solution is 80.36°C. What is the molecular weight of sulfur?\n\nHere are the options:\nA. 180 (g / mole)\nB. 420 (g / mole)\nC. 600 (g / mole)\nD. 300 (g / mole)\nE. 240 (g / mole)\nF. 480 (g / mole)\nG. 90 (g / mole)\nH. 150 (g / mole)\nI. 120 (g / mole)\nJ. 360 (g / mole)\n\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be in the format: \"The answer is X\" where X is a single letter (A through J) corresponding to the correct option.",
+      "ground_truth": "E",
+      "payload": {
+        "question_id": 4027,
+        "question": "The normal boiling point of benzene is 80.10°C. When 1 mole of a solute is dissolved in 1000 g of benzene, the boiling point of the resulting solution is 82.73°C. When 1.2 g of elemental sulfur is dissolved in 50 g of benzene, the boiling point of the solution is 80.36°C. What is the molecular weight of sulfur?",
+        "options": [
+          "180 (g / mole)",
+          "420 (g / mole)",
+          "600 (g / mole)",
+          "300 (g / mole)",
+          "240 (g / mole)",
+          "480 (g / mole)",
+          "90 (g / mole)",
+          "150 (g / mole)",
+          "120 (g / mole)",
+          "360 (g / mole)"
+        ],
+        "answer": "E"
+      },
+      "hidden_context": {}
+    }
+  ]
+}

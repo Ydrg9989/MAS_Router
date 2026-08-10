@@ -1,0 +1,44 @@
+# A 120-task screening subset of hard366, used to measure candidate models before committing.
+#
+# Purpose. D-021 makes competence homogeneity a precondition on the pool: a pool whose best
+# member is far ahead of the rest leaves almost no accuracy for governance to win, and on
+# hard366-a that left 4.37pp against a gate asking for 8pp. Choosing peers therefore requires
+# knowing each candidate's accuracy on *this* material, which is not predictable from public
+# benchmark numbers — the suite is deliberately drawn from the hardest available material and the
+# agents are configured systems rather than vendor defaults.
+#
+# Why it is a subset rather than a fresh sample. The seed and per-suite ordering match hard366
+# exactly, so these 120 task ids are a prefix of that manifest's selection. Response caching is
+# keyed on model, prompt and parameters rather than on run id, so every screening call is a cache
+# hit when the chosen candidates later run the full 366. The screen costs nothing beyond the
+# tasks it covers, and containment is asserted rather than assumed — see the check in
+# EXPERIMENT_LOG.md for this run.
+#
+# Why 120 and not fewer. At n=120 the standard error on an accuracy near 0.75 is about 4pp, which
+# separates a 0.60 candidate from a 0.80 one but not a 0.78 from a 0.82. That is the right
+# precision for the decision being made here, which is band membership rather than ranking; the
+# precise figure arrives free with the full Stage A on whoever is chosen.
+
+manifest_id: screen120
+description: >-
+  120-task stratified prefix of hard366, 40 per domain, used to measure candidate models'
+  competence on the real suite before a pool is committed to. Not an evaluation suite in its own
+  right: no protocol claim should be made on it.
+seed: 20260805
+
+# Unused by the screen, which runs Stage A only, but a manifest must carry a split and matching
+# hard366 keeps the two comparable.
+calibration_fraction: 0.34
+
+suites:
+  - suite: gpqa_diamond
+    n: 40
+
+  - suite: math500
+    n: 40
+    levels: [5]
+
+  - suite: mmlu_pro
+    n: 40
+    stem_only: true
+    sources: [theoremQA, scibench]
