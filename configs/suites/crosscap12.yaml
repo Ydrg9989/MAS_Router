@@ -1,0 +1,24 @@
+# Smoke test for the cross-capability adapters: three tasks from each of the four suites.
+#
+# The [ANSWER] tag format has never met a real model. If these suites produce high parse-failure
+# rates the whole Stage A spend measures formatting rather than capability, so this buys the check
+# for a few cents before the 240-task runs go out.
+
+manifest_id: crosscap12
+description: >-
+  Twelve tasks, three per capability, used only to verify that real models honour the [ANSWER] tag
+  and that grading works end to end before the priced runs.
+seed: 20260810
+calibration_fraction: 0.34
+
+suites:
+  - suite: cruxeval
+    n: 3
+  - suite: aime
+    n: 3
+    include_2025: true
+  - suite: exploretom
+    n: 3
+    false_belief_only: true
+  - suite: gpqa_diamond
+    n: 3

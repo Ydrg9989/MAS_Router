@@ -14,6 +14,7 @@ answer may depend on both and that dependence is itself worth knowing:
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -25,8 +26,13 @@ RUNS = ["strong4-a", "decorr4-a", "correlated4-a"]
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--runs", nargs="+", default=RUNS)
+    parser.add_argument("--out", default=None)
+    args = parser.parse_args()
+
     summary: dict[str, dict] = {}
-    for run in RUNS:
+    for run in args.runs:
         episodes = list(RunDirectory(config.RUNS_DIR, run).load_episodes())
         print(f"\n{'=' * 74}\n{run}\n{'=' * 74}")
         summary[run] = {}
@@ -89,7 +95,7 @@ def main() -> None:
                   f"({report.n_off_dominant} groups)  <- the routing signal")
             print(f"    {report.verdict}")
 
-    out = Path(config.RUNS_DIR) / "delegation_stability.json"
+    out = Path(args.out or Path(config.RUNS_DIR) / "delegation_stability.json")
     out.write_text(json.dumps(summary, indent=2))
     print(f"\nwritten to {out}")
 

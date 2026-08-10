@@ -1,0 +1,14 @@
+stage B [crosscap-strong4]:   0%|          | 0/7184 [00:00<?, ?episode/s]stage B [crosscap-strong4]:   1%|          | 37/7184 [00:00<00:19, 369.56episode/s]stage B [crosscap-strong4]:   8%|▊         | 577/7184 [00:00<00:01, 3326.15episode/s]stage B [crosscap-strong4]:  15%|█▌        | 1084/7184 [00:00<00:01, 4121.15episode/s]stage B [crosscap-strong4]:  22%|██▏       | 1590/7184 [00:00<00:01, 4489.82episode/s]stage B [crosscap-strong4]:  30%|███       | 2181/7184 [00:00<00:01, 5001.28episode/s]stage B [crosscap-strong4]:  41%|████      | 2913/7184 [00:00<00:00, 5788.21episode/s]stage B [crosscap-strong4]:  51%|█████     | 3659/7184 [00:00<00:00, 6333.66episode/s]stage B [crosscap-strong4]:  63%|██████▎   | 4533/7184 [00:00<00:00, 7098.48episode/s]stage B [crosscap-strong4]:  75%|███████▌  | 5391/7184 [00:00<00:00, 7559.58episode/s]stage B [crosscap-strong4]:  86%|████████▌ | 6147/7184 [00:01<00:00, 6813.68episode/s]stage B [crosscap-strong4]:  95%|█████████▌| 6842/7184 [00:01<00:00, 6577.36episode/s]stage B [crosscap-strong4]: 100%|██████████| 7184/7184 [00:01<00:00, 5895.46episode/s]
+
+Stage B [crosscap-strong4]
+  scope       : 240 tasks x 15 coalitions x 2 protocols x 1 seed(s), interventions=none, role rotations=1
+  episodes    : 7184 planned (7184 free), 0 already done
+        3592  independent_majority (free)
+        3592  single_expert (free)
+  est. cost   : $0.00
+  e_hat       : strategy=domain, global=2, 4 domain overrides, fitted on 80 calibration tasks
+  written     : 7184 episodes -> /data/yiderigun/MAS_Router/data/runs/crosscap-strong4/episodes.jsonl
+  actual cost : $0.0000
+  accuracy (observational episodes only):
+      0.739  independent_majority
+      0.763  single_expert

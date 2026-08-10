@@ -808,3 +808,54 @@ matrix are whole scaffold+model systems answering independently, so coalition va
 here are *simulated* from independent outcomes rather than observed from real
 interaction. That distinction is recorded on the report as
 `"coalition_values": "simulated_from_independent"`.
+
+---
+
+## 2026-08-10 — crosscap240 Stage A and free Stage B on all three pools
+
+**Runs.** `crosscap-strong4`, `crosscap-decorr4`, `crosscap-corr4`, launched as three parallel
+processes with per-process run caps of $15/$5/$8 so their sum could not breach the daily cap. The
+ledger reads the day's total once at construction, so parallel processes do not see each other's
+spend; the per-run cap is the guard that still works.
+
+**Cost.** $3.64 today, against a $9.61 dry-run estimate. Stage A: strong4 $2.11, corr4 $1.05,
+decorr4 $0.46, plus a $0.02 smoke test. Stage B was free: 21,552 episodes over two protocols and all
+15 coalitions, at $0.00.
+
+**The smoke test paid for itself.** Twelve tasks for $0.022 surfaced two extraction failures that
+would have run through all 2,880 Stage A calls. One model answered AIME with `\boxed{721}` - correct -
+and no `[ANSWER]` tag; another was cut off by `max_tokens` mid-delimiter at `[ANSWER][][/`, so a
+complete and correct `[]` would have scored zero. Both are now accepted: `\boxed{}` because it is an
+explicit declaration rather than a terminal-token guess, and an unterminated open tag because the
+answer was reached before truncation. Parse failures on the full runs came in at 1.1-3.1%.
+
+**The suite discriminates, unlike hard366.** Agents disagree on 42-80% of tasks depending on suite and
+pool, against the 11% that made mvp366 useless (D-020). More importantly the *ranking reverses across
+capabilities*, which no previous suite produced: in `strong4`, grok43 is the best agent on code
+reasoning at 0.97 and the worst on theory of mind at 0.13, while deepseek32 is 0.85 and 0.80. In
+`corr4`, deepseek32 leads theory of mind at 0.82 while gpt5mini leads every other capability and
+scores 0.32 there.
+
+**Reproducibility is 10-50x better than hard366, and still not decisive.** Off-dominant
+reproducibility - whether the capabilities that depart from the single best configuration reproduce -
+against a 0.5 floor:
+
+| pool | reproducibility | null | dominance | on dominant | off dominant | verdict |
+|---|---:|---:|---:|---:|---:|---|
+| `crosscap-strong4` | 0.402 | 0.042 | 50.0% | 0.583 (2) | 0.220 (2) | no evidence |
+| `crosscap-decorr4` | 0.558 | 0.039 | 50.0% | 0.382 (2) | **0.735** (2) | evidence |
+| `crosscap-corr4` | 0.409 | 0.042 | 25.0% | 0.237 (1) | 0.467 (3) | no evidence |
+
+On hard366 the same statistic read 0.01, 0.02 and 0.15. Here it reads 0.22, 0.74 and 0.47, and
+`decorrelated4` clears the floor outright.
+
+**Where the signal sits.** Theory of mind is the capability that departs from the dominant
+configuration in all three pools, and it reproduces at 0.44, 0.76 and 0.63 - the most orthogonal
+capability behaving exactly as the D-032 hypothesis predicted. GPQA-Diamond is the opposite: it
+departs too, but reproduces at 0.00, 0.00 and 0.24, contributing nothing but noise.
+
+**The limitation is the number of groups, not the number of tasks.** Four capabilities means the
+off-dominant statistic averages two or three groups, so it swings between pools for reasons that may
+be sampling alone. Sixty tasks per group is adequate; four groups is not. The next round should add
+capabilities rather than tasks - gsm8k, ai2_arc, MATH-500 and MMLU-Pro are all in the local cache and
+would take the design to eight groups for roughly $4.

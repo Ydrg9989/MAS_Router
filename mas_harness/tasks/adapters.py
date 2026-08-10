@@ -166,10 +166,22 @@ class TaggedAnswer:
 
     OPEN, CLOSE = "[ANSWER]", "[/ANSWER]"
     TAGGED = re.compile(r"\[ANSWER\](.*?)\[/ANSWER\]", re.DOTALL | re.IGNORECASE)
-    # Accepted only when the mandated tag is absent: a final line that names the answer outright.
+    # A response cut off by max_tokens after it opened the tag. The smoke run produced
+    # "[ANSWER][][/", where the answer was complete and only the delimiter was lost. Requiring the
+    # close tag would score that wrong rather than recording it as truncated, so an unterminated
+    # open tag at the very end is honoured. An answer never reached still has no tag at all.
+    UNTERMINATED = re.compile(
+        r"\[ANSWER\]([^\[\]]*(?:\[[^\]]*\][^\[\]]*)*?)\s*(?:\[/?A?N?S?W?E?R?)?$",
+        re.DOTALL | re.IGNORECASE,
+    )
+    # Accepted only when the mandated tag is absent: an explicit declaration, never a bare terminal
+    # token, so this cannot turn prose into an answer the way the D-011 rule did.
     FALLBACK = re.compile(
         r"""(?:the\s+)?(?:final\s+)?answer\s+is\s*:?\s*(.+?)\s*$""", re.IGNORECASE | re.MULTILINE
     )
+    # \boxed{} is the near-universal convention for a final numeric answer and models reach for it
+    # even when told otherwise. It is an explicit declaration, so accepting it is safe.
+    BOXED = re.compile(r"\\boxed\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}")
 
     @classmethod
     def extract(cls, text: str) -> str:
@@ -179,6 +191,10 @@ class TaggedAnswer:
         # The last tag wins: models restate themselves and the final answer is the one meant.
         if matches := cls.TAGGED.findall(text):
             return matches[-1].strip().strip("`").strip()
+        if (match := cls.UNTERMINATED.search(text)) is not None and match.group(1).strip():
+            return match.group(1).strip().strip("`").strip()
+        if matches := cls.BOXED.findall(text):
+            return matches[-1].strip()
         if matches := cls.FALLBACK.findall(text):
             return matches[-1].strip().strip("`").strip().rstrip(".")
         return ""

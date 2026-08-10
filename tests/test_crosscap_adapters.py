@@ -67,6 +67,18 @@ class TestExtractionRefusesToInventAnswers:
     def test_the_declared_fallback_is_accepted_without_a_tag(self):
         assert TaggedAnswer.extract("so the answer is: 91") == "91"
 
+    def test_a_response_truncated_after_the_open_tag_still_yields_its_answer(self):
+        """From the smoke run: max_tokens cut "[ANSWER][][/ANSWER]" to "[ANSWER][][/"."""
+        text = "1. `0` (first) -> `[]`\n\nthe list is empty.\n\n[ANSWER][][/"
+        assert TaggedAnswer.extract(text) == "[]"
+
+    def test_truncation_before_any_tag_remains_a_parse_failure(self):
+        assert TaggedAnswer.extract("Let me simulate the loop. Step 1: the list is [3, 2") == ""
+
+    def test_boxed_is_accepted_because_models_reach_for_it_regardless(self):
+        """From the smoke run: an AIME answer given as \\boxed{721} with no tag."""
+        assert TaggedAnswer.extract("so p+q = 721.\n\n\\[\n\\boxed{721}\n\\]") == "721"
+
     def test_an_abstention_never_equals_another_abstention(self):
         evaluator = NativeEvaluator(spec_for("integer", "42"))
         assert not evaluator.equivalent("", "")

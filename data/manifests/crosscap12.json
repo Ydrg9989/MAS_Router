@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "manifest_id": "crosscap12",
+  "created_at": "2026-08-10T12:32:33+00:00",
+  "seed": 20260810,
+  "description": "Twelve tasks, three per capability, used only to verify that real models honour the [ANSWER] tag and that grading works end to end before the priced runs.",
+  "content_hash": "17ef6baa24a89bcece11784cbb50c4f9ddfbb42f5a67f04bd5513e8cce00b904",
+  "n_tasks": 12,
+  "counts_by_suite": {
+    "aime": 3,
+    "cruxeval": 3,
+    "exploretom": 3,
+    "gpqa_diamond": 3
+  },
+  "counts_by_domain": {
+    "code_reasoning": 3,
+    "competition_math": 3,
+    "gpqa_science": 3,
+    "theory_of_mind": 3
+  },
+  "splits": {
+    "calibration": [
+      "aime::2024::2024-II-6",
+      "cruxeval::sample_554",
+      "exploretom::125::2623",
+      "gpqa_diamond::56"
+    ],
+    "test": [
+      "aime::2024::2024-I-15",
+      "aime::2024::2024-II-5",
+      "cruxeval::sample_137",
+      "cruxeval::sample_250",
+      "exploretom::279::5121",
+      "exploretom::72::1399",
+      "gpqa_diamond::185",
+      "gpqa_diamond::194"
+    ],
+    "lodo_train::code_reasoning": [
+      "aime::2024::2024-I-15",
+      "aime::2024::2024-II-5",
+      "aime::2024::2024-II-6",
+      "exploretom::125::2623",
+      "exploretom::279::5121",
+      "exploretom::72::1399",
+      "gpqa_diamond::185",
+      "gpqa_diamond::194",
+      "gpqa_diamond::56"
+    ],
+    "lodo_test::code_reasoning": [
+      "cruxeval::sample_137",
+      "cruxeval::sample_250",
+      "cruxeval::sample_554"
+    ],
+    "lodo_train::competition_math": [
+      "cruxeval::sample_137",
+      "cruxeval::sample_250",
+      "cruxeval::sample_554",
+      "exploretom::125::2623",
+      "exploretom::279::5121",
+      "exploretom::72::1399",
+      "gpqa_diamond::185",
+      "gpqa_diamond::194",
+      "gpqa_diamond::56"
+    ],
+    "lodo_test::competition_math": [
+      "aime::2024::2024-I-15",
+      "aime::2024::2024-II-5",
+      "aime::2024::2024-II-6"
+    ],
+    "lodo_train::gpqa_science": [
+      "aime::2024::2024-I-15",
+      "aime::2024::2024-II-5",
+      "aime::2024::2024-II-6",
+      "cruxeval::sample_137",
+      "cruxeval::sample_250",
+      "cruxeval::sample_554",
+      "exploretom::125::2623",
+      "exploretom::279::5121",
+      "exploretom::72::1399"
+    ],
+    "lodo_test::gpqa_science": [
+      "gpqa_diamond::185",
+      "gpqa_diamond::194",
+      "gpqa_diamond::56"
+    ],
+    "lodo_train::theory_of_mind": [
+      "aime::2024::2024-I-15",
+      "aime::2024::2024-II-5",
+      "aime::2024::2024-II-6",
+      "cruxeval::sample_137",
+      "cruxeval::sample_250",
+      "cruxeval::sample_554",
+      "gpqa_diamond::185",
+      "gpqa_diamond::194",
+      "gpqa_diamond::56"
+    ],
+    "lodo_test::theory_of_mind": [
+      "exploretom::125::2623",
+      "exploretom::279::5121",
+      "exploretom::72::1399"
+    ]
+  },
+  "tasks": [
+    {
+      "task_id": "aime::2024::2024-I-15",
+      "suite": "aime",
+      "domain": "competition_math",
+      "answer_type": "integer",
+      "prompt": "Solve the following competition mathematics problem. The answer is an integer between 0 and 999.\n\nLet $\\mathcal{B}$ be the set of rectangular boxes with surface area $54$ and volume $23$. Let $r$ be the radius of the smallest sphere that can contain each of the rectangular boxes that are elements of $\\mathcal{B}$. The value of $r^2$ can be written as $\\\frac{p}{q}$, where $p$ and $q$ are relatively prime positive integers. Find $p+q$.",
+      "ground_truth": "721",
+      "payload": {
+        "problem": "Let $\\mathcal{B}$ be the set of rectangular boxes with surface area $54$ and volume $23$. Let $r$ be the radius of the smallest sphere that can contain each of the rectangular boxes that are elements of $\\mathcal{B}$. The value of $r^2$ can be written as $\\\frac{p}{q}$, where $p$ and $q$ are relatively prime positive integers. Find $p+q$.",
+        "answer": "721",
+        "year": "2024"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "aime::2024::2024-II-5",
+      "suite": "aime",
+      "domain": "competition_math",
+      "answer_type": "integer",
+      "prompt": "Solve the following competition mathematics problem. The answer is an integer between 0 and 999.\n\nLet ABCDEF be a convex equilateral hexagon in which all pairs of opposite sides are parallel. The triangle whose sides are extensions of segments AB, CD, and EF has side lengths 200, 240, and 300. Find the side length of the hexagon.",
+      "ground_truth": "80",
+      "payload": {
+        "problem": "Let ABCDEF be a convex equilateral hexagon in which all pairs of opposite sides are parallel. The triangle whose sides are extensions of segments AB, CD, and EF has side lengths 200, 240, and 300. Find the side length of the hexagon.",
+        "answer": "80",
+        "year": "2024"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "aime::2024::2024-II-6",
+      "suite": "aime",
+      "domain": "competition_math",
+      "answer_type": "integer",
+      "prompt": "Solve the following competition mathematics problem. The answer is an integer between 0 and 999.\n\nAlice chooses a set $A$ of positive integers. Then Bob lists all finite nonempty sets $B$ of positive integers with the property that the maximum element of $B$ belongs to $A$. Bob's list has 2024 sets. Find the sum of the elements of A.",
+      "ground_truth": "55",
+      "payload": {
+        "problem": "Alice chooses a set $A$ of positive integers. Then Bob lists all finite nonempty sets $B$ of positive integers with the property that the maximum element of $B$ belongs to $A$. Bob's list has 2024 sets. Find the sum of the elements of A.",
+        "answer": "55",
+        "year": "2024"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "cruxeval::sample_137",
+      "suite": "cruxeval",
+      "domain": "code_reasoning",
+      "answer_type": "python_literal",
+      "prompt": "You are given a Python function and an input. Determine exactly what the function returns.\n\ndef f(nums):\n    count = 0\n    for i in range(len(nums)):\n        if len(nums) == 0:\n            break\n        if count % 2 == 0:\n            nums.pop()\n        else:\n            nums.pop(0)\n        count += 1\n    return nums\n\nWhat does this function return when called as follows?\n\nf([3, 2, 0, 0, 2, 3])\n\nReason about the execution step by step, then give the exact return value as a Python literal.",
+      "ground_truth": "[]",
+      "payload": {
+        "code": "def f(nums):\n    count = 0\n    for i in range(len(nums)):\n        if len(nums) == 0:\n            break\n        if count % 2 == 0:\n            nums.pop()\n        else:\n            nums.pop(0)\n        count += 1\n    return nums",
+        "input": "[3, 2, 0, 0, 2, 3]",
+        "output": "[]"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "cruxeval::sample_250",
+      "suite": "cruxeval",
+      "domain": "code_reasoning",
+      "answer_type": "python_literal",
+      "prompt": "You are given a Python function and an input. Determine exactly what the function returns.\n\ndef f(text):\n    count = len(text)\n    for i in range(-count+1, 0):\n        text = text + text[i]\n    return text\n\nWhat does this function return when called as follows?\n\nf('wlace A')\n\nReason about the execution step by step, then give the exact return value as a Python literal.",
+      "ground_truth": "'wlace Alc l  '",
+      "payload": {
+        "code": "def f(text):\n    count = len(text)\n    for i in range(-count+1, 0):\n        text = text + text[i]\n    return text",
+        "input": "'wlace A'",
+        "output": "'wlace Alc l  '"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "cruxeval::sample_554",
+      "suite": "cruxeval",
+      "domain": "code_reasoning",
+      "answer_type": "python_literal",
+      "prompt": "You are given a Python function and an input. Determine exactly what the function returns.\n\ndef f(arr):\n    return list(reversed(arr))\n\nWhat does this function return when called as follows?\n\nf([2, 0, 1, 9999, 3, -5])\n\nReason about the execution step by step, then give the exact return value as a Python literal.",
+      "ground_truth": "[-5, 3, 9999, 1, 0, 2]",
+      "payload": {
+        "code": "def f(arr):\n    return list(reversed(arr))",
+        "input": "[2, 0, 1, 9999, 3, -5]",
+        "output": "[-5, 3, 9999, 1, 0, 2]"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "exploretom::125::2623",
+      "suite": "exploretom",
+      "domain": "theory_of_mind",
+      "answer_type": "short_text",
+      "prompt": "Read the following story carefully and answer the question about what the characters know or believe. Characters do not observe events that happen while they are absent.\n\nThe sun had risen over the colorful amusement park, casting a warm glow over the wooden booths, twinkling lights, and striped tents. In the midst of this vibrant scene, the employee break room, a storage warehouse, and a string of game stalls waited quietly for the day's commotion to begin. Over a crackling radio call, a low, urgent voice reached Taylor's ear, \"We need to talk about the creaky beam on the main coaster – don't think it'll last the day.\" Taylor's eyes narrowed slightly as she listened intently to Riley's words. In a hushed aside, Taylor briefed Daniel on the day's festival schedule, the brief exchange lost among the morning's expectant quiet, the sound of her words gently lapping against the silence like waves on a shore. Daniel entered the employee break room, the air thick with the smell of coffee and yesterday's leftover sandwiches, and began scanning the room for the one thing that would make his day make sense – the schedule. Slipping through the doorway, Taylor disappeared into the storage warehouse, the only sign of her presence the gentle jostling of a nearby cardboard box as the door swung shut behind her. Daniel stepped out into the bright morning sunlight, the sounds and smells of the amusement park snapping back into focus after the dim stillness of the break room. In a move so subtle it went unnoticed by passersby, Riley gravitated toward the storage warehouse after confirming Taylor's location, the thought weighing on her mind like a constant hum. Victoria followed suit, navigating the park's morning commotion in search of Taylor, the secrecy shrouding their intended meeting like a protective shield.\n\nQuestion: What does Taylor think about Daniel's belief on ride maintenance? (knows about it / does not know about it)",
+      "ground_truth": "does not know about it",
+      "payload": {
+        "question": "What does Taylor think about Daniel's belief on ride maintenance? (knows about it / does not know about it)",
+        "answer": "does not know about it",
+        "nth_order": 2,
+        "false_belief": true
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "exploretom::279::5121",
+      "suite": "exploretom",
+      "domain": "theory_of_mind",
+      "answer_type": "short_text",
+      "prompt": "Read the following story carefully and answer the question about what the characters know or believe. Characters do not observe events that happen while they are absent.\n\nThe museum's conservation lab was a quiet, well-lit space filled with large wooden worktables and neatly organized rows of art supplies and equipment. On this particular morning, the warm glow of the lab's fluorescent lights reflected off the polished surfaces of the various workstations, casting a calm atmosphere over the room. The lab's tranquil ambiance remained intact despite the influx of two new occupants: Jasmine, who settled into a workstation with practiced ease, and Emily, who navigated the narrow aisles with purposeful strides. The conservation lab's atmosphere briefly shifted with Jasmine's comments about the visitor engagement, before settling once more into its calm, industrious state. Emily turned to Jasmine, a look of determination on her face, and said, \"We need to make sure our educational programming meets the needs of our diverse visitors,\" before delving into the specifics of her proposal. A momentary stillness overtook the room, a quiet pause, as Wyatt entered the conservation lab, the sudden cessation of background chatter rendering the soft whir of machinery more pronounced. Emily's gaze remained trained on him, her expression alive with anticipation.\n\nQuestion: What does Emily think about Jasmine's belief on visitor engagement? (knows about it / does not know about it)",
+      "ground_truth": "knows about it",
+      "payload": {
+        "question": "What does Emily think about Jasmine's belief on visitor engagement? (knows about it / does not know about it)",
+        "answer": "knows about it",
+        "nth_order": 2,
+        "false_belief": true
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "exploretom::72::1399",
+      "suite": "exploretom",
+      "domain": "theory_of_mind",
+      "answer_type": "short_text",
+      "prompt": "Read the following story carefully and answer the question about what the characters know or believe. Characters do not observe events that happen while they are absent.\n\nThe back room of the thrift store was a cluttered space with shelves stacked high with boxes and old store fixtures, the fluorescent lights humming above as they cast a faint glow on the worn linoleum floor. The small, windowless room was usually reserved for employee discussions and organization, the kind of space that felt cozy in its own, somewhat disheveled way. The back room's fluorescent lights flickered in greeting as Brody entered, his eyes scanning the stacks of dusty boxes and worn store fixtures, before Lucas slipped inside, the door thudding shut behind him. Brody's voice rose above the gentle hum of the fluorescent lights, as he began to enthusiastically discuss innovative ways to draw in customers through unique event marketing strategies and eye-catching sales floor displays that would drive engagement and boost the store's growth. The space seemed to crackle with fresh energy as Lucas stepped forward to share his concept for engaging the store's supporters through volunteer scheduling and donor recognition programs. With infectious enthusiasm, he explained how these programs would pay dividends in revitalizing the store and boosting community involvement. Evelyn slipped into the back room of the thrift store, the worn linoleum floor softly creaking beneath her footsteps.\n\nQuestion: Does Brody know about volunteer scheduling? Answer yes or no.",
+      "ground_truth": "yes",
+      "payload": {
+        "question": "Does Brody know about volunteer scheduling? Answer yes or no.",
+        "answer": "yes",
+        "nth_order": 1,
+        "false_belief": true
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "gpqa_diamond::185",
+      "suite": "gpqa_diamond",
+      "domain": "gpqa_science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nYou are studying a nuclear decay which converts two heavy nucleons of flavor A to another flavor B, while simultaneously emitting two much lighter particles E and V. In short, 2A -> 2B + 2E + 2V. It is known that the total energy spectrum of the outgoing E particles is continuous, with some endpoint value Q.\n\nA variant of this decay emits one exotic, massless particle M instead of the 2V. In this case, how does the total energy spectrum of the outgoing E particles compare to that of the original decay?\n\nA. The spectrum remains continuous with an adjusted shape, and the endpoint decreases.\nB. The spectrum remains continuous with an adjusted shape, and the endpoint increases.\nC. The spectrum becomes discrete, and the endpoint increases.\nD. The spectrum becomes discrete, and the endpoint decreases.\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be EXACTLY just the capitalized letter (A, B, C, or D) corresponding to the correct option.",
+      "ground_truth": "B",
+      "payload": {
+        "question": "You are studying a nuclear decay which converts two heavy nucleons of flavor A to another flavor B, while simultaneously emitting two much lighter particles E and V. In short, 2A -> 2B + 2E + 2V. It is known that the total energy spectrum of the outgoing E particles is continuous, with some endpoint value Q.\n\nA variant of this decay emits one exotic, massless particle M instead of the 2V. In this case, how does the total energy spectrum of the outgoing E particles compare to that of the original decay?\n\nA. The spectrum remains continuous with an adjusted shape, and the endpoint decreases.\nB. The spectrum remains continuous with an adjusted shape, and the endpoint increases.\nC. The spectrum becomes discrete, and the endpoint increases.\nD. The spectrum becomes discrete, and the endpoint decreases.",
+        "answer": "B"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "gpqa_diamond::194",
+      "suite": "gpqa_diamond",
+      "domain": "gpqa_science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nA supernova occurred in our Galaxy. Part of the supernova ejecta is moving directly towards the center of the Galaxy. Both the ejecta part and the Galaxy are inertial frames of reference. From the reference frame of the ejecta, the center of the Galaxy is moving at 60 000 km/s (sixty thousand kilometers per second) towards it.\nWhat distance the ejecta travels in the Galaxy reference frame when 50 seconds pass in the ejecta reference frame?\n\n(Note: Gravity can be ignored, and rotation and revolution of the Galaxy can be ignored.)\n\nA. 2 940 000 km.\nB. 3 000 000 km.\nC. 3 060 000 km.\nD. 2 880 000 km.\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be EXACTLY just the capitalized letter (A, B, C, or D) corresponding to the correct option.",
+      "ground_truth": "C",
+      "payload": {
+        "question": "A supernova occurred in our Galaxy. Part of the supernova ejecta is moving directly towards the center of the Galaxy. Both the ejecta part and the Galaxy are inertial frames of reference. From the reference frame of the ejecta, the center of the Galaxy is moving at 60 000 km/s (sixty thousand kilometers per second) towards it.\nWhat distance the ejecta travels in the Galaxy reference frame when 50 seconds pass in the ejecta reference frame?\n\n(Note: Gravity can be ignored, and rotation and revolution of the Galaxy can be ignored.)\n\nA. 2 940 000 km.\nB. 3 000 000 km.\nC. 3 060 000 km.\nD. 2 880 000 km.",
+        "answer": "C"
+      },
+      "hidden_context": {}
+    },
+    {
+      "task_id": "gpqa_diamond::56",
+      "suite": "gpqa_diamond",
+      "domain": "gpqa_science",
+      "answer_type": "choice",
+      "prompt": "You are an expert working on a team to answer a multiple choice question.\n\nGiven the following Lagrangian\n\n\\mathcal{L}_{int}=\\kappa\\bar{\\psi}\\sigma_{\\mu\\nu}\\psi F^{\\mu\\nu}\n\nwhere \\sigma_{\\mu\\nu}=\\frac{i}{2}\\left[\\gamma_{\\mu},\\gamma_{\\nu}\\right].\n\nWhat is the mass dimension of \\kappa? Is the theory renormalizable?\n\nA. The mass dimension \\left[\\kappa\\right]_{M}=-1. The theory is not renormalizable.\nB. The mass dimension \\left[\\kappa\\right]_{M}=1. The theory is not renormalizable.\nC. The mass dimension \\left[\\kappa\\right]_{M}=-1. The theory is renormalizable.\nD. The mass dimension \\left[\\kappa\\right]_{M}=1. The theory is renormalizable.\n\nPlease analyze this question carefully. You must show your reasoning step-by-step.\nYour final answer must be EXACTLY just the capitalized letter (A, B, C, or D) corresponding to the correct option.",
+      "ground_truth": "A",
+      "payload": {
+        "question": "Given the following Lagrangian\n\n\\mathcal{L}_{int}=\\kappa\\bar{\\psi}\\sigma_{\\mu\\nu}\\psi F^{\\mu\\nu}\n\nwhere \\sigma_{\\mu\\nu}=\\frac{i}{2}\\left[\\gamma_{\\mu},\\gamma_{\\nu}\\right].\n\nWhat is the mass dimension of \\kappa? Is the theory renormalizable?\n\nA. The mass dimension \\left[\\kappa\\right]_{M}=-1. The theory is not renormalizable.\nB. The mass dimension \\left[\\kappa\\right]_{M}=1. The theory is not renormalizable.\nC. The mass dimension \\left[\\kappa\\right]_{M}=-1. The theory is renormalizable.\nD. The mass dimension \\left[\\kappa\\right]_{M}=1. The theory is renormalizable.",
+        "answer": "A"
+      },
+      "hidden_context": {}
+    }
+  ]
+}

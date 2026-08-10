@@ -1,0 +1,14 @@
+stage B [crosscap-decorr4]:   0%|          | 0/7168 [00:00<?, ?episode/s]stage B [crosscap-decorr4]:   0%|          | 21/7168 [00:00<00:34, 209.92episode/s]stage B [crosscap-decorr4]:   8%|▊         | 604/7168 [00:00<00:01, 3511.23episode/s]stage B [crosscap-decorr4]:  17%|█▋        | 1220/7168 [00:00<00:01, 4718.52episode/s]stage B [crosscap-decorr4]:  24%|██▍       | 1742/7168 [00:00<00:01, 4912.66episode/s]stage B [crosscap-decorr4]:  33%|███▎      | 2379/7168 [00:00<00:00, 5436.60episode/s]stage B [crosscap-decorr4]:  44%|████▍     | 3136/7168 [00:00<00:00, 6159.04episode/s]stage B [crosscap-decorr4]:  55%|█████▌    | 3975/7168 [00:00<00:00, 6886.32episode/s]stage B [crosscap-decorr4]:  70%|██████▉   | 4988/7168 [00:00<00:00, 7918.12episode/s]stage B [crosscap-decorr4]:  81%|████████▏ | 5836/7168 [00:00<00:00, 8093.36episode/s]stage B [crosscap-decorr4]:  93%|█████████▎| 6646/7168 [00:01<00:00, 8092.47episode/s]stage B [crosscap-decorr4]: 100%|██████████| 7168/7168 [00:01<00:00, 6716.68episode/s]
+
+Stage B [crosscap-decorr4]
+  scope       : 240 tasks x 15 coalitions x 2 protocols x 1 seed(s), interventions=none, role rotations=1
+  episodes    : 7168 planned (7168 free), 0 already done
+        3584  independent_majority (free)
+        3584  single_expert (free)
+  est. cost   : $0.00
+  e_hat       : strategy=domain, global=3, 4 domain overrides, fitted on 80 calibration tasks
+  written     : 7168 episodes -> /data/yiderigun/MAS_Router/data/runs/crosscap-decorr4/episodes.jsonl
+  actual cost : $0.0000
+  accuracy (observational episodes only):
+      0.689  independent_majority
+      0.687  single_expert
