@@ -127,27 +127,51 @@ $p = 0.43$; over the four-agent family that D-021 and D-023 used to justify spen
 ($p=0.330$), $-0.14$ and $+2.44$ ($p=0.203$); on the 134-system SWE-bench Verified matrix, observed
 headroom sits *below* the null.
 
-### 3.4 The weakness in this null, stated plainly
+### 3.4 The weakness in the first null, and its repair
 
-The null draws each organization's outcome independently given the fitted marginals. Real
+The null of §3.3 draws each organization's outcome independently given the fitted marginals. Real
 organizations **share members**: `independent_majority` over $\{a_1,a_2,a_3\}$ and over
 $\{a_1,a_2,a_4\}$ agree whenever $a_1$ and $a_2$ do. Positive correlation across organizations makes
 the *real* per-task maximum smaller than an independent maximum at the same marginals, so the null's
-oracle is too generous and the test is **conservative**: it under-rejects. This is almost certainly why
-SWE-bench comes out below the null rather than at it.
+oracle is too generous and the test **under-rejects**.
 
-Consequences for what may be claimed. "Observed headroom does not exceed a matched-marginal null" is
-sound, and it is enough to establish that headroom is not evidence *for* interaction. It is **not**
-enough to argue interaction is absent, and the paper must not say so. The direct evidence in Sections
-4 and 5 carries that load instead.
+The repair uses the two-stage factorization of §1.2. Simulate at the *agent* level under an additive
+agent-by-task model $\sigma(\alpha_a + \beta_x)$, then push the simulated answers through the real
+$\phi_p$. Member sharing is then exact, because one simulated answer for $a_1$ feeds every
+organization containing $a_1$, and the only thing removed is agent-by-task interaction. Three pieces
+of observed structure are preserved on purpose: per-task difficulty, per-agent strength and
+abstention propensity, and **how concentrated each task's wrong answers are** — on a multiple-choice
+item four agents can converge on one distractor and outvote a correct minority, while on an
+open-response maths item wrong answers are nearly all distinct and a lone correct member wins.
+Implemented in [`mas_harness/metrics/sharing_null.py`](../mas_harness/metrics/sharing_null.py).
 
-**The fix, which the two-stage design makes available and which should be run.** Simulate at the
-*agent* level under an additive agent-by-task model, then propagate the simulated answers through
-$\phi_p$ to obtain organization outcomes. Member sharing is then reproduced exactly, because the same
-simulated answer for $a_1$ feeds every organization containing $a_1$; only agent-by-task interaction is
-removed. Wrong answers can be resampled from the observed per-task distribution of wrong answers so
-that plurality voting remains meaningful. This converts a conservative null into a sharp one, costs
-nothing, and would materially strengthen Contribution 1.
+**The diagnosis was right and the verdict is unchanged.** Replaying the observed answers through the
+fast equivalence-class voting path reproduces the recorded episodes at agreement **1.0000 in all six
+cells**, which certifies both the reimplementation and the transitivity of the equivalence relation.
+The sharp null's headroom is substantially lower than the independent null's, exactly as the
+correlation argument predicts — on `hard366` it falls from 6.97, 8.95 and 6.16 to 4.79, 6.25 and 3.78
+— so excesses move up by one to three points. They do not move enough to change anything. Against the
+best organization on test, excesses under the sharp null are $+2.20$ ($p=0.045$), $+1.16$, $-0.07$,
+$-0.23$, $-0.05$ and $-3.24$. One cell of six below $0.05$ is what the global null predicts; at least
+one $p<0.05$ among six tests occurs 26% of the time, and the Bonferroni threshold here is $0.0083$.
+
+**The test has power.** A planted structure of four agents over four capabilities, each competent at
+exactly one, is detected at $p<0.05$ with an excess above 5 points
+([`tests/test_sharing_null.py`](../tests/test_sharing_null.py)). So "no excess" is now a statement
+from an instrument that fires when the structure is there, which is what §3.3 could not claim.
+
+**One statistic to avoid.** Headroom measured against the *calibration-picked* organization rather
+than the best organization on test conflates interaction with selection noise. On
+`crosscap240`/`decorrelated4` it reads $+10.55$ at $p=0.010$, but the calibration-picked organization
+underperforms the best test organization by 11.3 points there — the winner's curse D-033 documented,
+not interaction. Against the best test organization the same cell reads $-0.05$. Only the second
+variant answers a question about the structure of the outcome table.
+
+**Scope, now that the null is sharp.** Claim C1 can say that observed headroom does not exceed a null
+that removes agent-by-task interaction while preserving member sharing, difficulty, strength,
+abstention and distractor concentration, on a test with demonstrated power. It still should not be
+phrased as "no interaction exists": §5.2 shows crossing interaction does exist. The correct statement
+is that the interaction present is not of a kind or magnitude that a per-task maximum can detect.
 
 ---
 
@@ -293,7 +317,7 @@ D-029 showed were dilutable by adding protocols.
 
 | # | claim | evidence | scope limit | what would falsify it |
 |---|---|---|---|---|
-| C1 | Oracle headroom is not evidence of routable structure | Proposition 1; null test in six cells and on 134 public systems | conservative null (§3.4); one seed | a sharp member-sharing null showing significant excess |
+| C1 | Oracle headroom is not evidence of routable structure | Proposition 1; two nulls in six cells and one on 134 public systems; sharp null has demonstrated power | one seed; SWE-bench still uses the independent null | the sharp null showing excess in more than one cell, or surviving correction |
 | C2 | No learned router beats a frozen best fixed organization here | D-033: two suites, three pools, 60 resplits, flat learning curve | 30 organizations, 4-agent pools, two free protocols | a router gaining on this same grid |
 | C3 | Even a capability router with ground-truth labels does not beat majority voting | $-0.6$, $-7.5$, $+2.5$ points | four capabilities; 238 tasks | a pool where the capability router wins |
 | C4 | The reason is that profiles share one difficulty ordering, and voting absorbs the rest | seven of eight agents peak on the same capability; positive control fails at $p=0.883$ | eight agents, one suite | a pool with genuinely crossing peaks that also beats voting |
@@ -309,7 +333,9 @@ by the grid.
 1. **One seed per cell.** $\hat q(x,o)$ is a single Bernoulli draw, which maximises the upward bias in
    $\hat H$ that Section 3.2 describes. It does not threaten C2, C3 or C5, all of which compare
    policies rather than maxima, but the paper should be explicit.
-2. **The conservative null (§3.4).** The agent-level propagating null is the fix and has not been run.
+2. **SWE-bench still uses the independent null.** The 134 systems are opaque agent frameworks with no
+   member decomposition, so the agent-level simulation of §3.4 cannot be applied to them. That
+   external validation therefore remains the conservative version, and should be reported as such.
 3. **The interaction likelihood-ratio test (§5.2) has not been run.** It is the cleanest statement of
    "interaction is real, headroom does not detect it".
 4. **Two protocols in every cross-suite comparison.** The five priced protocols ran on `hard366` only,

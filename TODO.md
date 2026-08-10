@@ -38,6 +38,17 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
 - [x] **Measure the efficiency case D-035 left open.** Under a per-task budget, routing loses in all
       six cells (−0.48 to −3.15 points, positive in 2-29% of 200 resplits). The lambda-swept version
       that showed +2.6 to +16.6 points was a convex-hull artefact. D-036.
+- [x] **Sharpen the headroom null to preserve member sharing.** Built as
+      [`mas_harness/metrics/sharing_null.py`](mas_harness/metrics/sharing_null.py): simulate agents
+      under additivity, then vote for real. Replay reproduces recorded episodes at agreement 1.0000 in
+      all six cells, and planted specialists are detected at p<0.05. The null did fall as predicted,
+      excesses rose one to three points, and the verdict held: one cell of six at p=0.045 against a
+      Bonferroni threshold of 0.0083. D-037.
+- [ ] **Run the interaction likelihood-ratio test.** Fit
+      `sigma(alpha_o + beta_x + gamma_{o,c(x)})` against the additive model and test `gamma = 0`. It
+      is the cleanest way to state the paper's central tension: interaction is real, and a per-task
+      maximum cannot see it. Free, and §5.2 of `Docs/FRAMEWORK.md` currently asserts this without a
+      test.
 - [ ] **Decide what the paper is.** The apparatus and the negative are solid and unusually well
       controlled; no positive method survives. There are now three distinct methodological findings
       to build on rather than one: the headroom illusion (D-034), specialisation being

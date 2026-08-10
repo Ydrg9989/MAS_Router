@@ -1170,3 +1170,49 @@ so routing degenerates to the global policy exactly where the budget binds harde
 **Conclusion.** The efficiency case that D-035 left open does not survive a properly posed budget
 comparison. Routing buys neither accuracy nor accuracy per dollar over choosing one organization
 well. The residual effect that does exist is priced-by-domain arbitrage, not delegation.
+
+---
+
+## 2026-08-10 — the headroom null, sharpened. $0
+
+**Why.** Writing `Docs/FRAMEWORK.md` exposed a real defect in the D-034 null: it draws organizations
+independently, but organizations share members, so its oracle is too generous and the test
+under-rejects. D-034's conclusion was therefore conservative rather than wrong, and a conservative test
+cannot carry the claim.
+
+**What was built.** An agent-level null that simulates correctness from `sigma(alpha_a + beta_x)`,
+converts it to answers, and pushes those through the real voting and expert-selection code
+([`mas_harness/metrics/sharing_null.py`](mas_harness/metrics/sharing_null.py), 11 tests). Member
+sharing is exact. Per-task difficulty, per-agent strength, per-agent abstention rate and each task's
+distractor concentration are preserved; only the association between which agent fails and which task
+it fails on is removed.
+
+**Validation.** Replaying the observed answers reproduces the recorded episodes at agreement 1.0000 in
+all six cells, certifying both the fast equivalence-class voting and the transitivity of the upstream
+equivalence relation. Four planted specialists over four capabilities are detected at p<0.05 with
+excess above 5 points, so the test has power.
+
+**The null did move, in the predicted direction.** Headroom against the best test organization, mean of
+200 simulations:
+
+| suite / pool | observed | independent null | sharp null | sharp excess | p |
+|---|---:|---:|---:|---:|---:|
+| `hard366`/`strong4` | 7.00 | 6.97 | 4.79 | +2.20 | 0.045 |
+| `hard366`/`decorrelated4` | 7.41 | 8.95 | 6.25 | +1.16 | 0.260 |
+| `hard366`/`correlated4` | 3.70 | 6.16 | 3.78 | −0.07 | 0.585 |
+| `crosscap240`/`strong4` | 10.00 | 9.56 | 10.22 | −0.23 | 0.605 |
+| `crosscap240`/`decorrelated4` | 8.18 | 10.84 | 8.23 | −0.05 | 0.560 |
+| `crosscap240`/`correlated4` | 6.25 | 7.30 | 9.49 | −3.24 | 0.965 |
+
+**Verdict unchanged.** One cell of six under 0.05, where at least one such cell arises 26% of the time
+under the global null and the Bonferroni threshold is 0.0083. D-034 stands, now on an instrument with
+demonstrated power.
+
+**A statistic retired along the way.** Headroom against the *calibration-picked* organization reads
++10.55 at p=0.010 on `crosscap240`/`decorrelated4`, which looks like a finding until one notices the
+calibration pick underperforms the best test organization by 11.3 points in that cell. That is the
+winner's curse of D-033, not interaction; the same cell reads −0.05 against the best test organization.
+Only the latter is about the structure of the outcome table.
+
+**Not sharpenable.** The 134 SWE-bench systems have no member decomposition, so that external
+validation remains the conservative independent null and is labelled as such.

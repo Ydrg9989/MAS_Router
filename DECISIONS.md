@@ -1347,3 +1347,56 @@ cache hits, so both would have understated deployment cost and inverted the comp
 here is repriced from its four token buckets against the run's frozen price snapshot;
 `independent_majority` over k members is charged for k, and `single_expert` for the single member it
 consults, its predictor reading calibration accuracy by domain rather than the current task's answers.
+
+---
+
+## D-037 — The headroom null was conservative; sharpened to preserve member sharing, the verdict holds
+
+**Decision.** Keep D-034. Replace the organization-level independent null with an agent-level null
+that propagates simulated answers through the real protocol function, and report the sharp version as
+primary for our own data. Retire the calibration-picked headroom variant from any claim about table
+structure.
+
+**The defect.** `headroom_against_no_interaction` draws each *organization's* outcome independently
+given fitted marginals, but organizations share members: `independent_majority` over {a1,a2,a3} and
+over {a1,a2,a4} agree whenever a1 and a2 do. Positive correlation makes real per-task maxima smaller
+than independent maxima at matched marginals, so the null's oracle is too generous and the test
+under-rejects. A conservative test cannot support "there is no excess", which is what D-034 claimed.
+
+**The repair, free because of the two-stage design.** Simulate agent correctness under
+`sigma(alpha_a + beta_x)`, convert to answers, and push them through the real voting and
+expert-selection logic ([`mas_harness/metrics/sharing_null.py`](mas_harness/metrics/sharing_null.py)).
+One simulated answer for a1 feeds every organization containing a1, so sharing is exact. Preserved on
+purpose: per-task difficulty, per-agent strength, per-agent abstention propensity, and each task's
+distractor concentration — the last matters because four agents converging on one multiple-choice
+distractor can outvote a correct minority, whereas open-response wrong answers are nearly all distinct.
+Destroyed: any association between which agent fails and which task it fails on.
+
+**Two validations, because a hand-rolled protocol replay is exactly the kind of thing that silently
+diverges.** Replaying observed answers through the fast equivalence-class path reproduces the recorded
+episodes at agreement 1.0000 in all six cells, which also certifies that the SymPy-backed equivalence
+relation is transitive on this data. And a planted structure of four agents over four capabilities,
+each competent at exactly one, is detected at p<0.05 with excess above 5 points, so the instrument
+fires when the structure is present.
+
+**The diagnosis was correct.** The sharp null's headroom is materially lower: on `hard366`, against the
+best test organization, 6.97, 8.95 and 6.16 become 4.79, 6.25 and 3.78. Excesses move up by one to
+three points across the board.
+
+**The verdict is unchanged.** Against the best organization on test, excesses under the sharp null are
++2.20 (p=0.045), +1.16, −0.07, −0.23, −0.05 and −3.24. One cell of six under 0.05 is what the global
+null predicts: at least one p<0.05 among six tests happens 26% of the time, and the Bonferroni
+threshold is 0.0083. C1 now rests on a test with demonstrated power rather than on a conservative one.
+
+**One variant retired.** Headroom against the *calibration-picked* organization conflates interaction
+with selection noise. On `crosscap240`/`decorrelated4` it reads +10.55 at p=0.010 under the sharp null,
+but the calibration-picked organization underperforms the best test organization there by 11.3 points —
+the winner's curse of D-033, not interaction. The same cell reads −0.05 against the best test
+organization. Only the latter answers a question about the structure of the outcome table, and it is
+the variant D-034 quoted.
+
+**Scope that remains.** The SWE-bench validation cannot be sharpened: those 134 systems are opaque
+frameworks with no member decomposition, so it stays the conservative version and must be labelled so.
+And "no detectable excess" still must not be written as "no interaction": §5.2 of `FRAMEWORK.md` shows
+crossing interaction exists. The supportable statement is that the interaction present is not of a kind
+a per-task maximum can detect.
