@@ -1246,3 +1246,53 @@ precisely the independence this null assumes, which is why whole-pool majority v
 organizational fact that reproduced everywhere (D-029). The distinction is the paper: complementarity
 in the aggregation sense is real and routine, while the per-task assignment of tasks to systems that
 the routing literature quotes the same statistic to motivate is not there.
+
+---
+
+## D-035 — The positive control fails, and the reason is the paper: agent profiles share one difficulty ordering, and voting already collects what routing would
+
+**Decision.** Do not buy a specialist pool. Reframe the contribution from "routing does not work" to
+"the statistic that motivates routing cannot detect routable structure, and where such structure
+exists aggregation already collects it". The positive control D-034 needed was run for $0 on banked
+data and it fails in an informative way.
+
+**Why a positive control was required.** D-034 rests on a null that observed data never exceeds. A
+null that nothing can beat is not evidence about the data; it might be a defective instrument. The
+claim needed a case where it fires.
+
+**The test.** `crosscap240` Stage A covers eight distinct agents on 238 shared tasks over four
+capabilities ([`scripts/check_headroom_specialists.py`](scripts/check_headroom_specialists.py)).
+Individual agents rather than organizations, because voting over four members could plausibly average
+away an interaction that is present in the members. Per-capability spreads run to 0.833 - `grok43` is
+0.967 on code execution and 0.133 on theory of mind - so interaction is not in doubt.
+
+**No pool exceeds the null, including one selected to.** Best agent per capability, chosen on
+calibration and scored on test: excess −2.16 (p=0.883). Shipped pools: +1.33 (p=0.330), −0.14, +2.44
+(p=0.203). All eight: −0.80.
+
+**The explanation, which is the substantive result.** For seven of the eight agents the strongest
+capability is code, and for the eighth it is maths. No agent is *best* at theory of mind. The profiles
+are near-monotone transformations of one difficulty ordering, with agents differing in overall
+strength and in steepness rather than in what they are suited to. That is main-effect structure, which
+is precisely what the additive null represents - hence the good fit and the absent excess. Genuine
+crossing exists but is narrow, confined to `deepseek32` and `ring26` holding up on theory of mind
+where `grok43` and `gpt5mini` collapse.
+
+**And specialisation is self-cancelling for the oracle statistic.** An agent that collapses on a
+capability creates a routing opportunity there and simultaneously leaves the union of successes on
+those same tasks. For a per-task maximum the two effects roughly offset, which is why headroom is
+insensitive to interaction even when interaction is large. This is a *mechanism* for D-034 rather
+than a restatement of it.
+
+**Aggregation already collects the exploitable part.** A domain router given the true capability label
+of every test task and each capability's calibration-best agent - an upper bound on any learned router
+over agents - against plain majority vote over the same four agents: −0.6, −7.5 and +2.5 points.
+Routing does beat the best single agent in two pools of three, so the specialisation is real and
+usable; it does not beat running everyone and voting, which requires no representation, no calibration
+and no router.
+
+**The qualification that keeps this honest.** The router makes one call where the vote makes four.
+Giving up 1.9 accuracy points on average for a quarter of the cost is a genuine trade and a
+cost-adjusted comparison may favour routing. So the supported claim is narrow: routing does not buy
+accuracy over aggregation, and its case is efficiency. Any cost-adjusted claim must be measured, not
+asserted, since the four pools differ in per-call price by more than an order of magnitude.

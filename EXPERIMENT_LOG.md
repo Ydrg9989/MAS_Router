@@ -1048,3 +1048,65 @@ semi-independent members genuinely beats the best member under exactly the indep
 assumes, which is the Condorcet effect and is why D-029 found whole-pool majority vote to be the one
 reproducible organizational fact. Complementarity in the aggregation sense is real here; what does
 not exist is a per-task assignment of tasks to systems.
+
+---
+
+## 2026-08-10 — the positive control fails, and explains why. $0
+
+**What was being tested.** A null that is only ever satisfied might simply be unbeatable, so D-034
+needs a case where it fires. The cheapest candidate was already banked: `crosscap240` Stage A covers
+eight distinct agents on 238 shared tasks over four capabilities, and their per-capability accuracies
+differ enormously. Individual agents are also the sharper test, since D-034 measured organizations,
+where four members are averaged together by voting
+([`scripts/check_headroom_specialists.py`](scripts/check_headroom_specialists.py)).
+
+**The interaction is unmistakable in the raw table.** Accuracy by capability, over all 238 tasks:
+
+| agent | code | maths | science | theory of mind | spread |
+|---|---:|---:|---:|---:|---:|
+| ring26 | 0.883 | 0.862 | 0.767 | 0.700 | 0.183 |
+| deepseek32 | 0.850 | 0.690 | 0.800 | 0.800 | 0.160 |
+| gpt5mini | 0.933 | 0.828 | 0.800 | 0.233 | 0.700 |
+| qwen3-30b | 0.783 | 0.707 | 0.683 | 0.600 | 0.183 |
+| grok43 | 0.967 | 0.793 | 0.817 | 0.133 | 0.833 |
+| gptoss120b | 0.600 | 0.776 | 0.667 | 0.383 | 0.393 |
+| llama4scout | 0.650 | 0.172 | 0.533 | 0.583 | 0.478 |
+| mistral-small | 0.783 | 0.310 | 0.483 | 0.233 | 0.550 |
+
+**No pool exceeds the null, including one assembled to.** Selecting the best agent per capability on
+calibration tasks and scoring on test tasks gives excess −2.16 (p=0.883). The three shipped pools
+give +1.33 (p=0.330), −0.14 and +2.44 (p=0.203). All eight together give −0.80.
+
+**Why, and this is the finding.** Look at which capability each agent is *best* at: for seven of
+eight it is code, and for the eighth it is maths. Not one agent's strongest capability is theory of
+mind. The profiles are near-monotone transformations of a single difficulty ordering - code above
+maths and science, theory of mind far below - and agents differ in overall strength and in how
+steeply they fall, not in what they are for. That is main-effect structure, which is exactly what the
+additive null models, so the null fits well and there is no excess to find. The genuine crossing is
+narrow: `deepseek32` and `ring26` hold up on theory of mind (0.800, 0.700) where `grok43` and
+`gpt5mini` collapse (0.133, 0.233).
+
+**Specialisation also cuts both ways for the oracle.** When `grok43` falls to 0.133 on theory of
+mind it creates a routing opportunity *and* removes a member from the union on those same tasks. For
+a per-task maximum the two effects roughly cancel, which is why headroom does not respond to
+interaction even where interaction plainly exists.
+
+**The practical consequence: voting already collects it.** A domain router handed the *true*
+capability label of every test task, picking each capability's best agent from calibration - an upper
+bound on any learned router over individual agents - against plain majority vote over the same four
+agents:
+
+| pool | best single | domain router | majority vote | oracle | router − vote |
+|---|---:|---:|---:|---:|---:|
+| `strong4` | 0.792 | 0.830 | 0.836 | 0.937 | −0.6 pp |
+| `decorrelated4` | 0.843 | 0.736 | 0.811 | 0.931 | −7.5 pp |
+| `correlated4` | 0.805 | 0.881 | 0.855 | 0.943 | +2.5 pp |
+
+Routing beats the best single agent in two pools of three, so the specialisation is real and
+exploitable. It does not beat running everyone and voting, which needs no task representation, no
+calibration and no router.
+
+**One honest qualification, and it is the strongest remaining case for routing.** The router makes
+one call where the vote makes four. Losing 1.9 points on average at a quarter of the cost is a real
+trade, and a cost-adjusted comparison could favour routing. The claim this supports is therefore
+narrow and specific: routing does not buy *accuracy* over aggregation. Its case is efficiency.
