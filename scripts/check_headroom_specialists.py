@@ -224,7 +224,16 @@ def main() -> None:
 
     print(f"\n{'pool':34s} {'members':>7s} {'best':>7s} {'oracle':>7s} "
           f"{'headroom':>9s} {'null':>8s} {'excess':>8s} {'p':>7s}")
-    report = {}
+    report = {
+        "accuracy_by_capability": {
+            "n_tasks": len(domain),
+            "capabilities": domains,
+            "all_tasks": table,
+            "calibration_tasks": calibration_table,
+            "peak_capability": {a: max(row, key=row.get) for a, row in table.items()},
+            "spread": {a: max(row.values()) - min(row.values()) for a, row in table.items()},
+        }
+    }
     for name, agents in pools.items():
         agents = list(dict.fromkeys(agents))
         result = headroom_against_no_interaction(

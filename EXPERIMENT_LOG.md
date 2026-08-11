@@ -1216,3 +1216,62 @@ Only the latter is about the structure of the outcome table.
 
 **Not sharpenable.** The 134 SWE-bench systems have no member decomposition, so that external
 validation remains the conservative independent null and is labelled as such.
+
+---
+
+## 2026-08-10 — Three evidence gaps closed before drafting: the interaction test, the lambda artefact, the capability table
+
+Building `Docs/PAPER_BACKBONE.md` and `Docs/CLAIM_EVIDENCE_MATRIX.md` surfaced three things that had to
+be settled before any prose: a central claim resting on descriptive geometry rather than a test, a
+headline number with no surviving artefact, and a planned figure whose data had only ever been printed
+to a terminal. All three are free — no API spend. Total project cost remains $85.13.
+
+**1. The interaction likelihood-ratio test (D-038).** New module
+[`mas_harness/metrics/interaction.py`](mas_harness/metrics/interaction.py) with ten tests; driver
+[`scripts/measure_interaction.py`](scripts/measure_interaction.py); artefact `data/runs/interaction.json`.
+Fits `sigma(alpha_u + beta_x)` against `sigma(alpha_u + beta_x + gamma_{u,c(x)})` and tests `gamma = 0`
+by parametric bootstrap, at both the agent and the organization level.
+
+    agents        hard366       LR  104.0  df  77  p=0.164   excess departure  -0.00 pp
+    agents        crosscap240   LR  301.9  df  21  p<=0.005  excess departure  +7.29 pp
+    organizations hard366/strong4        LR  293.9 df 319 p=0.692   -0.35 pp
+    organizations hard366/decorrelated4  LR  305.9 df 319 p=0.731   -0.07 pp
+    organizations hard366/correlated4    LR  410.4 df 319 p<=0.005  +0.26 pp
+    organizations crosscap240/strong4        LR 1185.2 df 87 p<=0.005 +6.71 pp
+    organizations crosscap240/decorrelated4  LR  662.6 df 87 p<=0.005 +4.21 pp
+    organizations crosscap240/correlated4    LR  685.2 df 87 p<=0.005 +3.78 pp
+
+Three findings. The suite manipulation is validated for the first time directly: no detectable
+interaction anywhere on `hard366`, large interaction at both levels on `crosscap240`. The predicted
+agent-versus-organization contrast did **not** appear — aggregation does not destroy the interaction,
+so FRAMEWORK 5.3's wording was too strong and has been weakened to "absorbs the exploitable part". And
+the headline sharpens: on the three `crosscap240` cells, interaction is significant at `p<=0.005` while
+sharp-null headroom excess on the *same tables* is −0.23, −0.05 and −3.24 (`p` = 0.605, 0.560, 0.965).
+Headroom is insensitive, not merely inflated.
+
+Two methodological notes. The p-value is a parametric bootstrap, not chi-squared, because one nuisance
+parameter per task is the incidental-parameter setting. The effect size is the excess of mean absolute
+cell departure over the null's own departure, added after noticing that the raw departure of 6-9 pp is
+roughly what sampling noise alone produces at sixty tasks per cell — reporting it unadjusted would have
+repeated the exact error the headroom statistic makes. `hard366`/correlated4 illustrates the point:
+`p<=0.005` with an excess of 0.26 pp on 10,980 observations.
+
+**2. The lambda-sweep artefact, regenerated (D-039).** The historical figures had no artefact behind
+them and the two records disagreed (FRAMEWORK 6.1: +2.6 to +16.6 in 86-100% of resplits; D-036: +4 to
++16 at `p<=0.006`). A faithful re-implementation over 200 resplits gives best-lambda gains of +3.36,
+−0.02, +1.06, +7.02, +3.47 and +7.99 points, positive in 44-94%. **It reproduces neither record**, so
+both are retired and the paper cites the regenerated numbers. The qualitative artefact is intact: the
+same data gives −0.48 to −3.94 under budget matching, so the sign still flips.
+
+Added alongside it, a hull diagnostic that measures Lemma 2 rather than only proving it. Of 30
+organizations per cell, 7-14 are Pareto-efficient, only 3-6 are reachable by any lambda, and 3-9 are
+Pareto-efficient yet invisible to the global policy at every lambda. That count is the artefact's
+mechanism, stated without reference to any retracted number.
+
+**3. The capability table, persisted.** `accuracy_by_capability` now written into
+`data/runs/headroom_null_specialists.json` with all-task and calibration-only variants, peak capability
+and spread per agent. Values reproduce the FRAMEWORK 5.1 table exactly: seven of eight agents peak on
+code reasoning, one on competition maths, none on theory of mind or graduate science, spread from 0.160
+(`deepseek32`) to 0.833 (`grok43`).
+
+Full suite: 412 tests pass.

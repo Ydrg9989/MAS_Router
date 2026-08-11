@@ -44,16 +44,24 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
       all six cells, and planted specialists are detected at p<0.05. The null did fall as predicted,
       excesses rose one to three points, and the verdict held: one cell of six at p=0.045 against a
       Bonferroni threshold of 0.0083. D-037.
-- [ ] **Run the interaction likelihood-ratio test.** Fit
-      `sigma(alpha_o + beta_x + gamma_{o,c(x)})` against the additive model and test `gamma = 0`. It
-      is the cleanest way to state the paper's central tension: interaction is real, and a per-task
-      maximum cannot see it. Free, and §5.2 of `Docs/FRAMEWORK.md` currently asserts this without a
-      test.
-- [ ] **Decide what the paper is.** The apparatus and the negative are solid and unusually well
-      controlled; no positive method survives. There are now three distinct methodological findings
-      to build on rather than one: the headroom illusion (D-034), specialisation being
-      self-cancelling for a per-task maximum (D-035), and the convex-hull artefact in lambda-swept
-      cost comparisons (D-036).
+- [x] **Run the interaction likelihood-ratio test.** Done, D-038. Interaction is significant at
+      `p<=0.005` at both the agent and organization level on `crosscap240` (excess departures +7.29,
+      and +6.71/+4.21/+3.78 pp) and undetectable on `hard366`. The predicted agent-versus-organization
+      contrast did not appear, so FRAMEWORK 5.3 was weakened from "aggregation destroys the
+      interaction" to "absorbs the exploitable part". The central tension is now measured: the same
+      three tables carry interaction at `p<=0.005` and sharp-null headroom excess of −0.23, −0.05 and
+      −3.24.
+- [x] **Regenerate the lambda artefact and measure Lemma 2.** Done, D-039. Both historical ranges
+      retired as unreproducible; regenerated best-lambda gains are +3.36 to +7.99, and the hull
+      diagnostic counts 3 to 9 Pareto-efficient organizations per cell that no lambda can reach.
+- [x] **Persist the agent-by-capability table.** Done; `accuracy_by_capability` in
+      `data/runs/headroom_null_specialists.json`. It was previously only ever printed to a terminal
+      while carrying claim C4 and a planned figure.
+- [ ] **Decide what the paper is.** Backbone and claim-evidence matrix now exist as
+      [`Docs/PAPER_BACKBONE.md`](Docs/PAPER_BACKBONE.md) and
+      [`Docs/CLAIM_EVIDENCE_MATRIX.md`](Docs/CLAIM_EVIDENCE_MATRIX.md), with three claims signed off.
+      Remaining before drafting: the terminology ledger, and an explanation for `correlated4` being the
+      one pool where the capability router beats voting.
 - [ ] **Apply the null to the public matrices already on disk.** `agent-psychometrics` has
       `swebench_pro`, `gso` and `terminalbench` alongside the verified split already used, and
       `TwinRouterBench/data` has static and dynamic matrices. Free external validity for D-034 and

@@ -149,6 +149,75 @@ def policies_at_budget(
     return global_pick, routed
 
 
+def lambda_grid(cost: np.ndarray, n: int = 12) -> np.ndarray:
+    """Twelve penalties from "cost is free" to "cost dominates", scaled to this cell's prices."""
+    span = float(cost.mean(axis=1).max() - cost.mean(axis=1).min())
+    if span <= 0:
+        return np.zeros(1)
+    return np.geomspace(0.01 / span, 10.0 / span, n)
+
+
+def policies_at_lambda(
+    outcomes: np.ndarray,
+    cost: np.ndarray,
+    domain_index: np.ndarray,
+    train: np.ndarray,
+    penalty: float,
+) -> tuple[int, np.ndarray]:
+    """The retracted instrument: argmax of ``accuracy - penalty * cost``, global and per capability.
+
+    Kept because Lemma 2 needs a demonstration, not because the comparison is sound. See D-036.
+    """
+    utility = outcomes[:, train].mean(axis=1) - penalty * cost[:, train].mean(axis=1)
+    global_pick = int(np.argmax(utility))
+
+    routed = np.full(outcomes.shape[1], global_pick, dtype=int)
+    for d in np.unique(domain_index):
+        columns = train[domain_index[train] == d]
+        if not columns.size:
+            continue
+        local = outcomes[:, columns].mean(axis=1) - penalty * cost[:, columns].mean(axis=1)
+        routed[domain_index == d] = int(np.argmax(local))
+    return global_pick, routed
+
+
+def hull_diagnostic(outcomes: np.ndarray, cost: np.ndarray, names: list[str]) -> dict:
+    """How many organizations are Pareto-optimal but unreachable by any linear penalty?
+
+    Lemma 2 says a lambda sweep reaches only the upper convex hull of the (cost, accuracy) cloud.
+    Organizations that are Pareto-efficient yet interior to that hull are therefore invisible to the
+    global policy at every lambda, while a routed policy picks per capability from all of them. The
+    size of that invisible set is the whole mechanism of the artefact, measured here directly.
+    """
+    accuracy = outcomes.mean(axis=1)
+    spend = cost.mean(axis=1)
+
+    pareto = [
+        i
+        for i in range(len(accuracy))
+        if not np.any(
+            (spend <= spend[i] + 1e-12)
+            & (accuracy >= accuracy[i] - 1e-12)
+            & ((spend < spend[i] - 1e-12) | (accuracy > accuracy[i] + 1e-12))
+        )
+    ]
+
+    # The hull is exactly the set reachable by some penalty, so enumerate it that way: sweep a dense
+    # grid of penalties and collect every argmax. Ties go to the first index, matching the sweep.
+    reachable = set()
+    for penalty in np.concatenate([[0.0], lambda_grid(cost, n=400)]):
+        reachable.add(int(np.argmax(accuracy - penalty * spend)))
+
+    interior = sorted(set(pareto) - reachable)
+    return {
+        "n_organizations": int(len(accuracy)),
+        "n_pareto": len(pareto),
+        "n_reachable_by_some_lambda": len(reachable),
+        "n_pareto_but_unreachable": len(interior),
+        "pareto_but_unreachable": [names[i] for i in interior],
+    }
+
+
 def stratified_split(
     domain_index: np.ndarray, fraction: float, rng: np.random.Generator
 ) -> tuple[np.ndarray, np.ndarray]:
@@ -219,10 +288,18 @@ def main() -> None:
             rng = np.random.default_rng(12345)
             fraction = len(train) / (len(train) + len(test))
             gains = {float(b): [] for b in budgets}
+            penalties = lambda_grid(cost)
+            lambda_gains: dict[float, list[float]] = {float(p): [] for p in penalties}
             for _ in range(N_SPLITS):
                 tr, te = stratified_split(domain_index, fraction, rng)
                 for row in curve(outcomes, cost, domain_index, tr, te, budgets):
                     gains[row["budget"]].append(row["gain_pp"])
+                for penalty in penalties:
+                    pick, routed = policies_at_lambda(outcomes, cost, domain_index, tr, penalty)
+                    lambda_gains[float(penalty)].append(
+                        100
+                        * float(outcomes[routed[te], te].mean() - outcomes[pick, te].mean())
+                    )
 
             resplit = {
                 f"{b:.6g}": {
@@ -267,12 +344,42 @@ def main() -> None:
                 f"{len(resplit)} budgets, so read the curve, not this row"
             )
 
+            sweep = {
+                f"{p:.6g}": {
+                    "mean": float(np.mean(v)),
+                    "frac_positive": float(np.mean(np.array(v) > 0)),
+                    "n": len(v),
+                }
+                for p, v in lambda_gains.items()
+                if v
+            }
+            best_lambda = max(sweep, key=lambda k: sweep[k]["mean"])
+            hull = hull_diagnostic(outcomes, cost, names)
+            print(
+                f"     RETRACTED lambda sweep, best of {len(sweep)}: "
+                f"{sweep[best_lambda]['mean']:+.2f} pp "
+                f"(positive in {sweep[best_lambda]['frac_positive']:.0%}) at lambda="
+                f"{float(best_lambda):.4g}"
+            )
+            print(
+                f"     hull: {hull['n_pareto']} of {hull['n_organizations']} organizations are "
+                f"Pareto-efficient, {hull['n_reachable_by_some_lambda']} reachable by some lambda, "
+                f"{hull['n_pareto_but_unreachable']} Pareto but invisible to every lambda"
+            )
+
             report[suite][pool] = {
                 "organizations": names,
                 "capabilities": labels,
                 "manifest_split_curve": manifest_curve,
                 "resplit_gain_by_budget": resplit,
                 "unlimited_budget_gain_pp": unlimited,
+                "retracted_lambda_sweep": {
+                    "note": "D-036: unsound instrument, kept only to demonstrate Lemma 2",
+                    "gain_by_lambda": sweep,
+                    "best_lambda": float(best_lambda),
+                    "best_gain_pp": sweep[best_lambda],
+                },
+                "hull_diagnostic": hull,
                 "picks_at_tightest_budget": {
                     labels[d]: names[p]
                     for d, p in enumerate(

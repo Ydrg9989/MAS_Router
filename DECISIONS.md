@@ -1400,3 +1400,112 @@ frameworks with no member decomposition, so it stays the conservative version an
 And "no detectable excess" still must not be written as "no interaction": §5.2 of `FRAMEWORK.md` shows
 crossing interaction exists. The supportable statement is that the interaction present is not of a kind
 a per-task maximum can detect.
+
+---
+
+## D-038 — The interaction is real and headroom cannot see it. Say that, not "no interaction"
+
+**Date.** 2026-08-10. **Status.** Adopted. **Supersedes nothing; sharpens D-034 and D-037.**
+
+**Decision.** Run the likelihood-ratio test FRAMEWORK 5.2 has been asking for, at both the agent and
+the organization level, and restate the headline finding. Oracle headroom is not merely *inflated* by
+noise, it is *insensitive*: on `crosscap240` it fails to detect organization-by-capability interaction
+that a proper test finds at p<=0.005 with a 6.71-point effect on the very same outcome table.
+
+**What was built.** [`mas_harness/metrics/interaction.py`](mas_harness/metrics/interaction.py) fits
+`sigma(alpha_u + beta_x)` against `sigma(alpha_u + beta_x + gamma_{u,c(x)})` and tests `gamma = 0`,
+where `u` is an agent or an organization and `c(x)` is the task's capability. Driver is
+[`scripts/measure_interaction.py`](scripts/measure_interaction.py), artefact `data/runs/interaction.json`,
+ten tests in [`tests/test_interaction.py`](tests/test_interaction.py).
+
+**Two design choices that matter.** The p-value comes from a parametric bootstrap under the fitted
+additive model, not from chi-squared: one nuisance parameter per task with a handful of units per task
+is the incidental-parameter setting, where the maximum-likelihood fit is biased and the asymptotic
+reference distribution is not trustworthy. Simulating and refitting carries the same bias into the
+null. And the effect size is reported as the *excess* of mean absolute cell departure over the null's
+own departure, because with sixty-odd tasks per capability cell, sampling noise alone moves a cell
+mean by two to four points — a raw departure figure is not an effect size, and quoting one would have
+been the same error the headroom statistic makes.
+
+**Results.** Departures in accuracy points, excess over the null's own departure in brackets.
+
+| level | cell | LR | df | p | excess departure |
+|---|---|---:|---:|---:|---:|
+| agents | `hard366` | 104.0 | 77 | 0.164 | −0.00 |
+| agents | `crosscap240` | 301.9 | 21 | <=0.005 | **+7.29** |
+| organizations | `hard366`/strong4 | 293.9 | 319 | 0.692 | −0.35 |
+| organizations | `hard366`/decorrelated4 | 305.9 | 319 | 0.731 | −0.07 |
+| organizations | `hard366`/correlated4 | 410.4 | 319 | <=0.005 | +0.26 |
+| organizations | `crosscap240`/strong4 | 1185.2 | 87 | <=0.005 | **+6.71** |
+| organizations | `crosscap240`/decorrelated4 | 662.6 | 87 | <=0.005 | **+4.21** |
+| organizations | `crosscap240`/correlated4 | 685.2 | 87 | <=0.005 | **+3.78** |
+
+`p <= 0.005` means no simulation of 200 reached the observed statistic, which is the resolution floor.
+
+**Three things follow, and one of them was a surprise.**
+
+*The suite manipulation worked, and this is the first direct evidence of it.* `hard366` has no
+detectable interaction at either level; `crosscap240` has large interaction at both. Every negative
+result in D-033 through D-036 can therefore no longer be explained by "the tasks were too similar for
+routing to have anything to work with". They were not, on the second suite.
+
+*The expected agent-versus-organization contrast did not appear.* The prediction was that aggregation
+into coalitions would wash interaction out, leaving it significant over agents and absent over
+organizations. It is significant at both levels on `crosscap240`. Aggregation does not destroy the
+interaction; it *absorbs the exploitable part of it*, which is a different mechanism and a weaker claim
+than the one FRAMEWORK 5.3 currently states. The wording there needs to change.
+
+*Significance without magnitude appears exactly where the theory predicts.* `hard366`/correlated4 is
+significant at p<=0.005 with an excess of 0.26 points, on 10,980 observations. It is a clean in-house
+illustration of why a p-value is not an effect size, and it is the reason the null-calibrated departure
+was added before any of this was written down.
+
+**The consequence for the paper.** The headline moves from "the prize was noise" to the stronger and
+more interesting "the prize is invisible to the instrument the field uses". On `crosscap240`, all three
+pools show real organization-by-capability interaction, and on those same three cells the sharp-null
+headroom excesses are −0.23 (p=0.605), −0.05 (p=0.560) and −3.24 (p=0.965). Interaction is present,
+headroom does not see it, a router given the true capability labels beats the best single agent in two
+pools of three, and voting still wins. That is one coherent story rather than four negatives.
+
+**What must not be written now.** "There is no agent-by-task interaction" is refuted by our own data
+and must not survive anywhere in the paper. The supportable statement, unchanged from D-037 but now
+measured rather than argued, is that the interaction present is not of a kind a per-task maximum can
+detect, and not of a size that makes selection beat aggregation.
+
+---
+
+## D-039 — The retracted lambda sweep has an artefact again, and Lemma 2 has a direct measurement
+
+**Date.** 2026-08-10. **Status.** Adopted.
+
+**Decision.** Restore the lambda-sweep comparison to
+[`scripts/measure_cost_frontier.py`](scripts/measure_cost_frontier.py) under an explicit
+`retracted_lambda_sweep` key, add a hull diagnostic, and stop quoting the historical lambda figures.
+
+**Why.** Building the claim-evidence matrix exposed that the lambda numbers had no surviving artefact —
+the script was rewritten in place for the budget-matched analysis of D-036 and overwrote its own
+output — and that the two prose records disagreed: FRAMEWORK 6.1 says +2.6 to +16.6 points positive in
+86-100% of 200 resplits, D-036 says +4 to +16 at p<=0.006. Neither is reproducible.
+
+**The reconstruction does not reproduce either record, and that is now the finding.** A faithful
+re-implementation over 200 resplits gives best-lambda gains of +3.36, −0.02, +1.06, +7.02, +3.47 and
++7.99 points, positive in 44-94% of resplits. The qualitative artefact reproduces cleanly — the same
+data gives −0.48 to −3.94 under the budget-matched comparison, so the sign still flips — but the
+magnitudes do not match either historical figure. **Both historical ranges are retired.** The paper
+cites the regenerated numbers, which have an artefact behind them.
+
+**Lemma 2 is now measured, not just proved.** The hull diagnostic counts organizations that are
+Pareto-efficient yet unreachable by any linear penalty, which is the exact mechanism of the artefact:
+
+| cell | organizations | Pareto | reachable by some lambda | Pareto but invisible |
+|---|---:|---:|---:|---:|
+| `hard366`/strong4 | 30 | 11 | 5 | 7 |
+| `hard366`/decorrelated4 | 30 | 11 | 3 | 8 |
+| `hard366`/correlated4 | 30 | 7 | 5 | 3 |
+| `crosscap240`/strong4 | 30 | 12 | 5 | 8 |
+| `crosscap240`/decorrelated4 | 30 | 12 | 6 | 7 |
+| `crosscap240`/correlated4 | 30 | 14 | 5 | 9 |
+
+Between three and nine Pareto-efficient organizations per cell are invisible to the global policy at
+every lambda while the routed policy picks per capability from all thirty. That is the artefact, in one
+table, with no appeal to the retracted numbers.

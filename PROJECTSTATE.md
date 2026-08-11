@@ -220,6 +220,13 @@ selection survives, and each failure has a measured cause:
   accuracy and every task's difficulty but removes their interaction, observed headroom is at or below
   chance in all six cells, and on the 134-system SWE-bench Verified matrix it sits *below* the null
   (D-034).
+- **And headroom is blind, not just noisy.** A likelihood-ratio test of the same outcome tables finds
+  organization-by-capability interaction on all three `crosscap240` cells at p<=0.005, with excess cell
+  departures of +6.71, +4.21 and +3.78 points, while sharp-null headroom excess on those tables is
+  −0.23, −0.05 and −3.24. `hard366` shows no interaction at either the agent or the organization level,
+  which validates the suite manipulation directly for the first time. The corollary is that
+  "specialisation is absent" was never the right reading; "a per-task maximum cannot see the
+  specialisation that is there" is (D-038).
 - **The null is not vacuous, and the positive control explains the negative.** Eight real agents with
   per-capability spreads up to 0.833 still do not beat it, including a pool selected to be maximally
   disjoint (excess −2.16, p=0.883). For seven of the eight, the strongest capability is the same one:
@@ -228,8 +235,10 @@ selection survives, and each failure has a measured cause:
   maximum, since an agent that collapses on a capability leaves the union of successes on the same
   tasks it creates an opportunity on (D-035).
 - **Aggregation already collects the exploitable part.** A domain router given ground-truth capability
-  labels beats the best single agent in two pools of three but not plain majority voting (−0.6, −7.5,
-  +2.5 points), which needs no representation, no calibration and no router (D-035).
+  labels beats the best single agent in two pools of three but beats plain majority voting in only one
+  (−0.6, −7.5, +2.5 points), and voting needs no representation, no calibration and no router (D-035).
+  Note what this does *not* say: the interaction survives aggregation into organizations (D-038), so
+  voting removes the part worth routing on rather than the structure itself.
 - **The efficiency defence fails too.** Under a per-task budget, routing loses in all six cells by
   0.48 to 3.15 points. The one exception is priced-by-domain arbitrage, not delegation (D-036).
 
