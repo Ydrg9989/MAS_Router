@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          frozen
+lifecycle:     FROZEN — never edit after writing; results go to EXPERIMENT_LOG.md + DECISIONS.md
+last-verified: 2026-08-11
+evidence-base: not yet run
+-->
+
 # Step 1 pre-registration: from 6 cells to 70 pools
 
 Written **before** the sweep is run, in the style of D-026. Every prediction below has a branch
@@ -10,7 +17,7 @@ Status: **not yet run.** Predictions locked 2026-08-11.
 
 ## 1. Purpose
 
-Every claim in `Docs/CLAIM_EVIDENCE_MATRIX.md` rests on **n = 6** pool-by-suite cells with one
+Every claim in `Docs/paper/CLAIM_EVIDENCE_MATRIX.md` rests on **n = 6** pool-by-suite cells with one
 seed. Three of those claims have exactly one dissenting cell each, and the matrix records all
 three as unexplained. With n = 3 pools per suite, a 2-versus-1 split is indistinguishable from a
 coin toss.
@@ -73,7 +80,7 @@ That licenses a family-wise statement no per-cell test can make:
 
 This is precisely the correction that arXiv 2607.20768 identifies and does not make — its 31,900
 subsets are overlapping, *"a design that trades independence for coverage."* See
-[`NOVELTY_BOUNDARY.md`](NOVELTY_BOUNDARY.md) §1.
+[`NOVELTY_BOUNDARY.md`](../literature/NOVELTY_BOUNDARY.md) §1.
 
 ---
 
@@ -135,7 +142,7 @@ Direction D as planned.
 
 ---
 
-## 7. What `Docs/routing_architectures.md` changes
+## 7. What `Docs/literature/ROUTING_ARCHITECTURES.md` changes
 
 Reading the nine methods surveyed there, **their headline claims are about cost, not accuracy**:
 MixLLM *"97.3% of GPT-4's answer quality at only 24.2% of the cost"*; IPR *"~43.9% cost

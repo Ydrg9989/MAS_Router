@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          ledger
+lifecycle:     APPEND-ONLY — never edit a past entry; supersede it with a new one
+last-verified: 2026-08-11
+evidence-base: each entry cites its own run artefacts
+-->
+
 # Design decisions
 
 Numbered, append-only. Each entry records the decision, why, and what it costs us.

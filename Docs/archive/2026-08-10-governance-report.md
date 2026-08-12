@@ -1,13 +1,20 @@
+<!-- doc-meta
+type:          frozen
+lifecycle:     ARCHIVED — never updated
+last-verified: 2026-08-11
+evidence-base: governance phase artefacts; SS10.6 verdict retired by D-029/D-030
+-->
+
 # Experimental report: epistemic governance in heterogeneous LLM teams
 
 Complete account of the settings, results and conclusions of the MVP phase.
 Generated 2026-08-10. Every number here is reproducible from
-[`scripts/collect_report_data.py`](../scripts/collect_report_data.py), whose output is committed at
+[`scripts/collect_report_data.py`](../../scripts/collect_report_data.py), whose output is committed at
 `data/report_data.txt`; run identifiers refer to directories under `data/runs/`.
 
-Companion documents: [`EXPERIMENT_LOG.md`](../EXPERIMENT_LOG.md) is the chronological narrative,
-[`DECISIONS.md`](../DECISIONS.md) holds the 28 numbered design decisions, and
-[`PROJECTSTATE.md`](../PROJECTSTATE.md) records what currently works.
+Companion documents: [`EXPERIMENT_LOG.md`](../../EXPERIMENT_LOG.md) is the chronological narrative,
+[`DECISIONS.md`](../../DECISIONS.md) holds the 28 numbered design decisions, and
+[`PROJECTSTATE.md`](../../PROJECTSTATE.md) records what currently works.
 
 ---
 
@@ -130,7 +137,7 @@ disagree**, which was 11.1% against a gate threshold of 8pp (D-020).
 ### 4.3 Discrimination screening
 
 Before any priced episode, the Stage-A bank is classified per task
-([`mas_harness/analysis/discrimination.py`](../mas_harness/analysis/discrimination.py)):
+([`mas_harness/analysis/discrimination.py`](../../mas_harness/analysis/discrimination.py)):
 
 | class | meaning |
 |---|---|
@@ -212,7 +219,7 @@ and not sufficient; **error decorrelation is the design variable** and dominance
 lose it (D-023).
 
 Recomputed over all 126 four-member subsets of the 9 reliable agents banked on the full suite
-([`scripts/recheck_headroom_correlations.py`](../scripts/recheck_headroom_correlations.py)):
+([`scripts/recheck_headroom_correlations.py`](../../scripts/recheck_headroom_correlations.py)):
 
 | relationship | at n=366 | as first measured at n=120 |
 |---|---:|---:|
@@ -290,7 +297,7 @@ from by exactly one rule so the pair isolates that rule (D-012).
 | `chair_information_seeking` | 2–4 | a chair may ask one targeted question of up to two members, then decides | `independent_judge` |
 
 Full observability specifications are generated from the registry itself in
-[`Docs/PROTOCOL_CARD.md`](PROTOCOL_CARD.md), so they cannot drift from the code.
+[`Docs/reference/PROTOCOL_CARD.md`](../reference/PROTOCOL_CARD.md), so they cannot drift from the code.
 
 **Load-bearing invariants**, asserted by tests rather than intended:
 
@@ -592,7 +599,7 @@ On a minority of tasks `claude-sonnet-5` spends all 16,384 output tokens on inte
 therefore wrong. The penalty lands **only** on `independent_judge` and `chair_information_seeking` —
 the two protocols the aggregator decides — and never on member-decided protocols.
 
-Measured exactly ([`scripts/count_aggregator_truncation.py`](../scripts/count_aggregator_truncation.py)):
+Measured exactly ([`scripts/count_aggregator_truncation.py`](../../scripts/count_aggregator_truncation.py)):
 
 | pool | `independent_judge` | `chair_information_seeking` | distinct tasks |
 |---|---|---|---|
@@ -652,7 +659,7 @@ remain on disk. `pilot9-a`'s Stage A used `max_tokens` 1024 and is not comparabl
 
 ## 13. Decisions
 
-The 28 numbered decisions are in [`DECISIONS.md`](../DECISIONS.md). Those that shaped the experiment:
+The 28 numbered decisions are in [`DECISIONS.md`](../../DECISIONS.md). Those that shaped the experiment:
 
 | id | decision |
 |---|---|

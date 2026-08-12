@@ -1,6 +1,13 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place
+last-verified: 2026-08-11
+evidence-base: external; verified by direct reading 2026-08-11
+-->
+
 # Novelty boundary
 
-Why this file exists: [`Delegation_MAS_Literature_Review_fixed.md`](Delegation_MAS_Literature_Review_fixed.md)
+Why this file exists: [`Delegation_MAS_Literature_Review_fixed.md`](LITERATURE_REVIEW.md)
 surveys **routing methods**. The paper this project is now writing is a **measurement-audit**
 paper, and that is a different literature. This file records the boundary against the
 audit / psychometrics / ensemble-diagnostics shelf, checked on 2026-08-11.

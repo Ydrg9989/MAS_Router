@@ -1,260 +1,225 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place — never fork a v2; git history is the version record
+last-verified: 2026-08-11
+evidence-base: see §A5 traceability table
+supersedes:    Docs/CURRENT_STATE.md (folded in, 2026-08-11)
+-->
+
 # Project state
 
-What exists and runs today. `TODO.md` records what does not. Updated 2026-08-10.
+**The single source of truth for where this project is.** Update this file in place; do not
+write a new state report. `TODO.md` records what is not done. `DECISIONS.md` and
+`EXPERIMENT_LOG.md` are append-only ledgers of how we got here.
+[`Docs/README.md`](Docs/README.md) explains what every other document is.
 
-**The MVP is complete and the gate has been run.** Three agent pools, 366 hard tasks, 4,392 banked
-answers and 57,489 episodes across the three pools, **$85.13** for the project as a whole. The outcome:
-**delegation is the direction**, governance is a NO GO on accuracy, coalition is a NO GO. The reasoning
-is in `EXPERIMENT_LOG.md` and `DECISIONS.md` D-021 through D-028; the short version is that governance
-protocols do produce effects but the effects change sign when the pool changes, and a pre-registered
-test of the one mechanism that looked real refuted it.
+Two parts: **A. Research state** — what we know and what is decided. **B. System state** —
+what runs, and the invariants that make results trustworthy.
 
-**A full account of settings, results and conclusions is in
-[`Docs/EXPERIMENT_REPORT.md`](Docs/EXPERIMENT_REPORT.md)**, whose figures are regenerated from the run
-records by `scripts/collect_report_data.py`. Read that before the log, which is chronological and
-therefore contains superseded numbers.
+---
 
-**Delegation has since been closed as well, and the report above predates that.** The direction was
-pursued on the `delegation` branch through a cross-capability suite (`crosscap240`, D-032) and then
-through the learned router the direction had always proposed but never built (D-033). The router
-exists, is leak-free, and gains nothing at calibration sizes from 57 to 398 tasks. **D-034 explains
-why: there is nothing to win.** The "oracle headroom" this project has quoted since D-021 is what a
-per-task maximum over a wide, semi-independent family produces by itself; against a null that
-preserves organization accuracies and task difficulties while removing the organization-by-task
-interaction, observed headroom is at or below chance in all six pool-by-suite cells. See D-029
-through D-034 and the last four `EXPERIMENT_LOG.md` entries.
+# Part A — Research state
 
-**Any headroom figure elsewhere in this file predates that null and should not be read as an
-opportunity**, including the per-pool table below, which was the gate for buying priced episodes.
+## A1. The project in ten lines
 
-## Status at a glance
+Started 2026-08-04 as three candidate ICLR projects sharing one experimental substrate:
+**epistemic governance**, **delegation-equivalent task representations**, **coalition
+landscapes**. A pre-registered gate was to pick one on evidence.
+
+All three failed. Governance died on a refuted pre-registration (D-026 → D-027). Coalition
+failed its criterion on all three pools. Delegation was selected by the gate, then the gate
+itself was shown to be non-falsifiable (D-029, D-030), and the direction closed on its own
+merits (D-033 → D-036).
+
+What survives is a **methodological negative**: oracle headroom is not evidence of routable
+structure, and the cost comparison usually paired with it is unsound. That is the paper
+currently planned in [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md).
+
+**Total spend: $85.13–$88.09** (see §A7) of an originally allocated ~€3,000.
+
+## A2. Current direction — undecided, under review
+
+As of 2026-08-11 the paper framing is **under active review** and no direction is committed.
+The 2026-08-11 review raised four things bearing on the choice; they are recorded in
+[`Docs/literature/NOVELTY_BOUNDARY.md`](Docs/literature/NOVELTY_BOUNDARY.md) and in §A4 below.
+
+## A3. What is safe to claim
+
+| Claim | Strength | Evidence |
+|---|---|---|
+| Oracle headroom does not exceed a matched null preserving member sharing | strong | 6 cells + 134 public systems; null replays real episodes at agreement 1.0000 and fires on planted specialists |
+| Interaction is present in `crosscap240`, absent in `hard366` | strong | D-038; p≤0.005 at agent and organization level vs p=0.164 |
+| Headroom is *insensitive* to interaction, not merely inflated | strong | the same tables carry interaction at p≤0.005 while headroom excess is −0.23 / −0.05 / −3.24 |
+| A learned router gains nothing here, and it is not a data-volume problem | strong | D-033; flat learning curve, 57→398 calibration tasks |
+| A linear cost sweep reaches only the convex hull | strong | 3–9 of 30 Pareto-efficient organizations unreachable at any λ |
+
+## A4. What is weak, contested, or overclaimed
+
+1. **"Rules out an entire family of routers."** The capability router bounds only routers whose
+   representation is a function of a **four-way dataset-provenance partition**. Every router in
+   the literature uses more. Overclaimed in `PAPER_BACKBONE.md`; `FRAMEWORK.md` §2 is correct.
+2. **"Aggregation is a substitute for routing."** Rests on 2 of 3 pools. **n=3.**
+3. **Three dissenting results, recorded and unexplained** — semantic k-NN beats the learned
+   model (+1.40, 77% of resplits); the capability router beats voting in `correlated4` (+2.5);
+   routing wins at the tightest budgets in all three `crosscap240` cells.
+4. **Proposition 1** assumes no interaction and concludes no exploitable structure — close to
+   definitional. **Lemma 2** is a textbook fact about weighted-sum scalarisation.
+5. **One seed everywhere.** This maximises exactly the upward bias in Ĥ that the paper is about.
+6. **Eight agents, one provider, two protocols** in every cross-suite comparison.
+7. **The paper may be arguing on the wrong axis.** The routing literature's headline claims are
+   about **cost**, not accuracy. Our budget result finds routing losing at *unconstrained*
+   budget — where routers are not deployed — while winning at tight budgets, where they are.
+8. **Roughly 4% of the substrate has been used.** 8 agents are dense on both suites, so 70
+   four-agent pools are computable free; 3 were studied. Aggregation-only protocols cost zero
+   model calls; 2 were tested. Three public matrices are unused.
+9. **`Nash-CredMAS` in the literature review does not exist**; six other entries are unverified.
+
+## A5. Traceability — which artefact backs which claim
+
+Every run directory carries `run_meta.json` with pool, manifest content-hash, price snapshot and
+upstream pins. That is the authoritative version record; this table is the index into it.
+
+| Artefact (`data/runs/`) | Produced by | Decision | Date |
+|---|---|---|---|
+| `strong4-a/`, `decorr4-a/`, `correlated4-a/` | `scripts/run_priced.sh` | D-024 … D-028 | 2026-08-06 |
+| `hard366-a/`, `crosscap-*/` | Stage A + free Stage B | D-020, D-032 | 08-05, 08-10 |
+| `headroom_null.json` | `check_oracle_headroom.py` | D-034 | 2026-08-08 |
+| `headroom_null_swebench.json` | `check_headroom_swebench.py` | D-034 | 2026-08-08 |
+| `headroom_null_specialists.json` | `check_headroom_specialists.py` | D-035 | 2026-08-09 |
+| `headroom_null_shared_members.json` | `check_headroom_shared_members.py` | D-037 | 2026-08-10 |
+| `routing.json`, `routing_pooled.json` | `measure_routing*.py` | D-033 | 2026-08-07 |
+| `cost_frontier.json` | `measure_cost_frontier.py` | D-036, D-039 | 08-08, 08-10 |
+| `interaction.json` | `measure_interaction.py` | D-038 | 2026-08-10 |
+
+**Rule going forward:** any document quoting a number names the artefact key it came from, as
+[`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) already does per row.
+
+## A6. Open questions
+
+1. Is *"aggregation substitutes for routing"* real, or an n=3 artifact?
+2. Why does the capability router beat voting in `correlated4` — mechanism, or noise?
+3. Are the tight-budget routing wins capability matching or domain-price arbitrage? The
+   separating experiment (price-flattened rerun) is designed and **unrun**.
+4. Does `independent_judge` actually win? D-028's defect blocks the answer, and the fix
+   invalidates the priced cache.
+5. `crosscap240` under the five priced protocols — never run.
+6. A second seed — free for the two free protocols via replay.
+
+## A7. Bookkeeping discrepancies to reconcile before publication
+
+- **Total spend** reads **$85.13** historically and **$88.09** in
+  `data/runs/spend_ledger.jsonl` (11,622 calls); per-run figures differ by ~$1
+  (`strong4-a` $19.36 vs $20.21).
+- `data/runs/calib15/` is empty; `dry-*` and `plan-*` hold only price snapshots.
+- No `discrimination.json` or `gonogo.json` was persisted for any `crosscap` run.
+- Six banks have answers but **no episodes** — free Stage B value never spent.
+- Terminology is inconsistent across `DECISIONS.md`: "organization" / "configuration" /
+  "coalition" / "pool". Open blocker before drafting.
+
+---
+
+# Part B — System state
+
+## B1. Status at a glance
 
 | Layer | State | Where |
 |---|---|---|
 | Environment, upstream pins, preflight | works | `pyproject.toml`, `UPSTREAM.md`, `mas_harness/doctor.py` |
 | Cost accounting, cache, spend caps | works | `mas_harness/clients/` |
-| Task manifests, splits, evaluators | works, 3 of 4 MVP suites | `mas_harness/tasks/` |
-| Distributed-information condition | works, two arms | `mas_harness/tasks/distributed.py` |
+| Task manifests, splits, evaluators | works, 3 of 4 MVP domains | `mas_harness/tasks/` |
+| Distributed-information condition | built, **never run against real models** | `mas_harness/tasks/distributed.py` |
 | Agent pools, predicted expert, role rotation | works | `mas_harness/pool/` |
-| Stage A answer bank | works, never run for real | `mas_harness/runners/answer_bank.py` |
+| Stage A answer bank | works, run on both suites | `mas_harness/runners/answer_bank.py` |
 | Protocols 1–7 | works | `mas_harness/protocols/` |
 | Causal interventions | works | `mas_harness/interventions/edits.py` |
 | Stage B episodes, records, Parquet | works | `mas_harness/runners/episodes.py`, `records/` |
 | Governance / delegation / coalition metrics | works | `mas_harness/metrics/` |
-| Statistics and power | works, one caveat | `mas_harness/metrics/stats.py` |
-| Go/no-go gate | works | `mas_harness/analysis/gonogo.py` |
-| Free pilot on SWE-bench Verified | run, results below | `mas_harness/analysis/free_pilot.py` |
-| Task discrimination screen | works, run on 3 pools | `mas_harness/analysis/discrimination.py` |
-| Pool headroom precondition | works, run on 3 pools | `mas_harness/analysis/headroom.py` |
-| Candidate pool selector | works, 12 models screened | `mas_harness/analysis/pool_select.py` |
-| Winner reproducibility (split-half + null) | works, run on 15 domains | `mas_harness/metrics/stability.py` |
-| Learned router `q(x, S, p)` + baseline ladder | works, run on 6 cells, no gain | `mas_harness/metrics/routing.py` |
-| Coding domain (EvalPlus) | not available, no sandbox | see `TODO.md` |
-| GPUs / local vLLM | host has no GPU at all | see `TODO.md` |
+| No-interaction nulls (independent + member-sharing) | works | `mas_harness/metrics/sharing_null.py` |
+| Interaction likelihood-ratio test | works | `mas_harness/metrics/interaction.py` |
+| Go/no-go gate | works, **criteria retired** — see D-029, D-030 | `mas_harness/analysis/gonogo.py` |
+| Learned router + baseline ladder | works, run on 6 cells, no gain | `mas_harness/metrics/routing.py` |
+| Coding domain (EvalPlus) | unavailable, no sandbox | `TODO.md` |
+| GPUs / local vLLM | host has **no GPU at all** | `TODO.md` |
 
-391 tests pass and `ruff check` is clean over `mas_harness`, `scripts` and `tests`.
+**412 tests pass**; `ruff check` clean over `mas_harness`, `scripts`, `tests`.
 
-Five manifests are built and content-hashed: `hard366` (the main suite, 366 tasks selected for
-difficulty — GPQA-Diamond 122, MATH-500 level 5 122, hard MMLU-Pro sources 122), `screen120` (a
-sampled subset of it for candidate screening, so its calls are cache hits on the full run), `mvp90`,
-and the two distributed arms (`distributed30`, `distributed30_pressure`).
+## B2. Substrate
 
-The earlier `mvp90`-style suites were saturated — protocols cannot differ on tasks every agent gets
-right — which is why `hard366` exists and why discrimination is now screened before Stage B is priced
-(D-020).
+**Two-stage design (D-001).** Stage A banks one independent answer per (task, agent, seed).
+Stage B replays protocols over the bank. Aggregation protocols are deterministic functions of
+banked answers, so they cost nothing and `do(·)` interventions are exact computations rather
+than re-elicitations. Upstream `Task.execute()` is never called.
 
-## The three pools and what they showed
+**Suites** — 9 manifests built and content-hashed.
 
-All three use `anthropic/claude-sonnet-5` as aggregator so the pool contrast is not confounded with
-judge identity (D-024). Headroom is `P(at least one member correct) − best member`, the total accuracy
-any governance rule can win, and it is checked before a pool receives priced episodes (D-021, D-023).
+| suite | tasks | composition | agents densely banked |
+|---|---:|---|---:|
+| `hard366` | 366 | GPQA-Diamond 122, MATH-500 L5 122, MMLU-Pro theoremQA/scibench 122 | 10 |
+| `crosscap240` | 240 | CRUXEval 60, AIME 60, ExploreToM 60, GPQA-Diamond 60 | 8 |
+| `screen120` | 120 | subset of `hard366`, so its calls are cache hits | 16 |
+| `distributed30`, `distributed30_pressure` | 30 each | synthetic partitioned-option arms | 0 — never banked |
+| `mvp366`, `mvp90`, `pilot9`, `crosscap12` | — | retired: saturated | — |
 
-| pool | members | error corr | headroom | `single_expert` |
-|---|---|---:|---:|---:|
-| `strong4` | `grok43`, `gpt5mini`, `deepseek32`, `llama4scout` | +0.408 | 8.20pp | 0.8989 |
-| `decorrelated4` | `gptoss120b`, `llama4scout`, `mistral-small`, `ring26` | +0.382 | 9.29pp | 0.8552 |
-| `correlated4` | `gpt5mini`, `deepseek32`, `gptoss120b`, `qwen3-30b` | +0.579 | 4.92pp | 0.8989 |
+**Pools** — all use `anthropic/claude-sonnet-5` as aggregator so the pool contrast is not
+confounded with judge identity (D-024).
 
-Protocol accuracy minus `single_expert`, on each pool's discriminating tasks:
+| pool | members | error corr | `single_expert` |
+|---|---|---:|---:|
+| `strong4` | grok43, gpt5mini, deepseek32, llama4scout | +0.408 | 0.8989 |
+| `decorrelated4` | gptoss120b, llama4scout, mistral-small, ring26 | +0.382 | 0.8552 |
+| `correlated4` | gpt5mini, deepseek32, gptoss120b, qwen3-30b | +0.579 | 0.8989 |
 
-| protocol | `decorr` | `strong` | `corr` | |
-|---|---:|---:|---:|---|
-| `independent_judge` | +4.76 | +0.56 | +0.00 | never negative |
-| `chair_information_seeking` | +4.76 | +3.37 | −3.10 | sign varies |
-| `debate_vote` | +5.24 | +0.00 | −3.88 | sign varies |
-| `expert_veto` | −1.90 | +3.37 | −6.20 | sign varies |
-| `expert_verifier` | −1.43 | +0.00 | −0.78 | never positive |
-| `independent_majority` | −0.95 | +0.00 | −4.65 | never positive |
+**Protocols** — 7, described in
+[`Docs/reference/PROTOCOL_CARD.md`](Docs/reference/PROTOCOL_CARD.md). Two are free (zero model
+calls): `single_expert`, `independent_majority`. Five are priced.
 
-Nothing survives Holm correction across the ten tests on the first two pools. `independent_judge` never
-hurting and `expert_verifier` never helping are candidates for a future pre-registration, **not**
-findings: with fifteen effects, a sign-stable one is unremarkable under the null.
+⚠️ **The five priced protocols ran on `hard366` only**, on each pool's discriminating subset
+(129–210 tasks). **`crosscap240` — the only suite where interaction is detectable — has never
+seen a priced protocol.** Every cross-suite claim rests on 15 coalitions × 2 protocols = 30
+"organizations", where the two protocols are vote and solo.
 
-The stable governance result is about influence rather than accuracy. Masking one member changes the
-decision 24.5-25.0% of the time on every pool, and the mask-flip profile separates competence from
-leverage cleanly — in `hard366-a`, `mistral-small` changed four decisions to correct and zero to wrong,
-while `gpt5mini` at 0.883 competence carried 2.13x its share of influence.
+**On disk:** 6,024 banked answers across 16 agents; 97,531 episodes; 99 MB response cache.
+The figure quoted in the paper — 4,392 answers → 57,489 episodes — is the three priced
+`hard366` pools specifically.
 
-## What has actually been executed
+**Constraints:** single seed (`seeds: [0]`, temperature 0) everywhere; no GPU; no code-execution
+sandbox; caps are per-run ($75) and per-day ($150), not cumulative.
 
-- **The full MVP against OpenRouter.** Stage A on three pools over `hard366`, the free half of Stage B
-  on each (all 15 coalitions, masks, correct-answer substitutions, reorderings), the priced half on
-  each pool's discriminating subset, and the gate on all three. 12 candidate models screened. See
-  `EXPERIMENT_LOG.md` for per-run commands, costs and conclusions.
-- **A pre-registered prediction, tested and refuted** (D-026, D-027). A pool-by-protocol interaction
-  found post-hoc on two pools measured +10.53pp with a 95% CI of [+3.16, +17.89] and p=0.0052, and did
-  not replicate on the third: the moderator would have had to act only in the middle of its own range.
-  It cost $17.93 to refute. This is the single most useful thing the harness has done.
-- **The free pilot**, on the verified 134-agent x 500-task SWE-bench matrix from
-  `agent-psychometrics`. This validated the whole coalition-analysis path — pairwise
-  synergy, Harsanyi dividends, `R_{>=3}`, submodularity violations, error correlation,
-  top-k gap, pairwise factorization — at zero cost. See `EXPERIMENT_LOG.md`.
-- **The full harness end to end on a synthetic answer bank** (`tests/test_pipeline.py`):
-  manifest, Stage A bank, predicted-expert fit on the calibration split only, Stage B over
-  every one of the 15 coalitions and two free protocols, masking interventions, JSONL and
-  Parquet records, resume, and the go/no-go gate. The bank is planted so dilution, rescue
-  and a contested 2-2 vote are known in advance, and the tests assert the metrics recover
-  them.
+## B3. Load-bearing invariants
 
-- **The distributed-information condition, mechanically.** With the option set partitioned
-  and a unique holder, the real `independent_majority` protocol can never carry the correct
-  answer on a plurality — only one member is able to cast it. Verified over the derived
-  tasks: the correct answer wins only when a full four-way split hands it to the tie-break,
-  never on the merits. Deferring to the holder recovers every task, which is the ceiling
-  protocols 6 and 7 are aiming at without being told who the holder is.
-
-Costs to date, all OpenRouter, no GPU used anywhere: **$85.13 total** — $16.73 building the suite and
-screening pools, $57.98 for the three priced pool sweeps, and $10.43 on the failed attempt to repair
-aggregator non-termination (D-028). Caps are per-run ($75) and per-day ($150), not cumulative, so
-nothing is currently constrained.
-
-## The seven protocols
-
-Baselines 1–5 describe how existing systems allocate influence. Protocols 6–7 are the
-report's proposed interventions, each paired with the baseline it differs from by exactly
-one rule (D-012).
-
-| Protocol | Calls (4 agents) | Decision rule |
-|---|---:|---|
-| `single_expert` | 0 | the predicted expert's banked answer |
-| `independent_majority` | 0 | plurality over banked answers, abstentions excluded |
-| `independent_judge` | 1 | a neutral aggregator picks |
-| `expert_verifier` | 2 | one review, then the **expert** has the last word |
-| `debate_vote` | 4 per extra round | revise simultaneously, then vote |
-| `expert_veto` | 1 | the expert stands unless a challenge clears an evidence bar |
-| `chair_information_seeking` | 2–4 | a chair may ask one question, then decides |
-
-Two of the seven cost nothing once Stage A exists, which is what makes exhaustive coalition
-enumeration affordable (D-001, D-009).
-
-## Load-bearing invariants
-
-These are asserted by tests, not merely intended. If one breaks, a scientific claim breaks
-with it.
+Asserted by tests, not merely intended. If one breaks, a scientific claim breaks with it.
 
 - The two free protocols make **zero** model calls. The entire cost argument rests on it.
-- Every protocol on a given task sees byte-identical banked answers, so protocol
-  comparisons are exactly paired and McNemar applies.
+- Every protocol on a task sees byte-identical banked answers, so comparisons are exactly
+  paired and McNemar applies.
 - The predicted expert is fitted on the calibration split only; the oracle is computed but
   never pooled with it (D-004).
-- An answerless message is an abstention, not a vote. Upstream extraction returns a
-  confident letter for ordinary prose, so extraction was re-implemented (D-011).
-- Interventions never mutate the input bank; the same bank object is reused across every
-  protocol and intervention for a task.
-- Every branch point in the governance protocols is resolved by extraction or string
-  matching, never by a second model (D-003, D-013).
+- An answerless message is an abstention, not a vote (D-011).
+- Interventions never mutate the input bank.
+- Every branch point in the governance protocols is resolved by extraction or string matching,
+  never by a second model (D-003, D-013).
 - Role rotations carry distinct pool ids, so they cannot collide in the resume set (D-014).
-- In the distributed condition, the correct option is visible to exactly the recorded
-  holders, the union of visible option sets is complete, and every member sees the same
-  number of options so set size cannot betray the holder (D-010). Checked per task at build
-  time, not just in tests.
-- A member's private evidence follows it into every call it makes — debate revisions, chair
-  replies, verifier reviews — while the judge and chair hold none. An agent that lost its
-  briefing mid-protocol would be defending a position whose basis it could no longer see.
-- Manifest content hashes cover the private briefings, so a changed partition is a changed
+- In the distributed condition the correct option is visible to exactly the recorded holders,
+  the union of visible option sets is complete, and every member sees the same number of
+  options (D-010). Checked per task at build time.
+- Manifest content hashes cover private briefings, so a changed partition is a changed
   manifest (D-016).
 
-## Known limitations worth stating up front
+## B4. Known limitations
 
-- Three of four MVP domains are available: MATH-500, GPQA-Diamond, MMLU-Pro STEM. There is
-  no code-execution path, so the coding domain is absent.
-- The distributed condition is *constructed*, not HiddenBench, and is labelled
-  `distributed_synth` everywhere (D-010). Absolute accuracy on it is not comparable to the
-  full-information suites, because partitioning ten options across four members moves a
-  member's prior from 1/10 to about 1/3. Compare protocols within the condition.
-- Its one residual leak is that a member can name a letter it was never shown.
-  `out_of_set_rate()` measures this; it has not yet been measured on real model output.
-- `mixed_effects_logit` clusters on task via GEE rather than fitting crossed task+seed
-  random effects. Adequate for the pilot, not for the paper.
-- The semantic task space falls back to character n-gram TF-IDF when `sentence-transformers` cannot
-  reach the network, and the fallback is reported in every comparison because a low
-  semantic-versus-organizational correlation means much less if the semantic space is weak. Both paths
-  have now been measured and agree (Spearman 0.028-0.105 with real embeddings, 0.048-0.063 with the
-  fallback), so the criterion is not an artifact of the fallback — but any given run's report must be
-  read for which method it used.
-- **The delegation criterion that opened this phase has since been retired.** Configuration dominance
-  read 41.7%, 58.3% and 75.0% across the three pools against a 75% ceiling, so `decorrelated4` passed
-  by a margin of exactly zero, and the statistic is diluted by adding protocols rather than measuring
-  anything about tasks (D-029). It is superseded by split-half winner reproducibility in
-  [`mas_harness/metrics/stability.py`](mas_harness/metrics/stability.py). Any figure quoting
-  configuration dominance predates D-029 and should not be carried forward.
-- Harsanyi decomposition is exact and therefore exponential in pool size. Fine at four or
-  five agents; it refuses above twelve.
-- Planning token figures are now measured (300 input / 4,200 output per call) but remain deliberately
-  conservative: measured priced runs came in 1.9-3.0x under their dry-run estimates, because the
-  estimator budgets 4,200 output tokens per carried peer answer where reliable models average 1,580.
-  Treat `--dry-run` as an upper bound, not a forecast.
-- Absolute accuracy is not comparable across pools, only protocol contrasts within one (D-021). Nor is
-  any accuracy measured on a discriminating subset comparable to a full-suite figure: the subset is
-  selected *because* protocols differ there, so `independent_majority` reads 0.667 on a 15-task slice
-  against 0.8497 on all 366.
-
-## Where the delegation direction ended
-
-Delegation is closed, and the closure is thorough rather than inconclusive. Nothing about per-task
-selection survives, and each failure has a measured cause:
-
-- **No learned router gains anything** over a frozen fixed-best baseline, at calibration sizes from 57
-  to 398 tasks, on either suite and all three pools (D-033).
-- **The headroom it was chasing was never real.** Against a null that preserves every organization's
-  accuracy and every task's difficulty but removes their interaction, observed headroom is at or below
-  chance in all six cells, and on the 134-system SWE-bench Verified matrix it sits *below* the null
-  (D-034).
-- **And headroom is blind, not just noisy.** A likelihood-ratio test of the same outcome tables finds
-  organization-by-capability interaction on all three `crosscap240` cells at p<=0.005, with excess cell
-  departures of +6.71, +4.21 and +3.78 points, while sharp-null headroom excess on those tables is
-  −0.23, −0.05 and −3.24. `hard366` shows no interaction at either the agent or the organization level,
-  which validates the suite manipulation directly for the first time. The corollary is that
-  "specialisation is absent" was never the right reading; "a per-task maximum cannot see the
-  specialisation that is there" is (D-038).
-- **The null is not vacuous, and the positive control explains the negative.** Eight real agents with
-  per-capability spreads up to 0.833 still do not beat it, including a pool selected to be maximally
-  disjoint (excess −2.16, p=0.883). For seven of the eight, the strongest capability is the same one:
-  the profiles are near-monotone transformations of a single difficulty ordering, which is main-effect
-  structure and exactly what the null models. Specialisation is also self-cancelling for a per-task
-  maximum, since an agent that collapses on a capability leaves the union of successes on the same
-  tasks it creates an opportunity on (D-035).
-- **Aggregation already collects the exploitable part.** A domain router given ground-truth capability
-  labels beats the best single agent in two pools of three but beats plain majority voting in only one
-  (−0.6, −7.5, +2.5 points), and voting needs no representation, no calibration and no router (D-035).
-  Note what this does *not* say: the interaction survives aggregation into organizations (D-038), so
-  voting removes the part worth routing on rather than the structure itself.
-- **The efficiency defence fails too.** Under a per-task budget, routing loses in all six cells by
-  0.48 to 3.15 points. The one exception is priced-by-domain arbitrage, not delegation (D-036).
-
-Three methodological findings came out of this that are reusable independently of the negative
-result: the headroom illusion, specialisation cancelling itself for maximum-type statistics, and the
-convex-hull artefact that makes any lambda-swept cost comparison flatter a mixed or routed policy.
-
-## Next actions
-
-1. Decide what the paper is. `TODO.md` records the choice; the apparatus and the negative are solid
-   and unusually well controlled, and there are now three methodological contributions to build on.
-2. Extend the null to the public matrices already on disk — `swebench_pro`, `gso`, `terminalbench` and
-   the two `TwinRouterBench` matrices — for external validity at zero cost.
-3. Pre-register the two sign-stable patterns before testing them: `independent_judge` never hurting,
-   `expert_verifier` and plain majority never helping. D-027 explains why they are not yet findings.
-4. Report the governance material as an influence result, which is what replicated: mask-flip rates of
-   24.5-25.0% and the competence-versus-leverage divergence, both stable across all three pools.
-5. Stage A and B over both distributed arms remain unrun, and `out_of_set_rate()` has still never been
-   measured on real model output.
+- Three of four MVP domains available; no code-execution path, so the coding domain is absent.
+- The distributed condition is *constructed*, not HiddenBench, and labelled `distributed_synth`
+  (D-010). Compare protocols within the condition, never across.
+  `out_of_set_rate()` has never been measured on real model output.
+- `mixed_effects_logit` clusters on task via GEE rather than fitting crossed task+seed random
+  effects. Adequate for a pilot, not for the paper.
+- The semantic task space falls back to character n-gram TF-IDF when `sentence-transformers`
+  cannot reach the network. Both paths measured and agreeing (Spearman 0.028–0.105 real,
+  0.048–0.063 fallback), but each report must be read for which it used.
+- **Configuration dominance is retired** (D-029) — diluted by adding protocols, and its noise
+  null's 95th percentile lands exactly on the 75% threshold. Superseded by split-half winner
+  reproducibility in `mas_harness/metrics/stability.py`. Any figure quoting it predates D-029.
+- Harsanyi decomposition is exact and therefore exponential; refuses above twelve agents.
+- `--dry-run` came in 1.9–3.0× above measured cost. Treat it as an upper bound, not a forecast.
+- Absolute accuracy is not comparable across pools, only protocol contrasts within one (D-021).
+  Nor is accuracy on a discriminating subset comparable to a full-suite figure.

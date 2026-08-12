@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          ledger
+lifecycle:     APPEND-ONLY — newest entry at top; contains superseded numbers by design
+last-verified: 2026-08-11
+evidence-base: data/runs/<run-id>/run_meta.json per entry
+-->
+
 # Experiment log
 
 Append-only. Newest entry at the top. One entry per run that produced data, plus
@@ -11,7 +18,7 @@ alongside a `run_meta.json` capturing the pool, manifest hash, price snapshot an
 upstream pins.
 
 **This file is chronological and therefore contains superseded numbers.** For the settled
-account, read [`Docs/EXPERIMENT_REPORT.md`](Docs/EXPERIMENT_REPORT.md), whose figures are
+account, read [`Docs/archive/2026-08-10-governance-report.md`](Docs/archive/2026-08-10-governance-report.md), whose figures are
 regenerated from the run records rather than transcribed.
 
 ---
@@ -20,7 +27,7 @@ regenerated from the run records rather than transcribed.
 
 **What.** No new model calls. Every quantity in the log and in `DECISIONS.md` was recomputed from the
 run records by [`scripts/collect_report_data.py`](scripts/collect_report_data.py) and written up as
-[`Docs/EXPERIMENT_REPORT.md`](Docs/EXPERIMENT_REPORT.md). Three claims did not survive the check.
+[`Docs/archive/2026-08-10-governance-report.md`](Docs/archive/2026-08-10-governance-report.md). Three claims did not survive the check.
 
 **1. D-028's "25 of 366 tasks, all GPQA-Diamond" was wrong twice.** The denominator was taken from the
 suite, but the aggregator only ever ran on each pool's discriminating subset, so 366 was never the base.
@@ -1175,7 +1182,7 @@ well. The residual effect that does exist is priced-by-domain arbitrage, not del
 
 ## 2026-08-10 — the headroom null, sharpened. $0
 
-**Why.** Writing `Docs/FRAMEWORK.md` exposed a real defect in the D-034 null: it draws organizations
+**Why.** Writing `Docs/paper/FRAMEWORK.md` exposed a real defect in the D-034 null: it draws organizations
 independently, but organizations share members, so its oracle is too generous and the test
 under-rejects. D-034's conclusion was therefore conservative rather than wrong, and a conservative test
 cannot carry the claim.
@@ -1221,7 +1228,7 @@ validation remains the conservative independent null and is labelled as such.
 
 ## 2026-08-10 — Three evidence gaps closed before drafting: the interaction test, the lambda artefact, the capability table
 
-Building `Docs/PAPER_BACKBONE.md` and `Docs/CLAIM_EVIDENCE_MATRIX.md` surfaced three things that had to
+Building `Docs/paper/PAPER_BACKBONE.md` and `Docs/paper/CLAIM_EVIDENCE_MATRIX.md` surfaced three things that had to
 be settled before any prose: a central claim resting on descriptive geometry rather than a test, a
 headline number with no surviving artefact, and a planned figure whose data had only ever been printed
 to a terminal. All three are free — no API spend. Total project cost remains $85.13.

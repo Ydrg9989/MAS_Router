@@ -1,7 +1,17 @@
+<!-- doc-meta
+type:          generated
+lifecycle:     REGENERATE from mas_harness.protocols.protocol_card(); header block is hand-maintained
+last-verified: 2026-08-11
+evidence-base: mas_harness/protocols/ registry
+-->
+
 <!-- GENERATED FILE. Do not edit by hand.
 
-Regenerate with:
-    .venv/bin/python -c "from mas_harness.protocols import protocol_card; print(protocol_card())" > Docs/PROTOCOL_CARD.md
+Regenerate the BODY with:
+    .venv/bin/python -c "from mas_harness.protocols import protocol_card; print(protocol_card())"
+
+then re-prepend this header block, which is hand-maintained and is NOT produced by
+protocol_card(). Everything below the header is generated.
 
 This card is generated from the protocol registry itself, so it cannot drift from the code.
 Its purpose is to make the observability of each protocol reviewable: what a participant can

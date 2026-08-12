@@ -6,7 +6,7 @@ independently given fitted marginals. That is the wrong independence. Organizati
 coalition containing a weak member inherits that weakness everywhere it appears. Real per-task
 maxima are therefore smaller than independent maxima at the same marginals, so the null's oracle is
 too generous and the test under-rejects. It is very likely why the SWE-bench matrix came out *below*
-its null rather than at it. See `Docs/FRAMEWORK.md` section 3.4.
+its null rather than at it. See `Docs/paper/FRAMEWORK.md` section 3.4.
 
 The two-stage design fixes this for free. Simulate at the *agent* level under an additive
 agent-by-task model, then push the simulated answers through the real protocol function. Member

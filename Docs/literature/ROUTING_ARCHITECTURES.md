@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place
+last-verified: 2026-08-11
+evidence-base: external
+-->
+
 # Routing LLMs: Architectures and Principles
 
 Modern multi-LLM and agentic systems employ diverse **routing mechanisms** to assign incoming queries to the most suitable model, balancing *accuracy*, *cost*, and *latency*. Below we compare representative methods, highlighting each architecture, algorithm, and evaluation metrics, and then analyze the deeper principles that make them effective. We also discuss analogies from other domains to inspire new routing approaches.

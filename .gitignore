@@ -26,3 +26,7 @@ __pycache__/
 
 # Embedded checkout, not part of this repo
 .cursor/research-paper-internal-review/
+
+# ---- local editor / assistant tooling ----
+.cursor/
+.vscode/

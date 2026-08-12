@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place
+last-verified: 2026-08-11
+evidence-base: none (describes the harness, not results)
+-->
+
 # MAS Harness
 
 A shared experiment harness for research on **heterogeneous multi-agent LLM systems**.
@@ -9,7 +16,7 @@ task  x  agent pool  x  protocol / coalition  x  seed
 ```
 
 One dataset produced by this harness feeds all three research directions described in
-[`Docs/deep-research-report_corrected.md`](Docs/deep-research-report_corrected.md):
+[`Docs/archive/2026-08-04-design-report.md`](Docs/archive/2026-08-04-design-report.md):
 epistemic governance, delegation-equivalent task representations, and coalition
 landscapes.
 

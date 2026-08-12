@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          frozen
+lifecycle:     ARCHIVED — never updated
+last-verified: 2026-08-11
+evidence-base: superseded; project selection overtaken by D-027/D-029
+-->
+
 # Three Candidate ICLR Projects for Multi-Agent Selection and Organization
 
 ## Executive summary

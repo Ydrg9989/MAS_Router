@@ -1,9 +1,16 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place
+last-verified: 2026-08-11
+evidence-base: via Docs/paper/CLAIM_EVIDENCE_MATRIX.md — do not quote numbers directly
+-->
+
 # Paper Backbone
 
 Built with `.cursor/research-paper-writing-skills` Mode 2. Evidence inventory is
-[`Docs/FRAMEWORK.md`](FRAMEWORK.md) (formal framework and design), [`DECISIONS.md`](../DECISIONS.md)
-(D-001 to D-037) and [`EXPERIMENT_LOG.md`](../EXPERIMENT_LOG.md) (what was run). Claim-level evidence
-with exact locations is [`Docs/CLAIM_EVIDENCE_MATRIX.md`](CLAIM_EVIDENCE_MATRIX.md).
+[`Docs/paper/FRAMEWORK.md`](FRAMEWORK.md) (formal framework and design), [`DECISIONS.md`](../../DECISIONS.md)
+(D-001 to D-037) and [`EXPERIMENT_LOG.md`](../../EXPERIMENT_LOG.md) (what was run). Claim-level evidence
+with exact locations is [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](CLAIM_EVIDENCE_MATRIX.md).
 
 **Status: awaiting author sign-off on the one-sentence paper, the three claims, the contribution list
 and the section order.** Per the skill's Gate C, no prose drafting until those four are approved.
@@ -66,7 +73,7 @@ Claim 1, C2+C3+C5-empirical to Claim 2, C4 to Claim 3.
 - **Why it matters:** These are the two quantities the routing literature uses to argue that
   organization selection is worth building. FlexRouter's coverage objective
   \(P(\exists a \in S : Y_a = 1)\) is the same functional as our headroom
-  ([literature review §9.2-9.3](Delegation_MAS_Literature_Review_fixed.md)). If the motivating number
+  ([literature review §9.2-9.3](../literature/LITERATURE_REVIEW.md)). If the motivating number
   is not evidence, the field's framing needs repair independently of whether any particular router works.
 
 ### Claim 2 — Per-task organization selection does not beat committing to one, at three levels of information
@@ -214,7 +221,7 @@ One bullet per planned paragraph; each bullet is that paragraph's message.
   **[LITERATURE CHECK NEEDED]** the stronger sentence — that no published headroom figure is tested
   against a null — is not yet verified. What *is* supported is that the review's own eight essential
   baseline families end with "Oracle: best observed organization — how much headroom remains?"
-  ([literature review §26](Delegation_MAS_Literature_Review_fixed.md)), i.e. headroom is treated as a
+  ([literature review §26](../literature/LITERATURE_REVIEW.md)), i.e. headroom is treated as a
   quantity to be measured rather than a hypothesis to be tested. Use that unless the stronger claim is
   checked.
 - We build a counterfactual grid that makes the test possible: 569 tasks, 30 organizations, three

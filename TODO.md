@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place — tick items, do not fork
+last-verified: 2026-08-11
+evidence-base: none (pointers only)
+-->
+
 # TODO
 
 Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
@@ -58,8 +65,8 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
       `data/runs/headroom_null_specialists.json`. It was previously only ever printed to a terminal
       while carrying claim C4 and a planned figure.
 - [ ] **Decide what the paper is.** Backbone and claim-evidence matrix now exist as
-      [`Docs/PAPER_BACKBONE.md`](Docs/PAPER_BACKBONE.md) and
-      [`Docs/CLAIM_EVIDENCE_MATRIX.md`](Docs/CLAIM_EVIDENCE_MATRIX.md), with three claims signed off.
+      [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md) and
+      [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md), with three claims signed off.
       Remaining before drafting: the terminology ledger, and an explanation for `correlated4` being the
       one pool where the capability router beats voting.
 - [ ] **Apply the null to the public matrices already on disk.** `agent-psychometrics` has

@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place
+last-verified: 2026-08-11
+evidence-base: data/runs/{headroom_null_shared_members,interaction,routing,cost_frontier}.json
+-->
+
 # Framework, claims, and design
 
 What the project is arguing, what each claim rests on, and the mathematics the argument needs. Written
@@ -125,7 +132,7 @@ published headroom figure we are aware of is compared against zero.
 Fit the additive model \(\Pr[Y(x,o) = 1] = \sigma(\alpha_o + \beta_x)\) by penalised logistic regression
 on train tasks; simulate Bernoulli outcomes on test tasks; recompute \(\hat H\) per simulation. The
 \(p\)-value is the fraction of simulations with \(\hat H_{\text{null}} \ge \hat H_{\text{obs}}\)
-([`mas_harness/metrics/routing.py`](../mas_harness/metrics/routing.py),
+([`mas_harness/metrics/routing.py`](../../mas_harness/metrics/routing.py),
 `headroom_against_no_interaction`).
 
 Result: excess is at or below chance in all six pool-by-suite cells, largest \(+0.44\) points at
@@ -149,7 +156,7 @@ of observed structure are preserved on purpose: per-task difficulty, per-agent s
 abstention propensity, and **how concentrated each task's wrong answers are** — on a multiple-choice
 item four agents can converge on one distractor and outvote a correct minority, while on an
 open-response maths item wrong answers are nearly all distinct and a lone correct member wins.
-Implemented in [`mas_harness/metrics/sharing_null.py`](../mas_harness/metrics/sharing_null.py).
+Implemented in [`mas_harness/metrics/sharing_null.py`](../../mas_harness/metrics/sharing_null.py).
 
 **The diagnosis was right and the verdict is unchanged.** Replaying the observed answers through the
 fast equivalence-class voting path reproduces the recorded episodes at agreement **1.0000 in all six
@@ -163,7 +170,7 @@ one \(p<0.05\) among six tests occurs 26% of the time, and the Bonferroni thresh
 
 **The test has power.** A planted structure of four agents over four capabilities, each competent at
 exactly one, is detected at \(p<0.05\) with an excess above 5 points
-([`tests/test_sharing_null.py`](../tests/test_sharing_null.py)). So "no excess" is now a statement
+([`tests/test_sharing_null.py`](../../tests/test_sharing_null.py)). So "no excess" is now a statement
 from an instrument that fires when the structure is there, which is what §3.3 could not claim.
 
 **One statistic to avoid.** Headroom measured against the *calibration-picked* organization rather
@@ -229,7 +236,7 @@ structure yields no routable headroom.
 **5.2 Crossing interaction is real, and measured.** `deepseek32` and `ring26` hold up on theory of mind
 (0.800, 0.700) where `grok43` and `gpt5mini` collapse (0.133, 0.233). The likelihood-ratio test of
 \(\gamma_{u,c(x)} = 0\) in \(\sigma(\alpha_u + \beta_x + \gamma_{u,c(x)})\) has now been run at both levels
-of the same data ([`mas_harness/metrics/interaction.py`](../mas_harness/metrics/interaction.py), D-038).
+of the same data ([`mas_harness/metrics/interaction.py`](../../mas_harness/metrics/interaction.py), D-038).
 The p-value is a parametric bootstrap under the fitted additive model rather than a chi-squared tail,
 because one nuisance parameter per task is the incidental-parameter setting; the effect size is the
 excess of mean absolute cell departure over the null's own departure, because at these cell sizes

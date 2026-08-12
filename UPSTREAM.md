@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place when a pin changes
+last-verified: 2026-08-11
+evidence-base: UPSTREAM pins; verify with mas_harness.doctor
+-->
+
 # Upstream reference repositories
 
 The four repositories in this workspace are **read-only references**. `mas_harness`

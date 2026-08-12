@@ -1,3 +1,10 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place — VERIFY each entry against a real title/venue/arXiv id
+last-verified: 2026-08-11
+evidence-base: external; Nash-CredMAS entry is fabricated, 6 more unverified
+-->
+
 # Literature Review: Delegation, Routing, and Organization Selection in LLM Multi-Agent Systems
 
 ## 1. Executive Summary
