@@ -1,0 +1,37 @@
+=== pool sweep: crosscap240
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2414.20it/s]
+    8 agents, 238 tasks, 162 distinct coalitions, embedding sentence-transformers:sentence-transformers/all-MiniLM-L6-v2
+    agents: grok43, gpt5mini, deepseek32, gptoss120b, mistral-small, llama4scout, qwen3-30b, ring26
+    bank: 959 agent-tasks banked more than once, 49 differ on correctness (5.1%), 121 differ in answer text (12.6%) — see load_suite
+
+--- gate 1: vectorized plurality vs sharing_null._vote: 1.0000
+--- gate 2: named pools against the recorded episodes and published numbers
+    strong4        replay=1.0000 (7170 episodes, 239 tasks)  headroom= 10.00  published= 10.00  ok
+    decorrelated4  replay=1.0000 (7140 episodes, 238 tasks)  headroom=  8.18  published=  8.18  ok
+    correlated4    replay=1.0000 (7200 episodes, 240 tasks)  headroom=  6.25  published=  6.25  ok
+
+--- joint null over 70 pools, 200 replicates
+    done in 3.8s
+    median excess -1.63 pp (p=0.945), max +1.74 pp (p=0.975), 0.0% of pools at p<=0.05 (null expects 3.6%)
+
+--- calibration: 64 additive banks x 100 inner replicates
+    false-positive rate at 0.05: 0.016 (nominal 0.050), median p 0.262 (5s)
+
+--- per-pool statistics on 96 workers
+    10/70 pools  (61s)
+    20/70 pools  (62s)
+    30/70 pools  (64s)
+    40/70 pools  (64s)
+    50/70 pools  (64s)
+    60/70 pools  (64s)
+    70/70 pools  (64s)
+
+--- predictions
+    P1_headroom_excess_over_joint_null     CONFIRMED
+    P2_vote_at_least_capability_router     AMBIGUOUS
+    P3_learned_router_beats_fixed_best     REFUTED
+    P4_descriptors_predict_routing_gain    PARTIAL
+    P5_correlated4_percentile              CONFIRMED
+    P6_budget_matched                      CONFIRMED
+
+wrote /data/yiderigun/MAS_Router/data/runs/pool_sweep_crosscap240.json  (total 88s)

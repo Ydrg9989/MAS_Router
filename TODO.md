@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — tick items, do not fork
-last-verified: 2026-08-11
+last-verified: 2026-08-13
 evidence-base: none (pointers only)
 -->
 
@@ -64,11 +64,43 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
 - [x] **Persist the agent-by-capability table.** Done; `accuracy_by_capability` in
       `data/runs/headroom_null_specialists.json`. It was previously only ever printed to a terminal
       while carrying claim C4 and a planned figure.
+- [x] **Run the pre-registered pool sweep (Step 1).** Done, D-040, $0. 70 pools on `crosscap240` and
+      210 on `hard366`, with a joint null over the whole sweep and a measured false-positive rate.
+      All six named pools replay their recorded episodes at agreement 1.0000 and reproduce their
+      published headroom exactly. P1, P5, P6 confirmed; P2 ambiguous; P3 refuted on its threshold and
+      confirmed on its substance; P4 partial. Built as
+      [`mas_harness/metrics/pool_sweep.py`](mas_harness/metrics/pool_sweep.py) with 26 tests.
 - [ ] **Decide what the paper is.** Backbone and claim-evidence matrix now exist as
       [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md) and
       [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md), with three claims signed off.
-      Remaining before drafting: the terminology ledger, and an explanation for `correlated4` being the
-      one pool where the capability router beats voting.
+      Remaining before drafting: the terminology ledger. ~~and an explanation for `correlated4`~~
+      **closed by D-040** — it is at the 55.7th percentile of 70 pools and the inversion does not
+      survive the alternative answer draw.
+- [ ] **Propagate D-040 into `FRAMEWORK.md` and `CLAIM_EVIDENCE_MATRIX.md`.** C1/C1' upgrade to a
+      family-wise statement over 280 pools; C2a strengthens; **C3c must weaken** from "aggregation is
+      a substitute for routing" to a coin flip tilted toward voting; C2a's semantic-k-NN
+      counter-evidence and C2c's `correlated4` counter-evidence both retire; C2d gains a suite-level
+      control. FRAMEWORK §5's mechanism loses its regressor support.
+- [x] **Run RQ2–RQ5 and decide go/no-go.** Done, D-041, $0, 232s. All four negative; the single GO
+      trigger (Q3b) failed its own audit because its baseline was starved by the same budget. **NO-GO
+      on RQ2-style delegation.** Built as
+      [`mas_harness/metrics/research_questions.py`](mas_harness/metrics/research_questions.py) with
+      16 tests. The leave-one-domain-out splits were read for the first time since the harness was built.
+- [x] **Run the pre-registered positive experiments (E1–E4).** Done, D-042, $0, 262s. E1 fails on
+      both suites, E2 proves the budget win is arbitrage, E3 flips two of six verdicts on the
+      alternative draw, E4 leaves `independent_judge` as the one surviving positive claim.
+- [ ] **THE DECISION: buy the five priced protocols on `crosscap240`, with the D-028 repair.**
+      ~$60–90 against $88.09 spent of ~€3,000. It is the only route from this substrate to a
+      positive result: it supplies the second suite `independent_judge` needs, on the suite where
+      interaction is measurable (D-038), and it removes the handicap that currently understates the
+      protocol by 3.9–4.7 percentage points of forced-wrong episodes.
+      **Pre-register before running** — name `independent_judge` and the threshold in advance, since
+      D-041 showed the calibration-best protocol does not reproduce.
+- [x] **Re-run the sweep on the alternative answer draw.** Done, D-042, `_altdraw` artefact. `load_suite(priority=…)` already
+      selects it, and D-040 item 5 makes it the cheapest robustness check available.
+- [ ] **The price-flattened budget rerun.** Now the highest-value open experiment: D-040 shows the
+      tight-budget routing win is specific to the cross-capability suite, which is consistent with
+      domain-price arbitrage but does not demonstrate it.
 - [ ] **Apply the null to the public matrices already on disk.** `agent-psychometrics` has
       `swebench_pro`, `gso` and `terminalbench` alongside the verified split already used, and
       `TwinRouterBench/data` has static and dynamic matrices. Free external validity for D-034 and

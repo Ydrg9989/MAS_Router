@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — never fork a v2; git history is the version record
-last-verified: 2026-08-11
+last-verified: 2026-08-13
 evidence-base: see §A5 traceability table
 supersedes:    Docs/CURRENT_STATE.md (folded in, 2026-08-11)
 -->
@@ -37,42 +37,90 @@ currently planned in [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.
 
 **Total spend: $85.13–$88.09** (see §A7) of an originally allocated ~€3,000.
 
-## A2. Current direction — undecided, under review
+## A2. Current direction — undecided, but the evidence base is no longer n=3
 
-As of 2026-08-11 the paper framing is **under active review** and no direction is committed.
-The 2026-08-11 review raised four things bearing on the choice; they are recorded in
+As of 2026-08-11 the paper framing was **under active review** and no direction is committed. The
+2026-08-11 review raised four things bearing on the choice; they are recorded in
 [`Docs/literature/NOVELTY_BOUNDARY.md`](Docs/literature/NOVELTY_BOUNDARY.md) and in §A4 below.
+
+**2026-08-13, morning: the pre-registered pool sweep is run (D-040), on both suites, for $0.** Three
+pools became 280. It confirms C1 family-wise, dissolves the `correlated4` blocker, strengthens C2,
+forces C3c to weaken, and adds a control to the cost reading. It also surfaces a threat none of the
+review items anticipated — see §A4 item 5.
+
+**2026-08-13, evening: the positive experiments are run (D-042).** Selection rules cannot beat the
+calibration argmax on either suite (ceiling only +1.2–1.6 pp, nothing captures it), the tight-budget
+routing win **inverts** under flattened prices and is therefore arbitrage, and two of six
+pre-registered verdicts flip on an equally valid answer draw. **One positive claim survives:**
+`independent_judge`, named a priori, beats the calibration-chosen best aggregation rule in 3 of 3
+pools (+1.42 / +6.09 / +1.33) with a handicap that runs in its favour. It cannot clear its
+replication clause because the priced protocols never ran on `crosscap240`. **That run, ~$60–90 with
+the D-028 repair, is the only route from this substrate to a positive result, and the first time
+since D-023 that spending is the highest-value action.**
+
+**2026-08-13, afternoon: RQ2–RQ5 are run and delegation-as-routing is closed (D-041). NO-GO.** The
+four research questions that had been specified and never built are now tested, under thresholds
+fixed in advance. All four are negative; the single GO trigger failed its own audit and the
+correction moved the verdict away from GO. **The direction "a learned model picks the organization
+per task" is closed on this grid.** What survives is the selection-variance diagnosis (D-040), the
+supervision-efficiency crossover (RQ3), and a new positive: making interaction protocols available
+to a *fixed* choice is worth **+2.18 pp**, while routing among them is worth nothing.
 
 ## A3. What is safe to claim
 
 | Claim | Strength | Evidence |
 |---|---|---|
-| Oracle headroom does not exceed a matched null preserving member sharing | strong | 6 cells + 134 public systems; null replays real episodes at agreement 1.0000 and fires on planted specialists |
-| Interaction is present in `crosscap240`, absent in `hard366` | strong | D-038; p≤0.005 at agent and organization level vs p=0.164 |
-| Headroom is *insensitive* to interaction, not merely inflated | strong | the same tables carry interaction at p≤0.005 while headroom excess is −0.23 / −0.05 / −3.24 |
-| A learned router gains nothing here, and it is not a data-volume problem | strong | D-033; flat learning curve, 57→398 calibration tasks |
-| A linear cost sweep reaches only the convex hull | strong | 3–9 of 30 Pareto-efficient organizations unreachable at any λ |
+| Oracle headroom does not exceed a matched null preserving member sharing | strong | **280 pools across both suites** (D-040) + 6 named cells + 134 public systems; median excess −1.63 / +0.14 pp, 0/70 and 5/210 pools at p≤0.05 against 2.5 and 8.4 expected; null replays real episodes at agreement 1.0000, fires on planted specialists, and its false-positive rate is measured at 0.016 / 0.000 against a nominal 0.050 |
+| Interaction is present in `crosscap240`, absent in `hard366` | strong | D-038; p≤0.005 at agent and organization level vs p=0.164. **D-040: p≤0.05 in 100% of the 70 `crosscap240` pools, median excess departure +4.41 pp** |
+| Headroom is *insensitive* to interaction, not merely inflated | strong | the same tables carry interaction at p≤0.05 in every pool while headroom excess is at or below the null in all of them |
+| A learned router gains nothing here, and it is not a data-volume problem | strong | D-033 flat learning curve 57→398 tasks; **D-040: mean gain −0.01 pp over 70 pools and −0.46 pp over 210, ahead in 43.2% / 30.2% of resplits, while the shuffled control loses 2.42 pp** |
+| A linear cost sweep reaches only the convex hull | strong | 3–9 of 30 Pareto-efficient organizations unreachable at any λ in the named cells; **median 8 across 280 pools** |
+| Routing loses at unconstrained budget and wins only at the tightest budgets on the *cross-capability* suite | strong | D-040: unconstrained positive in 15.7% of `crosscap240` and **0.0%** of `hard366` pools; tightest +5.11 pp in 97.1% vs +0.65 pp in 59.5% |
+| Routing does not pay even when the choice set contains interaction protocols, but the best *fixed* organization gains +2.18 pp from having them | strong | D-041: `q_θ` −1.05 / −0.64 / −0.67 pp on 35 organizations; fixed-best accuracy 0.819/0.829/0.863 → 0.864/0.862/0.851 |
+| Delegation generalizes no better than it interpolates | strong | D-041: −0.29 IID, −0.18 domain holdout, +0.81 agent holdout (conditioning gain **−0.10**), −0.22 organization holdout, over 70 pools |
+| Choosing *whether* to collaborate is not learnable either | strong | D-041: −0.40 pp against the better fixed policy, ahead in 18% of resplits; a perfect oracle over the pair is worth only +2.29 pp |
+| Dense counterfactual supervision beats an execution log above 20% of the grid, and loses below it | moderate | D-041: dense minus log −2.44, −0.80, +0.35, +1.81, +2.53 pp across the budget sweep |
 
 ## A4. What is weak, contested, or overclaimed
 
 1. **"Rules out an entire family of routers."** The capability router bounds only routers whose
    representation is a function of a **four-way dataset-provenance partition**. Every router in
    the literature uses more. Overclaimed in `PAPER_BACKBONE.md`; `FRAMEWORK.md` §2 is correct.
-2. **"Aggregation is a substitute for routing."** Rests on 2 of 3 pools. **n=3.**
-3. **Three dissenting results, recorded and unexplained** — semantic k-NN beats the learned
-   model (+1.40, 77% of resplits); the capability router beats voting in `correlated4` (+2.5);
-   routing wins at the tightest budgets in all three `crosscap240` cells.
+2. ~~**"Aggregation is a substitute for routing."** Rests on 2 of 3 pools. **n=3.**~~
+   **Measured at n=280 (D-040) and it must weaken.** Voting is at or above the oracle-labelled
+   capability router in 60.0% of `crosscap240` and 65.7% of `hard366` pools, mean margin ≈ +0.28 pp,
+   5th–95th −5.1 to +7.5. Give the router all thirty organizations and voting leads in only 44.3% of
+   `crosscap240` pools. It is a coin flip tilted toward voting, not a substitution result. **C3c is
+   the claim most damaged by the sweep.**
+3. ~~**Three dissenting results, recorded and unexplained.**~~ **Two dissolve, one survives with a
+   control (D-040).** Semantic k-NN goes to mean −0.06 pp, positive in 48.6% of 70 pools. The
+   `correlated4` capability-router inversion sits at the 55.7th percentile — and see item 5 for why
+   it existed at all. The tight-budget routing win *survives and sharpens*: it is specific to
+   `crosscap240` (+5.11 pp in 97.1% of pools) and near-absent on `hard366` (+0.65 pp, 59.5%), which
+   is what price arbitrage predicts and capability matching does not.
 4. **Proposition 1** assumes no interaction and concludes no exploitable structure — close to
    definitional. **Lemma 2** is a textbook fact about weighted-sum scalarisation.
-5. **One seed everywhere.** This maximises exactly the upward bias in Ĥ that the paper is about.
-6. **Eight agents, one provider, two protocols** in every cross-suite comparison.
+5. **Re-running the same seed is a different draw, and it is large enough to invert a cell.**
+   `crosscap240` banked several agents twice; of 959 repeated agent-tasks, **49 disagree on
+   correctness and 121 differ in answer text** at temperature 0. Rebuilding `correlated4` from the
+   alternative draw moves vote-minus-router from −2.50 pp to +0.63 pp. `hard366` has zero
+   disagreements only because its runs shared the response cache. This supersedes the old "one seed
+   everywhere" caveat, which understated the problem, and it is now the **largest known threat to any
+   single-cell number in the project**, including several that predate D-040.
+6. **Eight to ten agents, one provider, two protocols** in every cross-suite comparison.
 7. **The paper may be arguing on the wrong axis.** The routing literature's headline claims are
    about **cost**, not accuracy. Our budget result finds routing losing at *unconstrained*
    budget — where routers are not deployed — while winning at tight budgets, where they are.
-8. **Roughly 4% of the substrate has been used.** 8 agents are dense on both suites, so 70
-   four-agent pools are computable free; 3 were studied. Aggregation-only protocols cost zero
-   model calls; 2 were tested. Three public matrices are unused.
+   D-040 makes this sharper, not softer: unconstrained routing is positive in **0 of 210** `hard366`
+   pools while tight-budget routing is positive in **97.1%** of `crosscap240` pools.
+8. ~~**Roughly 4% of the substrate has been used.**~~ **The free four-agent family is now fully
+   enumerated on both suites** — 70 + 210 pools, D-040. Still unused: the five priced protocols on
+   `crosscap240`, aggregation-only protocols beyond the two free ones, three public matrices, and the
+   six banks with answers but no episodes.
 9. **`Nash-CredMAS` in the literature review does not exist**; six other entries are unverified.
+10. **P4's mechanism regressors do not replicate.** Neither pre-registered directional claim holds on
+    both suites: ability spread predicts routing gain *positively* (+0.15, +0.28) where negative was
+    predicted. FRAMEWORK §5's mechanism is descriptive at n=280, not predictive.
 
 ## A5. Traceability — which artefact backs which claim
 
@@ -90,20 +138,43 @@ upstream pins. That is the authoritative version record; this table is the index
 | `routing.json`, `routing_pooled.json` | `measure_routing*.py` | D-033 | 2026-08-07 |
 | `cost_frontier.json` | `measure_cost_frontier.py` | D-036, D-039 | 08-08, 08-10 |
 | `interaction.json` | `measure_interaction.py` | D-038 | 2026-08-10 |
+| `pool_sweep_crosscap240.json`, `pool_sweep_hard366.json` | `measure_pool_sweep.py` | D-040 | 2026-08-13 |
+| `research_questions.json` | `measure_research_questions.py` | D-041 | 2026-08-13 |
+| `positive_selection.json`, `pool_sweep_crosscap240_altdraw.json` | `measure_positive_selection.py`, `measure_pool_sweep.py --tag _altdraw` | D-042 | 2026-08-13 |
+| `figures/pool_sweep_*` | `report_pool_sweep.py` | D-040 | 2026-08-13 |
 
 **Rule going forward:** any document quoting a number names the artefact key it came from, as
 [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) already does per row.
 
 ## A6. Open questions
 
-1. Is *"aggregation substitutes for routing"* real, or an n=3 artifact?
-2. Why does the capability router beat voting in `correlated4` — mechanism, or noise?
-3. Are the tight-budget routing wins capability matching or domain-price arbitrage? The
-   separating experiment (price-flattened rerun) is designed and **unrun**.
+1. ~~Is *"aggregation substitutes for routing"* real, or an n=3 artifact?~~ **Answered (D-040):
+   neither. It is a coin flip tilted toward voting — 60.0% / 65.7% of 280 pools. C3c must weaken.**
+2. ~~Why does the capability router beat voting in `correlated4`?~~ **Answered (D-040): it does not,
+   robustly. The pool sits at the 55.7th percentile of 70, and the inversion does not survive the
+   alternative answer draw of the same four agents (−2.50 pp → +0.63 pp).**
+3. ~~Are the tight-budget routing wins capability matching or domain-price arbitrage?~~ **Answered
+   (D-042): arbitrage. Flattening the domain price channel inverts the win from +5.34 pp to −5.78 pp
+   on `crosscap240` and from +0.71 to −2.80 on `hard366`, positive in 0% of pools on both.**
 4. Does `independent_judge` actually win? D-028's defect blocks the answer, and the fix
    invalidates the priced cache.
 5. `crosscap240` under the five priced protocols — never run.
-6. A second seed — free for the two free protocols via replay.
+6. ~~A second seed — free for the two free protocols via replay.~~ **Partly answered, and worse than
+   expected (D-040): the duplicate banking already in hand is a second draw, and it disagrees on 5.1%
+   of `crosscap240` agent-tasks. A deliberate multi-seed run is now a priority rather than a nicety.**
+7. Do the sweep's conclusions hold under the alternative answer draw? Everything in D-040 is computed
+   on one bank composition; the machinery to rebuild it from the other is in `load_suite(priority=…)`
+   and the rerun is free.
+8. ~~RQ2–RQ5, never built.~~ **Answered (D-041): all four negative, NO-GO on RQ2-style delegation.**
+9. ~~Why is the best fixed organization 2.18 pp better when interaction protocols are available?~~
+   **Partly answered (D-042). "Pick the best protocol" is noise (split-half 0.00–0.17), but
+   `independent_judge` named *a priori* is positive in 3 of 3 pools (+1.42/+6.09/+1.33), the only
+   protocol that is. Remaining: does it replicate on `crosscap240`? Needs the priced run.**
+11. **Is the calibration argmax genuinely optimal, or is the ceiling itself understated?** D-042
+    finds the attainable fixed-organization ceiling is only +1.2–1.6 pp over the argmax. That is a
+    strong claim resting on one seed and one draw.
+10. Does the RQ3 supervision crossover hold on `hard366`, and where exactly does it cross? Measured
+    only on `crosscap240`.
 
 ## A7. Bookkeeping discrepancies to reconcile before publication
 
@@ -137,11 +208,14 @@ upstream pins. That is the authoritative version record; this table is the index
 | No-interaction nulls (independent + member-sharing) | works | `mas_harness/metrics/sharing_null.py` |
 | Interaction likelihood-ratio test | works | `mas_harness/metrics/interaction.py` |
 | Go/no-go gate | works, **criteria retired** — see D-029, D-030 | `mas_harness/analysis/gonogo.py` |
-| Learned router + baseline ladder | works, run on 6 cells, no gain | `mas_harness/metrics/routing.py` |
+| Learned router + baseline ladder | works, run on 6 cells and 280 pools, no gain | `mas_harness/metrics/routing.py` |
+| Pool sweep: joint null, policy ladder, descriptors over every 4-agent pool | works, run on both suites (D-040) | `mas_harness/metrics/pool_sweep.py` |
+| RQ2–RQ5: interaction families, supervision efficiency, three holdouts, solo-or-collaborate | works, run (D-041) | `mas_harness/metrics/research_questions.py` |
+| Fixed-organization selection rules, a-priori protocol rules | works, run (D-042) | `mas_harness/metrics/selection.py` |
 | Coding domain (EvalPlus) | unavailable, no sandbox | `TODO.md` |
 | GPUs / local vLLM | host has **no GPU at all** | `TODO.md` |
 
-**412 tests pass**; `ruff check` clean over `mas_harness`, `scripts`, `tests`.
+**468 tests pass** (412 + 26 sweep + 16 research questions + 14 selection); `ruff check` clean over `mas_harness`, `scripts`, `tests`.
 
 ## B2. Substrate
 
@@ -182,8 +256,9 @@ seen a priced protocol.** Every cross-suite claim rests on 15 coalitions × 2 pr
 The figure quoted in the paper — 4,392 answers → 57,489 episodes — is the three priced
 `hard366` pools specifically.
 
-**Constraints:** single seed (`seeds: [0]`, temperature 0) everywhere; no GPU; no code-execution
-sandbox; caps are per-run ($75) and per-day ($150), not cumulative.
+**Constraints:** single seed (`seeds: [0]`, temperature 0) everywhere — and note D-040: re-running
+that seed is not deterministic, 49 of 959 repeated `crosscap240` agent-tasks disagree on correctness.
+No GPU; no code-execution sandbox; caps are per-run ($75) and per-day ($150), not cumulative.
 
 ## B3. Load-bearing invariants
 

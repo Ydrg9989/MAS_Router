@@ -1516,3 +1516,319 @@ Pareto-efficient yet unreachable by any linear penalty, which is the exact mecha
 Between three and nine Pareto-efficient organizations per cell are invisible to the global policy at
 every lambda while the routed policy picks per capability from all thirty. That is the artefact, in one
 table, with no appeal to the retracted numbers.
+
+---
+
+## D-040 — The sweep holds C1 at n=280, dissolves the `correlated4` anomaly, and finds the one-seed problem is worse than a seed
+
+**Date.** 2026-08-13. **Status.** Adopted. **Supersedes nothing; generalises D-033 through D-039.**
+
+**Decision.** Run the pre-registered pool sweep
+([`Docs/preregistrations/2026-08-11-pool-sweep.md`](Docs/preregistrations/2026-08-11-pool-sweep.md))
+on both suites, and restate three things it settles. C1 upgrades from six cells to a family-wise
+statement over 280 pools. The `correlated4` inversion is retired as an artefact of one answer draw
+rather than a property of the pool. And the project's "one seed" caveat is upgraded: repeated calls
+to the *same* model on the *same* task at temperature 0 disagree often enough to flip a headline.
+
+**What was built.** [`mas_harness/metrics/pool_sweep.py`](mas_harness/metrics/pool_sweep.py) with 26
+tests, driver [`scripts/measure_pool_sweep.py`](scripts/measure_pool_sweep.py), reporting in
+[`scripts/report_pool_sweep.py`](scripts/report_pool_sweep.py), artefacts
+`data/runs/pool_sweep_{crosscap240,hard366}.json`. Cost $0; 88s for 70 pools and 241s for 210.
+
+**Three reconstruction problems, each caught by a gate rather than by inspection.** Agent ids are
+pool-local, so the same model is agent 2 in one run and agent 0 in another while plurality ties and
+the expert predictor both break on the lowest id; `global_order` derives one id space by topological
+sort over the named pools and *refuses* if none is consistent. `_vote` compares summed competences
+with `==`, so a weighted-sum packing of its three tie-break tiers is not faithful at one unit in the
+last place; the tiers are applied as exact successive filters instead. And `fit_expert_predictor`
+drops any capability with fewer than five calibration tasks, which `crosscap240` never triggers and
+`hard366` triggers repeatedly. Only the first was anticipated. **All six named pools now replay their
+recorded episodes at agreement 1.0000 and reproduce their published headroom exactly** — 10.00, 8.18,
+6.25 on `crosscap240` and 7.00, 7.41, 3.70 on `hard366`.
+
+**The null is joint, which is the methodological upgrade.** Pools sharing three of four members are
+nearly the same pool, so 70 tests are not 70 tests. Because `sharing_null` simulates at the agent
+level, one simulated bank scores every pool at once and repetition gives the null distribution of the
+*whole sweep* with member sharing across pools exact by construction. This is the correction arXiv
+2607.20768 identifies in its 31,900 overlapping subsets and does not make.
+
+**And the joint null is calibrated by measurement, not by assumption.** A parametric bootstrap that
+fits a penalised additive model and then simulates from it is not exchangeable with its own observed
+table, and a per-task maximum is exactly the statistic that notices. A double bootstrap — simulate an
+additive bank, refit, simulate again, re-test — puts the false-positive rate at **0.016 on
+`crosscap240` and 0.000 on `hard366` against a nominal 0.050**. The test under-rejects, so a
+rejection would have been suspect and a failure to reject is conservative.
+
+**Results against the six locked predictions.**
+
+| | `crosscap240` (70 pools) | `hard366` (210 pools) |
+|---|---|---|
+| **P1** headroom excess | median **−1.63 pp** (p=0.945), 0/70 at p≤0.05 against 2.5 expected | median **+0.14 pp** (p=0.393), 5/210 against 8.4 expected |
+| **P2** vote ≥ capability router | 60.0% of pools, mean +0.29 pp | 65.7%, mean +0.27 pp |
+| **P3** learned router ahead | 57.1% of pools, mean **−0.01 pp** | 24.8%, mean −0.46 pp |
+| **P4** descriptors | max \|r\| 0.46; neither named sign holds on both suites | max \|r\| 0.53; neither holds |
+| **P5** `correlated4` percentile | 55.7th | 55.0th |
+| **P6** budget-matched | unconstrained −1.62 pp (positive in 15.7%); tightest **+5.11 pp (97.1%)** | unconstrained −3.02 pp (positive in **0.0%**); tightest +0.65 pp (59.5%) |
+
+**P1 confirmed, and this is the payload.** Not one of 70 `crosscap240` pools clears a nominal
+per-pool threshold where the null itself produces 2.5, on outcome tables that carry
+organization-by-capability interaction at p≤0.05 in **100% of those pools** with a median excess
+departure of +4.41 pp. C1' is no longer a statement about three cells: headroom is insensitive to
+interaction that is demonstrably present, in every pool the bank can build.
+
+**P3 refuted on the letter, confirmed on the substance, and the audit is clean.** 57.1% of
+`crosscap240` pools show a positive mean q_theta gain, above the 50% refutation line. But the mean
+gain is **−0.01 pp** and the median +0.16, the router is ahead in only 43.2% of resplits, and on
+`hard366` the same statistic reads 24.8% and −0.46 pp. The distribution is centred on zero, and a
+statistic centred on zero yields about half positive by construction — the threshold was
+mis-specified, not the claim. The pre-registered leakage audit passes: the shuffled-embedding control
+loses **2.42 pp** and is positive in 2.9% of pools, so the representation is doing real work and
+there is no leak; q_theta beats its own shuffled twin in 91.4% of pools. C2 is *strengthened*, to
+"centred at zero across 280 pools" from "between −1.78 and +0.33 on three".
+
+**P5 confirmed, and one open blocker closes.** `correlated4` — the pool where the capability router
+beat voting by 2.5 points, an unexplained inversion inside a central claim and evidence gap #3 — sits
+at the **55.7th percentile** of 70 pools. In a sample of three, a 2-versus-1 split needed no
+explanation at all.
+
+**Why it inverted, which is the finding nobody predicted.** `crosscap240` banked several agents twice
+across runs. Of 959 repeated agent-tasks, **49 disagree on correctness and 121 differ in answer
+text** — the same model, the same task, temperature 0. Rebuilding `correlated4` from the alternative
+draw moves vote-minus-router from **−2.50 pp to +0.63 pp**: the sign flips. `strong4` is unchanged at
++0.62 on both draws, and `hard366` has **zero** disagreements because its runs shared the response
+cache. So the anomaly was a property of one nondeterministic draw. The project's stated limitation
+"one seed everywhere" understates the problem: it is not that we lack a second seed, it is that a
+literal re-run of the *same* seed is a different draw, and the effect is large enough to invert a
+published cell.
+
+**P2 ambiguous, and Claim 3 has to weaken.** Voting is at or above the oracle-labelled capability
+router in 60.0% and 65.7% of pools — short of the 70% that would have confirmed it, clear of the 50%
+that would have refuted it — with a mean margin of about +0.28 pp and a 5th-to-95th range of −5.1 to
++7.5. Give the router all thirty organizations instead of the four members and voting leads in only
+44.3% of `crosscap240` pools. "Aggregation is a substitute for routing" is not a 2-of-3 pattern; it
+is a coin flip tilted slightly toward voting, and C3c must say so.
+
+**P4 partial, and the mechanism story loses its support.** The refutation branch (all \|r\| < 0.2)
+does not fire, so descriptors are not inert. But neither named directional claim survives both
+suites: ability spread predicts routing gain **positively** on both (+0.15, +0.28) where negative was
+predicted, and error correlation matches the predicted sign on `crosscap240` (+0.20) and not on
+`hard366` (−0.10). The strongest relationships in the sweep are with headroom excess, not with
+routing gain. FRAMEWORK §5's mechanism is descriptive at n=280, not predictive.
+
+**P6 confirmed, and it sharpens the cost reading.** Routing loses at unconstrained budget on both
+suites — and on `hard366` it is positive in **0 of 210 pools**. At the tightest budget it gains
+**+5.11 pp in 97.1% of `crosscap240` pools** and only +0.65 pp in 59.5% of `hard366` pools. The
+tight-budget win is therefore a property of the *cross-capability* suite specifically, which is what
+priced-by-domain arbitrage predicts and what capability matching does not: `hard366` is homogeneous
+and has no domain price variation to arbitrage. The reading in C2d survives, now with a control.
+
+**What this does not settle.** The price-flattened rerun separating arbitrage from capability
+matching is still unrun, and remains the cleanest test of the one place routing wins. The sweep uses
+the two free protocols only, so the protocol dimension is still thin. And the bank non-determinism
+above is now the project's largest known threat to any single-cell number, including several that
+predate it.
+
+---
+
+## D-041 — RQ2–RQ5 all fail, the one GO trigger fails its own audit, and delegation-as-routing is closed
+
+**Date.** 2026-08-13. **Status.** Adopted. **Verdict: NO-GO on RQ2-style delegation.**
+
+**Decision.** Run the four delegation research questions that were specified and never built,
+under thresholds fixed in advance ([`Docs/preregistrations/2026-08-13-rq2-rq5.md`](Docs/preregistrations/2026-08-13-rq2-rq5.md)),
+and close the direction "a learned model picks the organization per task". The surviving value of
+the delegation work is the selection-variance diagnosis of D-040, not the router.
+
+**What was built.** [`mas_harness/metrics/research_questions.py`](mas_harness/metrics/research_questions.py)
+with 16 tests, driver [`scripts/measure_research_questions.py`](scripts/measure_research_questions.py),
+artefact `data/runs/research_questions.json`. Every model is `routing.py`'s primitives with two
+documented extensions — a mask over observable cells and a restriction on candidate rows — so the
+leak discipline is the same instrument that produced D-033 and D-040. **Cost $0**, 232 seconds.
+
+**RQ2′ — routing when interaction protocols are in the choice set.** Every routing result in this
+project chose among 15 coalitions × 2 *aggregation rules*. The five priced protocols have never been
+in a router's choice set, which is precisely the "collaboration mode" decision MasRouter occupies. On
+`hard366`, adding them to the grand coalition gives 35 organizations on each pool's discriminating
+subset, run against the identical 30-organization family on the same tasks and the same splits:
+
+| pool | tasks | 35 orgs, `q_θ` | shuffled | 30 orgs, `q_θ` |
+|---|---:|---:|---:|---:|
+| `strong4` | 178 | −1.05 (ahead 27%) | −1.50 | +1.44 |
+| `decorrelated4` | 210 | −0.64 (ahead 25%) | −0.20 | −0.51 |
+| `correlated4` | 129 | −0.67 (ahead 27%) | −1.41 | −2.05 |
+
+Q2a and Q2b both confirmed: routing does not pay on the richer family, and enlarging the family by
+the protocol axis changes the gain by **−0.41 pp**.
+
+**But the protocol axis matters a great deal for the *fixed* choice.** Best-fixed-organization
+accuracy rises from 0.819/0.829/0.863 to **0.864/0.862/0.851**, a mean of **+2.18 pp**, simply by
+making debate, judging and verification available. This is the sharpest statement of the project's
+whole finding: the interaction protocols are *better organizations*, uniformly, and worth about two
+points — and there is still nothing to route between. Choose your organization better; do not choose
+it per task.
+
+**RQ3 — dense counterfactual supervision.** At matched observation budget, dense supervision beats an
+ordinary execution log from 20% of the grid upward (+0.35, +1.81, +2.53 pp) and *loses* below it
+(−2.44, −0.80), because a handful of fully-observed tasks is a worse basis than many singly-observed
+ones. Q3a confirmed. The finding is real and reportable, and independent of whether routing works.
+
+**Q3b fired, and the criterion is defective in the D-029 way.** The pre-registered quantity — the
+dense arm's gain over a frozen fixed-best — reads +3.03 pp at 5% budget and triggers GO. The gain is
+*largest where data is scarcest and vanishes as data grows*, which is backwards for a learnable
+signal. The cause is that the baseline is chosen from the **same starved sample**: at 5% it is
+picked from about two observed tasks and scores 0.741 against 0.815 for a baseline that knows each
+organization's overall training accuracy. Against that unstarved baseline — the comparator any
+deployer actually has — the same routers lose at every budget:
+
+| observed fraction | vs starved baseline | vs unstarved baseline |
+|---|---:|---:|
+| 0.05 | **+3.03** | **−7.16** |
+| 0.10 | +0.42 | −3.23 |
+| 0.20 | +0.15 | −2.38 |
+| 0.50 | +0.22 | −0.36 |
+| 1.00 | +0.06 | +0.06 |
+
+The pre-registration required a baseline "fitted on the same training information", anticipating a
+baseline that *cheats*; it did not anticipate one that is *starved*, which invalidates a comparison
+just as thoroughly. The audit is now computed inside `supervision_efficiency` and recorded under
+`dense_gain_over_unstarved_baseline`, so the defect is in the artefact rather than in a footnote.
+**The correction moves the result away from GO, which is the direction a motivated analyst would not
+choose.** Both verdicts are stored: `verdict_as_written` GO, `verdict` NO-GO.
+
+**RQ4 — generalization.** Over 70 pools, the router gains −0.29 pp under an IID split, −0.18 under
+domain holdout, +0.81 under agent holdout and −0.22 under organization holdout. No regime clears
++1.0 pp, so Q4 is confirmed. The one apparently positive regime is instructive: agent holdout's
++0.81 pp is **entirely a larger feasible set, not task-conditioning**. Its conditioning gain — the
+router against its own task-*independent* argmax over the same enlarged candidate set — is
+**−0.10 pp**. This is Lemma 2's defect in a new costume: a comparison that silently gives the two
+sides different feasible sets. The diagnostic was added during implementation, before the numbers
+were seen, and is reported in every regime.
+
+**The leave-one-domain-out splits were used for the first time.** They have existed in every
+manifest since the harness was built and no script had ever read one. Domain holdout is not harder
+than the IID split here (−0.18 against −0.29), which is itself a small result: there is no domain
+structure to lose.
+
+**RQ5 — when not to collaborate.** The narrower decision also fails: **−0.40 pp** against the better
+of always-solo and always-collaborate, ahead in **18%** of resplits, shuffled control −1.29. A
+perfect solo-or-team oracle is worth only **+2.29 pp**, and solo is the better fixed policy in **13%**
+of splits — so the decision is nearly always "collaborate", and knowing the exceptions is worth
+little even in principle.
+
+**The verdict, by the rule fixed in advance.** No criterion survives its audit, so **NO-GO**.
+Four of five delegation research questions are now tested rather than merely unbuilt, and all four
+are negative. RQ2-style delegation — a learned model choosing the organization per task — is closed
+on this grid, and no further modelling reopens it.
+
+**What this does not close.** The selection-variance diagnosis (D-040) is untouched and remains the
+direction's surviving contribution. The two-point gain from making interaction protocols available
+to a *fixed* choice is new here and unexploited. RQ3's supervision-efficiency crossover is a
+reportable methodological result that stands whatever happens to routing.
+
+---
+
+## D-042 — The positive experiments: selection is not recoverable, the budget win is arbitrage, and one purchase decides whether an ICLR paper exists
+
+**Date.** 2026-08-13. **Status.** Adopted. **Pre-registered** in
+[`Docs/preregistrations/2026-08-13-positive-selection.md`](Docs/preregistrations/2026-08-13-positive-selection.md).
+
+**Decision.** Report E1 as a clean negative, E2 as a decisive resolution of the project's last open
+interpretation, E3 as confirmation that the answer-draw threat is material, and E4 as the **only
+surviving positive claim** — one whose fate is decided by a single purchase of roughly $60–90.
+
+**What was built.** [`mas_harness/metrics/selection.py`](mas_harness/metrics/selection.py) with 14
+tests, driver [`scripts/measure_positive_selection.py`](scripts/measure_positive_selection.py),
+artefact `data/runs/positive_selection.json`; `--bank-priority` and `--tag` added to the sweep for
+E3, artefact `data/runs/pool_sweep_crosscap240_altdraw.json`. Cost $0, 262 seconds.
+
+**E1 — a better fixed-organization rule. Failed, and decisively.** The premise was sound: D-040
+measured the calibration argmax losing 2.39 pp between calibration and test, and D-037 established
+that gap is winner's curse rather than interaction, hence in principle recoverable. Seven rules over
+280 pools and 60 resplits, as gain over the argmax:
+
+| rule | `crosscap240` (70) | `hard366` (210) |
+|---|---:|---:|
+| `cross_pool` (fitted leave-one-pool-out) | −0.36 (57% of pools) | +0.14 (67%) |
+| `shrunk` (toward a structural prediction) | −0.05 (41%) | +0.01 (52%) |
+| `largest_within_se` | −0.33 (41%) | −0.18 (42%) |
+| `whole_pool_vote` | −0.88 (43%) | −0.64 (43%) |
+| `one_se` | −1.15 (13%) | −0.46 (35%) |
+| **`oracle_fixed`** (ceiling, not a policy) | **+1.61** (97%) | **+1.18** (99%) |
+
+**The calibration argmax is essentially optimal.** Nothing beats it, the attainable ceiling is only
+1.2–1.6 pp, and no rule captures any of it. So the winner's curse is real and **not recoverable** —
+the pre-registered negative branch, and a sharper statement than it looks: the 2.39 pp gap is no more
+claimable than the oracle headroom was.
+
+**One analytical result falls out, and it is worth keeping.** Classical shrinkage *cannot* correct
+this winner's curse. Every organization is scored on the same calibration tasks, so every estimate
+has the same n, and any common pull toward a scalar — James-Stein, a Beta-binomial posterior, a
+convex combination with the grand mean — is a monotone transformation of the raw accuracy and leaves
+the argmax unchanged. Correction requires information that *distinguishes* organizations, which is
+why `shrunk` here shrinks toward a structural prediction. It still gains nothing, but the reason it
+had to be built that way is a fact about the problem
+([`tests/test_selection.py`](tests/test_selection.py) asserts it).
+
+**A false positive of exactly the kind this project studies, in our own smoke test.** At 4–6 pools
+`cross_pool` read +1.26 and +2.09 pp. At 70 and 210 pools it reads −0.36 and +0.14. The smoke test
+was a per-pool argmax over a small sample, which is the phenomenon D-034 is about, reproduced
+accidentally by the analyst. Recorded rather than quietly discarded.
+
+**E2 — the tight-budget routing win is arbitrage, and this is now measured.** D-040 found routing
+winning at the tightest budgets in 97.1% of `crosscap240` pools and read it as priced-by-domain
+arbitrage rather than capability matching, labelling that an interpretation. Replacing each agent's
+per-task cost by that agent's own mean across tasks removes the domain channel and nothing else —
+models still differ in price:
+
+| suite | real prices | flattened prices |
+|---|---:|---:|
+| `crosscap240` | **+5.34 pp** (93% of pools) | **−5.78 pp** (0% of pools) |
+| `hard366` | +0.71 pp (52%) | −2.80 pp (0%) |
+
+The win does not merely shrink, it **inverts**. Open question A6.3 and evidence gap #4 in the
+claim-evidence matrix are closed: the one place routing appeared to win was buying cheap tokens on
+cheap-to-serve domains. C2d's counter-evidence can now be stated as a measurement rather than a
+reading.
+
+**E3 — the alternative answer draw flips two of six pre-registered verdicts.** Rebuilt from the
+other equally valid draw of the same agents on the same tasks: P1 confirmed (median excess −1.92 pp,
+p=0.980, 0/70 pools significant) and P5, P6 unchanged, but **P2 moves AMBIGUOUS → REFUTED** and
+**P3 moves REFUTED → AMBIGUOUS**. The pre-registered threshold for E3 — "any verdict flips" — is met.
+The headline result is robust to the draw; the two claims that were already marginal are not. The
+calibration false-positive rate on this draw is 0.047 against a nominal 0.050, so the instrument is
+if anything better calibrated here.
+
+**E4 — one positive claim survives, and it is handicapped in its own favour.** The *calibration-best*
+protocol does not reproduce (D-041: 0.00–0.17). A protocol named **in advance** has no winner's
+curse, and over 60 resplits against the calibration-chosen best aggregation rule:
+
+| protocol | `strong4` | `decorrelated4` | `correlated4` |
+|---|---:|---:|---:|
+| **`independent_judge`** | **+1.42** (68%) | **+6.09** (100%) | **+1.33** (55%) |
+| `chair_information_seeking` | +4.29 (93%) | +5.96 (100%) | −2.36 (22%) |
+| `expert_veto` | +4.66 (98%) | −0.82 (30%) | −5.41 (8%) |
+| `debate_vote` | +0.79 (58%) | +6.52 (100%) | −2.56 (22%) |
+| `expert_verifier` | +1.03 (60%) | −0.25 (45%) | +0.54 (27%) |
+
+`independent_judge` is the only protocol positive in all three pools, clearing the +1.0 pp bar in
+each. It is also the protocol named in `TODO.md` as a sign-stable pattern awaiting pre-registration,
+which is what makes naming it a-priori legitimate rather than post-hoc.
+
+**And D-028's defect runs *against* it, not for it.** `independent_judge` shows parse failures of
+3.9% / 4.3% / 4.7%, every one coinciding with a non-terminating judge call. D-019 scores those as
+wrong. Its measured advantage is therefore a **floor**: repairing D-028 can only raise it, to
+roughly +4 / +9 / +4 pp if the failures resolve at the protocol's own rate. The protocol that looks
+best is the one the known infrastructure defect penalises.
+
+**The verdict, by the frozen rule.** E1a, E1b and E1c all fail on both suites. E4 clears its
+magnitude bar in all three pools but **cannot clear its replication clause**, because the five priced
+protocols have never run on `crosscap240` and there is no second suite to replicate on. So as the
+substrate stands: **no positive paper.**
+
+**The one purchase that decides it.** Running the five priced protocols on `crosscap240` costs
+roughly **$60–90** by comparison with the `hard366` sweeps ($20.21, $19.18, $18.71 for three pools),
+against $88.09 spent of ~€3,000. It would deliver the second suite E4 needs, on the suite where
+capability diversity is real and interaction is measurable (D-038), and it should be run together
+with the D-028 repair so that `independent_judge` is measured without its handicap. **This is the
+first time since D-023 that spending money is the highest-value action available**, and it is the
+only route from this substrate to a positive result.

@@ -1,0 +1,42 @@
+=== RQ2-RQ5, pre-registered 2026-08-13
+
+--- RQ2': routing with the five interaction protocols in the choice set
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 5814.76it/s]
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7559.42it/s]
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6289.96it/s]
+    strong4        178 tasks  35 orgs: q_theta  -1.05 pp (ahead 27%, shuffled  -1.50)   vs 30 orgs:  +1.44 pp
+    decorrelated4  210 tasks  35 orgs: q_theta  -0.64 pp (ahead 25%, shuffled  -0.20)   vs 30 orgs:  -0.51 pp
+    correlated4    129 tasks  35 orgs: q_theta  -0.67 pp (ahead 27%, shuffled  -1.41)   vs 30 orgs:  -2.05 pp
+
+--- RQ3/4/5 on every four-agent pool of crosscap240
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6997.41it/s]
+    4 leave-one-domain-out splits: code_reasoning, competition_math, gpqa_science, theory_of_mind
+    10/70 pools  (151s)
+    20/70 pools  (151s)
+    30/70 pools  (151s)
+    40/70 pools  (151s)
+    50/70 pools  (156s)
+    60/70 pools  (156s)
+    70/70 pools  (156s)
+
+--- the pre-registered predictions
+    Q2a_interaction_family       refuted=False
+    Q2b_protocol_axis_adds       refuted=False
+    Q3a_dense_beats_log          refuted=False
+    Q3b_dense_arm_pays           refuted=True 
+    Q4_generalization            refuted=False
+    Q5_solo_or_collaborate       refuted=False
+
+--- the audit of Q3b's own criterion
+      budget   vs starved baseline   vs unstarved baseline
+        0.05                 +3.03                   -7.16
+         0.1                 +0.42                   -3.23
+         0.2                 +0.15                   -2.38
+         0.5                 +0.22                   -0.36
+           1                 +0.06                   +0.06
+
+    triggers as written:    ['Q3b']
+    triggers after audit:   none
+    VERDICT: NO-GO
+
+wrote /data/yiderigun/MAS_Router/data/runs/research_questions.json  (total 232s)
