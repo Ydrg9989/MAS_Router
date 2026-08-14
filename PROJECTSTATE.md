@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — never fork a v2; git history is the version record
-last-verified: 2026-08-13
+last-verified: 2026-08-14
 evidence-base: see §A5 traceability table
 supersedes:    Docs/CURRENT_STATE.md (folded in, 2026-08-11)
 -->
@@ -35,7 +35,8 @@ What survives is a **methodological negative**: oracle headroom is not evidence 
 structure, and the cost comparison usually paired with it is unsound. That is the paper
 currently planned in [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md).
 
-**Total spend: $85.13–$88.09** (see §A7) of an originally allocated ~€3,000.
+**Total spend: $122.25** of an originally allocated ~€3,000 (§A7 records a historical
+$85.13/$88.09 discrepancy predating the 2026-08-14 priced run, which added $34.16).
 
 ## A2. Current direction — undecided, but the evidence base is no longer n=3
 
@@ -47,6 +48,15 @@ As of 2026-08-11 the paper framing was **under active review** and no direction 
 pools became 280. It confirms C1 family-wise, dissolves the `correlated4` blocker, strengthens C2,
 forces C3c to weaken, and adds a control to the cost reading. It also surfaces a threat none of the
 review items anticipated — see §A4 item 5.
+
+**2026-08-14: `independent_judge` replicates on `crosscap240` (D-043) — the project's first positive
+result.** Pre-registered and named in advance. Against the calibration-chosen best aggregation rule it
+gains +4.65 / +7.42 / +3.38 pp on the new suite and +1.42 / +6.09 / +1.33 on the old — **six pools of
+six, two suites, both D-028 scorings**, and larger where interaction is real. Against whole-pool
+voting on paired tasks it is positive in all six (+1.12 to +7.69 pp) at **3.5–17.1× the cost**.
+Picking the best protocol per pool remains noise (split-half 0.32), so only the a-priori name is
+admissible. **One confound blocks any claim:** the judge model has never been measured answering
+alone. That control costs ~$3–6 and is the highest-priority action in the project.
 
 **2026-08-13, evening: the positive experiments are run (D-042).** Selection rules cannot beat the
 calibration argmax on either suite (ceiling only +1.2–1.6 pp, nothing captures it), the tight-budget
@@ -80,6 +90,8 @@ to a *fixed* choice is worth **+2.18 pp**, while routing among them is worth not
 | Delegation generalizes no better than it interpolates | strong | D-041: −0.29 IID, −0.18 domain holdout, +0.81 agent holdout (conditioning gain **−0.10**), −0.22 organization holdout, over 70 pools |
 | Choosing *whether* to collaborate is not learnable either | strong | D-041: −0.40 pp against the better fixed policy, ahead in 18% of resplits; a perfect oracle over the pair is worth only +2.29 pp |
 | Dense counterfactual supervision beats an execution log above 20% of the grid, and loses below it | moderate | D-041: dense minus log −2.44, −0.80, +0.35, +1.81, +2.53 pp across the budget sweep |
+| **`independent_judge`, named a priori, beats the calibration-chosen best aggregation rule** | **strong, pending one control** | D-043: +4.65/+7.42/+3.38 pp on `crosscap240` and +1.42/+6.09/+1.33 on `hard366`, both D-028 scorings, six pools of six. **Blocked by the aggregator-solo confound** |
+| Picking the *best* protocol per pool is noise | strong | D-041 and D-043: split-half reproducibility 0.00–0.17 on `hard366`, 0.10/0.87/0.00 on `crosscap240` |
 
 ## A4. What is weak, contested, or overclaimed
 
@@ -141,6 +153,7 @@ upstream pins. That is the authoritative version record; this table is the index
 | `pool_sweep_crosscap240.json`, `pool_sweep_hard366.json` | `measure_pool_sweep.py` | D-040 | 2026-08-13 |
 | `research_questions.json` | `measure_research_questions.py` | D-041 | 2026-08-13 |
 | `positive_selection.json`, `pool_sweep_crosscap240_altdraw.json` | `measure_positive_selection.py`, `measure_pool_sweep.py --tag _altdraw` | D-042 | 2026-08-13 |
+| `judge_replication.json`, `crosscap-*/episodes.jsonl` (priced) | `run_priced_crosscap.sh`, `measure_judge_replication.py` | D-043 | 2026-08-14 |
 | `figures/pool_sweep_*` | `report_pool_sweep.py` | D-040 | 2026-08-13 |
 
 **Rule going forward:** any document quoting a number names the artefact key it came from, as

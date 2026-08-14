@@ -89,7 +89,16 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
 - [x] **Run the pre-registered positive experiments (E1–E4).** Done, D-042, $0, 262s. E1 fails on
       both suites, E2 proves the budget win is arbitrage, E3 flips two of six verdicts on the
       alternative draw, E4 leaves `independent_judge` as the one surviving positive claim.
-- [ ] **THE DECISION: buy the five priced protocols on `crosscap240`, with the D-028 repair.**
+- [x] **Buy the five priced protocols on `crosscap240`.** Done 2026-08-14, D-043, $34.16 against a
+      $133.57 estimate. `independent_judge` replicates in six pools of six across two suites.
+      The D-028 prompt repair was deliberately *not* applied, so the second suite uses the same
+      instrument as the first; the ~4% handicap therefore makes every figure a floor.
+- [ ] **THE BLOCKER: bank `claude-sonnet-5` solo on the three discriminating subsets.** ~470 calls,
+      ~$3–6. `independent_judge` has the aggregator read four answers and decide, and that model has
+      never been measured answering alone (D-024 kept it out of the pools). If it scores ~0.89 by
+      itself the judge result is "use a stronger model" and collapses. **No claim, abstract or paper
+      section may be written on D-043 until this runs.**
+- [ ] ~~buy the five priced protocols on `crosscap240`, with the D-028 repair~~ superseded above.
       ~$60–90 against $88.09 spent of ~€3,000. It is the only route from this substrate to a
       positive result: it supplies the second suite `independent_judge` needs, on the suite where
       interaction is measurable (D-038), and it removes the handicap that currently understates the

@@ -1832,3 +1832,81 @@ capability diversity is real and interaction is measurable (D-038), and it shoul
 with the D-028 repair so that `independent_judge` is measured without its handicap. **This is the
 first time since D-023 that spending money is the highest-value action available**, and it is the
 only route from this substrate to a positive result.
+
+---
+
+## D-043 — `independent_judge` replicates. Six pools, two suites, both scorings — and one confound that must be closed before any claim
+
+**Date.** 2026-08-14. **Status.** Adopted. **Pre-registered** in
+[`Docs/preregistrations/2026-08-13-judge-replication.md`](Docs/preregistrations/2026-08-13-judge-replication.md),
+frozen before any `crosscap240` priced episode existed.
+
+**Decision.** Record the first positive result of the project, state it with the cost multiplier it
+carries, and **do not build a paper on it until the aggregator-solo control is run.**
+
+**Cost.** $12.55 + $11.26 + $10.35 = **$34.16** against a $133.57 dry-run estimate — a 3.9×
+overestimate, wider than the 1.9–3.0× D-017 records. Project total **$122.25** of ~€3,000. No cap
+fired. Scored by [`scripts/measure_judge_replication.py`](scripts/measure_judge_replication.py),
+artefact `data/runs/judge_replication.json`.
+
+**J1 — the pre-registered quantity, `independent_judge` minus the calibration-chosen best
+aggregation rule, 60 resplits:**
+
+| pool | `crosscap240` as scored | excluded | `hard366` as scored | excluded |
+|---|---:|---:|---:|---:|
+| `strong4` | **+4.65** (90%) | +6.45 (100%) | +1.42 (68%) | +4.47 (95%) |
+| `decorrelated4` | **+7.42** (100%) | +8.05 (100%) | +6.09 (100%) | +8.50 (100%) |
+| `correlated4` | **+3.38** (68%) | +6.64 (92%) | +1.33 (55%) | +5.32 (88%) |
+
+**Positive in six pools of six, on two suites, under both scorings.** The effect is *larger* on
+`crosscap240` — the suite D-038 showed carries real interaction — than on the homogeneous one.
+
+**J2 confirmed.** Excluding non-terminating episodes raises every figure, as D-028 predicted it
+would: the handicap runs against the judge, so the as-scored numbers are floors, not inflations.
+
+**J3 confirmed, and it is what licenses the claim.** Split-half reproducibility of the *argmax*
+protocol on `crosscap240` is 0.10, 0.87 and 0.00 — mean 0.32, below the 0.5 floor. **Choosing the
+best protocol per pool is still noise.** Only a protocol named in advance is admissible, which is
+exactly what the pre-registration did and why D-042 refused to name the two protocols that had
+already failed on `correlated4`.
+
+**J4 confirmed.** Aggregator non-termination is 4.3 / 4.5 / 3.8% against `hard366`'s 3.9 / 4.3 /
+4.7%. The suites are comparable and the instrument behaves identically on both.
+
+**Against whole-pool voting on paired tasks, with cost:**
+
+| suite / pool | n | judge | vote | gain | judge $/task | vote $/task | ratio |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `crosscap240`/`strong4` | 164 | 0.896 | 0.860 | +3.66 | 0.0398 | 0.0115 | 3.5× |
+| `crosscap240`/`decorrelated4` | 179 | 0.894 | 0.821 | +7.26 | 0.0302 | 0.0023 | 12.9× |
+| `crosscap240`/`correlated4` | 130 | 0.877 | 0.800 | +7.69 | 0.0422 | 0.0074 | 5.7× |
+| `hard366`/`strong4` | 179 | 0.849 | 0.838 | +1.12 | 0.0434 | 0.0110 | 4.0× |
+| `hard366`/`decorrelated4` | 210 | 0.881 | 0.824 | +5.71 | 0.0374 | 0.0022 | 17.1× |
+| `hard366`/`correlated4` | 129 | 0.876 | 0.829 | +4.65 | 0.0582 | 0.0082 | 7.1× |
+
+Positive in all six, **and 3.5–17.1× the price**. The judge buys 0.34 to 2.61 accuracy points per
+extra cent. Any statement of this result that omits the multiplier is incomplete, and given C5 and
+D-042's E2 the project has no standing to report an accuracy gain without its cost.
+
+**The confound that must be closed first, and it is the obvious one.** `independent_judge` has
+`anthropic/claude-sonnet-5` read four banked answers and decide. That model is the aggregator (D-024)
+and **it is not a pool member, so it has never been measured answering alone.** If it can score ~0.89
+by itself on these tasks, then "the judge beats the vote" is not a result about aggregation — it is
+"use a better model", and the four members are decoration. The three pools were deliberately built
+from non-Anthropic models precisely so the aggregator would not confound the *pool contrast*, but
+that same choice leaves this comparison open.
+
+**The control is cheap and it is required.** Bank `claude-sonnet-5` as a solo agent on the three
+discriminating subsets — roughly 470 tasks, one call each, on the order of **$3–6**. Three outcomes:
+
+- solo ≈ 0.89 → the result is "use a stronger model", the judge claim collapses, and the project has
+  no positive finding.
+- solo materially below the judge → the judge is genuinely combining member answers, and the claim
+  is real: *reading four answers beats voting them, and beats the reader answering alone.*
+- solo above the judge → the aggregation is actively **hurting** a strong model, which is a
+  different and equally publishable finding, and it would connect directly to the expert-dilution
+  literature this project sits next to.
+
+**No claim, abstract or paper section may be written on J1 until this runs.** It is one call per
+task on data already selected, it costs less than 5% of what has been spent, and it is the
+difference between a positive result and a restatement of "Claude is good at GPQA".

@@ -23,6 +23,60 @@ regenerated from the run records rather than transcribed.
 
 ---
 
+## 2026-08-14 — the five interaction protocols on `crosscap240`: `independent_judge` replicates. $34.16
+
+The last purchase on this substrate, pre-registered in
+[`Docs/preregistrations/2026-08-13-judge-replication.md`](Docs/preregistrations/2026-08-13-judge-replication.md)
+before any `crosscap240` priced episode existed. Conclusions in [`DECISIONS.md` D-043](DECISIONS.md).
+
+    tmux new-session -d -s priced -c /data/yiderigun/MAS_Router \
+      "bash scripts/run_priced_crosscap.sh 2>&1 | tee logs/priced-crosscap.log"
+    .venv/bin/python scripts/measure_judge_replication.py
+
+Discriminating subsets computed first from banked answers ($0): 165 / 180 / 130 tasks, against
+`hard366`'s 179 / 210 / 129 — a well-matched instrument. 2,365 priced episodes.
+
+**Cost.** $12.55 + $11.26 + $10.35 = **$34.16**, against a $133.57 dry-run estimate. That is a 3.9x
+overestimate, outside the 1.9-3.0x band D-017 recorded, so the dry-run remains an upper bound and a
+loose one. Project total **$122.25**. Neither the $75 per-run nor the $150 per-day cap fired.
+
+**J1 — `independent_judge` minus the calibration-chosen best aggregation rule, 60 resplits:**
+
+    pool             crosscap240 as scored   excluded    hard366 as scored   excluded
+    strong4                  +4.65 (90%)     +6.45         +1.42 (68%)       +4.47
+    decorrelated4            +7.42 (100%)    +8.05         +6.09 (100%)      +8.50
+    correlated4              +3.38 (68%)     +6.64         +1.33 (55%)       +5.32
+
+Positive in six pools of six, two suites, both scorings, and **larger on the suite that carries real
+interaction**. J2 confirmed: excluding non-terminating episodes raises every figure, so the
+as-scored numbers are floors. J3 confirmed: split-half reproducibility of the argmax protocol is
+0.10 / 0.87 / 0.00, mean 0.32 — picking the best protocol is still noise, which is precisely why the
+protocol had to be named in advance. J4 confirmed: truncation 4.3 / 4.5 / 3.8% against `hard366`'s
+3.9 / 4.3 / 4.7%.
+
+**Against whole-pool voting, paired on the tasks both ran, with cost:**
+
+    suite/pool                    n   judge   vote    gain   judge $   vote $   ratio
+    crosscap240/strong4         164   0.896   0.860   +3.66   0.03980  0.01145   3.5x
+    crosscap240/decorrelated4   179   0.894   0.821   +7.26   0.03020  0.00234  12.9x
+    crosscap240/correlated4     130   0.877   0.800   +7.69   0.04221  0.00737   5.7x
+    hard366/strong4             179   0.849   0.838   +1.12   0.04340  0.01096   4.0x
+    hard366/decorrelated4       210   0.881   0.824   +5.71   0.03739  0.00218  17.1x
+    hard366/correlated4         129   0.876   0.829   +4.65   0.05817  0.00822   7.1x
+
+Positive in all six and **3.5-17.1x the price**: 0.34 to 2.61 accuracy points per extra cent. A first
+pass at this comparison used each protocol's own task set — voting ran on all 366 tasks, the judge
+only on the discriminating subset — and produced two spurious negative cells on `hard366`. Recorded
+because the subset is harder by construction and the error is easy to repeat.
+
+**The confound that blocks the claim.** `independent_judge` has `claude-sonnet-5` read four banked
+answers and decide, and that model has never been measured answering alone, because it is the
+aggregator rather than a pool member (D-024). Banking it solo on the three discriminating subsets is
+~470 calls, on the order of **$3-6**, and it decides whether this is a result about aggregation or a
+restatement that a stronger model scores higher. **Nothing may be written on J1 until it runs.**
+
+---
+
 ## 2026-08-13 — the positive experiments: E1 fails, E2 is decisive, E3 flips two verdicts, E4 survives. $0
 
 Pre-registered the same day in
