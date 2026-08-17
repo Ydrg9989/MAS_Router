@@ -23,6 +23,58 @@ regenerated from the run records rather than transcribed.
 
 ---
 
+## 2026-08-14 — the aggregator, measured alone. The headline dies; a better result replaces it. $12.09
+
+The control D-043 and D-044 were blocked on, pre-registered in
+[`Docs/preregistrations/2026-08-14-aggregator-solo.md`](Docs/preregistrations/2026-08-14-aggregator-solo.md).
+Conclusions in [`DECISIONS.md` D-045](DECISIONS.md).
+
+    bash scripts/run_aggregator_solo.sh          # Stage A, one agent, both suites, 568 calls
+    .venv/bin/python scripts/measure_aggregator_solo.py
+
+`claude-sonnet-5` banked as an ordinary pool member with the `aggregator:` block's exact settings.
+$4.54 + $7.55 = **$12.09** against a $25.81 dry-run estimate. Project total **$139.78**. Commit rate
+0.965, so D-028's non-termination handicaps solo and judge alike.
+
+**S1 — judge minus solo, paired:**
+
+    suite / pool                   vote     solo    judge   judge-solo
+    crosscap240 / strong4         0.841    0.858    0.879       +2.09
+    crosscap240 / decorrelated4   0.790    0.857    0.870       +1.26
+    crosscap240 / correlated4     0.825    0.858    0.871       +1.25
+    hard366 / strong4             0.838    0.804    0.849       +4.47
+    hard366 / decorrelated4       0.824    0.867    0.881       +1.43
+    hard366 / correlated4         0.829    0.814    0.876       +6.20
+
+3 of 6 clear the pre-registered +2.0 pp; the `crosscap240` mean is +1.53. **Verdict as written: THE
+JUDGE IS LARGELY THE MODEL.** The aggregator alone beats whole-pool voting in four pools of six and
+beats the best individual member by +4.3 to +7.1 pp on `crosscap240`, at 1.4-1.8x the cost of one
+call for 1.3-2.1 points. The deployment recommendation is to use the strong model alone.
+
+**S2 — and it reverses D-044.** On tasks where every member was wrong, pooled over six pools:
+**solo 0.343, judge 0.186**, and 0.591 against 0.273 in the worst cell. **Reading four wrong answers
+halves the model's accuracy.** D-044 read the judge's 18.6% as contributed knowledge; it is
+contributed knowledge *net of a -15.7 pp anchoring penalty*.
+
+**S3.** On unanimously-correct tasks the solo model scores 0.981 against voting's 1.000, so
+deferring to a correct consensus is worth about +1.9 pp on 12-46% of a suite.
+
+**The decomposition, which is the result:**
+
+    class                        share    vote    solo   judge   aggregation worth
+    members unanimously CORRECT  12-46%  1.000   0.981   ~1.000        +1.9 pp
+    members unanimously WRONG     2-9%   0.000   0.343    0.186       -15.7 pp
+    members SPLIT                46-86%  0.822   0.822    0.878        +5.6 pp
+
+On split tasks — the only class where selection among members is meaningful — the judge beats solo
+in 6 of 6 pools by +1.66 to +6.98 pp.
+
+**Expert dilution, in the opposite place from where D-044 looked.** D-044 tested whether the judge
+damages a *correct* consensus and found it does not (2 overrides of 230). The damage is on
+*incorrect* consensus, where the model would have been right and the pool talks it out of it.
+
+---
+
 ## 2026-08-14 — the judge on the tasks nobody priced: it answers rather than aggregates. $5.44
 
 Pre-registered in

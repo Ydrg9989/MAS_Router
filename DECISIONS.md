@@ -1978,3 +1978,91 @@ $3–6. If `claude-sonnet-5` alone approaches the judge's accuracy, the honest d
 project's only positive result is *"add a stronger model to your pool"*, which is not a finding
 about multi-agent systems at all. **Nothing may be claimed about `independent_judge` until it runs**,
 and the H2 result makes the likely outcome considerably less favourable than it looked yesterday.
+
+---
+
+## D-045 — The control lands against the headline and produces a better result: aggregation helps twice and hurts once, and the hurt is large
+
+**Date.** 2026-08-14. **Status.** Adopted. **Pre-registered** in
+[`Docs/preregistrations/2026-08-14-aggregator-solo.md`](Docs/preregistrations/2026-08-14-aggregator-solo.md).
+
+**Decision.** Retire "a coordination protocol beats a voting rule" as a headline. Replace it with the
+three-way decomposition the control makes possible, in which the **negative** term is the largest and
+most interesting. Stop treating `independent_judge` as the project's positive result and start
+treating *what happens when a strong model reads its peers* as the object of study.
+
+**What was run.** `claude-sonnet-5` banked as an ordinary Stage A agent on both suites — same
+provider, model, temperature and `max_tokens` as the `aggregator:` block it is copied from —
+[`configs/pools/aggregator_solo.yaml`](configs/pools/aggregator_solo.yaml), run `aggregator-solo`.
+568 calls, **$12.09** ($4.54 + $7.55). Project total **$139.78**. Commit rate 0.965, so D-028's
+non-termination handicaps the solo arm exactly as it handicaps the judge.
+
+**S1 — the frozen verdict is against the headline.** Judge minus solo, on paired tasks:
+
+| suite / pool | vote | **solo** | judge | judge − solo |
+|---|---:|---:|---:|---:|
+| `crosscap240`/`strong4` | 0.841 | **0.858** | 0.879 | +2.09 |
+| `crosscap240`/`decorrelated4` | 0.790 | **0.857** | 0.870 | +1.26 |
+| `crosscap240`/`correlated4` | 0.825 | **0.858** | 0.871 | +1.25 |
+| `hard366`/`strong4` | 0.838 | **0.804** | 0.849 | +4.47 |
+| `hard366`/`decorrelated4` | 0.824 | **0.867** | 0.881 | +1.43 |
+| `hard366`/`correlated4` | 0.829 | **0.814** | 0.876 | +6.20 |
+
+The pre-registered bar was ≥ +2.0 pp on both suites; **3 of 6 pools clear it**, and the
+`crosscap240` mean is +1.53. **The verdict is THE JUDGE IS LARGELY THE MODEL, as written.**
+
+It should be said plainly what that costs. The judge beats whole-pool voting by +3.8 to +8.0 pp
+(D-044) — but **the aggregator alone already beats voting in four pools of six**, and beats the best
+individual pool member by +4.3 to +7.1 pp on `crosscap240`. At 1.4–1.8× the price of a single call
+for 1.3–2.1 points, **the deployment recommendation is to use the strong model on its own.** The
+practical claim in D-043 does not survive.
+
+**S3 — but aggregation does something, and it is measurable.** On tasks where the members were
+unanimously correct, the solo model scores **0.981** against voting's 1.000. Deferring to a correct
+consensus is worth about **+1.9 pp** on 12–46% of a suite. Small, real, and it is the first thing in
+this project that aggregation demonstrably buys.
+
+**S2 — and this reverses D-044, which is the finding.** On tasks where every member was **wrong**:
+
+| | solo | judge |
+|---|---:|---:|
+| pooled over six pools | **0.343** | **0.186** |
+| `crosscap240`/`decorrelated4` | **0.591** | 0.273 |
+
+**Reading four wrong answers cuts the model's accuracy roughly in half.** It solves 34.3% of those
+tasks alone and 18.6% after seeing the pool — a **−15.7 pp** anchoring penalty, and −31.8 pp in the
+worst cell.
+
+D-044 read the judge's 18.6% as evidence it was "contributing knowledge". It was: but the control
+shows it contributes **less** knowledge than it would have contributed in silence. The rescues are
+not a gain over aggregation, they are what survives it.
+
+**This is expert dilution, and it is in the opposite place from where it was looked for.** D-044
+tested whether the judge damages a correct consensus and found it does not (2 overrides of 230). The
+damage is on *incorrect* consensus, where the model would have been right and the pool talks it out
+of it. That is the phenomenon `multi-agent-teams-hold-experts-back` describes, reproduced here in an
+aggregation protocol rather than a discussion, with a clean single-model control.
+
+**The decomposition, which is what should be written up.** Judge minus solo, by what the members did:
+
+| class | share of suite | vote | solo | judge | aggregation is worth |
+|---|---:|---:|---:|---:|---:|
+| members unanimously **correct** | 12–46% | 1.000 | 0.981 | ~1.000 | **+1.9 pp** |
+| members unanimously **wrong** | 2–9% | 0.000 | **0.343** | **0.186** | **−15.7 pp** |
+| members **split** | 46–86% | 0.822 | 0.822 | 0.878 | **+5.6 pp** |
+
+Three effects, two positive and one large negative, netting to +2.78 pp. On the split tasks — the
+only ones where selection among members is even meaningful — the judge beats solo in **6 of 6 pools**
+by +1.66 to +6.98 pp. That is the part of the effect that is genuinely aggregation, and it is the
+part worth defending.
+
+**S4.** The aggregator is +4.3 to +7.1 pp above the best single member on `crosscap240` and −1.6 to
+−1.1 on `hard366`, so the confound was real on one suite and not the other — which is why the
+control had to be run rather than reasoned about.
+
+**What this closes and what it opens.** D-043's headline is closed: the judge is not beating
+aggregation, it is a stronger model partly damaged by aggregation. **What opens is a positive,
+mechanistic result with a control** — when a strong model reads peer answers, it gains on split
+items, gains slightly on correct consensus, and loses heavily on wrong consensus. Whether the net is
+positive is a property of the *pool's* error profile, which is measurable in advance and which this
+project has 280 pools of.

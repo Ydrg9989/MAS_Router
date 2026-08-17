@@ -44,7 +44,7 @@ settle what it is has not been run.
 **superseded**; [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) is
 authoritative for numbers.
 
-**Total spend: $127.69** of an originally allocated ~€3,000 (§A7 records a historical
+**Total spend: $139.78** of an originally allocated ~€3,000 (§A7 records a historical
 $85.13/$88.09 discrepancy predating the 2026-08-14 priced run, which added $34.16).
 
 ## A2. Current direction — undecided, but the evidence base is no longer n=3
@@ -57,6 +57,20 @@ As of 2026-08-11 the paper framing was **under active review** and no direction 
 pools became 280. It confirms C1 family-wise, dissolves the `correlated4` blocker, strengthens C2,
 forces C3c to weaken, and adds a control to the cost reading. It also surfaces a threat none of the
 review items anticipated — see §A4 item 5.
+
+**2026-08-14, evening: the control lands against the headline and produces a better result (D-045).**
+`claude-sonnet-5` banked as an ordinary pool member, $12.09. It beats whole-pool voting in four pools
+of six on its own and beats the best individual member by +4.3 to +7.1 pp on `crosscap240`. Judge
+minus solo clears the pre-registered +2.0 pp bar in only 3 of 6 pools, so **"a coordination protocol
+beats a voting rule" is dead** — at 1.4–1.8× the cost of one call for 1.3–2.1 points, the deployment
+answer is to use the strong model alone.
+
+**What replaces it is better.** Decomposing by what the members did: aggregation is worth **+1.9 pp**
+where they are unanimously correct, **+5.6 pp** where they split — and **−15.7 pp where they are
+unanimously wrong**, because reading four wrong answers *halves* the model's accuracy (0.343 → 0.186;
+0.591 → 0.273 in the worst cell). That is **expert dilution, in the opposite place from where D-044
+looked for it**, measured with a single-model control. Whether the net is positive is a property of
+the pool's error profile — and this project has 280 pools of those.
 
 **2026-08-14, later: the judge is answering, not aggregating (D-044).** Run on the 245 tasks D-020
 never priced, it solves **18.6% of tasks where every member was wrong** — which no selection rule can
@@ -107,7 +121,9 @@ to a *fixed* choice is worth **+2.18 pp**, while routing among them is worth not
 | Delegation generalizes no better than it interpolates | strong | D-041: −0.29 IID, −0.18 domain holdout, +0.81 agent holdout (conditioning gain **−0.10**), −0.22 organization holdout, over 70 pools |
 | Choosing *whether* to collaborate is not learnable either | strong | D-041: −0.40 pp against the better fixed policy, ahead in 18% of resplits; a perfect oracle over the pair is worth only +2.29 pp |
 | Dense counterfactual supervision beats an execution log above 20% of the grid, and loses below it | moderate | D-041: dense minus log −2.44, −0.80, +0.35, +1.81, +2.53 pp across the budget sweep |
-| **`independent_judge` beats aggregation, on full suites** | **strong, but the interpretation is open** | D-043 + D-044: +3.8/+8.0/+4.6 pp over voting across all 240 tasks; six pools of six on the subset. **28% of the gain is tasks no member solved, so it is answering rather than aggregating** |
+| ~~`independent_judge` beats aggregation~~ | **retired as a headline** | D-045: the aggregator alone beats voting in 4 pools of 6 and the judge clears +2.0 pp over it in only 3 of 6. Use the strong model alone |
+| **Reading unanimously-wrong peer answers halves a strong model's accuracy** | **strong** | D-045: solo 0.343 vs judge 0.186 pooled over six pools, 0.591 vs 0.273 in the worst cell. Expert dilution, with a single-model control |
+| Aggregation helps where members split (+5.6 pp) and slightly where they are unanimously correct (+1.9 pp) | strong | D-045: judge beats solo on split tasks in 6 pools of 6, +1.66 to +6.98 pp |
 | A judge does not damage a correct consensus | strong | D-044: 2 overrides of 230 unanimous-correct tasks |
 | Member disagreement is a bad escalation signal | strong | D-044: a disagreement cascade saves 22–38% of cost and loses 0.4–2.1 pp, because 28% of the value is on unanimously-wrong tasks |
 | Picking the *best* protocol per pool is noise | strong | D-041 and D-043: split-half reproducibility 0.00–0.17 on `hard366`, 0.10/0.87/0.00 on `crosscap240` |
@@ -174,6 +190,7 @@ upstream pins. That is the authoritative version record; this table is the index
 | `positive_selection.json`, `pool_sweep_crosscap240_altdraw.json` | `measure_positive_selection.py`, `measure_pool_sweep.py --tag _altdraw` | D-042 | 2026-08-13 |
 | `judge_replication.json`, `crosscap-*/episodes.jsonl` (priced) | `run_priced_crosscap.sh`, `measure_judge_replication.py` | D-043 | 2026-08-14 |
 | `judge_on_easy_tasks.json` | `run_judge_on_skipped.sh`, `measure_judge_on_easy_tasks.py` | D-044 | 2026-08-14 |
+| `aggregator_solo.json`, `aggregator-solo/answers.jsonl` | `run_aggregator_solo.sh`, `measure_aggregator_solo.py` | D-045 | 2026-08-14 |
 | `figures/pool_sweep_*` | `report_pool_sweep.py` | D-040 | 2026-08-13 |
 
 **Rule going forward:** any document quoting a number names the artefact key it came from, as

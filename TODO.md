@@ -96,7 +96,15 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
 - [x] **Run the judge on the non-discriminating tasks.** Done, D-044, $5.44. It solves 18.6% of
       tasks where every member was wrong — 28% of its whole advantage — so it is answering, not
       aggregating. The cascade idea is refuted in the same run.
-- [ ] **THE BLOCKER, now decisive: bank `claude-sonnet-5` solo on the three suites.** ~470 calls,
+- [x] **Bank `claude-sonnet-5` solo — the control.** Done, D-045, $12.09. The judge headline dies;
+      the anchoring-harm decomposition replaces it.
+- [ ] **Write up the decomposition as the paper.** Aggregation is worth +1.9 pp on unanimous-correct,
+      +5.6 pp on split, and **−15.7 pp on unanimous-wrong**. Needs: the ensembling literature review
+      (MoA, LLM-Blender, self-consistency) before novelty can be assessed.
+- [ ] **Predict the sign from the pool.** Whether aggregation nets positive depends on the pool's
+      error profile — the share of unanimously-wrong tasks. 280 pools of descriptors already exist;
+      the judge ran on 6. Free to model, cheap to extend.
+- [ ] ~~bank claude-sonnet-5 solo~~ superseded above. ~470 calls,
       ~$3–6. `independent_judge` has the aggregator read four answers and decide, and that model has
       never been measured answering alone (D-024 kept it out of the pools). If it scores ~0.89 by
       itself the judge result is "use a stronger model" and collapses. **No claim, abstract or paper

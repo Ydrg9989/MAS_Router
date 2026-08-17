@@ -1,0 +1,48 @@
+# The aggregator, measured as an ordinary pool member. A control, not a pool.
+#
+# `independent_judge` has `anthropic/claude-sonnet-5` read four banked answers and decide, and
+# D-044 showed it solves 18.6% of the tasks on which *every* member was wrong. No selection rule
+# can do that, so the judge is contributing its own knowledge rather than aggregating — which means
+# its advantage over voting (D-043: +3.8 / +8.0 / +4.6 pp on full suites) may be nothing more than
+# "a stronger model answered the question".
+#
+# D-024 fixed this model as the aggregator across every priced pool so that the pool contrast would
+# not be confounded with judge identity. That was right, and it is exactly why the model has never
+# been measured answering alone: it was deliberately kept out of the pools.
+#
+# This config puts it in one, with settings copied verbatim from the `aggregator:` block of
+# strong4.yaml — same provider, same model, same temperature, same max_tokens — so that its Stage A
+# answers are produced under the identical conditions as every other banked agent and the comparison
+# is a like-for-like one.
+#
+# It is a measuring instrument in the sense of candidates.yaml: never run Stage B on it, never
+# enumerate coalitions over it. One agent, Stage A only.
+#
+# Note on D-028. This model sometimes spends its whole output budget on internal reasoning and emits
+# nothing, which D-019 scores as wrong. If that happens here it handicaps the solo arm — but the
+# judge carries the identical handicap in every D-043 and D-044 figure, so the comparison stays
+# honest. The commit rate is reported alongside the accuracy for exactly this reason.
+
+pool_id: aggregator_solo
+description: >-
+  claude-sonnet-5 as a single pool member, banked on crosscap240 and hard366. The control for
+  D-043/D-044: is the judge aggregating, or is it just a better model? Stage A only.
+
+agents:
+  - agent_id: 0
+    name: claude-sonnet5
+    provider: openrouter
+    model: anthropic/claude-sonnet-5
+    family: anthropic
+    role: generalist
+    temperature: 0.0
+    max_tokens: 16384
+
+aggregator:
+  name: claude-sonnet5
+  provider: openrouter
+  model: anthropic/claude-sonnet-5
+  family: anthropic
+  role: aggregator
+  temperature: 0.0
+  max_tokens: 16384
