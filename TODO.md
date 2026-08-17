@@ -93,7 +93,10 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
       $133.57 estimate. `independent_judge` replicates in six pools of six across two suites.
       The D-028 prompt repair was deliberately *not* applied, so the second suite uses the same
       instrument as the first; the ~4% handicap therefore makes every figure a floor.
-- [ ] **THE BLOCKER: bank `claude-sonnet-5` solo on the three discriminating subsets.** ~470 calls,
+- [x] **Run the judge on the non-discriminating tasks.** Done, D-044, $5.44. It solves 18.6% of
+      tasks where every member was wrong — 28% of its whole advantage — so it is answering, not
+      aggregating. The cascade idea is refuted in the same run.
+- [ ] **THE BLOCKER, now decisive: bank `claude-sonnet-5` solo on the three suites.** ~470 calls,
       ~$3–6. `independent_judge` has the aggregator read four answers and decide, and that model has
       never been measured answering alone (D-024 kept it out of the pools). If it scores ~0.89 by
       itself the judge result is "use a stronger model" and collapses. **No claim, abstract or paper

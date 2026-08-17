@@ -35,7 +35,7 @@ What survives is a **methodological negative**: oracle headroom is not evidence 
 structure, and the cost comparison usually paired with it is unsound. That is the paper
 currently planned in [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md).
 
-**Total spend: $122.25** of an originally allocated ~€3,000 (§A7 records a historical
+**Total spend: $127.69** of an originally allocated ~€3,000 (§A7 records a historical
 $85.13/$88.09 discrepancy predating the 2026-08-14 priced run, which added $34.16).
 
 ## A2. Current direction — undecided, but the evidence base is no longer n=3
@@ -48,6 +48,14 @@ As of 2026-08-11 the paper framing was **under active review** and no direction 
 pools became 280. It confirms C1 family-wise, dissolves the `correlated4` blocker, strengthens C2,
 forces C3c to weaken, and adds a control to the cost reading. It also surfaces a threat none of the
 review items anticipated — see §A4 item 5.
+
+**2026-08-14, later: the judge is answering, not aggregating (D-044).** Run on the 245 tasks D-020
+never priced, it solves **18.6% of tasks where every member was wrong** — which no selection rule can
+do — and that accounts for **28% of its entire advantage over voting**. It does *not* damage correct
+consensus (2 overrides of 230), so the expert-dilution reading is dead. The disagreement-triggered
+cascade is also dead: it saves 22–38% of cost but loses 0.4–2.1 pp, because it never escalates where
+the value is. **D-043's replication stands on full suites (+3.8 / +8.0 / +4.6 pp) but its
+interpretation does not.** The aggregator-solo control is now decisive rather than hygienic.
 
 **2026-08-14: `independent_judge` replicates on `crosscap240` (D-043) — the project's first positive
 result.** Pre-registered and named in advance. Against the calibration-chosen best aggregation rule it
@@ -90,7 +98,9 @@ to a *fixed* choice is worth **+2.18 pp**, while routing among them is worth not
 | Delegation generalizes no better than it interpolates | strong | D-041: −0.29 IID, −0.18 domain holdout, +0.81 agent holdout (conditioning gain **−0.10**), −0.22 organization holdout, over 70 pools |
 | Choosing *whether* to collaborate is not learnable either | strong | D-041: −0.40 pp against the better fixed policy, ahead in 18% of resplits; a perfect oracle over the pair is worth only +2.29 pp |
 | Dense counterfactual supervision beats an execution log above 20% of the grid, and loses below it | moderate | D-041: dense minus log −2.44, −0.80, +0.35, +1.81, +2.53 pp across the budget sweep |
-| **`independent_judge`, named a priori, beats the calibration-chosen best aggregation rule** | **strong, pending one control** | D-043: +4.65/+7.42/+3.38 pp on `crosscap240` and +1.42/+6.09/+1.33 on `hard366`, both D-028 scorings, six pools of six. **Blocked by the aggregator-solo confound** |
+| **`independent_judge` beats aggregation, on full suites** | **strong, but the interpretation is open** | D-043 + D-044: +3.8/+8.0/+4.6 pp over voting across all 240 tasks; six pools of six on the subset. **28% of the gain is tasks no member solved, so it is answering rather than aggregating** |
+| A judge does not damage a correct consensus | strong | D-044: 2 overrides of 230 unanimous-correct tasks |
+| Member disagreement is a bad escalation signal | strong | D-044: a disagreement cascade saves 22–38% of cost and loses 0.4–2.1 pp, because 28% of the value is on unanimously-wrong tasks |
 | Picking the *best* protocol per pool is noise | strong | D-041 and D-043: split-half reproducibility 0.00–0.17 on `hard366`, 0.10/0.87/0.00 on `crosscap240` |
 
 ## A4. What is weak, contested, or overclaimed
@@ -154,6 +164,7 @@ upstream pins. That is the authoritative version record; this table is the index
 | `research_questions.json` | `measure_research_questions.py` | D-041 | 2026-08-13 |
 | `positive_selection.json`, `pool_sweep_crosscap240_altdraw.json` | `measure_positive_selection.py`, `measure_pool_sweep.py --tag _altdraw` | D-042 | 2026-08-13 |
 | `judge_replication.json`, `crosscap-*/episodes.jsonl` (priced) | `run_priced_crosscap.sh`, `measure_judge_replication.py` | D-043 | 2026-08-14 |
+| `judge_on_easy_tasks.json` | `run_judge_on_skipped.sh`, `measure_judge_on_easy_tasks.py` | D-044 | 2026-08-14 |
 | `figures/pool_sweep_*` | `report_pool_sweep.py` | D-040 | 2026-08-13 |
 
 **Rule going forward:** any document quoting a number names the artefact key it came from, as

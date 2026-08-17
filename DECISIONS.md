@@ -1910,3 +1910,71 @@ discriminating subsets — roughly 470 tasks, one call each, on the order of **$
 **No claim, abstract or paper section may be written on J1 until this runs.** It is one call per
 task on data already selected, it costs less than 5% of what has been spent, and it is the
 difference between a positive result and a restatement of "Claude is good at GPQA".
+
+---
+
+## D-044 — The judge is not aggregating. It solves tasks no member solved, and that reframes D-043
+
+**Date.** 2026-08-14. **Status.** Adopted. **Pre-registered** in
+[`Docs/preregistrations/2026-08-14-judge-on-easy-tasks.md`](Docs/preregistrations/2026-08-14-judge-on-easy-tasks.md).
+
+**Decision.** Restate D-043 on full suites, retire the cascade proposal, and escalate the
+aggregator-solo control from "required before writing" to "the experiment that decides what this
+project's positive result *is*".
+
+**What was run.** `independent_judge` on the 245 tasks D-020 never priced — those where all four
+members returned the same answer. 244 episodes, **$5.44**. Project total **$127.69**. Scored by
+[`scripts/measure_judge_on_easy_tasks.py`](scripts/measure_judge_on_easy_tasks.py), artefact
+`data/runs/judge_on_easy_tasks.json`.
+
+**H1 refuted, and my own speculation with it.** The judge overrides a correct unanimous consensus in
+**2 of 230** tasks — accuracy 0.991 against a 0.98 notability threshold. It does not damage easy
+items. The `crosscap240`/`decorrelated4` signal that prompted the hypothesis (vote 1.000, judge
+0.857 on ~12 control tasks) was noise, as n≈12 suggested it might be. The expert-dilution reading is
+dead and should not be revived without new evidence.
+
+**H2 fires, and it is the finding.** On tasks where **every one of the four members was wrong**, the
+judge is right **18.6% of the time** — 11 of 59, and 16.7 / 27.3 / 10.5% by pool, against a 5%
+threshold.
+
+No selection rule can do this. If all four answers are wrong, choosing among them cannot produce a
+right one. **`independent_judge` is therefore not aggregating; it is answering.** It reads the
+members and then contributes its own knowledge, which makes it a fifth and evidently stronger agent
+rather than a coordination protocol.
+
+**How much of the advantage this accounts for:**
+
+| pool | net tasks gained over voting | of which rescues | share |
+|---|---:|---:|---:|
+| `strong4` | 9.0 | 3 | **33%** |
+| `decorrelated4` | 19.0 | 6 | **32%** |
+| `correlated4` | 11.0 | 2 | **18%** |
+| total | 39.0 | 11 | **28%** |
+
+**Roughly a third of the judge's edge over voting comes from tasks no member solved.**
+
+**H3 — the full-suite restatement, which D-043's numbers needed.** Judge minus vote is +3.8 / +8.0 /
++4.6 pp across all 239 / 238 / 240 tasks, against +3.66 / +7.26 / +7.69 on the discriminating
+subsets. The advantage survives dilution better than predicted, precisely because the unanimous
+tasks are not neutral: the judge loses nothing on the correct ones and gains on the wrong ones.
+
+**H4 refuted — the cascade does not work, and the reason is H2.** Escalating to the judge only when
+members disagree saves 22 / 28 / 38% of cost but loses **−1.26 / −2.10 / −0.42 pp** against
+judge-always. A disagreement-triggered cascade never escalates on UNANIMOUS_WRONG, which is exactly
+where 28% of the judge's value sits. **Member disagreement is a bad escalation signal** because
+unanimity does not imply correctness. The cascade was proposed in this session on the strength of
+the subset-only data, where the rescue tasks had been filtered out by construction; the extension
+run is what refuted it. Recorded because the reasoning was superficially sound and the selection
+effect that made it wrong is the same one D-020 introduced for good reasons.
+
+**What this does to D-043.** The replication stands — the judge beats aggregation in six pools of
+six, now on full suites. But the *interpretation* is no longer "a coordination protocol beats a
+voting rule". At least 28% of it is a strong model answering questions the pool could not, and the
+remaining 72% is not yet attributable, because a judge that can answer independently may also be
+using its own answer to break ties among the members'.
+
+**The aggregator-solo control is now the decisive experiment, not a hygiene check.** ~470 calls,
+$3–6. If `claude-sonnet-5` alone approaches the judge's accuracy, the honest description of this
+project's only positive result is *"add a stronger model to your pool"*, which is not a finding
+about multi-agent systems at all. **Nothing may be claimed about `independent_judge` until it runs**,
+and the H2 result makes the likely outcome considerably less favourable than it looked yesterday.

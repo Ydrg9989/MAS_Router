@@ -23,6 +23,48 @@ regenerated from the run records rather than transcribed.
 
 ---
 
+## 2026-08-14 — the judge on the tasks nobody priced: it answers rather than aggregates. $5.44
+
+Pre-registered in
+[`Docs/preregistrations/2026-08-14-judge-on-easy-tasks.md`](Docs/preregistrations/2026-08-14-judge-on-easy-tasks.md).
+D-020 never priced tasks where all four members agreed, on the reasoning that no protocol could
+differ there — true of a vote, false of a judge. Conclusions in [`DECISIONS.md` D-044](DECISIONS.md).
+
+    bash scripts/run_judge_on_skipped.sh        # three pools concurrently, 244 episodes
+    .venv/bin/python scripts/measure_judge_on_easy_tasks.py
+
+245 tasks (196 UNANIMOUS_CORRECT, 49 UNANIMOUS_WRONG), $1.51 + $1.15 + $2.78 = **$5.44**. Project
+total **$127.69**.
+
+**H1 refuted.** The judge overrides a correct unanimous consensus in 2 of 230 (accuracy 0.991,
+threshold 0.98). It does not damage easy items; the earlier -14.3 pp hint on ~12 control tasks was
+noise.
+
+**H2 fires.** On tasks where every member was wrong, the judge is right **18.6%** of the time
+(11 of 59; 16.7 / 27.3 / 10.5% by pool, threshold 5%). No selection rule can do that.
+
+    pool             net tasks gained over voting   of which rescues   share
+    strong4                                   9.0                  3     33%
+    decorrelated4                            19.0                  6     32%
+    correlated4                              11.0                  2     18%
+    TOTAL                                    39.0                 11     28%
+
+**H3 — the full-suite restatement.** Judge minus vote is +3.8 / +8.0 / +4.6 pp over all 239 / 238 /
+240 tasks, against +3.66 / +7.26 / +7.69 on the discriminating subsets. It survives dilution better
+than predicted, because unanimous tasks are not neutral for a judge.
+
+**H4 refuted.** The disagreement-triggered cascade saves 22 / 28 / 38% of cost but loses -1.26 /
+-2.10 / -0.42 pp against judge-always, because it never escalates on UNANIMOUS_WRONG — exactly where
+28% of the judge's value is. Member disagreement is a bad escalation signal: unanimity does not
+imply correctness. The cascade was proposed on subset-only data in which those tasks had been
+filtered out by construction.
+
+**Consequence.** `independent_judge` is not aggregating, it is answering. The aggregator-solo control
+(~470 calls, $3-6) is now the experiment that decides what the positive result *is*, not a hygiene
+check.
+
+---
+
 ## 2026-08-14 — the five interaction protocols on `crosscap240`: `independent_judge` replicates. $34.16
 
 The last purchase on this substrate, pre-registered in
