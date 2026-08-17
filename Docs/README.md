@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — add a row whenever a document is added
-last-verified: 2026-08-13
+last-verified: 2026-08-14
 evidence-base: none (index only)
 -->
 
@@ -59,7 +59,9 @@ Never trust a number quoted in prose without it.
 |---|---|---|
 | [`literature/LITERATURE_REVIEW.md`](literature/LITERATURE_REVIEW.md) | living | routing / delegation methods. ⚠️ **Partly unverified** — one entry (`Nash-CredMAS`) does not exist; six more unchecked |
 | [`literature/ROUTING_ARCHITECTURES.md`](literature/ROUTING_ARCHITECTURES.md) | living | nine routing methods compared by mechanism and metric |
-| [`literature/NOVELTY_BOUNDARY.md`](literature/NOVELTY_BOUNDARY.md) | living | boundary against the **measurement-audit** literature, which is what this paper actually competes with |
+| [`literature/NOVELTY_BOUNDARY.md`](literature/NOVELTY_BOUNDARY.md) | living | boundary against the **measurement-audit** literature |
+| [`literature/RW_router.md`](literature/RW_router.md) | living | author-supplied taxonomy of 16 routing papers, with this project's two readings of it |
+| *(missing)* | — | ⚠️ **the ensembling literature — MoA, LLM-Blender, self-consistency — is unreviewed, and it is the field `independent_judge` belongs to** |
 
 ## `reference/` — generated facts about the system
 
@@ -77,7 +79,8 @@ go in `EXPERIMENT_LOG.md` and a `DECISIONS.md` entry, not back into the pre-regi
 | [`preregistrations/2026-08-11-pool-sweep.md`](preregistrations/2026-08-11-pool-sweep.md) | run 2026-08-13 → D-040. P1/P5/P6 confirmed, P2 ambiguous, P3 refuted on its threshold, P4 partial |
 | [`preregistrations/2026-08-13-rq2-rq5.md`](preregistrations/2026-08-13-rq2-rq5.md) | run 2026-08-13 → D-041. All four negative; the one GO trigger failed its own audit. **NO-GO** |
 | [`preregistrations/2026-08-13-positive-selection.md`](preregistrations/2026-08-13-positive-selection.md) | run 2026-08-13 → D-042. E1 failed, E2 proved the budget win is arbitrage, E3 flipped two verdicts, E4 left one live claim |
-| [`preregistrations/2026-08-13-judge-replication.md`](preregistrations/2026-08-13-judge-replication.md) | **running** — the only experiment requiring new spend, and the last purchase on this substrate |
+| [`preregistrations/2026-08-13-judge-replication.md`](preregistrations/2026-08-13-judge-replication.md) | run 2026-08-14 → D-043. J1–J4 all met; `independent_judge` replicates in six pools of six. $34.16 |
+| [`preregistrations/2026-08-14-judge-on-easy-tasks.md`](preregistrations/2026-08-14-judge-on-easy-tasks.md) | run 2026-08-14 → D-044. H1 and H4 refuted, **H2 fires**: the judge answers rather than aggregates. $5.44 |
 
 ## `archive/` — historical, superseded, never updated
 
@@ -88,13 +91,20 @@ Named `YYYY-MM-DD-<slug>.md`. Kept because they record what was believed at the 
 | [`archive/2026-08-04-design-report.md`](archive/2026-08-04-design-report.md) | the original three-project design report | its project selection was overtaken by events; its **decision rules remain instructive** |
 | [`archive/2026-08-10-governance-report.md`](archive/2026-08-10-governance-report.md) | full account of the governance phase | §1–§12 still accurate. ⚠️ **§10.6's verdict "delegation GO" was retired by D-029/D-030** |
 
-## Reading the 2026-08-13 sequence
+## Reading the 2026-08-13/14 sequence
 
-Four pre-registrations were written and run in one day, each answering the previous one's open
+Five pre-registrations were written and run in two days, each answering the previous one's open
 question. Read them in order — pool sweep (D-040) → RQ2–RQ5 (D-041) → positive selection (D-042) →
-judge replication — and note that **all four were written before their data existed**. Two of them
-record a criterion that fired and then failed its own audit (D-041's Q3b, D-042's smoke test), which
-is the pattern this project exists to catch.
+judge replication (D-043) → judge on easy tasks (D-044) — and note that **all five were written
+before their data existed**.
+
+Three of them record something that fired and was then killed by its own audit: D-041's Q3b
+criterion (a starved baseline), D-042's smoke test (a per-pool argmax over six pools), and D-044's
+cascade (proposed in-session on data from which the deciding tasks had been filtered out). That
+pattern is the point of the sequence, not an embarrassment in it.
+
+**Which document to trust for a number:** `paper/CLAIM_EVIDENCE_MATRIX.md`. `paper/FRAMEWORK.md` §8
+for claims and falsifiers. `paper/PAPER_BACKBONE.md` is **superseded** and marked so.
 
 ---
 

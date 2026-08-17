@@ -1,11 +1,18 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place
-last-verified: 2026-08-11
-evidence-base: data/runs/{headroom_null_shared_members,interaction,routing,cost_frontier}.json
+last-verified: 2026-08-14
+evidence-base: data/runs/{pool_sweep_*,research_questions,positive_selection,judge_replication,judge_on_easy_tasks}.json
 -->
 
 # Framework, claims, and design
+
+> **Status, 2026-08-14.** This file was written when the study was six pool-by-suite cells. It is now
+> 280 pools, four additional research questions, a purchased second suite and five further decision
+> records (D-040 to D-044). §8 has been rewritten against that evidence; **§1–§7 still describe the
+> design correctly but their numbers are the six-cell versions** — for figures, use
+> [`CLAIM_EVIDENCE_MATRIX.md`](CLAIM_EVIDENCE_MATRIX.md), which is authoritative. Two things in
+> §5 no longer hold and are marked inline.
 
 What the project is arguing, what each claim rests on, and the mathematics the argument needs. Written
 before any paper structure, so that the structure follows the argument rather than the reverse.
@@ -256,8 +263,13 @@ the three `crosscap240` cells the sharp-null headroom excesses are \(-0.23\), \(
 demonstrably present in the same table.** `hard366`/correlated4 makes the converse point: significant at
 \(p\le0.005\) with an excess of \(0.26\) points on 10,980 observations, a p-value that is not an effect size.
 
-**5.3 Aggregation absorbs the exploitable part.** This is the substantive claim, and 5.2 constrains how
-it may be stated. The prediction that aggregation would *destroy* the interaction is refuted: it is
+**5.3 Aggregation absorbs the exploitable part.** ⚠️ **Superseded by D-040.** At n=3 pools this read
+as a 2-of-3 pattern. Over 280 pools whole-pool voting is at or above the oracle-labelled capability
+router in 60.0% / 65.7% of pools — a coin flip tilted toward voting — and when the router is given
+all thirty organizations, voting leads in only 44.3%. "Aggregation is a substitute for routing" is
+**not supportable**; "voting is hard to beat and needs no task representation" is. The paragraph
+below is retained as the record of what was believed. This is the substantive claim, and 5.2
+constrains how it may be stated. The prediction that aggregation would *destroy* the interaction is refuted: it is
 significant over organizations, not only over agents. What aggregation removes is the part worth
 routing on. Voting over a heterogeneous pool already realises each member's expertise on the tasks where
 that member is strong, without needing to know which tasks those are. Routing and voting are therefore
@@ -357,19 +369,31 @@ D-029 showed were dilutable by adding protocols.
 
 ## 8. The claims, with scope and falsifiers
 
-| # | claim | evidence | scope limit | what would falsify it |
-|---|---|---|---|---|
-| C1 | Oracle headroom is not evidence of routable structure | Proposition 1; two nulls in six cells and one on 134 public systems; sharp null has demonstrated power | one seed; SWE-bench still uses the independent null | the sharp null showing excess in more than one cell, or surviving correction |
-| C1' | Headroom is *insensitive*, not merely inflated: it misses interaction present in the same table | D-038: `crosscap240` carries organization-by-capability interaction at \(p\le0.005\) with excess departures of \(+6.71/+4.21/+3.78\) pp, while sharp-null headroom excess there is \(-0.23/-0.05/-3.24\) | four provenance-based capability labels; bootstrap null | headroom excess and interaction agreeing in sign and significance across cells |
-| C2 | No learned router beats a frozen best fixed organization here | D-033: two suites, three pools, 60 resplits, flat learning curve | 30 organizations, 4-agent pools, two free protocols | a router gaining on this same grid |
-| C3 | Even a capability router with ground-truth labels does not beat majority voting | \(-0.6\), \(-7.5\), \(+2.5\) points | four capabilities; 238 tasks | a pool where the capability router wins |
-| C4 | The reason is that profiles share one difficulty ordering, and voting absorbs the *exploitable part* of what crossing exists | seven of eight agents peak on the same capability; positive control fails at \(p=0.883\); D-038 refutes the stronger "aggregation destroys the interaction" version | eight agents, one suite | a pool with genuinely crossing peaks that also beats voting |
-| C5 | The efficiency defence fails, and \(\lambda\)-sweeps manufacture it | Lemma 2 plus its hull diagnostic: 3 to 9 Pareto-efficient organizations per cell are unreachable by any \(\lambda\); budget results in six cells | our price snapshot; two protocols | routed beating global at matched budget |
+Rewritten 2026-08-14 against D-040 to D-044. Numbers are in
+[`CLAIM_EVIDENCE_MATRIX.md`](CLAIM_EVIDENCE_MATRIX.md); this table carries scope and falsifiers.
 
-Claims C1 and C5 are methodological and travel beyond this project. C2 to C4 are empirical and bounded
-by the grid.
+| # | claim | scope limit | what would falsify it |
+|---|---|---|---|
+| C1 | Oracle headroom is not evidence of routable structure | one seed, one answer draw; SWE-bench uses the conservative null | the sweep showing excess in a coherent subset of pools, or the calibrated false-positive rate exceeding nominal |
+| C1' | Headroom is *insensitive*, not merely inflated | provenance-based capability labels | headroom excess and interaction agreeing in sign across pools |
+| C2 | No learned router beats a frozen best fixed organization | 30–35 organizations, 4-agent pools, single-turn QA | a router gaining ≥1 pp on this grid with a clean shuffled control |
+| C2' | Nor with interaction protocols in the choice set, nor under domain, agent or organization holdout, nor for the solo-versus-collaborate decision | grand coalition for the priced protocols | any regime clearing +1 pp with the twin below it |
+| C3 | The binding constraint is selection variance, not task representation | conditioning gain measured on two suites | a representation whose conditioning gain exceeds its selection cost |
+| C3' | The winner's curse on the *fixed* choice is real but not recoverable | seven rules tried | a rule beating the calibration argmax by ≥1 pp on both suites |
+| C4 | A linear cost sweep manufactures routing gains; a budget does not | our price snapshot | routed beating global at matched budget under flattened prices |
+| C4' | The tight-budget win is priced-by-domain arbitrage | per-agent mean flattening | the win surviving flat prices |
+| **C5** | **`independent_judge`, named a priori, beats aggregation in six pools of six across two suites** | one aggregator, one provider, grand coalition; 3.5–17.1× the cost | failing to replicate on a third suite, or **C6** resolving against it |
+| **C6** | **At least 28% of that advantage is the judge answering, not aggregating** | 59 unanimously-wrong tasks | the aggregator scoring near zero alone on those tasks |
+| **C7** | **OPEN: is the remaining 72% aggregation, or the same stronger model?** | — | the unrun aggregator-solo control |
 
----
+C1, C1', C3', C4 and C4' are methodological and travel beyond this project. C2, C2', C3 and C5 are
+empirical and bounded by the grid. **C7 is unresolved and blocks any claim built on C5.**
+
+**What the negative does *not* cover, stated plainly.** Every result here is single-turn question
+answering with exact-match grading, over 8–10 general-purpose chat LLMs from one provider, choosing
+among 30–35 answer-level organizations. It says nothing about routing *reasoning steps* within a
+task, routing *agentic workflow steps* with tool use, or routing among model classes that differ by
+more than these do. Those are the regimes most of the current routing literature occupies.
 
 ## 9. Known gaps, honestly
 

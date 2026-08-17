@@ -1,94 +1,100 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — AUTHORITATIVE numbers; every row names its artefact key
-last-verified: 2026-08-11
+last-verified: 2026-08-14
 evidence-base: data/runs/*.json — see per-row Location column
 -->
 
 # Claim–Evidence Matrix
 
-Companion to [`Docs/paper/PAPER_BACKBONE.md`](PAPER_BACKBONE.md). Every figure below was read from the stored
-run artefacts in `data/runs/` on 2026-08-10, not transcribed from prose. Locations are given as
-code path plus artefact key so any number can be re-derived.
+Companion to [`Docs/paper/PAPER_BACKBONE.md`](PAPER_BACKBONE.md). Every figure below was read from
+the stored run artefacts in `data/runs/`, not transcribed from prose.
 
-Status vocabulary: supported / partially supported / unsupported / contradicted / pending.
+**2026-08-14 revision.** This file previously stopped at D-039 and described a six-cell study. It now
+covers D-040 through D-044: 280 pools, four research questions, a purchased second suite, and one
+positive result whose interpretation is open. Three claims were **weakened**, two counter-evidence
+rows **retired**, and one claim (C3c) is no longer supportable in its old wording.
+
+Status vocabulary: supported / partially supported / weakened / unsupported / contradicted / open.
 
 ---
 
-## Main claims
+## Group 1 — the measurements mislead
 
-| ID | Exact claim | Strength | Scope | Supporting evidence | Location | Counter-evidence / alternatives | Missing evidence | Status | Sections |
-|---|---|---|---|---|---|---|---|---|---|
-| **C1a** | Under an additive outcome model with strictly increasing link, the per-task-optimal organization is the same for every task, so population oracle headroom is exactly zero | Guarantee | Assumes no interaction term and monotone link | Proposition 1 with proof | [`FRAMEWORK.md` §3.1](FRAMEWORK.md) | None; it is a proof. The assumption is what is arguable, which is why C1b tests it empirically | Nothing | supported | Intro, §4 |
-| **C1b** | Observed oracle headroom does not exceed a null that removes agent-by-task interaction while preserving member sharing | Comparative | 6 pool-by-suite cells, 30 organizations each, 200 simulations, headroom measured against the best organization *on test* | Excess over sharp null: `+2.20` (p=0.045), `+1.16` (0.260), `−0.07` (0.585), `−0.23` (0.605), `−0.05` (0.560), `−3.24` (0.965). Bonferroni threshold for 6 cells is 0.0083, so none survives | [`mas_harness/metrics/sharing_null.py`](../../mas_harness/metrics/sharing_null.py), [`scripts/check_headroom_shared_members.py`](../../scripts/check_headroom_shared_members.py), `data/runs/headroom_null_shared_members.json` → `[suite][pool]["shared_member_null"]["excess_over_null_over_best"]` | `hard366`/`strong4` at p=0.045 is nominally significant and must be reported as such. The independent null gives a *different* per-cell ordering (`+0.02`, `−1.54`, `−2.46`, `+0.44`, `−2.66`, `−1.05`), showing the choice of null matters | Second seed; the interaction likelihood-ratio test | supported | §4, §6-R1 |
-| **C1c** | The null is not vacuous: it detects interaction when interaction is planted, and it reproduces the real protocols exactly | Existence | Synthetic four-specialist structure; replay check on recorded episodes | Planted specialisation detected at p<0.05 with excess >5 points; replay agreement with recorded episodes `1.0000` in all six cells | [`tests/test_sharing_null.py`](../../tests/test_sharing_null.py) `test_planted_specialisation_is_detected`; `…["shared_member_null"]["replay_agreement_with_recorded_episodes"]` | The power check is synthetic. The *real*-data positive control is weaker: see C3b | A real pool that exceeds the null | supported | §4 |
-| **C1d** | The result holds on an external matrix of 134 public agent systems | Systematic | SWE-bench Verified, 240 test tasks, top-K sweep K∈{4,8,16,32,134} | Excess over null: `−1.88`, `−2.95`, `−2.40`, `−2.42`, `−2.65`; p = 0.940–0.970. Observed headroom rises with K (`8.33`→`14.58`) exactly as the null predicts it should | [`scripts/check_headroom_swebench.py`](../../scripts/check_headroom_swebench.py), `data/runs/headroom_null_swebench.json` | Uses the **independent** null, because published systems cannot be decomposed into members. This is the conservative direction, so it weakens the test but not the conclusion | A member-decomposable public matrix | partially supported | §6-R1 |
-| **C1f** | Headroom is insensitive, not merely inflated: it misses interaction that is present in the same outcome table | Comparative | Same 6 cells, same tables; capability labels are dataset provenance; bootstrap null with 200 simulations | Likelihood-ratio test of \(\gamma_{u,c(x)}=0\). On `crosscap240` all three pools show organization-by-capability interaction at \(p\le0.005\) with excess departures `+6.71`, `+4.21`, `+3.78` pp, while sharp-null headroom excess on those same tables is `−0.23`, `−0.05`, `−3.24` (\(p\) = 0.605, 0.560, 0.965). On `hard366` neither instrument fires (agents \(p=0.164\); organizations \(p\) = 0.692, 0.731) | [`mas_harness/metrics/interaction.py`](../../mas_harness/metrics/interaction.py), [`scripts/measure_interaction.py`](../../scripts/measure_interaction.py), `data/runs/interaction.json`; [`DECISIONS.md` D-038](../../DECISIONS.md) | `hard366`/correlated4 is significant at \(p\le0.005\) with an excess of `+0.26` pp on 10,980 observations — significance without magnitude, and a caution the paper should state rather than hide | A second seed; finer capability labels | supported | §4, §6-R1 |
-| **C1e** | Sweeping a linear cost penalty and comparing a routed policy against the swept baseline flatters routing, because the sweep reaches only the convex hull of candidates | Guarantee + existence | Lemma 2 is general; the demonstration is our own six cells | Lemma 2 with proof; regenerated λ-swept best gains `+3.36`, `−0.02`, `+1.06`, `+7.02`, `+3.47`, `+7.99` points, positive in 44–94% of 200 resplits, against budget-matched `−3.15`, `−1.70`, `−2.48`, `−0.48`, `−1.97`, `−3.94` on the same data. Hull diagnostic: of 30 organizations per cell, 7–14 are Pareto-efficient, only 3–6 reachable by any λ, leaving **3–9 Pareto-efficient but invisible** | [`FRAMEWORK.md` §6.1](FRAMEWORK.md), [`scripts/measure_cost_frontier.py`](../../scripts/measure_cost_frontier.py), `data/runs/cost_frontier.json` → `retracted_lambda_sweep`, `hull_diagnostic`; [`DECISIONS.md` D-036, D-039](../../DECISIONS.md) | The λ result was our own analysis, not a published one. We must not imply a specific paper made this error, only that the instrument is unsound | Nothing blocking; the hull count now carries the argument without the retracted numbers | supported | §4, §6-R3 |
-| **C2a** | A leak-free learned outcome model does not beat the best fixed organization | Comparative | 6 cells, 60 resplits, frozen prompt embeddings, all features and baselines fit on calibration only | `q_theta` gain over fixed-best: `+0.33`, `−0.53`, `−0.42`, `+0.08`, `−1.78`, `+0.03` points; ahead in 47%, 22%, 28%, 43%, 13%, 35% of resplits. Shuffled-representation control is worse in every cell (`−0.32` to `−2.80`), so the representation is doing nothing rather than being mis-scaled | [`mas_harness/metrics/routing.py`](../../mas_harness/metrics/routing.py), [`scripts/measure_routing.py`](../../scripts/measure_routing.py), `data/runs/routing.json` → `[suite]["pools"][pool]["over_splits"]["gain_over_fixed_best"]` | Semantic k-NN gains `+1.40` (77% of splits) on `hard366`/`strong4` and `+1.01` (70%) on `crosscap240`/`strong4`. A crude baseline beating our model needs explaining, and prevents "no router works" phrasing | A stronger model class; more agents per pool | supported | §6-R2 |
-| **C2b** | The absence of gain is not a data-volume problem | Systematic | Pooled 569 tasks, 15 domains, calibration swept 10%→70% (≈57→398 tasks), 40 resplits per point | `q_theta` gain stays in `[−1.28, +0.37]` across the sweep with no trend; oracle headroom simultaneously stays at `+4.08` to `+9.72`, so the "prize" is stable while the ability to claim it does not grow | [`scripts/measure_routing_pooled.py`](../../scripts/measure_routing_pooled.py), `data/runs/routing_pooled.json` → `["pools"][pool]["curve"]` | A sevenfold range may still be far from the asymptote | Larger suites | supported | §6-R2 |
-| **C2c** | A router given ground-truth capability labels beats the best single agent but not whole-pool voting | Comparative | `crosscap240`, 159 test tasks, 8 agents as singleton organizations, per-capability choice made optimal on calibration | Best single / capability router / whole-pool vote / oracle. `strong4`: 0.792 / 0.830 / **0.836** / 0.937. `decorrelated4`: **0.843** / 0.736 / 0.811 / 0.931. `correlated4`: 0.805 / **0.881** / 0.855 / 0.943 | [`scripts/check_headroom_specialists.py`](../../scripts/check_headroom_specialists.py) `aggregation_versus_routing`, `data/runs/headroom_null_specialists.json` | **`correlated4` contradicts the clean version**: the router beats voting by 2.5 points there. And in `decorrelated4` the router loses to the best *single agent* by 10.7 points, i.e. per-capability calibration choices generalise badly. Both must be reported | Why the correlated pool is the one where routing helps | partially supported | §6-R2 |
-| **C2d** | Under a budget-matched comparison routing loses at unconstrained budgets | Comparative | 6 cells, resplits, costs repriced from token buckets against the pricing snapshot | Routed minus global at unconstrained budget: `−3.15` (ahead in 2% of resplits), `−1.70` (9%), `−2.48` (8%), `−0.48` (29%), `−1.97` (11%), `−3.94` (7%) | `data/runs/cost_frontier.json` → `unlimited_budget_gain_pp`; [`DECISIONS.md` D-036](../../DECISIONS.md) | **At the tightest budgets routing wins** in all three `crosscap240` cells: `+4.05` (81%), `+2.68` (89%), `+13.91` (100%). We read this as buying a cheaper organization on cheap-to-serve domains, which is arbitrage over prices rather than matching organizations to task demands — but that reading is an interpretation, not a measurement | An analysis separating price arbitrage from capability matching, e.g. re-running with flattened prices | partially supported | §6-R3 |
-| **C3a** | These agents differ in overall strength and in degradation rate rather than in what they are suited to | Association | 8 agents, 4 capabilities, `crosscap240`, recomputed 2026-08-10 | 7 of 8 peak on code reasoning, 1 on competition maths, **none** on theory of mind or graduate science. Spread ranges from 0.160 (`deepseek32`: 0.850/0.690/0.800/0.800) to 0.833 (`grok43`: 0.967 code, 0.133 theory of mind) | [`scripts/check_headroom_specialists.py`](../../scripts/check_headroom_specialists.py) `accuracy_by_domain`; **printed to stdout, not stored** — see provenance flag P2 | 4 capabilities is a coarse partition; a finer one might reveal crossing. Note `grok43` vs `deepseek32` *is* a genuine rank reversal, so the claim is about the dominant pattern, not universality | Finer capability labels; more agent families | supported | §6-R4 |
-| **C3b** | Even a pool selected specifically for disjointness shows no excess headroom | Existence (falsification) | `disjoint4` = best agent per capability chosen on calibration; 159 test tasks, 300 simulations | `disjoint4` excess over null `−2.16`, p=0.883. Comparators: `generalist4` `−0.83` (p=0.723), `all8` `−0.80` (p=0.690), and even `all8` with oracle 0.981 against best single 0.843 shows no excess | `data/runs/headroom_null_specialists.json` | The pool is drawn from 8 models on one provider. A genuinely disjoint pool may require fine-tuned or tool-specialised agents, which we did not test | A tool-specialised or fine-tuned pool | supported | §6-R4 |
-| **C3c** | Aggregation is a substitute for routing: voting collects the *exploitable* part of the crossing interaction without knowing which tasks are which | Mechanism | Same 3 pools, `crosscap240` | Voting is at or above the capability router in 2 of 3 pools while requiring no task representation; and voting exceeds the best single agent in 2 of 3 (`strong4` 0.836 vs 0.792, `correlated4` 0.855 vs 0.805) | C2c row | In `decorrelated4` voting is *below* the best single agent (0.811 vs 0.843), so aggregation is not free either. And C1f refutes the stronger version of this claim: interaction survives aggregation into organizations at \(p\le0.005\), so "voting removes the interaction" is false — only "voting removes the part worth routing on" is supportable | A decomposition of when voting beats its best member | partially supported | §6-R4, Discussion |
+| ID | Claim | Strength | Evidence | Location | Counter-evidence | Status |
+|---|---|---|---|---|---|---|
+| **C1a** | Under an additive model with monotone link, population oracle headroom is exactly zero | Guarantee | Proposition 1 with proof | [`FRAMEWORK.md` §3.1](FRAMEWORK.md) | None; it is a proof | supported |
+| **C1b** | Observed headroom does not exceed a null removing agent-by-task interaction while preserving member sharing | Comparative | **280 pools, both suites.** Median excess −1.63 pp (p=0.945) on `crosscap240`, +0.14 (p=0.393) on `hard366`; **0 of 70** and 5 of 210 pools at p≤0.05 against 2.5 and 8.4 expected | `pool_sweep_*.json` → `family_wise_null`; D-040 | The six named cells individually gave +2.20 (p=0.045) at best; the sweep supersedes them | **strengthened** |
+| **C1c** | The null is not vacuous, and its error rate is measured rather than assumed | Existence | Planted specialists detected at p<0.05; replay agreement 1.0000; **double-bootstrap false-positive rate 0.016 / 0.000 against a nominal 0.050** | `tests/test_pool_sweep.py`; `pool_sweep_*.json` → `calibration`; D-040 | The test *under*-rejects, so a null result is conservative | **strengthened** |
+| **C1d** | The result holds on 134 public agent systems | Systematic | Excess −1.88 to −2.65, p = 0.940–0.970 | `headroom_null_swebench.json` | Uses the independent null; conservative direction | partially supported |
+| **C1e** | A linear cost sweep reaches only the convex hull | Guarantee + existence | Lemma 2; **median 8 Pareto-efficient organizations per cell unreachable by any λ, range 1–16, across 280 pools** | `cost_frontier.json`, `pool_sweep_*.json`; D-039, D-040 | The λ result was our own analysis, not a published one | supported |
+| **C1f** | Headroom is *insensitive*, not merely inflated: it misses interaction present in the same table | Comparative | **Organization-by-capability interaction at p≤0.05 in 100% of the 70 `crosscap240` pools**, median excess departure +4.41 pp, while headroom excess in those same pools is at or below the null | `pool_sweep_crosscap240.json` → `interaction`; D-038, D-040 | `hard366`/correlated4 is significant with a 0.26 pp effect — significance without magnitude | supported |
+
+## Group 2 — per-task selection does not pay
+
+| ID | Claim | Strength | Evidence | Location | Counter-evidence | Status |
+|---|---|---|---|---|---|---|
+| **C2a** | A leak-free learned outcome model does not beat the best fixed organization | Comparative | **Mean gain −0.01 pp over 70 pools and −0.46 over 210**, ahead in 43.2% / 30.2% of resplits, while the shuffled twin loses 2.42 pp and is beaten in 91% of pools | `pool_sweep_*.json` → `routing`; D-033, D-040 | ~~Semantic k-NN gains +1.40~~ **RETIRED**: at n=70 it is −0.06 pp, positive in 48.6% of pools | **strengthened** |
+| **C2b** | The absence of gain is not a data-volume problem | Systematic | Flat over a sevenfold calibration sweep, 57→398 tasks | `routing_pooled.json`; D-033 | A sevenfold range may be far from asymptote | supported |
+| **C2c** | A router given ground-truth capability labels does not beat whole-pool voting | Comparative | Voting is at or above it in **60.0%** of 70 `crosscap240` pools and 65.7% of 210 `hard366` pools; mean margin +0.29 / +0.27 pp, 5th–95th −5.1 to +7.5 | `pool_sweep_*.json` → `ladder`; D-040 | ~~`correlated4` inverts~~ **RETIRED**: it sits at the 55.7th percentile of 70. But give the router all 30 organizations and voting leads in only **44.3%** | **weakened** |
+| **C2d** | Under a budget-matched comparison routing loses | Comparative | Unconstrained: positive in 15.7% of `crosscap240` and **0.0%** of 210 `hard366` pools | `pool_sweep_*.json` → `budget`; D-036, D-040 | Tight-budget wins **were** the counter-evidence; now explained — see C2e | supported |
+| **C2e** | The tight-budget routing win is priced-by-domain arbitrage, not capability matching | Comparative, **causal manipulation** | Flattening the per-agent price across tasks **inverts** the win: +5.34 → **−5.78** pp on `crosscap240` (93% → 0% of pools) and +0.71 → −2.80 on `hard366` | `positive_selection.json` → `e2`; D-042 | None; this closes the last open interpretation | **new, supported** |
+| **C2f** | Routing does not pay even when interaction protocols are in the choice set | Comparative | 35 organizations vs the identical 30 on the same tasks and splits: `q_θ` −1.05 / −0.64 / −0.67 pp, ahead in 25–27% of resplits; the protocol axis changes the gain by −0.41 pp | `research_questions.json` → `hard366_priced`; D-041 | None | **new, supported** |
+| **C2g** | Delegation generalizes no better than it interpolates | Systematic | 70 pools: −0.29 IID, −0.18 domain holdout, **+0.81 agent holdout**, −0.22 organization holdout | `research_questions.json` → `rq4`; D-041 | Agent holdout looks positive; its **conditioning gain is −0.10 pp**, so the effect is a larger feasible set, not task-conditioning | **new, supported** |
+| **C2h** | Choosing *whether* to collaborate is not learnable either | Comparative | −0.40 pp against the better of always-solo / always-collaborate, ahead in 18% of resplits, shuffled control −1.29 | `research_questions.json` → `rq5`; D-041 | A perfect oracle over the pair is worth only +2.29 pp, so little is available even in principle | **new, supported** |
+
+## Group 3 — the mechanism, and what it is not
+
+| ID | Claim | Strength | Evidence | Location | Counter-evidence | Status |
+|---|---|---|---|---|---|---|
+| **C3a** | Agents differ in overall strength and degradation rate rather than in what they suit | Association | 7 of 8 peak on code reasoning; none on theory of mind | `headroom_null_specialists.json` | 4 capabilities is coarse | supported |
+| **C3b** | Even a pool selected for disjointness shows no excess headroom | Existence | `disjoint4` excess −2.16, p=0.883 | `headroom_null_specialists.json` | Drawn from 8 models, one provider | supported |
+| **C3c** | ~~Aggregation is a substitute for routing~~ | ~~Mechanism~~ | At n=3 it looked like 2-of-3. **At n=280 it is a coin flip tilted toward voting** (60.0% / 65.7%), and with all 30 organizations available the router leads | `pool_sweep_*.json`; D-040 | — | **NOT SUPPORTABLE in its old wording.** The defensible version is "voting is hard to beat", not "aggregation substitutes for routing" |
+| **C3d** | The binding constraint is selection variance, not task representation | Mechanism | Representation earns +2.40 pp (router beats its shuffled twin in 91% of pools); per-task choosing costs −2.42; net −0.01. **Conditioning gain is +0.07 pp** | `pool_sweep_crosscap240.json`; D-040 | The three quantities being equal may be coincidence at n=1 suite; on `hard366` they are +0.77 / −1.24 / −0.46 | **new, supported** |
+| **C3e** | The winner's curse on the fixed choice is real but **not recoverable** | Comparative | Seven selection rules over 280 pools; nothing beats the calibration argmax. Ceiling `oracle_fixed` is only +1.61 / +1.18 pp | `positive_selection.json` → `e1`; D-042 | `cross_pool` looked like +1.26/+2.09 at 4–6 pools — an argmax over a small sample, our own false positive | **new, supported** |
+| **C3f** | Classical shrinkage cannot correct that winner's curse | Guarantee | Equal *n* per organization makes any pull toward a scalar monotone in raw accuracy, so the argmax never moves | [`tests/test_selection.py`](../../tests/test_selection.py); D-042 | None; it is arithmetic | **new, supported** |
+
+## Group 4 — the judge, and the open question
+
+| ID | Claim | Strength | Evidence | Location | Counter-evidence | Status |
+|---|---|---|---|---|---|---|
+| **C4a** | `independent_judge`, named a priori, beats the calibration-chosen best aggregation rule | Comparative | **Six pools of six, two suites, both D-028 scorings.** +4.65 / +7.42 / +3.38 pp on `crosscap240`, +1.42 / +6.09 / +1.33 on `hard366`; excluded-scoring raises all six | `judge_replication.json`; D-043 | Truncation 3.8–4.7% is scored wrong by D-019, so these are **floors** | supported |
+| **C4b** | Picking the *best* protocol per pool is noise | Systematic | Split-half reproducibility 0.00–0.17 on `hard366`, 0.10 / 0.87 / 0.00 on `crosscap240`, mean 0.32 against a 0.5 floor | `judge_replication.json` → `argmax_protocol_reproducibility`; D-041, D-043 | None. This is why C4a is admissible only as an a-priori name | supported |
+| **C4c** | Over a full suite the judge beats voting by +3.8 / +8.0 / +4.6 pp, at 3.5–17.1× the cost | Comparative | All 239 / 238 / 240 tasks after pricing the 245 D-020 skipped | `judge_on_easy_tasks.json`; D-043, D-044 | The cost multiplier must accompany any statement of the gain | supported |
+| **C4d** | **The judge is answering, not aggregating** | Mechanism | It solves **18.6%** of tasks where every member was wrong (11 of 59). No selection rule can. That is **28%** of its entire advantage over voting | `judge_on_easy_tasks.json` → `H2`; D-044 | — | **new, supported, and it reframes C4a** |
+| **C4e** | A judge does not damage a correct consensus | Existence | 2 overrides of 230 unanimous-correct tasks (0.991) | `judge_on_easy_tasks.json` → `H1`; D-044 | The expert-dilution reading is refuted | supported |
+| **C4f** | Member disagreement is a bad escalation signal | Comparative | A disagreement-triggered cascade saves 22 / 28 / 38% of cost and loses 1.26 / 2.10 / 0.42 pp, because it never escalates on unanimously-wrong tasks | `judge_on_easy_tasks.json` → `H4`; D-044 | Proposed in-session on subset-only data where those tasks were filtered out | supported |
+| **C4g** | **OPEN — is the judge's advantage aggregation, or a stronger model?** | — | `claude-sonnet-5` is the aggregator (D-024) and has **never been measured answering alone**. C4d makes the unfavourable outcome more likely | **unrun**; ~470 calls, $3–6 | — | **open, and blocking** |
+
+## Group 5 — reproducibility
+
+| ID | Claim | Strength | Evidence | Location | Status |
+|---|---|---|---|---|---|
+| **C5a** | Re-running the same seed is a different draw, large enough to invert a cell | Existence | 49 of 959 repeated `crosscap240` agent-tasks disagree on correctness, 121 on answer text, at temperature 0. `correlated4` vote-minus-router moves −2.50 → +0.63 | D-040 §item 5 | supported |
+| **C5b** | Two of six pre-registered verdicts flip on the alternative draw | Systematic | P1, P5, P6 hold; **P2 AMBIGUOUS→REFUTED, P3 REFUTED→AMBIGUOUS** | `pool_sweep_crosscap240_altdraw.json`; D-042 | supported |
 
 ---
 
 ## Claim-strength audit
 
-Wording that the evidence does **not** support, and the wording it does:
-
 | Tempting | Problem | Defensible |
 |---|---|---|
-| "There is no agent-by-task interaction" | Refuted by our own likelihood-ratio test at \(p\le0.005\) (C1f). This sentence must not appear anywhere | "Observed headroom does not exceed what an interaction-free process produces at matched marginals, on tables that do contain interaction" |
-| "Aggregation destroys the interaction" | Also refuted by C1f: it is significant at the organization level, not only the agent level | "Aggregation absorbs the *exploitable* part of the interaction" |
-| "Routing does not work" | Three dissenting cells (C2a, C2c, C2d counter-evidence) | "Per-task selection did not reliably beat committing to one organization in this family" |
-| "Oracle headroom is meaningless" | It is a valid upper bound; it is uninformative *as motivation* | "Oracle headroom is not evidence of routable structure" |
-| "We beat published routers" | No reimplementation | "We test the premise those systems are built on" |
-| "Cost-aware routing is unsound" | Lemma 2 concerns the *comparison instrument*, not cost-aware routing itself | "Comparing against a λ-swept baseline is unsound; use budget matching" |
-
----
-
-## Provenance flags
-
-Recorded rather than silently reconciled, per the skill's rule on preserving uncertainty.
-
-- **P1 — CLOSED, and the closure is itself a finding.** The λ figures had no surviving artefact and the
-  two records disagreed: [`FRAMEWORK.md` §6.1](FRAMEWORK.md) said `+2.6` to `+16.6` in 86–100% of
-  resplits, [`DECISIONS.md` D-036](../../DECISIONS.md) said `+4` to `+16` at p≤0.006. A faithful
-  re-implementation reproduces **neither** (`−0.02` to `+7.99`, positive in 44–94%). Both historical
-  ranges are retired; the paper cites the regenerated numbers, which have an artefact behind them
-  (`retracted_lambda_sweep` in `data/runs/cost_frontier.json`). The qualitative artefact is unaffected —
-  the sign still flips against budget matching — and the hull diagnostic added alongside it now carries
-  the argument without depending on any magnitude. See D-039.
-- **P2 — CLOSED.** `accuracy_by_capability` is written into
-  `data/runs/headroom_null_specialists.json` with all-task and calibration-only variants, peak
-  capability and spread. Values reproduce the earlier recomputation and FRAMEWORK §5.1 exactly.
+| "Aggregation is a substitute for routing" | C3c: a coin flip at n=280, and the router leads with all 30 organizations | "Whole-pool voting is hard to beat and needs no task representation" |
+| "A coordination protocol beats a voting rule" | C4d: 28% of the effect is the judge solving what no member solved | "A judge beats a vote — and at least 28% of that is independent answering, not aggregation" |
+| "Routing never works" | C2e: it wins at tight budgets, by arbitrage; and the negative is scoped to single-turn QA over 8–10 general-purpose LLMs | "Per-task selection did not pay in this family; the tight-budget win is a price effect" |
+| "We found a better selection rule" | C3e: nothing beats the calibration argmax over 280 pools | "The winner's curse is real and not recoverable by any rule we tried" |
+| "Escalate on disagreement" | C4f: it loses accuracy for its saving | "Disagreement does not identify where a judge adds value" |
+| "The judge is worth it" | C4c: 3.5–17.1× the cost; C4g unrun | Nothing, until C4g runs |
 
 ## Evidence gaps blocking a claim
 
-1. ~~Interaction likelihood-ratio test.~~ **Run, D-038.** It closed the gap and produced C1f, the
-   sharpest row in this matrix. It also forced a correction to C3c: aggregation does not destroy the
-   interaction, it absorbs the exploitable part.
-2. **A second seed.** Every cell is one seed. Cheap for the two free protocols via replay; the priced
-   protocols would need new spend.
-3. **Explanation for `correlated4`** being the pool where capability routing helps (C2c). Currently an
-   unexplained inversion sitting inside a central claim, and now doubly interesting because it is also
-   the one `hard366` cell with significant organization-level interaction (C1f).
-4. **Price-flattened budget rerun** to separate arbitrage from capability matching (C2d).
-5. **Member-decomposable public matrix**, to upgrade C1d from the conservative null.
-
----
-
-## Claim wording decisions
-
-- "Organization" = coalition × protocol. Fixed once, used everywhere; `DECISIONS.md` also uses
-  "configuration", which must be normalised before drafting.
-- "Headroom" always means per-task maximum minus the accuracy of the best **single organization
-  measured on the same test tasks**. The calibration-picked variant is retired
-  ([`DECISIONS.md` D-037](../../DECISIONS.md)) because it conflates interaction with winner's curse; it must
-  not reappear in the paper.
-- "Null" without qualification means the member-sharing null. The independent null is always named as
-  such, and reported only where the sharp one is unavailable (C1d).
-- Report percentage points as `pp` and keep two decimals, matching the artefacts.
+1. **C4g, the aggregator-solo control.** ~470 calls, $3–6. **The only experiment that matters right
+   now.** It decides whether the project's one positive result is about multi-agent systems at all.
+   It also decomposes: solo accuracy on unanimous-*correct* tasks tests whether deferring to
+   consensus adds value, and solo accuracy on unanimous-*wrong* tasks tests whether the rescues are
+   pure solo ability.
+2. **The ensembling literature is unreviewed.** `LITERATURE_REVIEW.md` covers routing and contains
+   **zero** mentions of Mixture-of-Agents, LLM-Blender or self-consistency — the field
+   `independent_judge` actually belongs to. Novelty cannot be assessed until this is written.
+3. **A second seed**, and the alternative-draw rerun for D-041 through D-044.
+4. **One aggregator, one provider.** Every judge figure uses `claude-sonnet-5` on OpenRouter.

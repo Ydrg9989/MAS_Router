@@ -1,3 +1,38 @@
+<!-- doc-meta
+type:          living
+lifecycle:     update-in-place
+last-verified: 2026-08-14
+evidence-base: external — 16 uploaded routing papers, author-supplied
+-->
+
+# Routing: a taxonomy of 16 papers
+
+**Provenance.** Author-supplied comparison of 16 routing papers, added 2026-08-14. Complements
+[`ROUTING_ARCHITECTURES.md`](ROUTING_ARCHITECTURES.md) (nine methods by mechanism) and
+[`LITERATURE_REVIEW.md`](LITERATURE_REVIEW.md) (delegation and organization selection).
+
+**Two readings this project takes from it, recorded 2026-08-14:**
+
+1. **The field optimises cost, not accuracy.** Cost appears in the "primary optimization" column of
+   almost every row, and the headline figures quoted are cost reductions — RouteMoA 89.8%,
+   R2-Reasoner 84.46%, EvoRoute 80%, MasRouter 52%; WISERouter's entire formulation is a workload
+   budget constraint. This matters because **Proposition 1 closes accuracy-routing (an interaction)
+   and says nothing about cost-routing (a task main effect)**. The project's 280-pool negative is
+   aimed at a channel the field mostly is not claiming. See `FRAMEWORK.md` §8.
+2. **§15's proposed gap is the object this project already closed.** A persistent model of
+   `P(Y | q, S, R, P, H)` is `q_θ(x, S, p)` with history; over 280 pools it gains −0.01 pp, and a
+   router handed ground-truth capability labels gains +0.4 pp (D-033, D-040, D-041). Adding history
+   improves the estimate of a main effect, which Proposition 1 shows cannot produce a varying argmax.
+
+**What this document does *not* cover, and it is the gap that now matters most.** These 16 papers are
+all routers. `independent_judge` — the project's one positive result — is not a router; it is an
+LLM reading several answers and producing one, which belongs to the **ensembling / aggregation**
+literature (Mixture-of-Agents, LLM-Blender, universal self-consistency). That literature is
+**unreviewed here and in `LITERATURE_REVIEW.md`, which contains zero mentions of it.** Novelty for
+D-043/D-044 cannot be assessed until it is written.
+
+---
+
 Yes. I went through the **16 uploaded routing papers**, and there is a much cleaner way to organize them than putting everything under one broad label of “LLM routing.”
 
 The key distinction is **what the router is actually choosing**. The literature has evolved roughly from:

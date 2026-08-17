@@ -29,11 +29,20 @@ landscapes**. A pre-registered gate was to pick one on evidence.
 All three failed. Governance died on a refuted pre-registration (D-026 → D-027). Coalition
 failed its criterion on all three pools. Delegation was selected by the gate, then the gate
 itself was shown to be non-falsifiable (D-029, D-030), and the direction closed on its own
-merits (D-033 → D-036).
+merits (D-033 → D-036), then closed again at n=280 with four further research questions
+(D-040, D-041).
 
-What survives is a **methodological negative**: oracle headroom is not evidence of routable
-structure, and the cost comparison usually paired with it is unsound. That is the paper
-currently planned in [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md).
+**Two things survive.** A **methodological negative**, now family-wise over 280 pools with a
+calibrated instrument: oracle headroom is not evidence of routable structure, the cost comparison
+paired with it is unsound, and the one apparent routing win is priced-by-domain arbitrage. And a
+**positive result whose interpretation is open** (D-043, D-044): `independent_judge` beats
+aggregation in six pools of six across two suites, but at least 28% of that is the judge solving
+tasks no member solved — so it is answering rather than aggregating, and the control that would
+settle what it is has not been run.
+
+⚠️ [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md) predates all of this and is
+**superseded**; [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) is
+authoritative for numbers.
 
 **Total spend: $127.69** of an originally allocated ~€3,000 (§A7 records a historical
 $85.13/$88.09 discrepancy predating the 2026-08-14 priced run, which added $34.16).
