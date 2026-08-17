@@ -98,9 +98,17 @@ Ordered by what blocks what. `PROJECTSTATE.md` records what already works.
       aggregating. The cascade idea is refuted in the same run.
 - [x] **Bank `claude-sonnet-5` solo — the control.** Done, D-045, $12.09. The judge headline dies;
       the anchoring-harm decomposition replaces it.
-- [ ] **Write up the decomposition as the paper.** Aggregation is worth +1.9 pp on unanimous-correct,
-      +5.6 pp on split, and **−15.7 pp on unanimous-wrong**. Needs: the ensembling literature review
-      (MoA, LLM-Blender, self-consistency) before novelty can be assessed.
+- [x] **Review the ensembling and conformity literature.** Done 2026-08-14,
+      [`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md), every entry
+      verified against the arXiv record. **Every headline claim is already published.** The
+      decomposition write-up is cancelled: arXiv 2606.01637 has it in our setting, with our control,
+      at four times our scale.
+- [ ] **DECIDE, with the supervisor, between three options.** No further experiment changes this.
+      (a) Consolidate as a replication/methods note — the substrate and the pre-registration
+      discipline are the contribution, not the findings. (b) Re-scope to the one unoccupied
+      question: conformity as a function of *real* pool composition, which needs the judge run on
+      more than 6 of the 280 pools. (c) Change substrate — agentic or tool-using tasks, where the
+      negative does not apply and where the harness needs a code-execution path it does not have.
 - [ ] **Predict the sign from the pool.** Whether aggregation nets positive depends on the pool's
       error profile — the share of unanimously-wrong tasks. 280 pools of descriptors already exist;
       the judge ran on 6. Free to model, cheap to extend.

@@ -61,7 +61,7 @@ Never trust a number quoted in prose without it.
 | [`literature/ROUTING_ARCHITECTURES.md`](literature/ROUTING_ARCHITECTURES.md) | living | nine routing methods compared by mechanism and metric |
 | [`literature/NOVELTY_BOUNDARY.md`](literature/NOVELTY_BOUNDARY.md) | living | boundary against the **measurement-audit** literature |
 | [`literature/RW_router.md`](literature/RW_router.md) | living | author-supplied taxonomy of 16 routing papers, with this project's two readings of it |
-| *(missing)* | — | ⚠️ **the ensembling literature — MoA, LLM-Blender, self-consistency — is unreviewed, and it is the field `independent_judge` belongs to** |
+| [`literature/ENSEMBLING_NOVELTY.md`](literature/ENSEMBLING_NOVELTY.md) | living | ⚠️ **the ensembling and conformity check, 2026-08-14. Every headline claim the project holds is already published; every entry verified by fetching the arXiv record** |
 
 ## `reference/` — generated facts about the system
 

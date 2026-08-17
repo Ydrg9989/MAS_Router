@@ -47,7 +47,27 @@ authoritative for numbers.
 **Total spend: $139.78** of an originally allocated ~€3,000 (§A7 records a historical
 $85.13/$88.09 discrepancy predating the 2026-08-14 priced run, which added $34.16).
 
-## A2. Current direction — undecided, but the evidence base is no longer n=3
+## A2. Current direction — the results are sound and the novelty is gone
+
+**2026-08-14, night: the ensembling and conformity literature was checked and it closes every
+remaining claim** ([`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md)).
+C1, C1' and C5a are held by *How Much of the Routing Gap Is Real?* (arXiv 2607.03436, Jul 2026) and
+*RouteGuard* (arXiv 2608.07583, Aug 2026) — the latter also ships the pre-deployment routing
+certificate this project would have built next, on 11 models and 36,497 prompts. D-045's S1 is held
+by *Rethinking Mixture-of-Agents* (arXiv 2502.00674, Feb 2025) and *The Cost of Consensus* (arXiv
+2605.00914, Apr 2026). D-045's S2/S3 — the anchoring asymmetry — is held by *Easier to Mislead Than
+to Correct* (arXiv 2606.01637, Jun 2026), **in our setting, with our control, at four times our
+scale**.
+
+The 2026-08-11 novelty check missed four of these because it searched the *routing* shelf while the
+project's findings were *ensembling and conformity*. The lesson generalises: re-scope the novelty
+check when the result changes shape, not when the plan does.
+
+**The results are not wrong — they are unoriginal.** No paper survives from the current findings. The
+decision in front of the project is therefore not which paper to write but whether to consolidate,
+re-scope, or change substrate; §A2b records the options.
+
+## A2b. The prior direction record — undecided, and superseded by the novelty check above
 
 As of 2026-08-11 the paper framing was **under active review** and no direction is committed. The
 2026-08-11 review raised four things bearing on the choice; they are recorded in
