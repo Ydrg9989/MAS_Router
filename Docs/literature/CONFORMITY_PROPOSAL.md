@@ -11,7 +11,38 @@ Written 2026-08-14 after `ENSEMBLING_NOVELTY.md` closed every existing claim. Th
 question in the conformity space that the project's substrate is unusually well suited to, that the
 literature has left open, and that has a practical consequence if it resolves either way.
 
-**Status: proposal. Nothing run. Do not cite any number here — there are none.**
+> ## ⛔ CLOSED 2026-08-14 by its own step-0 gate. Nothing was run and nothing was spent.
+>
+> The gate in §6 read *"re-run the novelty check on this exact question; if it is taken, stop here."*
+> It is taken, by the same paper that closed D-045:
+> [Easier to Mislead Than to Correct](https://arxiv.org/html/2606.01637). Fetching the paper rather
+> than trusting the abstract shows it already runs the manipulation this proposal is built on:
+>
+> - **Authority labels attached to peers** — "one or more peer names are assigned an organizational
+>   role label such as 'team leader' or 'research director'."
+> - **The label is manipulated independently of correctness**, which is arm C's entire content:
+>   "Authority-labeled peers can endorse either the correct answer or a wrong answer, and the
+>   remaining ordinary peers always commit to the opposite."
+> - **Adoption, not accuracy, is the measurement** — they report "authority-aligned revision": "the
+>   percentage of cases in which the model changes its answer to the option endorsed by
+>   authority-labeled peers."
+>
+> That is arms B and C, the identification strategy, and the dependent variable. The finding is
+> theirs: authority labels move adoption regardless of whether the endorsed answer is correct.
+>
+> **What is left is a robustness check on someone else's paper**, and it should be described that way
+> rather than dressed up. Two differences survive and neither carries a contribution:
+> their peers are *simulated*, with answers "drawn from a fixed set of paraphrase templates", where
+> ours are real heterogeneous models with measured accuracy; and their label is a categorical role
+> where ours is a numeric competence. A number is a different cue from a title and real peers are
+> more externally valid, but neither changes the claim being made.
+>
+> The code built for this (`protocols/conformity.py`, `metrics/adoption.py`, `tests/test_conformity.py`)
+> is kept. It cost nothing to run, it is tested, and the adoption machinery is reusable if a genuinely
+> different question ever needs it. **The gate worked exactly as intended: it cost $0 and prevented a
+> spend on a question that was already answered.**
+
+**Status: CLOSED. Nothing run. Do not cite any number here — there are none.**
 
 ---
 

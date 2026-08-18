@@ -91,6 +91,26 @@ What the project has is a **very good substrate and an unusually disciplined met
 independently at conclusions the field reached across four separate papers. That validates the
 method. It is not a publication.
 
+## 4b. The follow-up proposal is closed too, by the same paper
+
+`CONFORMITY_PROPOSAL.md` asked whether conformity tracks *real measured* peer competence rather than
+advertised competence, and planned three arms: anonymous, truthfully labelled, and inverted labels.
+Its own step-0 gate closed it on 2026-08-14.
+
+[2606.01637](https://arxiv.org/html/2606.01637) already attaches authority labels to peers, already
+manipulates the label **independently of correctness** — "authority-labeled peers can endorse either
+the correct answer or a wrong answer" — and already measures **adoption** rather than accuracy, as
+"authority-aligned revision". That is the proposed arms B and C, the identification strategy, and the
+dependent variable.
+
+What survives is that their peers are simulated from paraphrase templates while ours would be real
+models with measured accuracy, and their label is a role rather than a number. Those are robustness
+differences, not contributions.
+
+**Three proposals have now been closed by this same paper**: D-045's decomposition, the anchoring
+write-up, and the competence-label study. That concentration is itself the signal — the question this
+project keeps arriving at is one that a larger group answered in June.
+
 ## 5. Read in full before any further work
 
 1. [2606.01637](https://arxiv.org/html/2606.01637) — closest to D-045. Read first.
