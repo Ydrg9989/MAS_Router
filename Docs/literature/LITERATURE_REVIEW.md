@@ -7,6 +7,19 @@ evidence-base: external; Nash-CredMAS entry is fabricated, 6 more unverified
 
 # Literature Review: Delegation, Routing, and Organization Selection in LLM Multi-Agent Systems
 
+> ⚠️ **Two cautions, added 2026-08-14.**
+>
+> **This review is partly unverified.** One entry (`Nash-CredMAS`) does not exist under that name and
+> six more were never checked — see [`NOVELTY_BOUNDARY.md`](NOVELTY_BOUNDARY.md) §125. Its §1
+> executive summary drove this project's pivot away from history-aware delegation, so treat that
+> verdict as directionally right but individually unsourced.
+>
+> **It reviews the wrong field for what this project found.** It covers *routing* and contains zero
+> mentions of Mixture-of-Agents, LLM-Blender or self-consistency — the ensembling and conformity
+> literature that actually holds the project's results. That gap is filled by
+> [`ENSEMBLING_NOVELTY.md`](ENSEMBLING_NOVELTY.md), which should be read alongside this file and
+> which supersedes its novelty conclusions.
+
 ## 1. Executive Summary
 
 Recent work from 2025–2026 shows that **history-aware delegation in heterogeneous LLM multi-agent systems is already a substantial research area**.

@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          ledger
 lifecycle:     APPEND-ONLY — newest entry at top; contains superseded numbers by design
-last-verified: 2026-08-13
+last-verified: 2026-08-14
 evidence-base: data/runs/<run-id>/run_meta.json per entry
 -->
 

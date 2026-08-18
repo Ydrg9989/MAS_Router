@@ -382,12 +382,17 @@ Rewritten 2026-08-14 against D-040 to D-044. Numbers are in
 | C3' | The winner's curse on the *fixed* choice is real but not recoverable | seven rules tried | a rule beating the calibration argmax by ≥1 pp on both suites |
 | C4 | A linear cost sweep manufactures routing gains; a budget does not | our price snapshot | routed beating global at matched budget under flattened prices |
 | C4' | The tight-budget win is priced-by-domain arbitrage | per-agent mean flattening | the win surviving flat prices |
-| **C5** | **`independent_judge`, named a priori, beats aggregation in six pools of six across two suites** | one aggregator, one provider, grand coalition; 3.5–17.1× the cost | failing to replicate on a third suite, or **C6** resolving against it |
-| **C6** | **At least 28% of that advantage is the judge answering, not aggregating** | 59 unanimously-wrong tasks | the aggregator scoring near zero alone on those tasks |
-| **C7** | **OPEN: is the remaining 72% aggregation, or the same stronger model?** | — | the unrun aggregator-solo control |
+| C5 | `independent_judge`, named a priori, beats aggregation in six pools of six across two suites | one aggregator, one provider, grand coalition; 3.5–17.1× the cost | **superseded by C7** |
+| ~~C6~~ | ~~28% of that advantage is the judge answering, not aggregating~~ | — | **superseded by C7**: the rescues are what *survives* the anchoring, not a gain from it |
+| **C7** | **Reading unanimously-wrong peers halves a strong model's accuracy — solo 0.343, judge 0.186 pooled over six pools** | one aggregator; 59 unanimously-wrong tasks | the effect vanishing under a second aggregator model |
+| **C8** | **The judge's advantage over voting is largely the aggregator's own competence.** It beats voting alone in 4 pools of 6; judge minus solo clears +2.0 pp in only 3 of 6 | our price snapshot | — |
 
-C1, C1', C3', C4 and C4' are methodological and travel beyond this project. C2, C2', C3 and C5 are
-empirical and bounded by the grid. **C7 is unresolved and blocks any claim built on C5.**
+C1, C1', C3', C4 and C4' are methodological and travel beyond this project. C2, C2', C3, C7 and C8
+are empirical and bounded by the grid.
+
+**Novelty, stated here because §8 is where a drafter would start.** Every claim in this table is
+already published — see [`../literature/ENSEMBLING_NOVELTY.md`](../literature/ENSEMBLING_NOVELTY.md).
+The claims are correct; they are not new. Do not draft from this table without reading that file.
 
 **What the negative does *not* cover, stated plainly.** Every result here is single-turn question
 answering with exact-match grading, over 8–10 general-purpose chat LLMs from one provider, choosing

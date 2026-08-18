@@ -7,7 +7,7 @@ evidence-base: via Docs/paper/CLAIM_EVIDENCE_MATRIX.md — do not quote numbers 
 
 # Paper Backbone
 
-> ⚠️ **SUPERSEDED PENDING ONE EXPERIMENT — do not draft from this file.**
+> ⛔ **SUPERSEDED AND CLOSED — do not draft from this file.**
 >
 > Written 2026-08-11, when the plan was a measurement-audit paper built on three claims about six
 > pool-by-suite cells. Five decision records later (D-040 to D-044) the evidence has changed shape:
@@ -21,10 +21,18 @@ evidence-base: via Docs/paper/CLAIM_EVIDENCE_MATRIX.md — do not quote numbers 
 >   aggregation in six pools of six across two suites (C4a) — but at least 28% of that is the judge
 >   answering rather than aggregating (C4d), and the decisive control is unrun (C4g).
 >
-> The one-sentence paper, the three claims and the section order below all assume the old evidence.
-> Rewriting them before C4g runs would encode a framing the control may invalidate. Use
-> [`CLAIM_EVIDENCE_MATRIX.md`](CLAIM_EVIDENCE_MATRIX.md) for what is currently supported, and
-> [`FRAMEWORK.md`](FRAMEWORK.md) §8 for the current claims and their falsifiers.
+> **2026-08-14 final update.** The control ran (D-045) and landed against the headline: the
+> aggregator alone beats whole-pool voting in four pools of six, so "a coordination protocol beats a
+> voting rule" is retired. What replaced it — reading unanimously-wrong peers halves a strong model's
+> accuracy — is itself already published (arXiv 2606.01637, in our setting, with our control, at four
+> times our scale).
+>
+> **No paper is currently supportable from this substrate.** This file is kept as the record of what
+> was planned on 2026-08-11 and is not to be revived. Use
+> [`CLAIM_EVIDENCE_MATRIX.md`](CLAIM_EVIDENCE_MATRIX.md) for what is supported,
+> [`FRAMEWORK.md`](FRAMEWORK.md) §8 for claims and falsifiers, and
+> [`../literature/ENSEMBLING_NOVELTY.md`](../literature/ENSEMBLING_NOVELTY.md) for why none of it is
+> new.
 
 Built with `.cursor/research-paper-writing-skills` Mode 2. Evidence inventory is
 [`Docs/paper/FRAMEWORK.md`](FRAMEWORK.md) (formal framework and design), [`DECISIONS.md`](../../DECISIONS.md)

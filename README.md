@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place
-last-verified: 2026-08-11
+last-verified: 2026-08-14
 evidence-base: none (describes the harness, not results)
 -->
 
@@ -19,6 +19,23 @@ One dataset produced by this harness feeds all three research directions describ
 [`Docs/archive/2026-08-04-design-report.md`](Docs/archive/2026-08-04-design-report.md):
 epistemic governance, delegation-equivalent task representations, and coalition
 landscapes.
+
+> ## Status, 2026-08-14
+>
+> **The empirical programme is complete and no paper is currently supportable from it.**
+> All three directions closed on evidence, the delegation direction twice — once at n=3 pools and
+> again at n=280 with four further research questions. The two results that survive on their own
+> terms are a methodological negative about oracle headroom and a mechanism about what reading peer
+> answers does to a strong model. **Both are already published by others**, mapped claim by claim in
+> [`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md).
+>
+> Total spend **$139.78** of ~€3,000. 486 tests pass. Six pre-registrations, all written before their
+> data existed; the sixth was implemented, tested, and then stopped by its own novelty gate for $0.
+>
+> Start at [`PROJECTSTATE.md`](PROJECTSTATE.md). Numbers come from
+> [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) and nowhere else.
+> [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md) is **superseded and closed** — do
+> not draft from it.
 
 ## The two-stage design
 

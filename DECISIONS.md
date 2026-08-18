@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          ledger
 lifecycle:     APPEND-ONLY — never edit a past entry; supersede it with a new one
-last-verified: 2026-08-11
+last-verified: 2026-08-14
 evidence-base: each entry cites its own run artefacts
 -->
 

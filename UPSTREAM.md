@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place when a pin changes
-last-verified: 2026-08-11
+last-verified: 2026-08-14
 evidence-base: UPSTREAM pins; verify with mas_harness.doctor
 -->
 

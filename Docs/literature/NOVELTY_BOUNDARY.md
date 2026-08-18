@@ -1,11 +1,19 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place
-last-verified: 2026-08-11
+last-verified: 2026-08-11 (⚠️ superseded 2026-08-14 — see below)
 evidence-base: external; verified by direct reading 2026-08-11
 -->
 
 # Novelty boundary
+
+> ⚠️ **Superseded 2026-08-14 by [`ENSEMBLING_NOVELTY.md`](ENSEMBLING_NOVELTY.md).**
+>
+> This check searched the *measurement-audit / routing* shelf and found one paper. It missed four
+> that close the project's claims outright, because it was scoped to the question the project started
+> with rather than the findings it ended up with — which were **ensembling and conformity**, not
+> routing. Read it as the record of what was believed on 2026-08-11, and read `ENSEMBLING_NOVELTY.md`
+> for what is actually true.
 
 Why this file exists: [`Delegation_MAS_Literature_Review_fixed.md`](LITERATURE_REVIEW.md)
 surveys **routing methods**. The paper this project is now writing is a **measurement-audit**

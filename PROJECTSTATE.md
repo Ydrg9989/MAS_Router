@@ -32,22 +32,43 @@ itself was shown to be non-falsifiable (D-029, D-030), and the direction closed 
 merits (D-033 → D-036), then closed again at n=280 with four further research questions
 (D-040, D-041).
 
-**Two things survive.** A **methodological negative**, now family-wise over 280 pools with a
-calibrated instrument: oracle headroom is not evidence of routable structure, the cost comparison
-paired with it is unsound, and the one apparent routing win is priced-by-domain arbitrage. And a
-**positive result whose interpretation is open** (D-043, D-044): `independent_judge` beats
-aggregation in six pools of six across two suites, but at least 28% of that is the judge solving
-tasks no member solved — so it is answering rather than aggregating, and the control that would
-settle what it is has not been run.
+**Where it ended, as of 2026-08-14.** The empirical work is complete and internally sound. Every
+question the project posed has an answer, backed by 280 pools, five pre-registrations, and
+instruments whose error rates are measured rather than assumed. **And every answer that is
+interesting is already published** — see §A4 item 11 and
+[`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md).
+
+The two results that survive on their own terms:
+
+- A **methodological negative**, family-wise over 280 pools with a calibrated instrument: oracle
+  headroom is not evidence of routable structure, the cost comparison paired with it is unsound, and
+  the one apparent routing win is priced-by-domain arbitrage (D-040 → D-042).
+- A **mechanism**, with a single-model control: aggregation is worth +1.9 pp where members are
+  unanimously correct and +5.6 pp where they split, but **−15.7 pp where they are unanimously
+  wrong**, because reading four wrong answers halves a strong model's accuracy (D-043 → D-045).
+
+Neither is novel. Prior work holds each, generally at larger scale.
 
 ⚠️ [`Docs/paper/PAPER_BACKBONE.md`](Docs/paper/PAPER_BACKBONE.md) predates all of this and is
 **superseded**; [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) is
 authoritative for numbers.
 
-**Total spend: $139.78** of an originally allocated ~€3,000 (§A7 records a historical
-$85.13/$88.09 discrepancy predating the 2026-08-14 priced run, which added $34.16).
+**Total spend: $139.78** of an originally allocated ~€3,000 — under 5%. See §A7; the ledger is
+authoritative and the prose figures that predate it are not.
 
 ## A2. Current direction — the results are sound and the novelty is gone
+
+**This section is a dated log, newest first.** Entries below the top one record what was believed at
+the time and are deliberately not rewritten; several say things like "is now decisive" or "is the
+highest-priority action", which were true when written and are not now. For current status read only
+the top entry and §A1.
+
+**2026-08-14, last: the conformity follow-up is closed at its own gate, for $0.** A three-arm study
+was designed, implemented and tested — `protocols/conformity.py`, `metrics/adoption.py`, 18 tests —
+and its step-0 novelty gate stopped it before any spend. arXiv 2606.01637 already attaches authority
+labels to peers, already manipulates the label independently of correctness, and already measures
+adoption rather than accuracy. **Three separate proposals have now been closed by that one paper.**
+See [`Docs/literature/CONFORMITY_PROPOSAL.md`](Docs/literature/CONFORMITY_PROPOSAL.md).
 
 **2026-08-14, night: the ensembling and conformity literature was checked and it closes every
 remaining claim** ([`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md)).
@@ -141,7 +162,7 @@ to a *fixed* choice is worth **+2.18 pp**, while routing among them is worth not
 | Delegation generalizes no better than it interpolates | strong | D-041: −0.29 IID, −0.18 domain holdout, +0.81 agent holdout (conditioning gain **−0.10**), −0.22 organization holdout, over 70 pools |
 | Choosing *whether* to collaborate is not learnable either | strong | D-041: −0.40 pp against the better fixed policy, ahead in 18% of resplits; a perfect oracle over the pair is worth only +2.29 pp |
 | Dense counterfactual supervision beats an execution log above 20% of the grid, and loses below it | moderate | D-041: dense minus log −2.44, −0.80, +0.35, +1.81, +2.53 pp across the budget sweep |
-| ~~`independent_judge` beats aggregation~~ | **retired as a headline** | D-045: the aggregator alone beats voting in 4 pools of 6 and the judge clears +2.0 pp over it in only 3 of 6. Use the strong model alone |
+| ~~`independent_judge` beats aggregation~~ | **retired as a headline** | D-045: the aggregator alone beats voting in 4 pools of 6 and the judge clears +2.0 pp over it in only 3 of 6. Use the strong model alone. **And the survivors are not novel** — see §A4 item 11 |
 | **Reading unanimously-wrong peer answers halves a strong model's accuracy** | **strong** | D-045: solo 0.343 vs judge 0.186 pooled over six pools, 0.591 vs 0.273 in the worst cell. Expert dilution, with a single-model control |
 | Aggregation helps where members split (+5.6 pp) and slightly where they are unanimously correct (+1.9 pp) | strong | D-045: judge beats solo on split tasks in 6 pools of 6, +1.66 to +6.98 pp |
 | A judge does not damage a correct consensus | strong | D-044: 2 overrides of 230 unanimous-correct tasks |
@@ -185,6 +206,13 @@ to a *fixed* choice is worth **+2.18 pp**, while routing among them is worth not
    `crosscap240`, aggregation-only protocols beyond the two free ones, three public matrices, and the
    six banks with answers but no episodes.
 9. **`Nash-CredMAS` in the literature review does not exist**; six other entries are unverified.
+11. **Every surviving claim is already published, and the check that should have caught it was
+    scoped to the wrong field.** [`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md)
+    maps each claim to prior work: C1/C1'/C5a to arXiv 2607.03436 and RouteGuard 2608.07583, the
+    judge result to 2502.00674 and 2605.00914, the anchoring asymmetry to 2606.01637 — the last in
+    our setting, with our control, at four times our scale. The 2026-08-11 novelty check missed four
+    of these because it searched the *routing* shelf while the findings were *ensembling and
+    conformity*. **Re-scope the novelty check when the result changes shape, not when the plan does.**
 10. **P4's mechanism regressors do not replicate.** Neither pre-registered directional claim holds on
     both suites: ability spread predicts routing gain *positively* (+0.15, +0.28) where negative was
     predicted. FRAMEWORK §5's mechanism is descriptive at n=280, not predictive.
@@ -212,6 +240,7 @@ upstream pins. That is the authoritative version record; this table is the index
 | `judge_on_easy_tasks.json` | `run_judge_on_skipped.sh`, `measure_judge_on_easy_tasks.py` | D-044 | 2026-08-14 |
 | `aggregator_solo.json`, `aggregator-solo/answers.jsonl` | `run_aggregator_solo.sh`, `measure_aggregator_solo.py` | D-045 | 2026-08-14 |
 | `figures/pool_sweep_*` | `report_pool_sweep.py` | D-040 | 2026-08-13 |
+| *(none — designed, gated, never run)* | `protocols/conformity.py`, `metrics/adoption.py` | closed at step 0 | 2026-08-14 |
 
 **Rule going forward:** any document quoting a number names the artefact key it came from, as
 [`Docs/paper/CLAIM_EVIDENCE_MATRIX.md`](Docs/paper/CLAIM_EVIDENCE_MATRIX.md) already does per row.
@@ -226,33 +255,45 @@ upstream pins. That is the authoritative version record; this table is the index
 3. ~~Are the tight-budget routing wins capability matching or domain-price arbitrage?~~ **Answered
    (D-042): arbitrage. Flattening the domain price channel inverts the win from +5.34 pp to −5.78 pp
    on `crosscap240` and from +0.71 to −2.80 on `hard366`, positive in 0% of pools on both.**
-4. Does `independent_judge` actually win? D-028's defect blocks the answer, and the fix
-   invalidates the priced cache.
-5. `crosscap240` under the five priced protocols — never run.
-6. ~~A second seed — free for the two free protocols via replay.~~ **Partly answered, and worse than
-   expected (D-040): the duplicate banking already in hand is a second draw, and it disagrees on 5.1%
-   of `crosscap240` agent-tasks. A deliberate multi-seed run is now a priority rather than a nicety.**
-7. Do the sweep's conclusions hold under the alternative answer draw? Everything in D-040 is computed
-   on one bank composition; the machinery to rebuild it from the other is in `load_suite(priority=…)`
-   and the rerun is free.
+4. ~~Does `independent_judge` actually win?~~ **Answered (D-043, D-044, D-045).** It beats
+   aggregation in six pools of six, but the aggregator *alone* beats voting in four of six, and the
+   judge clears +2.0 pp over it in only three. At least 28% of its edge is solving tasks no member
+   solved. The honest deployment answer is to use the strong model alone.
+5. ~~`crosscap240` under the five priced protocols — never run.~~ **Run 2026-08-14 (D-043), $34.16.**
+   2,365 priced episodes on discriminating subsets of 165 / 180 / 130 tasks, plus 244 more on the
+   previously-skipped unanimous tasks (D-044).
+6. ~~A second seed.~~ **Partly answered and worse than expected (D-040):** the duplicate banking in
+   hand is a second draw and disagrees on 5.1% of `crosscap240` agent-tasks.
+7. ~~Do the sweep's conclusions hold under the alternative answer draw?~~ **Answered (D-042): P1, P5
+   and P6 hold; P2 and P3 flip.** The headline is robust to the draw; the marginal claims are not.
 8. ~~RQ2–RQ5, never built.~~ **Answered (D-041): all four negative, NO-GO on RQ2-style delegation.**
-9. ~~Why is the best fixed organization 2.18 pp better when interaction protocols are available?~~
-   **Partly answered (D-042). "Pick the best protocol" is noise (split-half 0.00–0.17), but
-   `independent_judge` named *a priori* is positive in 3 of 3 pools (+1.42/+6.09/+1.33), the only
-   protocol that is. Remaining: does it replicate on `crosscap240`? Needs the priced run.**
-11. **Is the calibration argmax genuinely optimal, or is the ceiling itself understated?** D-042
-    finds the attainable fixed-organization ceiling is only +1.2–1.6 pp over the argmax. That is a
-    strong claim resting on one seed and one draw.
-10. Does the RQ3 supervision crossover hold on `hard366`, and where exactly does it cross? Measured
-    only on `crosscap240`.
+9. ~~Why is the best fixed organization better with interaction protocols available?~~ **Answered
+   across D-042 to D-045.** "Pick the best protocol" is noise; `independent_judge` named a priori is
+   positive everywhere; and D-045 shows the effect is largely the aggregator's own competence.
+10. ~~Which pool compositions make aggregation net-harmful?~~ **Designed and gated, not run.** The
+    question is well-posed and the substrate suits it, but the manipulation it rests on is already
+    published (§A4 item 11).
+
+**What is actually open, as of 2026-08-14.** Nothing that another experiment on this substrate would
+settle. Every empirical question the project posed has an answer, and every answer that is
+*interesting* is also already in the literature. The open questions are now editorial and strategic,
+not experimental:
+
+- What, if anything, is written up, and as what — a methods contribution about the process, or
+  nothing.
+- Whether the substrate is retargeted at a problem far enough from this one that a three-month lead
+  does not decide it. Agentic or tool-using tasks are the obvious candidate and would need a
+  code-execution sandbox the harness does not have.
 
 ## A7. Bookkeeping discrepancies to reconcile before publication
 
-- **Total spend** reads **$85.13** historically and **$88.09** in
-  `data/runs/spend_ledger.jsonl` (11,622 calls); per-run figures differ by ~$1
-  (`strong4-a` $19.36 vs $20.21).
+- **Total spend** is **$139.78** in `data/runs/spend_ledger.jsonl`, which is authoritative. The
+  historical prose figure of **$85.13** and the pre-2026-08-14 ledger figure of **$88.09** differ by
+  ~$3 for reasons never traced; per-run figures differ by ~$1 (`strong4-a` $19.36 vs $20.21). The
+  2026-08-14 additions are exact: $34.16 priced `crosscap240` (D-043), $5.44 skipped tasks (D-044),
+  $12.09 aggregator solo (D-045). **Quote the ledger, not the prose.**
 - `data/runs/calib15/` is empty; `dry-*` and `plan-*` hold only price snapshots.
-- No `discrimination.json` or `gonogo.json` was persisted for any `crosscap` run.
+- ~~No `discrimination.json` for any `crosscap` run.~~ Written 2026-08-14 for all three; `gonogo.json` still absent.
 - Six banks have answers but **no episodes** — free Stage B value never spent.
 - Terminology is inconsistent across `DECISIONS.md`: "organization" / "configuration" /
   "coalition" / "pool". Open blocker before drafting.
@@ -282,10 +323,11 @@ upstream pins. That is the authoritative version record; this table is the index
 | Pool sweep: joint null, policy ladder, descriptors over every 4-agent pool | works, run on both suites (D-040) | `mas_harness/metrics/pool_sweep.py` |
 | RQ2–RQ5: interaction families, supervision efficiency, three holdouts, solo-or-collaborate | works, run (D-041) | `mas_harness/metrics/research_questions.py` |
 | Fixed-organization selection rules, a-priori protocol rules | works, run (D-042) | `mas_harness/metrics/selection.py` |
+| Competence-label arms and the adoption model | **built and tested, never run** — gated at step 0 | `mas_harness/protocols/conformity.py`, `mas_harness/metrics/adoption.py` |
 | Coding domain (EvalPlus) | unavailable, no sandbox | `TODO.md` |
 | GPUs / local vLLM | host has **no GPU at all** | `TODO.md` |
 
-**468 tests pass** (412 + 26 sweep + 16 research questions + 14 selection); `ruff check` clean over `mas_harness`, `scripts`, `tests`.
+**486 tests pass** (412 + 26 sweep + 16 research questions + 14 selection + 18 conformity); `ruff check` clean over `mas_harness`, `scripts`, `tests`.
 
 ## B2. Substrate
 

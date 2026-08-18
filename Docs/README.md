@@ -61,7 +61,9 @@ Never trust a number quoted in prose without it.
 | [`literature/ROUTING_ARCHITECTURES.md`](literature/ROUTING_ARCHITECTURES.md) | living | nine routing methods compared by mechanism and metric |
 | [`literature/NOVELTY_BOUNDARY.md`](literature/NOVELTY_BOUNDARY.md) | living | boundary against the **measurement-audit** literature |
 | [`literature/RW_router.md`](literature/RW_router.md) | living | author-supplied taxonomy of 16 routing papers, with this project's two readings of it |
-| [`literature/ENSEMBLING_NOVELTY.md`](literature/ENSEMBLING_NOVELTY.md) | living | ⚠️ **the ensembling and conformity check, 2026-08-14. Every headline claim the project holds is already published; every entry verified by fetching the arXiv record** |
+| [`literature/ENSEMBLING_NOVELTY.md`](literature/ENSEMBLING_NOVELTY.md) | living | ⚠️ **the ensembling and conformity check, 2026-08-14. Every headline claim the project holds is already published; every entry verified by fetching the arXiv record. READ THIS FIRST** |
+| [`literature/CONFORMITY_PROPOSAL.md`](literature/CONFORMITY_PROPOSAL.md) | living | a follow-up study, **closed at its own step-0 gate for $0** before any spend |
+| [`literature/CONFORMITY_IMPLEMENTATION.md`](literature/CONFORMITY_IMPLEMENTATION.md) | living | its implementation plan; the code exists and is tested, the experiment was never run |
 
 ## `reference/` — generated facts about the system
 
@@ -81,6 +83,7 @@ go in `EXPERIMENT_LOG.md` and a `DECISIONS.md` entry, not back into the pre-regi
 | [`preregistrations/2026-08-13-positive-selection.md`](preregistrations/2026-08-13-positive-selection.md) | run 2026-08-13 → D-042. E1 failed, E2 proved the budget win is arbitrage, E3 flipped two verdicts, E4 left one live claim |
 | [`preregistrations/2026-08-13-judge-replication.md`](preregistrations/2026-08-13-judge-replication.md) | run 2026-08-14 → D-043. J1–J4 all met; `independent_judge` replicates in six pools of six. $34.16 |
 | [`preregistrations/2026-08-14-judge-on-easy-tasks.md`](preregistrations/2026-08-14-judge-on-easy-tasks.md) | run 2026-08-14 → D-044. H1 and H4 refuted, **H2 fires**: the judge answers rather than aggregates. $5.44 |
+| [`preregistrations/2026-08-14-aggregator-solo.md`](preregistrations/2026-08-14-aggregator-solo.md) | run 2026-08-14 → D-045. **S1 against the headline**; the anchoring decomposition replaces it. $12.09 |
 
 ## `archive/` — historical, superseded, never updated
 
@@ -104,7 +107,12 @@ cascade (proposed in-session on data from which the deciding tasks had been filt
 pattern is the point of the sequence, not an embarrassment in it.
 
 **Which document to trust for a number:** `paper/CLAIM_EVIDENCE_MATRIX.md`. `paper/FRAMEWORK.md` §8
-for claims and falsifiers. `paper/PAPER_BACKBONE.md` is **superseded** and marked so.
+for claims and falsifiers. `paper/PAPER_BACKBONE.md` is **superseded and closed**.
+
+**Before citing anything:** `literature/ENSEMBLING_NOVELTY.md`. The claims in this corpus are correct
+and unoriginal, and that file maps each to the prior work holding it. A sixth pre-registration was
+written, implemented, tested, and then **stopped by its own novelty gate for $0** — the record of
+that is `literature/CONFORMITY_PROPOSAL.md`, and it is the cheapest thing in the project.
 
 ---
 

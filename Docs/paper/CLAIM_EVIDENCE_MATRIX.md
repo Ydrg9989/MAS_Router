@@ -11,9 +11,13 @@ Companion to [`Docs/paper/PAPER_BACKBONE.md`](PAPER_BACKBONE.md). Every figure b
 the stored run artefacts in `data/runs/`, not transcribed from prose.
 
 **2026-08-14 revision.** This file previously stopped at D-039 and described a six-cell study. It now
-covers D-040 through D-044: 280 pools, four research questions, a purchased second suite, and one
-positive result whose interpretation is open. Three claims were **weakened**, two counter-evidence
-rows **retired**, and one claim (C3c) is no longer supportable in its old wording.
+covers **D-040 through D-045**: 280 pools, four research questions, a purchased second suite, and the
+control that resolved the judge result against its own headline. Three claims were **weakened**, two
+counter-evidence rows **retired**, C3c is no longer supportable in its old wording, and C4h is
+**refuted**.
+
+⚠️ **Every claim here is sound and none is novel** — see the *Novelty status* section below before
+citing any row.
 
 Status vocabulary: supported / partially supported / weakened / unsupported / contradicted / open.
 
@@ -54,17 +58,19 @@ Status vocabulary: supported / partially supported / weakened / unsupported / co
 | **C3e** | The winner's curse on the fixed choice is real but **not recoverable** | Comparative | Seven selection rules over 280 pools; nothing beats the calibration argmax. Ceiling `oracle_fixed` is only +1.61 / +1.18 pp | `positive_selection.json` → `e1`; D-042 | `cross_pool` looked like +1.26/+2.09 at 4–6 pools — an argmax over a small sample, our own false positive | **new, supported** |
 | **C3f** | Classical shrinkage cannot correct that winner's curse | Guarantee | Equal *n* per organization makes any pull toward a scalar monotone in raw accuracy, so the argmax never moves | [`tests/test_selection.py`](../../tests/test_selection.py); D-042 | None; it is arithmetic | **new, supported** |
 
-## Group 4 — the judge, and the open question
+## Group 4 — the judge, resolved
 
-| ID | Claim | Strength | Evidence | Location | Counter-evidence | Status |
-|---|---|---|---|---|---|---|
-| **C4a** | `independent_judge`, named a priori, beats the calibration-chosen best aggregation rule | Comparative | **Six pools of six, two suites, both D-028 scorings.** +4.65 / +7.42 / +3.38 pp on `crosscap240`, +1.42 / +6.09 / +1.33 on `hard366`; excluded-scoring raises all six | `judge_replication.json`; D-043 | Truncation 3.8–4.7% is scored wrong by D-019, so these are **floors** | supported |
-| **C4b** | Picking the *best* protocol per pool is noise | Systematic | Split-half reproducibility 0.00–0.17 on `hard366`, 0.10 / 0.87 / 0.00 on `crosscap240`, mean 0.32 against a 0.5 floor | `judge_replication.json` → `argmax_protocol_reproducibility`; D-041, D-043 | None. This is why C4a is admissible only as an a-priori name | supported |
-| **C4c** | Over a full suite the judge beats voting by +3.8 / +8.0 / +4.6 pp, at 3.5–17.1× the cost | Comparative | All 239 / 238 / 240 tasks after pricing the 245 D-020 skipped | `judge_on_easy_tasks.json`; D-043, D-044 | The cost multiplier must accompany any statement of the gain | supported |
-| **C4d** | **The judge is answering, not aggregating** | Mechanism | It solves **18.6%** of tasks where every member was wrong (11 of 59). No selection rule can. That is **28%** of its entire advantage over voting | `judge_on_easy_tasks.json` → `H2`; D-044 | — | **new, supported, and it reframes C4a** |
-| **C4e** | A judge does not damage a correct consensus | Existence | 2 overrides of 230 unanimous-correct tasks (0.991) | `judge_on_easy_tasks.json` → `H1`; D-044 | The expert-dilution reading is refuted | supported |
-| **C4f** | Member disagreement is a bad escalation signal | Comparative | A disagreement-triggered cascade saves 22 / 28 / 38% of cost and loses 1.26 / 2.10 / 0.42 pp, because it never escalates on unanimously-wrong tasks | `judge_on_easy_tasks.json` → `H4`; D-044 | Proposed in-session on subset-only data where those tasks were filtered out | supported |
-| **C4g** | **OPEN — is the judge's advantage aggregation, or a stronger model?** | — | `claude-sonnet-5` is the aggregator (D-024) and has **never been measured answering alone**. C4d makes the unfavourable outcome more likely | **unrun**; ~470 calls, $3–6 | — | **open, and blocking** |
+| ID | Claim | Strength | Evidence | Location | Status |
+|---|---|---|---|---|---|
+| **C4a** | `independent_judge`, named a priori, beats the calibration-chosen best aggregation rule | Comparative | Six pools of six, two suites, both D-028 scorings. +4.65 / +7.42 / +3.38 pp on `crosscap240`, +1.42 / +6.09 / +1.33 on `hard366` | `judge_replication.json`; D-043 | supported, but see C4h |
+| **C4b** | Picking the *best* protocol per pool is noise | Systematic | Split-half reproducibility 0.00–0.17 on `hard366`, 0.10 / 0.87 / 0.00 on `crosscap240`, mean 0.32 against a 0.5 floor | `judge_replication.json`; D-041, D-043 | supported |
+| **C4c** | Over a full suite the judge beats voting by +3.8 / +8.0 / +4.6 pp, at 3.5–17.1× the cost | Comparative | All 239 / 238 / 240 tasks after pricing the 245 D-020 skipped | `judge_on_easy_tasks.json`; D-043, D-044 | supported |
+| **C4d** | The judge answers as well as aggregates | Mechanism | It solves 18.6% of tasks where every member was wrong (11 of 59); 28% of its advantage over voting | `judge_on_easy_tasks.json`; D-044 | supported, **and superseded by C4f** |
+| **C4e** | A judge does not damage a correct consensus | Existence | 2 overrides of 230 unanimous-correct tasks (0.991) | `judge_on_easy_tasks.json`; D-044 | supported |
+| **C4f** | **Reading unanimously-wrong peer answers halves a strong model's accuracy** | **Mechanism, with a single-model control** | Pooled over six pools: solo **0.343**, judge **0.186**; 0.591 vs 0.273 in the worst cell. D-044's 18.6% is what *survives* the anchoring, not a gain from it | `aggregator_solo.json`; D-045 | **supported** |
+| **C4g** | Aggregation helps where members split (+5.6 pp) and slightly where unanimously correct (+1.9 pp) | Comparative | Judge beats solo on split tasks in 6 pools of 6, +1.66 to +6.98 pp; solo scores 0.981 on unanimous-correct against voting's 1.000 | `aggregator_solo.json`; D-045 | supported |
+| **C4h** | ~~The judge's advantage is aggregation~~ | — | The aggregator **alone** beats whole-pool voting in 4 pools of 6 and beats the best member by +4.3 to +7.1 pp on `crosscap240`. Judge minus solo clears the pre-registered +2.0 pp in only **3 of 6** | `aggregator_solo.json`; D-045 | **REFUTED. Use the strong model alone** |
+| **C4i** | Member disagreement is a bad escalation signal | Comparative | A disagreement cascade saves 22 / 28 / 38% of cost and loses 1.26 / 2.10 / 0.42 pp | `judge_on_easy_tasks.json`; D-044 | supported |
 
 ## Group 5 — reproducibility
 
@@ -86,15 +92,27 @@ Status vocabulary: supported / partially supported / weakened / unsupported / co
 | "Escalate on disagreement" | C4f: it loses accuracy for its saving | "Disagreement does not identify where a judge adds value" |
 | "The judge is worth it" | C4c: 3.5–17.1× the cost; C4g unrun | Nothing, until C4g runs |
 
-## Evidence gaps blocking a claim
+## Novelty status — read this before citing any row
 
-1. **C4g, the aggregator-solo control.** ~470 calls, $3–6. **The only experiment that matters right
-   now.** It decides whether the project's one positive result is about multi-agent systems at all.
-   It also decomposes: solo accuracy on unanimous-*correct* tasks tests whether deferring to
-   consensus adds value, and solo accuracy on unanimous-*wrong* tasks tests whether the rescues are
-   pure solo ability.
-2. **The ensembling literature is unreviewed.** `LITERATURE_REVIEW.md` covers routing and contains
-   **zero** mentions of Mixture-of-Agents, LLM-Blender or self-consistency — the field
-   `independent_judge` actually belongs to. Novelty cannot be assessed until this is written.
-3. **A second seed**, and the alternative-draw rerun for D-041 through D-044.
-4. **One aggregator, one provider.** Every judge figure uses `claude-sonnet-5` on OpenRouter.
+Every claim above is **internally sound and externally unoriginal**. Mapped in
+[`../literature/ENSEMBLING_NOVELTY.md`](../literature/ENSEMBLING_NOVELTY.md):
+
+| group | held by |
+|---|---|
+| C1, C1', C5a | *How Much of the Routing Gap Is Real?* (arXiv 2607.03436); *RouteGuard* (arXiv 2608.07583) |
+| C2 family | RouteGuard proves best achievable routing gain equals gate informativeness, with a pre-deployment certificate on 11 models × 36,497 prompts |
+| C4h | *Rethinking Mixture-of-Agents* (arXiv 2502.00674); *The Cost of Consensus* (arXiv 2605.00914) |
+| C4f, C4g | *Easier to Mislead Than to Correct* (arXiv 2606.01637) — our setting, our control, 4× our scale |
+
+**No paper is currently supportable from these rows.** They remain a correct and well-evidenced
+record of what this substrate shows.
+
+## Remaining evidence gaps, for completeness
+
+1. **A second seed**, and the alternative-draw rerun for D-041 through D-045. D-042 already shows two
+   of six pre-registered verdicts flip on an equally valid draw.
+2. **One aggregator, one provider.** Every judge figure uses `claude-sonnet-5` on OpenRouter, so C4f
+   is a claim about that model rather than about LLMs.
+3. **Grand coalition only** for every priced protocol.
+
+None of these blocks a claim, because no claim is being made.
