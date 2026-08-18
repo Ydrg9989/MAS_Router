@@ -252,6 +252,7 @@ def format_peer_answers(
     anonymize: bool = True,
     include_answer_only: bool = False,
     texts: Mapping[int, str] | None = None,
+    competence_labels: Mapping[int, str] | None = None,
 ) -> str:
     """Render teammates' answers as the shared context for a protocol.
 
@@ -269,11 +270,20 @@ def format_peer_answers(
     residual leak is a limitation of the design, not something a regex should paper over,
     since silently rewriting model output would corrupt the transcript. If it turns out to be
     frequent, the honest fix is to measure and report the rate.
+
+    ``competence_labels`` appends an annotation to each member's label — the deliberate authority
+    manipulation this docstring promises above. It is ``None`` for every protocol except the
+    conformity arms in `protocols/conformity.py`, and when it is ``None`` this function renders
+    byte-identically to the version without the parameter. `tests/test_conformity.py` pins that,
+    because every protocol in the package shares this function and a silent change here would move
+    every result at once.
     """
     blocks: list[str] = []
     for position, agent_id in enumerate(visible):
         record = context.bank[agent_id]
         label = f"Member {position + 1}" if anonymize else context.agent(agent_id).name
+        if competence_labels is not None and agent_id in competence_labels:
+            label = f"{label} {competence_labels[agent_id]}"
         if include_answer_only:
             answer = record.extracted_answer or "(no answer stated)"
             blocks.append(f"{label} answered: {answer}")

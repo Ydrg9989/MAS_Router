@@ -145,8 +145,12 @@ def main() -> None:
 
     d = report["decision"]
     print("\n=== the pre-registered outcomes")
-    print(f"    H1 judge on unanimous-correct: {d['H1_judge_accuracy_on_unanimous_correct']:.3f} "
-          f"({d['H1_overrides']} overrides of {d['H1_n']})  notable={d['H1_notable_judge_damages_consensus']}")
+    print(
+        f"    H1 judge on unanimous-correct: "
+        f"{d['H1_judge_accuracy_on_unanimous_correct']:.3f} "
+        f"({d['H1_overrides']} overrides of {d['H1_n']})  "
+        f"notable={d['H1_notable_judge_damages_consensus']}"
+    )
     print(f"    H2 rescue rate on unanimous-wrong: {d['H2_rescue_rate_on_unanimous_wrong']:.3f} "
           f"notable={d['H2_notable_judge_contributes_knowledge']}")
     print(f"    H4 cascade minus judge: {[f'{x:+.2f}' for x in d['H4_cascade_minus_judge_pp']]} "

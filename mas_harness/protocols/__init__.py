@@ -6,6 +6,7 @@ enumerate them without knowing the module layout.
 
 # Imported for their registration side effects.
 from . import aggregation as _aggregation  # noqa: F401
+from . import conformity as _conformity  # noqa: F401
 from . import debate as _debate  # noqa: F401
 from . import expert as _expert  # noqa: F401
 from . import governance as _governance  # noqa: F401

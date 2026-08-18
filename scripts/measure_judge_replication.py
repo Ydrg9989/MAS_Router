@@ -48,7 +48,7 @@ SUITES = {
 
 
 def load_cell(run_id: str, manifest: Manifest) -> dict[str, Any]:
-    """Grand-coalition outcomes per protocol, plus which episodes the aggregator failed to finish."""
+    """Grand-coalition outcomes per protocol, plus the episodes the aggregator did not finish."""
     directory = RunDirectory(config.RUNS_DIR, run_id)
     outcomes: dict[str, dict[str, bool]] = defaultdict(dict)
     truncated: dict[str, set[str]] = defaultdict(set)
@@ -149,7 +149,10 @@ def main() -> None:
     pools = list(SUITES[target]["runs"])
     j1 = [judge(target, p, "as_scored").get("mean", float("nan")) for p in pools]
     j2 = [judge(target, p, "truncated_excluded").get("mean", float("nan")) for p in pools]
-    j3 = [report["suites"][target][p]["as_scored"]["argmax_protocol_reproducibility"] for p in pools]
+    j3 = [
+        report["suites"][target][p]["as_scored"]["argmax_protocol_reproducibility"]
+        for p in pools
+    ]
     j4 = [report["suites"][target][p]["truncation_rate"].get(NAMED, 0.0) for p in pools]
 
     decision = {
@@ -187,9 +190,10 @@ def main() -> None:
                 f"({b.get('frac_positive', float('nan')):.0%})   {rate:10.1%}"
             )
 
-    print(f"\n=== J3: does the argmax protocol reproduce across a split? (predicted < 0.5)")
+    print("\n=== J3: does the argmax protocol reproduce across a split? (predicted < 0.5)")
     for pool in pools:
-        print(f"    {pool:16s} {report['suites'][target][pool]['as_scored']['argmax_protocol_reproducibility']:.2f}")
+        value = report["suites"][target][pool]["as_scored"]["argmax_protocol_reproducibility"]
+        print(f"    {pool:16s} {value:.2f}")
 
     print("\n=== the pre-registered decision")
     for key in ("J1_positive", "J2_signs_agree", "J3_refuted_selection_is_learnable",

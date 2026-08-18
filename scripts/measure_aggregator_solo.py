@@ -167,13 +167,22 @@ def main() -> None:
     OUTPUT.write_text(json.dumps(report, indent=1))
 
     print("\n=== the pre-registered outcomes")
-    print(f"    S1 judge − solo: {[f'{d:+.2f}' for d in deltas]}  "
-          f"mean {decision['S1_mean_pp']:+.2f} pp, {decision['S1_n_pools_clearing_2pp']}/6 clear +2.0")
-    print(f"    S2 on unanimous-WRONG   solo {decision['S2_solo_on_unanimous_wrong']:.3f} "
-          f"vs judge {decision['S2_judge_on_unanimous_wrong']:.3f}")
-    print(f"    S3 on unanimous-CORRECT solo {decision['S3_solo_on_unanimous_correct']:.3f} "
-          f"(consensus deference worth something: {decision['S3_consensus_deference_is_worth_something']})")
-    print(f"    S4 solo − best member: {[f'{d:+.1f}' for d in decision['S4_solo_minus_best_member_pp']]}")
+    print(
+        f"    S1 judge minus solo: {[f'{d:+.2f}' for d in deltas]}  "
+        f"mean {decision['S1_mean_pp']:+.2f} pp, "
+        f"{decision['S1_n_pools_clearing_2pp']}/6 clear +2.0"
+    )
+    print(
+        f"    S2 on unanimous-WRONG   solo {decision['S2_solo_on_unanimous_wrong']:.3f} "
+        f"vs judge {decision['S2_judge_on_unanimous_wrong']:.3f}"
+    )
+    print(
+        f"    S3 on unanimous-CORRECT solo "
+        f"{decision['S3_solo_on_unanimous_correct']:.3f} (deference worth something: "
+        f"{decision['S3_consensus_deference_is_worth_something']})"
+    )
+    best = [f"{d:+.1f}" for d in decision["S4_solo_minus_best_member_pp"]]
+    print(f"    S4 solo minus best member: {best}")
     print(f"    solo commit rate {decision['solo_commit_rate']:.3f}")
     print(f"\n    VERDICT: {decision['verdict']}")
     print(f"\nwrote {OUTPUT}")
