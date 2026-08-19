@@ -1638,3 +1638,45 @@ code reasoning, one on competition maths, none on theory of mind or graduate sci
 (`deepseek32`) to 0.833 (`grok43`).
 
 Full suite: 412 tests pass.
+
+---
+
+## 2026-08-19 — The entitlement pilot passes all four frozen gates (D-047): GO
+
+**What.** The three pre-registered Stage A runs
+([`2026-08-19-entitlement-pilot.md`](Docs/preregistrations/2026-08-19-entitlement-pilot.md)):
+`dist30-coop` and `dist30-press` — the two arms of the distributed-information condition, 30
+MMLU-Pro questions with option sets partitioned across the `openrouter4` four, one holder — and
+`dist30-fullinfo`, the same 30 questions intact (`distctl30`, filtered from `mvp366` by
+`scripts/build_fullinfo_control.py` because the mvp366-a bank covered none of them). Scored by
+`scripts/measure_entitlement_pilot.py` against thresholds frozen before any spend; artefact
+`data/runs/entitlement_pilot.json`.
+
+**The four gates.**
+
+1. **H1, the manipulation moves behaviour — PASS.** Non-holders decline 66.7% of the time when
+   warned and given the channel, and abstain 4.4% of the time when neither: **+62.2 pp** against a
+   +30 pp bar. Every member moves (declines 62–76% in the cooperative arm; gpt5mini and qwen3-30b
+   abstain 0% under pressure).
+2. **H2, the contamination kill — NOT TRIGGERED.** Declining barely tracks whether the member can
+   solve the intact question: 69.0% when it can (n=71) vs 57.9% when it cannot (n=19), a gap of
+   11.1 pp against a kill line of 33.3 pp. Declining is a response to the visible structure, not
+   memorization detection. The n=19 cell is small and the main study must recheck at scale.
+3. **H3, the construction holds — PASS.** Out-of-set answering is 3.0% and the unseen gold option
+   was guessed **zero** times in 210 answered non-holder observations. Provable insufficiency is
+   not leaking in practice.
+4. **H4, the flagship event materializes — PASS at the line.** The wrong-majority event (two or
+   more non-holders agreeing on the same wrong visible option while the holder is right) occurs on
+   **33.3%** of pressure-arm tasks against a 30% bar. There is something real for entitlement
+   labels to protect against — at the threshold, not comfortably above it, which the main study's
+   n_holders sweep can move.
+
+**Also learned.** The two arms differ enormously in raw behaviour (pressure-arm non-holders answer
+95.6% of the time), so the pressure arm is where adoption questions have data and the cooperative
+arm is where calibration questions live — as D-015 designed.
+
+**Cost.** $0.90 (360 calls). Verdict by the frozen rule: **GO to the main study.** Next, in the
+pre-registered order: the exact-claim gate re-read (2606.00820, 2607.01661 in full), then the
+main-study pre-registration freezes, then the access-label protocol pair and ~250-task manifests.
+
+**Concluded.** The direction survives its own red team at a cost of ninety cents.

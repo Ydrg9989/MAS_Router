@@ -1,0 +1,47 @@
+{
+ "generated_by": "scripts/measure_entitlement_pilot.py",
+ "preregistration": "Docs/preregistrations/2026-08-19-entitlement-pilot.md",
+ "n_rows": {
+  "cooperative": 120,
+  "pressure": 120
+ },
+ "per_member_nonholder": {
+  "gemini25flash": {
+   "coop_decline": 0.625,
+   "press_abstain": 0.125,
+   "fullinfo_acc": 0.6666666666666666
+  },
+  "gpt5mini": {
+   "coop_decline": 0.7619047619047619,
+   "press_abstain": 0.0,
+   "fullinfo_acc": 0.9047619047619048
+  },
+  "mistral-small": {
+   "coop_decline": 0.6190476190476191,
+   "press_abstain": 0.047619047619047616,
+   "fullinfo_acc": 0.7142857142857143
+  },
+  "qwen3-30b": {
+   "coop_decline": 0.6666666666666666,
+   "press_abstain": 0.0,
+   "fullinfo_acc": 0.875
+  }
+ },
+ "decision": {
+  "H1_coop_decline": 0.6666666666666666,
+  "H1_press_abstain": 0.044444444444444446,
+  "H1_gap_pp": 62.22222222222222,
+  "H1_pass": true,
+  "H2_decline_when_knows_intact_answer": 0.6901408450704225,
+  "H2_decline_when_does_not": 0.5789473684210527,
+  "H2_n_known": 71,
+  "H2_n_unknown": 19,
+  "H2_kill": false,
+  "H3_guessed_unseen_gold_rate": 0.0,
+  "H3_out_of_set_rate": 0.02962962962962963,
+  "H3_pass": true,
+  "H4_wrong_majority_share": 0.3333333333333333,
+  "H4_pass": true,
+  "verdict": "GO"
+ }
+}

@@ -8,8 +8,8 @@ evidence-base: none (pointers only)
 # TODO
 
 > ## Active queue, 2026-08-19 (D-047)
-> 1. **Entitlement pilot** — runs `dist30-coop`, `dist30-press`, `dist30-fullinfo`; score H1–H4
->    against [`2026-08-19-entitlement-pilot.md`](Docs/preregistrations/2026-08-19-entitlement-pilot.md); GO/NO-GO by ~08-21.
+> 1. ~~Entitlement pilot~~ **GO, 2026-08-19** — all four gates pass (+62.2 pp / no kill / 0 gold
+>    leaks / 33.3% wrong-majority), $0.90. `data/runs/entitlement_pilot.json`.
 > 2. On GO: re-run the exact-claim gate (fetch 2606.00820, 2607.01661 in full), freeze the
 >    main-study pre-registration, build the access-label protocol pair (~1 day), scale manifests
 >    to ~250 tasks/arm excluding the 30 pilot sources ($0), run early September ($50–170).
