@@ -75,3 +75,20 @@ self-knowledge.
 `scripts/measure_entitlement_main.py`, to be written and committed **before any Stage B spend**,
 scoring M1–M5 exactly as above and writing `data/runs/entitlement_main.json`. Member-level
 conformity (members seeing labels, not just the judge) is explicitly out of scope for this study.
+
+---
+
+## Amendment, 2026-08-20 — additive, before any Stage B spend
+
+The "What kills what" section promises the H2 contamination check at scale on `dist250-coop`, but
+the Runs table omitted the input that check needs: full-information answers on the 250 fresh
+source questions, which — unlike the pilot's 30 — are not in any existing bank. Added:
+
+| run-id | manifest | pool | what |
+|---|---|---|---|
+| `dist250-fullinfo` | `distctl250` | `openrouter4` | the 250 source questions, intact option sets (~1,000 calls, est. $3) |
+
+`distctl250` is built by `scripts/build_fullinfo_control_250.py` from the source cache, restricted
+to exactly the partitioned qids. Nothing else changes: no hypothesis, threshold, or branch is
+touched, and the planned total rises to ≤ $55 against the unchanged $75 hard cap. Recorded as an
+amendment rather than silently edited into the frozen table.
