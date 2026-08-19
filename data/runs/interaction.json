@@ -1,0 +1,667 @@
+{
+ "n_simulations": 200,
+ "agents": {
+  "hard366": {
+   "n_units": 8,
+   "n_tasks": 366,
+   "n_capabilities": 12,
+   "log_likelihood_additive": -661.9326607340605,
+   "log_likelihood_interaction": -609.916821583899,
+   "statistic": 104.03167830032294,
+   "degrees_of_freedom": 77,
+   "p_value_bootstrap": 0.16417910447761194,
+   "p_value_chi_squared": 0.021804797710638073,
+   "n_simulations": 200,
+   "mean_absolute_departure_points": 4.151531255624801,
+   "null_mean_absolute_departure_points": 4.153608694319127,
+   "excess_departure_points": -0.0020774386943260836,
+   "largest_departures": [
+    {
+     "unit": "llama4scout",
+     "capability": "geometry",
+     "n_tasks": 13,
+     "observed": 0.38461538461538464,
+     "additive_prediction": 0.5780666677277447,
+     "departure_points": -19.34512831123601
+    },
+    {
+     "unit": "llama4scout",
+     "capability": "intermediate algebra",
+     "n_tasks": 27,
+     "observed": 0.4444444444444444,
+     "additive_prediction": 0.620594713881023,
+     "departure_points": -17.615026943657863
+    },
+    {
+     "unit": "qwen3-30b",
+     "capability": "intermediate algebra",
+     "n_tasks": 27,
+     "observed": 0.9259259259259259,
+     "additive_prediction": 0.7897239644942989,
+     "departure_points": 13.6201961431627
+    },
+    {
+     "unit": "gptoss120b",
+     "capability": "geometry",
+     "n_tasks": 13,
+     "observed": 0.9230769230769231,
+     "additive_prediction": 0.7922859285770258,
+     "departure_points": 13.079099449989728
+    },
+    {
+     "unit": "mistral-small",
+     "capability": "number theory",
+     "n_tasks": 12,
+     "observed": 1.0,
+     "additive_prediction": 0.871864397868428,
+     "departure_points": 12.813560213157205
+    },
+    {
+     "unit": "ring26",
+     "capability": "counting & probability",
+     "n_tasks": 12,
+     "observed": 0.75,
+     "additive_prediction": 0.8773208926471058,
+     "departure_points": -12.732089264710577
+    },
+    {
+     "unit": "llama4scout",
+     "capability": "physics",
+     "n_tasks": 30,
+     "observed": 0.8,
+     "additive_prediction": 0.6906842806973407,
+     "departure_points": 10.931571930265937
+    },
+    {
+     "unit": "gptoss120b",
+     "capability": "counting & probability",
+     "n_tasks": 12,
+     "observed": 0.75,
+     "additive_prediction": 0.854330660217464,
+     "departure_points": -10.433066021746395
+    }
+   ],
+   "note": ""
+  },
+  "crosscap240": {
+   "n_units": 8,
+   "n_tasks": 238,
+   "n_capabilities": 4,
+   "log_likelihood_additive": -746.2893992009866,
+   "log_likelihood_interaction": -595.3591355481605,
+   "statistic": 301.86052730565234,
+   "degrees_of_freedom": 21,
+   "p_value_bootstrap": 0.004975124378109453,
+   "p_value_chi_squared": 1.3301134433396926e-51,
+   "n_simulations": 200,
+   "mean_absolute_departure_points": 10.501675541106179,
+   "null_mean_absolute_departure_points": 3.2136653713896113,
+   "excess_departure_points": 7.288010169716568,
+   "largest_departures": [
+    {
+     "unit": "grok43",
+     "capability": "theory_of_mind",
+     "n_tasks": 60,
+     "observed": 0.13333333333333333,
+     "additive_prediction": 0.4886166418443466,
+     "departure_points": -35.52833085110133
+    },
+    {
+     "unit": "llama4scout",
+     "capability": "competition_math",
+     "n_tasks": 58,
+     "observed": 0.1724137931034483,
+     "additive_prediction": 0.4665842605116153,
+     "departure_points": -29.417046740816698
+    },
+    {
+     "unit": "llama4scout",
+     "capability": "theory_of_mind",
+     "n_tasks": 60,
+     "observed": 0.5833333333333334,
+     "additive_prediction": 0.30237504943935106,
+     "departure_points": 28.095828389398232
+    },
+    {
+     "unit": "gpt5mini",
+     "capability": "theory_of_mind",
+     "n_tasks": 60,
+     "observed": 0.23333333333333334,
+     "additive_prediction": 0.5127068462434222,
+     "departure_points": -27.937351291008888
+    },
+    {
+     "unit": "gptoss120b",
+     "capability": "competition_math",
+     "n_tasks": 58,
+     "observed": 0.7758620689655172,
+     "additive_prediction": 0.5959884878822146,
+     "departure_points": 17.987358108330266
+    },
+    {
+     "unit": "deepseek32",
+     "capability": "theory_of_mind",
+     "n_tasks": 60,
+     "observed": 0.8,
+     "additive_prediction": 0.6266466882350081,
+     "departure_points": 17.335331176499192
+    },
+    {
+     "unit": "mistral-small",
+     "capability": "code_reasoning",
+     "n_tasks": 60,
+     "observed": 0.7833333333333333,
+     "additive_prediction": 0.615798001783149,
+     "departure_points": 16.75353315501843
+    },
+    {
+     "unit": "gptoss120b",
+     "capability": "code_reasoning",
+     "n_tasks": 60,
+     "observed": 0.6,
+     "additive_prediction": 0.7645688609438517,
+     "departure_points": -16.45688609438517
+    }
+   ],
+   "note": ""
+  }
+ },
+ "organizations": {
+  "hard366": {
+   "strong4": {
+    "n_units": 30,
+    "n_tasks": 366,
+    "n_capabilities": 12,
+    "log_likelihood_additive": -1296.5613902746256,
+    "log_likelihood_interaction": -1149.6336430846277,
+    "statistic": 293.8554943799959,
+    "degrees_of_freedom": 319,
+    "p_value_bootstrap": 0.6915422885572139,
+    "p_value_chi_squared": 0.8404559603142557,
+    "n_simulations": 200,
+    "mean_absolute_departure_points": 2.7912525924321296,
+    "null_mean_absolute_departure_points": 3.1446881275617162,
+    "excess_departure_points": -0.3534355351295866,
+    "largest_departures": [
+     {
+      "unit": "independent_majority[3]",
+      "capability": "intermediate algebra",
+      "n_tasks": 27,
+      "observed": 0.4444444444444444,
+      "additive_prediction": 0.582846317508867,
+      "departure_points": -13.840187306442253
+     },
+     {
+      "unit": "single_expert[3]",
+      "capability": "intermediate algebra",
+      "n_tasks": 27,
+      "observed": 0.4444444444444444,
+      "additive_prediction": 0.582846317508867,
+      "departure_points": -13.840187306442253
+     },
+     {
+      "unit": "single_expert[1+2+3]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.7692307692307693,
+      "additive_prediction": 0.8962179487988889,
+      "departure_points": -12.698717956811967
+     },
+     {
+      "unit": "single_expert[1+2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.7692307692307693,
+      "additive_prediction": 0.8962179487988889,
+      "departure_points": -12.698717956811967
+     },
+     {
+      "unit": "independent_majority[3]",
+      "capability": "algebra",
+      "n_tasks": 27,
+      "observed": 0.9259259259259259,
+      "additive_prediction": 0.8062100557364774,
+      "departure_points": 11.971587018944852
+     },
+     {
+      "unit": "single_expert[3]",
+      "capability": "algebra",
+      "n_tasks": 27,
+      "observed": 0.9259259259259259,
+      "additive_prediction": 0.8062100557364774,
+      "departure_points": 11.971587018944852
+     },
+     {
+      "unit": "independent_majority[3]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.38461538461538464,
+      "additive_prediction": 0.49196984594579746,
+      "departure_points": -10.735446133041282
+     },
+     {
+      "unit": "single_expert[3]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.38461538461538464,
+      "additive_prediction": 0.49196984594579746,
+      "departure_points": -10.735446133041282
+     }
+    ],
+    "note": ""
+   },
+   "decorrelated4": {
+    "n_units": 30,
+    "n_tasks": 366,
+    "n_capabilities": 12,
+    "log_likelihood_additive": -1834.6182719353073,
+    "log_likelihood_interaction": -1681.674441904987,
+    "statistic": 305.8876600606409,
+    "degrees_of_freedom": 319,
+    "p_value_bootstrap": 0.7313432835820896,
+    "p_value_chi_squared": 0.6914349179375021,
+    "n_simulations": 200,
+    "mean_absolute_departure_points": 3.3862327202142226,
+    "null_mean_absolute_departure_points": 3.457566648465497,
+    "excess_departure_points": -0.0713339282512746,
+    "largest_departures": [
+     {
+      "unit": "single_expert[1+2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.38461538461538464,
+      "additive_prediction": 0.578252308830259,
+      "departure_points": -19.36369242148744
+     },
+     {
+      "unit": "independent_majority[1+2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.38461538461538464,
+      "additive_prediction": 0.5656726121188116,
+      "departure_points": -18.105722750342697
+     },
+     {
+      "unit": "independent_majority[2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.38461538461538464,
+      "additive_prediction": 0.5656726121188116,
+      "departure_points": -18.105722750342697
+     },
+     {
+      "unit": "single_expert[2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.38461538461538464,
+      "additive_prediction": 0.5656726121188116,
+      "departure_points": -18.105722750342697
+     },
+     {
+      "unit": "independent_majority[0+1+2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.9230769230769231,
+      "additive_prediction": 0.74612004584962,
+      "departure_points": 17.695687722730312
+     },
+     {
+      "unit": "independent_majority[1+2]",
+      "capability": "intermediate algebra",
+      "n_tasks": 27,
+      "observed": 0.4444444444444444,
+      "additive_prediction": 0.5973644815223681,
+      "departure_points": -15.292003707792368
+     },
+     {
+      "unit": "independent_majority[2]",
+      "capability": "intermediate algebra",
+      "n_tasks": 27,
+      "observed": 0.4444444444444444,
+      "additive_prediction": 0.5973644815223681,
+      "departure_points": -15.292003707792368
+     },
+     {
+      "unit": "single_expert[2]",
+      "capability": "intermediate algebra",
+      "n_tasks": 27,
+      "observed": 0.4444444444444444,
+      "additive_prediction": 0.5973644815223681,
+      "departure_points": -15.292003707792368
+     }
+    ],
+    "note": ""
+   },
+   "correlated4": {
+    "n_units": 30,
+    "n_tasks": 366,
+    "n_capabilities": 12,
+    "log_likelihood_additive": -1085.9762249403157,
+    "log_likelihood_interaction": -880.7999577346401,
+    "statistic": 410.35253441135114,
+    "degrees_of_freedom": 319,
+    "p_value_bootstrap": 0.004975124378109453,
+    "p_value_chi_squared": 0.000410693755493395,
+    "n_simulations": 200,
+    "mean_absolute_departure_points": 2.982904105129574,
+    "null_mean_absolute_departure_points": 2.7272298579959373,
+    "excess_departure_points": 0.2556742471336366,
+    "largest_departures": [
+     {
+      "unit": "single_expert[2+3]",
+      "capability": "counting & probability",
+      "n_tasks": 12,
+      "observed": 0.75,
+      "additive_prediction": 0.8962177226230598,
+      "departure_points": -14.621772262305976
+     },
+     {
+      "unit": "independent_majority[2+3]",
+      "capability": "counting & probability",
+      "n_tasks": 12,
+      "observed": 0.75,
+      "additive_prediction": 0.896217722623058,
+      "departure_points": -14.621772262305798
+     },
+     {
+      "unit": "independent_majority[2]",
+      "capability": "counting & probability",
+      "n_tasks": 12,
+      "observed": 0.75,
+      "additive_prediction": 0.8889889055706125,
+      "departure_points": -13.89889055706125
+     },
+     {
+      "unit": "single_expert[2]",
+      "capability": "counting & probability",
+      "n_tasks": 12,
+      "observed": 0.75,
+      "additive_prediction": 0.8889889055706125,
+      "departure_points": -13.89889055706125
+     },
+     {
+      "unit": "independent_majority[2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.9230769230769231,
+      "additive_prediction": 0.7941632149102887,
+      "departure_points": 12.89137081666344
+     },
+     {
+      "unit": "single_expert[2]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.9230769230769231,
+      "additive_prediction": 0.7941632149102887,
+      "departure_points": 12.89137081666344
+     },
+     {
+      "unit": "independent_majority[2+3]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.9230769230769231,
+      "additive_prediction": 0.8016310679594789,
+      "departure_points": 12.14458551174442
+     },
+     {
+      "unit": "single_expert[2+3]",
+      "capability": "geometry",
+      "n_tasks": 13,
+      "observed": 0.9230769230769231,
+      "additive_prediction": 0.8016310679594807,
+      "departure_points": 12.144585511744243
+     }
+    ],
+    "note": ""
+   }
+  },
+  "crosscap240": {
+   "strong4": {
+    "n_units": 30,
+    "n_tasks": 239,
+    "n_capabilities": 4,
+    "log_likelihood_additive": -1784.672547448144,
+    "log_likelihood_interaction": -1192.068847695107,
+    "statistic": 1185.2073995060741,
+    "degrees_of_freedom": 87,
+    "p_value_bootstrap": 0.004975124378109453,
+    "p_value_chi_squared": 3.524337843886272e-192,
+    "n_simulations": 200,
+    "mean_absolute_departure_points": 9.160643195728204,
+    "null_mean_absolute_departure_points": 2.45339630004507,
+    "excess_departure_points": 6.707246895683134,
+    "largest_departures": [
+     {
+      "unit": "independent_majority[3]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.5833333333333334,
+      "additive_prediction": 0.1948727895799242,
+      "departure_points": 38.84605437534091
+     },
+     {
+      "unit": "single_expert[3]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.5833333333333334,
+      "additive_prediction": 0.1948727895799242,
+      "departure_points": 38.84605437534091
+     },
+     {
+      "unit": "independent_majority[0+1]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.13333333333333333,
+      "additive_prediction": 0.44944259633688916,
+      "departure_points": -31.61092630035558
+     },
+     {
+      "unit": "independent_majority[0+3]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.13333333333333333,
+      "additive_prediction": 0.44944259633688916,
+      "departure_points": -31.61092630035558
+     },
+     {
+      "unit": "independent_majority[0]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.13333333333333333,
+      "additive_prediction": 0.44944259633688916,
+      "departure_points": -31.61092630035558
+     },
+     {
+      "unit": "single_expert[0]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.13333333333333333,
+      "additive_prediction": 0.44944259633688916,
+      "departure_points": -31.61092630035558
+     },
+     {
+      "unit": "independent_majority[3]",
+      "capability": "competition_math",
+      "n_tasks": 59,
+      "observed": 0.1864406779661017,
+      "additive_prediction": 0.45761766815036103,
+      "departure_points": -27.117699018425935
+     },
+     {
+      "unit": "single_expert[3]",
+      "capability": "competition_math",
+      "n_tasks": 59,
+      "observed": 0.1864406779661017,
+      "additive_prediction": 0.45761766815036103,
+      "departure_points": -27.117699018425935
+     }
+    ],
+    "note": ""
+   },
+   "decorrelated4": {
+    "n_units": 30,
+    "n_tasks": 238,
+    "n_capabilities": 4,
+    "log_likelihood_additive": -2023.1945272110747,
+    "log_likelihood_interaction": -1691.8840676237219,
+    "statistic": 662.6209191747057,
+    "degrees_of_freedom": 87,
+    "p_value_bootstrap": 0.004975124378109453,
+    "p_value_chi_squared": 2.089017599739646e-89,
+    "n_simulations": 200,
+    "mean_absolute_departure_points": 6.934602533375367,
+    "null_mean_absolute_departure_points": 2.727785703435199,
+    "excess_departure_points": 4.206816829940168,
+    "largest_departures": [
+     {
+      "unit": "independent_majority[1+2]",
+      "capability": "competition_math",
+      "n_tasks": 58,
+      "observed": 0.1724137931034483,
+      "additive_prediction": 0.48739878619202415,
+      "departure_points": -31.498499308857586
+     },
+     {
+      "unit": "independent_majority[2]",
+      "capability": "competition_math",
+      "n_tasks": 58,
+      "observed": 0.1724137931034483,
+      "additive_prediction": 0.4817517386477031,
+      "departure_points": -30.933794554425482
+     },
+     {
+      "unit": "single_expert[2]",
+      "capability": "competition_math",
+      "n_tasks": 58,
+      "observed": 0.1724137931034483,
+      "additive_prediction": 0.4817517386477031,
+      "departure_points": -30.933794554425482
+     },
+     {
+      "unit": "single_expert[1+2]",
+      "capability": "competition_math",
+      "n_tasks": 58,
+      "observed": 0.3103448275862069,
+      "additive_prediction": 0.5599812500858492,
+      "departure_points": -24.96364224996423
+     },
+     {
+      "unit": "independent_majority[1]",
+      "capability": "code_reasoning",
+      "n_tasks": 60,
+      "observed": 0.7833333333333333,
+      "additive_prediction": 0.5526790022937142,
+      "departure_points": 23.065433103961908
+     },
+     {
+      "unit": "single_expert[1]",
+      "capability": "code_reasoning",
+      "n_tasks": 60,
+      "observed": 0.7833333333333333,
+      "additive_prediction": 0.5526790022937142,
+      "departure_points": 23.065433103961908
+     },
+     {
+      "unit": "independent_majority[2]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.5833333333333334,
+      "additive_prediction": 0.3845762096530941,
+      "departure_points": 19.87571236802393
+     },
+     {
+      "unit": "single_expert[2]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.5833333333333334,
+      "additive_prediction": 0.3845762096530941,
+      "departure_points": 19.87571236802393
+     }
+    ],
+    "note": ""
+   },
+   "correlated4": {
+    "n_units": 30,
+    "n_tasks": 240,
+    "n_capabilities": 4,
+    "log_likelihood_additive": -1533.3344834795696,
+    "log_likelihood_interaction": -1190.7276160095325,
+    "statistic": 685.2137349400741,
+    "degrees_of_freedom": 87,
+    "p_value_bootstrap": 0.004975124378109453,
+    "p_value_chi_squared": 1.073315770478912e-93,
+    "n_simulations": 200,
+    "mean_absolute_departure_points": 6.0959431097746934,
+    "null_mean_absolute_departure_points": 2.31652928003035,
+    "excess_departure_points": 3.7794138297443434,
+    "largest_departures": [
+     {
+      "unit": "independent_majority[0+2]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.31666666666666665,
+      "additive_prediction": 0.58076478066951,
+      "departure_points": -26.409811400284333
+     },
+     {
+      "unit": "independent_majority[0+3]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.31666666666666665,
+      "additive_prediction": 0.58076478066951,
+      "departure_points": -26.409811400284333
+     },
+     {
+      "unit": "independent_majority[0]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.31666666666666665,
+      "additive_prediction": 0.58076478066951,
+      "departure_points": -26.409811400284333
+     },
+     {
+      "unit": "single_expert[0+2]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.31666666666666665,
+      "additive_prediction": 0.58076478066951,
+      "departure_points": -26.409811400284333
+     },
+     {
+      "unit": "single_expert[0]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.31666666666666665,
+      "additive_prediction": 0.58076478066951,
+      "departure_points": -26.409811400284333
+     },
+     {
+      "unit": "independent_majority[0+2+3]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.45,
+      "additive_prediction": 0.619500943466739,
+      "departure_points": -16.9500943466739
+     },
+     {
+      "unit": "independent_majority[0+1]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.8166666666666667,
+      "additive_prediction": 0.6705868226978478,
+      "departure_points": 14.60798439688189
+     },
+     {
+      "unit": "independent_majority[1+2]",
+      "capability": "theory_of_mind",
+      "n_tasks": 60,
+      "observed": 0.8166666666666667,
+      "additive_prediction": 0.6705868226978478,
+      "departure_points": 14.60798439688189
+     }
+    ],
+    "note": ""
+   }
+  }
+ }
+}

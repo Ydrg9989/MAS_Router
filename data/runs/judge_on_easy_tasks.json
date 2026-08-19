@@ -1,0 +1,119 @@
+{
+ "generated_by": "scripts/measure_judge_on_easy_tasks.py",
+ "preregistration": "Docs/preregistrations/2026-08-14-judge-on-easy-tasks.md",
+ "pools": {
+  "strong4": {
+   "run_id": "crosscap-strong4",
+   "by_class": {
+    "UNANIMOUS_CORRECT": {
+     "n": 71,
+     "judge": 1.0,
+     "vote": 1.0,
+     "delta_pp": 0.0,
+     "n_judge_overrides_a_correct_consensus": 0,
+     "n_judge_rescues": 0
+    },
+    "UNANIMOUS_WRONG": {
+     "n": 18,
+     "judge": 0.16666666666666666,
+     "vote": 0.0,
+     "delta_pp": 16.666666666666664,
+     "n_judge_overrides_a_correct_consensus": 0,
+     "n_judge_rescues": 3
+    }
+   },
+   "full_suite": {
+    "n_tasks": 239,
+    "n_unanimous": 89,
+    "vote": 0.8410041841004184,
+    "judge": 0.8786610878661087,
+    "cascade": 0.8661087866108786,
+    "judge_minus_vote_pp": 3.765690376569031,
+    "cascade_minus_judge_pp": -1.2552301255230103,
+    "judge_cost_per_task": 0.03632422167364016,
+    "cascade_cost_per_task": 0.028241560585774053,
+    "cost_saved_frac": 0.2225143641200591
+   }
+  },
+  "decorrelated4": {
+   "run_id": "crosscap-decorr4",
+   "by_class": {
+    "UNANIMOUS_CORRECT": {
+     "n": 49,
+     "judge": 0.9795918367346939,
+     "vote": 1.0,
+     "delta_pp": -2.0408163265306145,
+     "n_judge_overrides_a_correct_consensus": 1,
+     "n_judge_rescues": 0
+    },
+    "UNANIMOUS_WRONG": {
+     "n": 22,
+     "judge": 0.2727272727272727,
+     "vote": 0.0,
+     "delta_pp": 27.27272727272727,
+     "n_judge_overrides_a_correct_consensus": 0,
+     "n_judge_rescues": 6
+    }
+   },
+   "full_suite": {
+    "n_tasks": 238,
+    "n_unanimous": 71,
+    "vote": 0.7899159663865546,
+    "judge": 0.8697478991596639,
+    "cascade": 0.8487394957983193,
+    "judge_minus_vote_pp": 7.98319327731093,
+    "cascade_minus_judge_pp": -2.1008403361344574,
+    "judge_cost_per_task": 0.028865708480042017,
+    "cascade_cost_per_task": 0.020881095034663864,
+    "cost_saved_frac": 0.27661241888099775
+   }
+  },
+  "correlated4": {
+   "run_id": "crosscap-corr4",
+   "by_class": {
+    "UNANIMOUS_CORRECT": {
+     "n": 110,
+     "judge": 0.990909090909091,
+     "vote": 1.0,
+     "delta_pp": -0.9090909090909038,
+     "n_judge_overrides_a_correct_consensus": 1,
+     "n_judge_rescues": 0
+    },
+    "UNANIMOUS_WRONG": {
+     "n": 19,
+     "judge": 0.10526315789473684,
+     "vote": 0.0,
+     "delta_pp": 10.526315789473683,
+     "n_judge_overrides_a_correct_consensus": 0,
+     "n_judge_rescues": 2
+    }
+   },
+   "full_suite": {
+    "n_tasks": 240,
+    "n_unanimous": 129,
+    "vote": 0.825,
+    "judge": 0.8708333333333333,
+    "cascade": 0.8666666666666667,
+    "judge_minus_vote_pp": 4.583333333333339,
+    "cascade_minus_judge_pp": -0.4166666666666652,
+    "judge_cost_per_task": 0.03735744431958333,
+    "cascade_cost_per_task": 0.02324323598625,
+    "cost_saved_frac": 0.37781514743326405
+   }
+  }
+ },
+ "decision": {
+  "H1_judge_accuracy_on_unanimous_correct": 0.991304347826087,
+  "H1_overrides": 2,
+  "H1_n": 230,
+  "H1_notable_judge_damages_consensus": false,
+  "H2_rescue_rate_on_unanimous_wrong": 0.1864406779661017,
+  "H2_notable_judge_contributes_knowledge": true,
+  "H4_cascade_minus_judge_pp": [
+   -1.2552301255230103,
+   -2.1008403361344574,
+   -0.4166666666666652
+  ],
+  "H4_notable_cascade_beats_judge": false
+ }
+}

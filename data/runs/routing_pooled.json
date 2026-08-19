@@ -1,0 +1,2295 @@
+{
+  "n_tasks": 569,
+  "embedding": "sentence-transformers:sentence-transformers/all-MiniLM-L6-v2",
+  "pools": {
+    "strong4": {
+      "n_episodes": 17948,
+      "n_tasks": 569,
+      "stability": {
+        "grouping": "domain",
+        "n_groups": 15,
+        "excluded_groups": {},
+        "min_tasks_per_group": 4,
+        "reproducibility": 0.6358333333333334,
+        "null_reproducibility": 0.231784,
+        "reproducibility_p": 0.0,
+        "winners_are_reproducible": true,
+        "dominance": 0.6666666666666666,
+        "null_dominance": 0.2502666666666667,
+        "dominance_p": 0.0,
+        "dominant_configuration": "independent_majority[0-1-2-3]",
+        "reproducibility_dominant": 0.9037499999999999,
+        "reproducibility_off_dominant": 0.1,
+        "n_off_dominant": 5,
+        "variety_is_reproducible": false,
+        "n_permutations": 500,
+        "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.90) but the 5 that depart from it do not (0.10 against a 0.23 null and a 0.5 floor), so the variety is noise around a single best configuration",
+        "groups": [
+          {
+            "group": "algebra",
+            "n_tasks": 27,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9629629629629629,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "chemistry",
+            "n_tasks": 31,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-3]",
+            "winner_accuracy": 0.9354838709677419,
+            "reproducibility": 0.02,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "code_reasoning",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9666666666666667,
+            "reproducibility": 0.85,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "competition_math",
+            "n_tasks": 59,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.847457627118644,
+            "reproducibility": 0.31,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "computer science",
+            "n_tasks": 31,
+            "n_configurations": 30,
+            "winner": "independent_majority[1-2-3]",
+            "winner_accuracy": 0.9032258064516129,
+            "reproducibility": 0.0025,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "counting & probability",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 1.0,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "geometry",
+            "n_tasks": 13,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 1.0,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "gpqa_science",
+            "n_tasks": 145,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2]",
+            "winner_accuracy": 0.8344827586206897,
+            "reproducibility": 0.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "intermediate algebra",
+            "n_tasks": 27,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9629629629629629,
+            "reproducibility": 0.88,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "math",
+            "n_tasks": 30,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9666666666666667,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "number theory",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 1.0,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "physics",
+            "n_tasks": 30,
+            "n_configurations": 30,
+            "winner": "independent_majority[2-3]",
+            "winner_accuracy": 0.9333333333333333,
+            "reproducibility": 0.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "prealgebra",
+            "n_tasks": 19,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9473684210526315,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "precalculus",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9166666666666666,
+            "reproducibility": 0.9975,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "theory_of_mind",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-2-3]",
+            "winner_accuracy": 0.8,
+            "reproducibility": 0.4775,
+            "chance": 0.03333333333333333
+          }
+        ]
+      },
+      "curve": {
+        "0.10": {
+          "n_splits": 40,
+          "calibration_fraction": 0.1,
+          "oracle_headroom": {
+            "mean": 8.506982581253961,
+            "sd": 1.7530831506531057,
+            "q05": 7.282749098897017,
+            "q95": 11.83933295175038,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 3.9550976895178573,
+            "sd": 4.3091256302233365,
+            "q05": -3.085301837270342,
+            "q95": 10.169894739565258,
+            "frac_positive": 0.875
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -2.455505623191993,
+              "sd": 2.1365387320569345,
+              "q05": -7.096456692913385,
+              "q95": 0.0,
+              "frac_positive": 0.025
+            },
+            "fixed_best_single_agent": {
+              "mean": -4.571202605077116,
+              "sd": 2.2570986619929916,
+              "q05": -7.874015748031496,
+              "q95": -0.767716535433072,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 8.506982581253965,
+              "sd": 1.7530831506531048,
+              "q05": 7.2827490988970185,
+              "q95": 11.839332951750382,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.26546764537536927,
+              "sd": 1.8318865585969808,
+              "q05": -1.7913385826771653,
+              "q95": 3.3500533700478003,
+              "frac_positive": 0.525
+            },
+            "q_theta_shuffled": {
+              "mean": -1.2944073604257227,
+              "sd": 2.065027016808717,
+              "q05": -3.5531496062992125,
+              "q95": 2.391442228856951,
+              "frac_positive": 0.25
+            },
+            "semantic_knn": {
+              "mean": 0.9691304549603206,
+              "sd": 1.9528763564403255,
+              "q05": -1.3779527559055118,
+              "q95": 4.547244094488188,
+              "frac_positive": 0.625
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8648911135003015,
+              "sd": 0.01780943995167113,
+              "q05": 0.8341707532138051,
+              "q95": 0.8800196850393701,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8403360572683818,
+              "sd": 0.022284937045532784,
+              "q05": 0.8008858267716535,
+              "q95": 0.8721580449545968,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8191790874495304,
+              "sd": 0.015743053259717244,
+              "q05": 0.7951771653543307,
+              "q95": 0.834744094488189,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9499609393128413,
+              "sd": 0.002913652806823433,
+              "q05": 0.9448818897637795,
+              "q95": 0.9547244094488189,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8675457899540554,
+              "sd": 0.011109142808058858,
+              "q05": 0.8562007874015748,
+              "q95": 0.8838582677165354,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8519470398960444,
+              "sd": 0.01039217687969612,
+              "q05": 0.836515748031496,
+              "q95": 0.8641732283464567,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8745824180499048,
+              "sd": 0.00856371045514481,
+              "q05": 0.8622047244094488,
+              "q95": 0.8877952755905512,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.20": {
+          "n_splits": 40,
+          "calibration_fraction": 0.2,
+          "oracle_headroom": {
+            "mean": 8.001026910821912,
+            "sd": 1.2253866388477583,
+            "q05": 6.798245614035081,
+            "q95": 10.756578947368416,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 2.014563417088465,
+            "sd": 3.712953864111891,
+            "q05": -3.574814166307606,
+            "q95": 7.413063909774429,
+            "frac_positive": 0.7
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -2.378330262198165,
+              "sd": 2.048297807056084,
+              "q05": -5.0548245614035086,
+              "q95": 0.4495614035087713,
+              "frac_positive": 0.075
+            },
+            "fixed_best_single_agent": {
+              "mean": -4.657772371300242,
+              "sd": 1.6105341032181415,
+              "q05": -7.467105263157895,
+              "q95": -2.801091212714502,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 8.001026910821912,
+              "sd": 1.2253866388477581,
+              "q05": 6.798245614035088,
+              "q95": 10.75657894736842,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -0.2082493569810741,
+              "sd": 1.2209910918791638,
+              "q05": -1.9844091903719911,
+              "q95": 2.4122807017543857,
+              "frac_positive": 0.325
+            },
+            "q_theta_shuffled": {
+              "mean": -1.671453318745441,
+              "sd": 1.5790977080020274,
+              "q05": -3.958333333333333,
+              "q95": 1.5460526315789467,
+              "frac_positive": 0.15
+            },
+            "semantic_knn": {
+              "mean": 0.8001146877039425,
+              "sd": 1.29432005613621,
+              "q05": -0.6784569465238588,
+              "q95": 3.3442982456140316,
+              "frac_positive": 0.775
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8698479308226805,
+              "sd": 0.013010426716549194,
+              "q05": 0.8439692982456141,
+              "q95": 0.8837719298245614,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8460646282006987,
+              "sd": 0.017754681170391615,
+              "q05": 0.8218201754385964,
+              "q95": 0.8707236842105263,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8232702071096778,
+              "sd": 0.015162515284895083,
+              "q05": 0.7937500000000001,
+              "q95": 0.8400219298245614,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9498581999308996,
+              "sd": 0.004785213677323953,
+              "q05": 0.9429824561403509,
+              "q95": 0.9583333333333334,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8677654372528696,
+              "sd": 0.009353896719879655,
+              "q05": 0.8529768417213713,
+              "q95": 0.8795085703865791,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8531333976352258,
+              "sd": 0.011222904275613893,
+              "q05": 0.8354166666666667,
+              "q95": 0.8667897520058351,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8778490776997196,
+              "sd": 0.009528674458758886,
+              "q05": 0.8617324561403509,
+              "q95": 0.8926535087719298,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.35": {
+          "n_splits": 40,
+          "calibration_fraction": 0.35,
+          "oracle_headroom": {
+            "mean": 7.728855540176295,
+            "sd": 0.8260375506994903,
+            "q05": 6.485612296933051,
+            "q95": 8.93119399723173,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 1.102626733121895,
+            "sd": 3.0132438676263678,
+            "q05": -2.7614662794722222,
+            "q95": 6.5137865137865125,
+            "frac_positive": 0.55
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -1.5858526990602464,
+              "sd": 1.7750528230136418,
+              "q05": -4.877686311648576,
+              "q95": 0.2695417789757413,
+              "frac_positive": 0.075
+            },
+            "fixed_best_single_agent": {
+              "mean": -4.4954651416915565,
+              "sd": 1.5798077301224465,
+              "q05": -7.606978946601589,
+              "q95": -2.688861368106652,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 7.728855540176295,
+              "sd": 0.8260375506994899,
+              "q05": 6.485612296933052,
+              "q95": 8.931193997231732,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -0.19565454942813432,
+              "sd": 1.0932725926613769,
+              "q05": -1.8870474247832738,
+              "q95": 1.374663072776279,
+              "frac_positive": 0.4
+            },
+            "q_theta_shuffled": {
+              "mean": -1.8497486705033879,
+              "sd": 1.2440898824913738,
+              "q05": -4.054054054054054,
+              "q95": -0.24258760107816868,
+              "frac_positive": 0.05
+            },
+            "semantic_knn": {
+              "mean": 0.9448532090041525,
+              "sd": 1.0920623124918767,
+              "q05": -0.5539447803598747,
+              "q95": 2.9729729729729732,
+              "frac_positive": 0.725
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8719519924236906,
+              "sd": 0.011592747088986857,
+              "q05": 0.8537837837837838,
+              "q95": 0.8865017848036716,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8560934654330881,
+              "sd": 0.02022567185639331,
+              "q05": 0.8237837837837838,
+              "q95": 0.8810971078895607,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.826997341006775,
+              "sd": 0.016885933125897982,
+              "q05": 0.7978163473446492,
+              "q95": 0.8514864864864864,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9492405478254536,
+              "sd": 0.007931083144198506,
+              "q05": 0.9377027027027027,
+              "q95": 0.9621672616012239,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8699954469294091,
+              "sd": 0.015279645649776505,
+              "q05": 0.8435095068113937,
+              "q95": 0.8974324324324324,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8534545057186567,
+              "sd": 0.014688848934570993,
+              "q05": 0.8268918918918919,
+              "q95": 0.8710078677059808,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.881400524513732,
+              "sd": 0.012922098838640822,
+              "q05": 0.8571235521235521,
+              "q95": 0.897978436657682,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.50": {
+          "n_splits": 40,
+          "calibration_fraction": 0.5,
+          "oracle_headroom": {
+            "mean": 7.778769766684209,
+            "sd": 1.160341496691043,
+            "q05": 5.9904017241811385,
+            "q95": 9.542327644538005,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 0.9921465424098791,
+            "sd": 2.9068874412799244,
+            "q05": -2.8139688920457258,
+            "q95": 5.484229635039428,
+            "frac_positive": 0.65
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.7254153823020826,
+              "sd": 1.5261833475612252,
+              "q05": -3.935355737663835,
+              "q95": 0.3898829661930161,
+              "frac_positive": 0.125
+            },
+            "fixed_best_single_agent": {
+              "mean": -3.946727063128086,
+              "sd": 1.061418670375374,
+              "q05": -5.319148936170213,
+              "q95": -2.109615818359523,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 7.778769766684209,
+              "sd": 1.1603414966910428,
+              "q05": 5.990401724181139,
+              "q95": 9.542327644538005,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.1501766784452297,
+              "sd": 0.9751649540334993,
+              "q05": -1.4361702127659575,
+              "q95": 1.435856953111294,
+              "frac_positive": 0.55
+            },
+            "q_theta_shuffled": {
+              "mean": -1.6729318597599174,
+              "sd": 1.2447076086566595,
+              "q05": -3.208593338846703,
+              "q95": 0.017667844522967196,
+              "frac_positive": 0.05
+            },
+            "semantic_knn": {
+              "mean": 1.150132822093577,
+              "sd": 1.0773776414624185,
+              "q05": -0.706839084780593,
+              "q95": 2.8445229681978788,
+              "frac_positive": 0.8
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8724773200010023,
+              "sd": 0.015188652151821845,
+              "q05": 0.8507092198581561,
+              "q95": 0.8909718567526251,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8652231661779816,
+              "sd": 0.021360656996798354,
+              "q05": 0.830035335689046,
+              "q95": 0.890617246823547,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8330100493697217,
+              "sd": 0.017488254069177946,
+              "q05": 0.8048223191238754,
+              "q95": 0.8583333333333334,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9502650176678445,
+              "sd": 0.009145215464037165,
+              "q05": 0.9361702127659575,
+              "q95": 0.9645452722852917,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8739790867854547,
+              "sd": 0.01645531877085426,
+              "q05": 0.8480565371024735,
+              "q95": 0.9007267623988171,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8557480014034032,
+              "sd": 0.014561977570537897,
+              "q05": 0.8333333333333334,
+              "q95": 0.8733008796331102,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8839786482219381,
+              "sd": 0.016560732664042056,
+              "q05": 0.8580044106959377,
+              "q95": 0.9083038869257951,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.70": {
+          "n_splits": 40,
+          "calibration_fraction": 0.7,
+          "oracle_headroom": {
+            "mean": 7.8884588923288605,
+            "sd": 1.3593259289982536,
+            "q05": 5.847953216374268,
+            "q95": 9.438252493980047,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 0.6307978714049621,
+            "sd": 2.8425415959822598,
+            "q05": -3.4086054767481166,
+            "q95": 5.801068942612339,
+            "frac_positive": 0.625
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.04368765049879599,
+              "sd": 0.8934679843256569,
+              "q05": -1.7543859649122806,
+              "q95": 1.7543859649122806,
+              "frac_positive": 0.325
+            },
+            "fixed_best_single_agent": {
+              "mean": -3.4101307189542482,
+              "sd": 1.5052872230690215,
+              "q05": -5.321809425524595,
+              "q95": -0.5847953216374269,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 7.888458892328861,
+              "sd": 1.359325928998254,
+              "q05": 5.847953216374268,
+              "q95": 9.438252493980047,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.3657550739594083,
+              "sd": 1.456665363746226,
+              "q05": -1.7934296525627793,
+              "q95": 2.923976608187134,
+              "frac_positive": 0.55
+            },
+            "q_theta_shuffled": {
+              "mean": -0.7903336773305814,
+              "sd": 1.301992501257084,
+              "q05": -2.923976608187134,
+              "q95": 1.1988304093567235,
+              "frac_positive": 0.225
+            },
+            "semantic_knn": {
+              "mean": 1.3318713450292399,
+              "sd": 1.278983359406738,
+              "q05": -0.6173030615755073,
+              "q95": 3.557619539043686,
+              "frac_positive": 0.775
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8729635362917098,
+              "sd": 0.020194733693580148,
+              "q05": 0.8362091503267974,
+              "q95": 0.9005847953216374,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8734004127966977,
+              "sd": 0.019112277907151975,
+              "q05": 0.8476143790849673,
+              "q95": 0.9005847953216374,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8388622291021672,
+              "sd": 0.020348008509470304,
+              "q05": 0.8115273477812177,
+              "q95": 0.8657894736842104,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9518481252149982,
+              "sd": 0.012132983834337387,
+              "q05": 0.9295098039215687,
+              "q95": 0.9654901960784313,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8766210870313037,
+              "sd": 0.023501995278187172,
+              "q05": 0.8421052631578947,
+              "q95": 0.9125490196078431,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8650601995184036,
+              "sd": 0.016565796227570168,
+              "q05": 0.8421052631578947,
+              "q95": 0.8941486068111455,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.886282249742002,
+              "sd": 0.021436180015957765,
+              "q05": 0.8537581699346405,
+              "q95": 0.9235517715858274,
+              "frac_positive": 1.0
+            }
+          }
+        }
+      }
+    },
+    "decorrelated4": {
+      "n_episodes": 18088,
+      "n_tasks": 569,
+      "stability": {
+        "grouping": "domain",
+        "n_groups": 15,
+        "excluded_groups": {},
+        "min_tasks_per_group": 4,
+        "reproducibility": 0.7026666666666667,
+        "null_reproducibility": 0.17065066666666667,
+        "reproducibility_p": 0.0,
+        "winners_are_reproducible": true,
+        "dominance": 0.6666666666666666,
+        "null_dominance": 0.2088,
+        "dominance_p": 0.0,
+        "dominant_configuration": "independent_majority[0-1-2-3]",
+        "reproducibility_dominant": 0.9257499999999999,
+        "reproducibility_off_dominant": 0.2565,
+        "n_off_dominant": 5,
+        "variety_is_reproducible": false,
+        "n_permutations": 500,
+        "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.93) but the 5 that depart from it do not (0.26 against a 0.17 null and a 0.5 floor), so the variety is noise around a single best configuration",
+        "groups": [
+          {
+            "group": "algebra",
+            "n_tasks": 27,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9629629629629629,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "chemistry",
+            "n_tasks": 31,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9354838709677419,
+            "reproducibility": 0.965,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "code_reasoning",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.95,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "competition_math",
+            "n_tasks": 58,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-3]",
+            "winner_accuracy": 0.896551724137931,
+            "reproducibility": 0.5025,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "computer science",
+            "n_tasks": 31,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9032258064516129,
+            "reproducibility": 0.4475,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "counting & probability",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2]",
+            "winner_accuracy": 0.8333333333333334,
+            "reproducibility": 0.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "geometry",
+            "n_tasks": 13,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9230769230769231,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "gpqa_science",
+            "n_tasks": 145,
+            "n_configurations": 30,
+            "winner": "independent_majority[1-3]",
+            "winner_accuracy": 0.8,
+            "reproducibility": 0.005,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "intermediate algebra",
+            "n_tasks": 27,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.8518518518518519,
+            "reproducibility": 0.9925,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "math",
+            "n_tasks": 30,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9666666666666667,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "number theory",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 1.0,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "physics",
+            "n_tasks": 30,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.8666666666666667,
+            "reproducibility": 0.8575,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "prealgebra",
+            "n_tasks": 19,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-2-3]",
+            "winner_accuracy": 0.9473684210526315,
+            "reproducibility": 0.0525,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "precalculus",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.8333333333333334,
+            "reproducibility": 0.995,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "theory_of_mind",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-3]",
+            "winner_accuracy": 0.7,
+            "reproducibility": 0.7225,
+            "chance": 0.03333333333333333
+          }
+        ]
+      },
+      "curve": {
+        "0.10": {
+          "n_splits": 40,
+          "calibration_fraction": 0.1,
+          "oracle_headroom": {
+            "mean": 9.720187066113777,
+            "sd": 1.6498357057643824,
+            "q05": 8.273365792293713,
+            "q95": 11.824457593688345,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 3.3396547165256933,
+            "sd": 5.0813295001691845,
+            "q05": -3.500986193293885,
+            "q95": 8.982248520710034,
+            "frac_positive": 0.775
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.877042274301511,
+              "sd": 3.586466443144456,
+              "q05": -9.902661945363338,
+              "q95": 3.2248520710059134,
+              "frac_positive": 0.4
+            },
+            "fixed_best_single_agent": {
+              "mean": -0.6896655484632468,
+              "sd": 3.338989809034157,
+              "q05": -9.902661945363338,
+              "q95": 2.366863905325433,
+              "frac_positive": 0.35
+            },
+            "oracle": {
+              "mean": 9.720187066113777,
+              "sd": 1.649835705764382,
+              "q05": 8.273365792293717,
+              "q95": 11.824457593688352,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -1.0150899221916787,
+              "sd": 1.7041417704649209,
+              "q05": -3.5996055226824457,
+              "q95": 0.7396449704141927,
+              "frac_positive": 0.15
+            },
+            "q_theta_shuffled": {
+              "mean": -1.582005466772275,
+              "sd": 1.731530259999701,
+              "q05": -4.201183431952663,
+              "q95": 1.0552268244575898,
+              "frac_positive": 0.1
+            },
+            "semantic_knn": {
+              "mean": -0.7145824597369116,
+              "sd": 1.7750901328276998,
+              "q05": -3.5798816568047336,
+              "q95": 2.0611439842209025,
+              "frac_positive": 0.2
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8311797240211838,
+              "sd": 0.017052174739787884,
+              "q05": 0.8107495069033531,
+              "q95": 0.8465401699047974,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8224093012781687,
+              "sd": 0.03055643462560112,
+              "q05": 0.7354309354082219,
+              "q95": 0.844378698224852,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8242830685365513,
+              "sd": 0.0270606711700828,
+              "q05": 0.7354309354082219,
+              "q95": 0.838280218670891,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9283815946823214,
+              "sd": 0.0033164660832535075,
+              "q05": 0.9229783037475345,
+              "q95": 0.9331628849648231,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8210288247992669,
+              "sd": 0.01252108436865656,
+              "q05": 0.7987179487179487,
+              "q95": 0.8382642998027613,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8153596693534609,
+              "sd": 0.0133221601604309,
+              "q05": 0.7944773175542406,
+              "q95": 0.8308892046778176,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8240338994238148,
+              "sd": 0.012580119618363195,
+              "q05": 0.8025641025641026,
+              "q95": 0.8442800788954635,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.20": {
+          "n_splits": 40,
+          "calibration_fraction": 0.2,
+          "oracle_headroom": {
+            "mean": 9.25571139386929,
+            "sd": 1.3208616965562516,
+            "q05": 7.901098901098907,
+            "q95": 12.361167341430496,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 1.8870969002547953,
+            "sd": 3.273652781988421,
+            "q05": -2.726648351648353,
+            "q95": 8.353071478071483,
+            "frac_positive": 0.725
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.13177173703489492,
+              "sd": 1.368822065842598,
+              "q05": -1.5384615384615385,
+              "q95": 1.8786630036629968,
+              "frac_positive": 0.35
+            },
+            "fixed_best_single_agent": {
+              "mean": -0.3293208983998458,
+              "sd": 1.2986677828288076,
+              "q05": -1.5384615384615385,
+              "q95": 1.8786630036629968,
+              "frac_positive": 0.2
+            },
+            "oracle": {
+              "mean": 9.255711393869287,
+              "sd": 1.3208616965562523,
+              "q05": 7.901098901098901,
+              "q95": 12.361167341430496,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -1.2842804125698861,
+              "sd": 1.5547538808747525,
+              "q05": -3.30730672835936,
+              "q95": 0.6579670329670328,
+              "frac_positive": 0.125
+            },
+            "q_theta_shuffled": {
+              "mean": -1.5753446115288219,
+              "sd": 1.5512458957812834,
+              "q05": -4.406087333718913,
+              "q95": 0.5164835164835121,
+              "frac_positive": 0.15
+            },
+            "semantic_knn": {
+              "mean": -0.5982745324850587,
+              "sd": 1.5313350161825372,
+              "q05": -2.675824175824175,
+              "q95": 1.1978021978021922,
+              "frac_positive": 0.225
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8355289666473876,
+              "sd": 0.01290403863592921,
+              "q05": 0.8026098901098901,
+              "q95": 0.8483516483516483,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8342112492770386,
+              "sd": 0.007547951205531759,
+              "q05": 0.8243223443223443,
+              "q95": 0.8461707152496626,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8322357576633893,
+              "sd": 0.006894368577407067,
+              "q05": 0.8196703296703296,
+              "q95": 0.8443910256410256,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9280860805860807,
+              "sd": 0.004536737650561526,
+              "q05": 0.9210439560439561,
+              "q95": 0.9365064102564102,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8226861625216888,
+              "sd": 0.013062372270400939,
+              "q05": 0.8026315789473685,
+              "q95": 0.8462803643724697,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8197755205320995,
+              "sd": 0.012526898104199801,
+              "q05": 0.7958104395604395,
+              "q95": 0.8354022074416811,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8295462213225371,
+              "sd": 0.011564655470802097,
+              "q05": 0.8107904376325429,
+              "q95": 0.8461538461538461,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.35": {
+          "n_splits": 40,
+          "calibration_fraction": 0.35,
+          "oracle_headroom": {
+            "mean": 8.9164572007416,
+            "sd": 1.0667210090803987,
+            "q05": 7.57353695158574,
+            "q95": 10.271661905808253,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 1.0515853447456922,
+            "sd": 2.9119528034219035,
+            "q05": -3.443752581241748,
+            "q95": 5.911319493094901,
+            "frac_positive": 0.575
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.5405781496439573,
+              "sd": 1.019738943030107,
+              "q05": -1.6218413535486707,
+              "q95": 1.3550135501355014,
+              "frac_positive": 0.225
+            },
+            "fixed_best_single_agent": {
+              "mean": -0.6623096372291034,
+              "sd": 0.8962604433116089,
+              "q05": -1.6218413535486707,
+              "q95": 1.0947777045338014,
+              "frac_positive": 0.2
+            },
+            "oracle": {
+              "mean": 8.9164572007416,
+              "sd": 1.0667210090803982,
+              "q05": 7.573536951585732,
+              "q95": 10.271661905808248,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -0.8649768037710974,
+              "sd": 1.0532158316290017,
+              "q05": -2.7162162162162162,
+              "q95": 0.8108108108108109,
+              "frac_positive": 0.175
+            },
+            "q_theta_shuffled": {
+              "mean": -1.561489896970799,
+              "sd": 1.2030501307168102,
+              "q05": -3.5135135135135136,
+              "q95": 0.0,
+              "frac_positive": 0.025
+            },
+            "semantic_knn": {
+              "mean": -1.1085309390647633,
+              "sd": 1.4399344696584586,
+              "q05": -3.2926829268292686,
+              "q95": 0.2844796015527715,
+              "frac_positive": 0.15
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8392490636715211,
+              "sd": 0.012395828549239459,
+              "q05": 0.8208921116238189,
+              "q95": 0.8541891891891892,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8338432821750814,
+              "sd": 0.010501696450010797,
+              "q05": 0.8214619497546327,
+              "q95": 0.8537940379403793,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.83262596729923,
+              "sd": 0.01016498569194149,
+              "q05": 0.8184281842818428,
+              "q95": 0.851466710613052,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9284136356789372,
+              "sd": 0.006102796416607932,
+              "q05": 0.918918918918919,
+              "q95": 0.9378378378378378,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8305992956338102,
+              "sd": 0.014162182882646862,
+              "q05": 0.802059620596206,
+              "q95": 0.8513513513513513,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8236341647018133,
+              "sd": 0.011569310731646108,
+              "q05": 0.8054054054054054,
+              "q95": 0.8405405405405405,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8281637542808735,
+              "sd": 0.01289383498531358,
+              "q05": 0.8059036934508632,
+              "q95": 0.843089430894309,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.50": {
+          "n_splits": 40,
+          "calibration_fraction": 0.5,
+          "oracle_headroom": {
+            "mean": 8.826910261833344,
+            "sd": 1.1800688002347408,
+            "q05": 6.69837657030042,
+            "q95": 10.602586271708892,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 0.8268177319084863,
+            "sd": 3.0388096194915915,
+            "q05": -3.758486336408043,
+            "q95": 5.471257932064206,
+            "frac_positive": 0.625
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.7008931712784284,
+              "sd": 1.1367475322132097,
+              "q05": -2.152583226066985,
+              "q95": 1.4134275618374559,
+              "frac_positive": 0.225
+            },
+            "fixed_best_single_agent": {
+              "mean": -0.8335899609934874,
+              "sd": 0.9887417441779657,
+              "q05": -2.152583226066985,
+              "q95": 0.7092198581560284,
+              "frac_positive": 0.2
+            },
+            "oracle": {
+              "mean": 8.826910261833344,
+              "sd": 1.1800688002347413,
+              "q05": 6.698376570300417,
+              "q95": 10.602586271708894,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -1.1169335415963784,
+              "sd": 0.9946204131901283,
+              "q05": -3.1920572423714697,
+              "q95": 0.3534195423902965,
+              "frac_positive": 0.075
+            },
+            "q_theta_shuffled": {
+              "mean": -1.3123167096579311,
+              "sd": 1.0935887118225047,
+              "q05": -3.180775881512668,
+              "q95": 0.017667844522967196,
+              "frac_positive": 0.05
+            },
+            "semantic_knn": {
+              "mean": -1.6478460043184797,
+              "sd": 1.1968835614746003,
+              "q05": -3.5348264024244562,
+              "q95": 0.0177304964538997,
+              "frac_positive": 0.05
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8400326619454311,
+              "sd": 0.016067076295355438,
+              "q05": 0.8156028368794326,
+              "q95": 0.8654487131293387,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.833023730232647,
+              "sd": 0.014273977256811829,
+              "q05": 0.811913264666817,
+              "q95": 0.8554525975490564,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8316967623354963,
+              "sd": 0.014626078111745133,
+              "q05": 0.8117021276595745,
+              "q95": 0.8554525975490564,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9283017645637646,
+              "sd": 0.010939813423998834,
+              "q05": 0.9147319750394707,
+              "q95": 0.943272435656467,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8288633265294674,
+              "sd": 0.014463703276263824,
+              "q05": 0.8048223191238754,
+              "q95": 0.851063829787234,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8269094948488519,
+              "sd": 0.01483672587483522,
+              "q05": 0.8048223191238754,
+              "q95": 0.8549645390070921,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8235542019022464,
+              "sd": 0.017326080271384416,
+              "q05": 0.798373555872992,
+              "q95": 0.8512668220434554,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.70": {
+          "n_splits": 40,
+          "calibration_fraction": 0.7,
+          "oracle_headroom": {
+            "mean": 8.504417514955739,
+            "sd": 1.582607846791223,
+            "q05": 5.880632954936361,
+            "q95": 10.703138516903696,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": -0.004184908980992064,
+            "sd": 2.94165770137622,
+            "q05": -4.422260087914251,
+            "q95": 4.1390011783500915,
+            "frac_positive": 0.45
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.8072775772823404,
+              "sd": 1.2282424894287813,
+              "q05": -2.3814929480564153,
+              "q95": 1.7543859649122806,
+              "frac_positive": 0.1
+            },
+            "fixed_best_single_agent": {
+              "mean": -0.8949968755279543,
+              "sd": 1.0700354468942326,
+              "q05": -2.3814929480564153,
+              "q95": 1.1695906432748537,
+              "frac_positive": 0.1
+            },
+            "oracle": {
+              "mean": 8.504417514955737,
+              "sd": 1.5826078467912232,
+              "q05": 5.88063295493636,
+              "q95": 10.703138516903698,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -1.217158440247271,
+              "sd": 1.584967724006377,
+              "q05": -3.5600417681865646,
+              "q95": 0.5882352941176471,
+              "frac_positive": 0.125
+            },
+            "q_theta_shuffled": {
+              "mean": -1.4236417706291484,
+              "sd": 1.2029279362016565,
+              "q05": -3.5098039215686274,
+              "q95": 0.5847953216374269,
+              "frac_positive": 0.1
+            },
+            "semantic_knn": {
+              "mean": -1.7312552032128121,
+              "sd": 1.511366576493716,
+              "q05": -4.735294117647059,
+              "q95": 0.0,
+              "frac_positive": 0.025
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8453142180779715,
+              "sd": 0.020716530054874237,
+              "q05": 0.8174079807361541,
+              "q95": 0.8774509803921569,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8372414423051477,
+              "sd": 0.02100288273795596,
+              "q05": 0.8055882352941177,
+              "q95": 0.8654970760233918,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8363642493226917,
+              "sd": 0.02135726764978586,
+              "q05": 0.8055882352941177,
+              "q95": 0.8654970760233918,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9303583932275288,
+              "sd": 0.01575109768029283,
+              "q05": 0.9,
+              "q95": 0.9476608187134502,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8331426336754987,
+              "sd": 0.022847942965838208,
+              "q05": 0.7952614379084967,
+              "q95": 0.865751633986928,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8310778003716799,
+              "sd": 0.02042360984188238,
+              "q05": 0.7986418215163155,
+              "q95": 0.8596491228070176,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8280016660458432,
+              "sd": 0.02005759057600511,
+              "q05": 0.7997660818713451,
+              "q95": 0.8591176470588234,
+              "frac_positive": 1.0
+            }
+          }
+        }
+      }
+    },
+    "correlated4": {
+      "n_episodes": 17715,
+      "n_tasks": 569,
+      "stability": {
+        "grouping": "domain",
+        "n_groups": 15,
+        "excluded_groups": {},
+        "min_tasks_per_group": 4,
+        "reproducibility": 0.622,
+        "null_reproducibility": 0.313296,
+        "reproducibility_p": 0.0,
+        "winners_are_reproducible": true,
+        "dominance": 0.4666666666666667,
+        "null_dominance": 0.31893333333333335,
+        "dominance_p": 0.094,
+        "dominant_configuration": "independent_majority[0-1-2-3]",
+        "reproducibility_dominant": 1.0,
+        "reproducibility_off_dominant": 0.29125,
+        "n_off_dominant": 8,
+        "variety_is_reproducible": false,
+        "n_permutations": 500,
+        "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (1.00) but the 8 that depart from it do not (0.29 against a 0.31 null and a 0.5 floor), so the variety is noise around a single best configuration",
+        "groups": [
+          {
+            "group": "algebra",
+            "n_tasks": 27,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9629629629629629,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "chemistry",
+            "n_tasks": 31,
+            "n_configurations": 30,
+            "winner": "independent_majority[2-3]",
+            "winner_accuracy": 0.9354838709677419,
+            "reproducibility": 0.02,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "code_reasoning",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[1-2-3]",
+            "winner_accuracy": 0.95,
+            "reproducibility": 0.385,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "competition_math",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-2-3]",
+            "winner_accuracy": 0.85,
+            "reproducibility": 0.3775,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "computer science",
+            "n_tasks": 31,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1]",
+            "winner_accuracy": 0.9032258064516129,
+            "reproducibility": 0.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "counting & probability",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 1.0,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "geometry",
+            "n_tasks": 13,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9230769230769231,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "gpqa_science",
+            "n_tasks": 145,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-2]",
+            "winner_accuracy": 0.8482758620689655,
+            "reproducibility": 0.435,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "intermediate algebra",
+            "n_tasks": 27,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-3]",
+            "winner_accuracy": 0.9629629629629629,
+            "reproducibility": 0.49,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "math",
+            "n_tasks": 30,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9666666666666667,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "number theory",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 1.0,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "physics",
+            "n_tasks": 30,
+            "n_configurations": 30,
+            "winner": "independent_majority[1-2]",
+            "winner_accuracy": 0.9333333333333333,
+            "reproducibility": 0.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "prealgebra",
+            "n_tasks": 19,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.9473684210526315,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "precalculus",
+            "n_tasks": 12,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1-2-3]",
+            "winner_accuracy": 0.8333333333333334,
+            "reproducibility": 1.0,
+            "chance": 0.03333333333333333
+          },
+          {
+            "group": "theory_of_mind",
+            "n_tasks": 60,
+            "n_configurations": 30,
+            "winner": "independent_majority[0-1]",
+            "winner_accuracy": 0.8166666666666667,
+            "reproducibility": 0.6225,
+            "chance": 0.03333333333333333
+          }
+        ]
+      },
+      "curve": {
+        "0.10": {
+          "n_splits": 40,
+          "calibration_fraction": 0.1,
+          "oracle_headroom": {
+            "mean": 6.871316306483299,
+            "sd": 1.9623620403899436,
+            "q05": 4.518664047151278,
+            "q95": 9.656188605108056,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 4.042075965946299,
+            "sd": 4.701075255997993,
+            "q05": -3.8015717092337975,
+            "q95": 11.709233791748517,
+            "frac_positive": 0.8
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -1.6208251473477406,
+              "sd": 2.1912298325993795,
+              "q05": -5.37328094302554,
+              "q95": 0.20628683693516642,
+              "frac_positive": 0.125
+            },
+            "fixed_best_single_agent": {
+              "mean": -3.5559921414538307,
+              "sd": 2.2417085941812886,
+              "q05": -6.493123772102161,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 6.871316306483299,
+              "sd": 1.9623620403899422,
+              "q05": 4.518664047151278,
+              "q95": 9.656188605108055,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.2406679764243615,
+              "sd": 1.9354476178571118,
+              "q05": -2.3673870333988214,
+              "q95": 3.0058939096267157,
+              "frac_positive": 0.475
+            },
+            "q_theta_shuffled": {
+              "mean": -1.2917485265225932,
+              "sd": 2.167679042496615,
+              "q05": -3.948919449901768,
+              "q95": 1.7976424361493106,
+              "frac_positive": 0.375
+            },
+            "semantic_knn": {
+              "mean": -0.13261296660117877,
+              "sd": 1.8634926071061388,
+              "q05": -2.956777996070727,
+              "q95": 3.153241650294695,
+              "frac_positive": 0.375
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8604125736738704,
+              "sd": 0.02050875371484815,
+              "q05": 0.831041257367387,
+              "q95": 0.888015717092338,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.844204322200393,
+              "sd": 0.024079054223588244,
+              "q05": 0.8172888015717092,
+              "q95": 0.888015717092338,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.824852652259332,
+              "sd": 0.008610330319550174,
+              "q05": 0.8113948919449901,
+              "q95": 0.8371316306483301,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9291257367387032,
+              "sd": 0.004206329671012388,
+              "q05": 0.9232809430255403,
+              "q95": 0.9352652259332024,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8628192534381138,
+              "sd": 0.009857252890652039,
+              "q05": 0.8486247544204322,
+              "q95": 0.8781925343811395,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8474950884086445,
+              "sd": 0.01139235118344126,
+              "q05": 0.8270137524557957,
+              "q95": 0.862770137524558,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8590864440078585,
+              "sd": 0.009225561902351203,
+              "q05": 0.8466601178781925,
+              "q95": 0.8744597249508841,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.20": {
+          "n_splits": 40,
+          "calibration_fraction": 0.2,
+          "oracle_headroom": {
+            "mean": 5.514223194748358,
+            "sd": 1.9077431318835472,
+            "q05": 3.708971553610503,
+            "q95": 9.846827133479207,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": 1.4705767427321035,
+            "sd": 4.066358289892741,
+            "q05": -4.51205454829634,
+            "q95": 8.883635511097221,
+            "frac_positive": 0.55
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -1.5043763676148796,
+              "sd": 2.6942164433200664,
+              "q05": -5.700218818380744,
+              "q95": 0.3719912472647615,
+              "frac_positive": 0.175
+            },
+            "fixed_best_single_agent": {
+              "mean": -4.529540481400438,
+              "sd": 2.0068499317763138,
+              "q05": -6.783369803063458,
+              "q95": -0.20787746170678398,
+              "frac_positive": 0.025
+            },
+            "oracle": {
+              "mean": 5.514223194748359,
+              "sd": 1.9077431318835474,
+              "q05": 3.7089715536105037,
+              "q95": 9.846827133479213,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -0.612691466083151,
+              "sd": 1.7288107965797164,
+              "q05": -2.439824945295405,
+              "q95": 3.5120350109409184,
+              "frac_positive": 0.2
+            },
+            "q_theta_shuffled": {
+              "mean": -1.7943107221006565,
+              "sd": 2.1938992853672423,
+              "q05": -3.949671772428884,
+              "q95": 3.085339168490152,
+              "frac_positive": 0.175
+            },
+            "semantic_knn": {
+              "mean": -1.2691466083150984,
+              "sd": 1.6263524438578685,
+              "q05": -3.074398249452954,
+              "q95": 2.417943107221006,
+              "frac_positive": 0.15
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8736870897155361,
+              "sd": 0.018247120383758284,
+              "q05": 0.8334792122538293,
+              "q95": 0.8928884026258205,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8586433260393871,
+              "sd": 0.026243239483622487,
+              "q05": 0.824835886214442,
+              "q95": 0.8907002188183807,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8283916849015316,
+              "sd": 0.010178055699717234,
+              "q05": 0.8074398249452954,
+              "q95": 0.8425601750547046,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9288293216630198,
+              "sd": 0.006345587934889406,
+              "q05": 0.9189277899343545,
+              "q95": 0.9387308533916849,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8675601750547045,
+              "sd": 0.01062770544912505,
+              "q05": 0.849015317286652,
+              "q95": 0.8819474835886214,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8557439824945294,
+              "sd": 0.012801342825626926,
+              "q05": 0.8400437636761487,
+              "q95": 0.8733041575492342,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.860995623632385,
+              "sd": 0.009747987482829228,
+              "q05": 0.8467177242888403,
+              "q95": 0.8775711159737417,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.35": {
+          "n_splits": 40,
+          "calibration_fraction": 0.35,
+          "oracle_headroom": {
+            "mean": 4.6091644204851745,
+            "sd": 0.8541125994977339,
+            "q05": 3.7466307277628026,
+            "q95": 5.943396226415096,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": -0.0022461814914659594,
+            "sd": 3.375393578727609,
+            "q05": -5.448011108388462,
+            "q95": 6.209602766206529,
+            "frac_positive": 0.4
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -1.4016172506738545,
+              "sd": 2.5396999266108624,
+              "q05": -6.46900269541779,
+              "q95": 0.2695417789757413,
+              "frac_positive": 0.3
+            },
+            "fixed_best_single_agent": {
+              "mean": -5.6873315363881405,
+              "sd": 0.9913937582971803,
+              "q05": -7.035040431266847,
+              "q95": -4.299191374663074,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 4.609164420485175,
+              "sd": 0.8541125994977344,
+              "q05": 3.7466307277628035,
+              "q95": 5.943396226415094,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -1.0309973045822105,
+              "sd": 0.9877935127322064,
+              "q05": -2.196765498652291,
+              "q95": 0.2830188679245276,
+              "frac_positive": 0.1
+            },
+            "q_theta_shuffled": {
+              "mean": -2.257412398921833,
+              "sd": 0.9410483901335993,
+              "q05": -4.0431266846361185,
+              "q95": -1.078167115902965,
+              "frac_positive": 0.0
+            },
+            "semantic_knn": {
+              "mean": -2.1361185983827498,
+              "sd": 1.0329654931076537,
+              "q05": -3.8005390835579513,
+              "q95": -0.7816711590296511,
+              "frac_positive": 0.025
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8833557951482479,
+              "sd": 0.012344224232565232,
+              "q05": 0.8598382749326146,
+              "q95": 0.9029649595687331,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8693396226415094,
+              "sd": 0.02388331502668906,
+              "q05": 0.8273584905660377,
+              "q95": 0.8977088948787062,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8264824797843666,
+              "sd": 0.013562346951461916,
+              "q05": 0.808355795148248,
+              "q95": 0.8518867924528302,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9294474393530997,
+              "sd": 0.008586535418080566,
+              "q05": 0.9161725067385444,
+              "q95": 0.9408355795148248,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8730458221024259,
+              "sd": 0.01076091720107752,
+              "q05": 0.8544474393530997,
+              "q95": 0.8869272237196766,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8607816711590296,
+              "sd": 0.014656398777108953,
+              "q05": 0.8300539083557952,
+              "q95": 0.8788409703504043,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8619946091644206,
+              "sd": 0.014001810852991431,
+              "q05": 0.8408355795148248,
+              "q95": 0.8845013477088949,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.50": {
+          "n_splits": 40,
+          "calibration_fraction": 0.5,
+          "oracle_headroom": {
+            "mean": 4.5494699646643095,
+            "sd": 0.8808970832813501,
+            "q05": 3.180212014134276,
+            "q95": 5.6713780918727865,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": -0.053435963329955795,
+            "sd": 3.069502423835314,
+            "q05": -4.833885196076014,
+            "q95": 4.410660011366722,
+            "frac_positive": 0.475
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": -0.27385159010600707,
+              "sd": 1.7134049162106328,
+              "q05": -0.35335689045936275,
+              "q95": 0.35335689045936397,
+              "frac_positive": 0.3
+            },
+            "fixed_best_single_agent": {
+              "mean": -5.848056537102473,
+              "sd": 1.2421090444277547,
+              "q05": -7.791519434628976,
+              "q95": -4.2226148409894,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 4.54946996466431,
+              "sd": 0.8808970832813503,
+              "q05": 3.180212014134275,
+              "q95": 5.671378091872791,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -1.0424028268551235,
+              "sd": 0.8275355377962006,
+              "q05": -2.15547703180212,
+              "q95": 0.017667844522967196,
+              "frac_positive": 0.05
+            },
+            "q_theta_shuffled": {
+              "mean": -1.9876325088339222,
+              "sd": 1.1250863700564138,
+              "q05": -4.257950530035336,
+              "q95": -0.6890459363957607,
+              "frac_positive": 0.0
+            },
+            "semantic_knn": {
+              "mean": -2.3233215547703177,
+              "sd": 0.9990837721767073,
+              "q05": -3.8869257950530036,
+              "q95": -0.7067137809187279,
+              "frac_positive": 0.0
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8842756183745581,
+              "sd": 0.015428430460753956,
+              "q05": 0.8618374558303887,
+              "q95": 0.9083038869257951,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8815371024734983,
+              "sd": 0.019403510302691107,
+              "q05": 0.8471731448763251,
+              "q95": 0.9083038869257951,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8257950530035337,
+              "sd": 0.016731556158219224,
+              "q05": 0.8015901060070671,
+              "q95": 0.8482332155477031,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9297703180212015,
+              "sd": 0.011900810744740628,
+              "q05": 0.9144876325088339,
+              "q95": 0.950530035335689,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8738515901060069,
+              "sd": 0.014802540616033037,
+              "q05": 0.8515901060070671,
+              "q95": 0.8941696113074206,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8643992932862192,
+              "sd": 0.01595758730216512,
+              "q05": 0.8409893992932862,
+              "q95": 0.8939929328621908,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8610424028268551,
+              "sd": 0.014456495244416778,
+              "q05": 0.8408127208480565,
+              "q95": 0.8768551236749116,
+              "frac_positive": 1.0
+            }
+          }
+        },
+        "0.70": {
+          "n_splits": 40,
+          "calibration_fraction": 0.7,
+          "oracle_headroom": {
+            "mean": 4.078947368421052,
+            "sd": 1.3856988406166846,
+            "q05": 2.3391812865497075,
+            "q95": 6.432748538011701,
+            "frac_positive": 1.0
+          },
+          "selection_gap": {
+            "mean": -0.8442431455523206,
+            "sd": 3.229076305429277,
+            "q05": -5.75604631343853,
+            "q95": 5.196229686443913,
+            "frac_positive": 0.45
+          },
+          "gain_over_fixed_best": {
+            "fixed_best": {
+              "mean": 0.0,
+              "sd": 0.0,
+              "q05": 0.0,
+              "q95": 0.0,
+              "frac_positive": 0.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.16081871345029236,
+              "sd": 0.26444595717912434,
+              "q05": 0.0,
+              "q95": 0.5847953216374269,
+              "frac_positive": 0.275
+            },
+            "fixed_best_single_agent": {
+              "mean": -5.570175438596491,
+              "sd": 1.6802838841657595,
+              "q05": -8.216374269005847,
+              "q95": -3.508771929824561,
+              "frac_positive": 0.0
+            },
+            "oracle": {
+              "mean": 4.078947368421052,
+              "sd": 1.3856988406166844,
+              "q05": 2.3391812865497075,
+              "q95": 6.432748538011696,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": -0.6725146198830408,
+              "sd": 0.6823683055415659,
+              "q05": -1.7543859649122806,
+              "q95": 0.5847953216374269,
+              "frac_positive": 0.075
+            },
+            "q_theta_shuffled": {
+              "mean": -1.6228070175438596,
+              "sd": 1.3471952153295097,
+              "q05": -4.12280701754386,
+              "q95": 0.5847953216374269,
+              "frac_positive": 0.075
+            },
+            "semantic_knn": {
+              "mean": -2.3099415204678366,
+              "sd": 1.5038248503536562,
+              "q05": -4.678362573099415,
+              "q95": 0.5847953216374269,
+              "frac_positive": 0.1
+            }
+          },
+          "accuracy": {
+            "fixed_best": {
+              "mean": 0.8899122807017543,
+              "sd": 0.022586509131122177,
+              "q05": 0.8476608187134503,
+              "q95": 0.9242690058479531,
+              "frac_positive": 1.0
+            },
+            "fixed_best_1se": {
+              "mean": 0.8915204678362573,
+              "sd": 0.022511163035258384,
+              "q05": 0.847953216374269,
+              "q95": 0.9242690058479531,
+              "frac_positive": 1.0
+            },
+            "fixed_best_single_agent": {
+              "mean": 0.8342105263157894,
+              "sd": 0.02385763503681658,
+              "q05": 0.8005847953216374,
+              "q95": 0.8657894736842104,
+              "frac_positive": 1.0
+            },
+            "oracle": {
+              "mean": 0.9307017543859649,
+              "sd": 0.01703927752425953,
+              "q05": 0.906140350877193,
+              "q95": 0.9593567251461987,
+              "frac_positive": 1.0
+            },
+            "q_theta": {
+              "mean": 0.8831871345029239,
+              "sd": 0.022687225531262865,
+              "q05": 0.841812865497076,
+              "q95": 0.9128654970760233,
+              "frac_positive": 1.0
+            },
+            "q_theta_shuffled": {
+              "mean": 0.8736842105263157,
+              "sd": 0.022230901699338525,
+              "q05": 0.8415204678362572,
+              "q95": 0.9067251461988304,
+              "frac_positive": 1.0
+            },
+            "semantic_knn": {
+              "mean": 0.8668128654970761,
+              "sd": 0.021496442449078328,
+              "q05": 0.8304093567251462,
+              "q95": 0.8950292397660818,
+              "frac_positive": 1.0
+            }
+          }
+        }
+      }
+    }
+  }
+}

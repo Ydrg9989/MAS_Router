@@ -1,0 +1,293 @@
+{
+  "accuracy_by_capability": {
+    "n_tasks": 238,
+    "capabilities": [
+      "code_reasoning",
+      "competition_math",
+      "gpqa_science",
+      "theory_of_mind"
+    ],
+    "all_tasks": {
+      "deepseek32": {
+        "code_reasoning": 0.85,
+        "competition_math": 0.6896551724137931,
+        "gpqa_science": 0.8,
+        "theory_of_mind": 0.8
+      },
+      "gpt5mini": {
+        "code_reasoning": 0.9333333333333333,
+        "competition_math": 0.8275862068965517,
+        "gpqa_science": 0.8,
+        "theory_of_mind": 0.23333333333333334
+      },
+      "gptoss120b": {
+        "code_reasoning": 0.6,
+        "competition_math": 0.7758620689655172,
+        "gpqa_science": 0.6666666666666666,
+        "theory_of_mind": 0.38333333333333336
+      },
+      "grok43": {
+        "code_reasoning": 0.9666666666666667,
+        "competition_math": 0.7931034482758621,
+        "gpqa_science": 0.8166666666666667,
+        "theory_of_mind": 0.13333333333333333
+      },
+      "llama4scout": {
+        "code_reasoning": 0.65,
+        "competition_math": 0.1724137931034483,
+        "gpqa_science": 0.5333333333333333,
+        "theory_of_mind": 0.5833333333333334
+      },
+      "mistral-small": {
+        "code_reasoning": 0.7833333333333333,
+        "competition_math": 0.3103448275862069,
+        "gpqa_science": 0.48333333333333334,
+        "theory_of_mind": 0.23333333333333334
+      },
+      "qwen3-30b": {
+        "code_reasoning": 0.7833333333333333,
+        "competition_math": 0.7068965517241379,
+        "gpqa_science": 0.6833333333333333,
+        "theory_of_mind": 0.6
+      },
+      "ring26": {
+        "code_reasoning": 0.8833333333333333,
+        "competition_math": 0.8620689655172413,
+        "gpqa_science": 0.7666666666666667,
+        "theory_of_mind": 0.7
+      }
+    },
+    "calibration_tasks": {
+      "deepseek32": {
+        "code_reasoning": 0.8,
+        "competition_math": 0.6842105263157895,
+        "gpqa_science": 0.85,
+        "theory_of_mind": 0.75
+      },
+      "gpt5mini": {
+        "code_reasoning": 0.9,
+        "competition_math": 0.7894736842105263,
+        "gpqa_science": 0.8,
+        "theory_of_mind": 0.2
+      },
+      "gptoss120b": {
+        "code_reasoning": 0.6,
+        "competition_math": 0.7894736842105263,
+        "gpqa_science": 0.75,
+        "theory_of_mind": 0.3
+      },
+      "grok43": {
+        "code_reasoning": 0.95,
+        "competition_math": 0.8947368421052632,
+        "gpqa_science": 0.8,
+        "theory_of_mind": 0.15
+      },
+      "llama4scout": {
+        "code_reasoning": 0.55,
+        "competition_math": 0.21052631578947367,
+        "gpqa_science": 0.4,
+        "theory_of_mind": 0.7
+      },
+      "mistral-small": {
+        "code_reasoning": 0.75,
+        "competition_math": 0.3157894736842105,
+        "gpqa_science": 0.5,
+        "theory_of_mind": 0.2
+      },
+      "qwen3-30b": {
+        "code_reasoning": 0.65,
+        "competition_math": 0.7368421052631579,
+        "gpqa_science": 0.7,
+        "theory_of_mind": 0.45
+      },
+      "ring26": {
+        "code_reasoning": 0.8,
+        "competition_math": 0.8421052631578947,
+        "gpqa_science": 0.75,
+        "theory_of_mind": 0.5
+      }
+    },
+    "peak_capability": {
+      "deepseek32": "code_reasoning",
+      "gpt5mini": "code_reasoning",
+      "gptoss120b": "competition_math",
+      "grok43": "code_reasoning",
+      "llama4scout": "code_reasoning",
+      "mistral-small": "code_reasoning",
+      "qwen3-30b": "code_reasoning",
+      "ring26": "code_reasoning"
+    },
+    "spread": {
+      "deepseek32": 0.16034482758620683,
+      "gpt5mini": 0.7,
+      "gptoss120b": 0.3925287356321839,
+      "grok43": 0.8333333333333334,
+      "llama4scout": 0.47758620689655173,
+      "mistral-small": 0.55,
+      "qwen3-30b": 0.18333333333333335,
+      "ring26": 0.18333333333333335
+    }
+  },
+  "strong4": {
+    "n_test_tasks": 159,
+    "n_organizations": 4,
+    "observed_headroom": 14.465408805031444,
+    "null_headroom_mean": 13.773584905660377,
+    "null_headroom_q95": 19.591194968553488,
+    "excess_over_null": 0.6918238993710677,
+    "p_value": 0.36333333333333334,
+    "observed_headroom_over_best": 14.465408805031444,
+    "null_headroom_over_best_mean": 13.13626834381551,
+    "excess_over_null_over_best": 1.3291404612159337,
+    "p_value_over_best": 0.33,
+    "n_simulations": 300,
+    "members": [
+      "deepseek32",
+      "gpt5mini",
+      "grok43",
+      "llama4scout"
+    ],
+    "best_single_agent": 0.7924528301886793,
+    "oracle_any_agent": 0.9371069182389937
+  },
+  "decorrelated4": {
+    "n_test_tasks": 159,
+    "n_organizations": 4,
+    "observed_headroom": 8.805031446540879,
+    "null_headroom_mean": 8.949685534591193,
+    "null_headroom_q95": 12.578616352201255,
+    "excess_over_null": -0.14465408805031466,
+    "p_value": 0.5866666666666667,
+    "observed_headroom_over_best": 8.805031446540879,
+    "null_headroom_over_best_mean": 8.949685534591193,
+    "excess_over_null_over_best": -0.14465408805031466,
+    "p_value_over_best": 0.5866666666666667,
+    "n_simulations": 300,
+    "members": [
+      "gptoss120b",
+      "llama4scout",
+      "mistral-small",
+      "ring26"
+    ],
+    "best_single_agent": 0.8427672955974843,
+    "oracle_any_agent": 0.9308176100628931
+  },
+  "correlated4": {
+    "n_test_tasks": 159,
+    "n_organizations": 4,
+    "observed_headroom": 15.723270440251568,
+    "null_headroom_mean": 13.651991614255762,
+    "null_headroom_q95": 18.899371069182404,
+    "excess_over_null": 2.0712788259958064,
+    "p_value": 0.24,
+    "observed_headroom_over_best": 15.723270440251568,
+    "null_headroom_over_best_mean": 13.287211740041926,
+    "excess_over_null_over_best": 2.4360587002096423,
+    "p_value_over_best": 0.20333333333333334,
+    "n_simulations": 300,
+    "members": [
+      "deepseek32",
+      "gpt5mini",
+      "gptoss120b",
+      "qwen3-30b"
+    ],
+    "best_single_agent": 0.7924528301886793,
+    "oracle_any_agent": 0.949685534591195
+  },
+  "disjoint4 (best per capability)": {
+    "n_test_tasks": 159,
+    "n_organizations": 4,
+    "observed_headroom": 14.465408805031444,
+    "null_headroom_mean": 13.22431865828092,
+    "null_headroom_q95": 17.610062893081757,
+    "excess_over_null": 1.2410901467505244,
+    "p_value": 0.3433333333333333,
+    "observed_headroom_over_best": 9.433962264150942,
+    "null_headroom_over_best_mean": 11.591194968553456,
+    "excess_over_null_over_best": -2.1572327044025137,
+    "p_value_over_best": 0.8833333333333333,
+    "n_simulations": 300,
+    "members": [
+      "grok43",
+      "ring26",
+      "deepseek32",
+      "llama4scout"
+    ],
+    "best_single_agent": 0.8427672955974843,
+    "oracle_any_agent": 0.9371069182389937
+  },
+  "generalist4 (best overall)": {
+    "n_test_tasks": 159,
+    "n_organizations": 4,
+    "observed_headroom": 16.35220125786163,
+    "null_headroom_mean": 13.712788259958067,
+    "null_headroom_q95": 18.23899371069182,
+    "excess_over_null": 2.6394129979035625,
+    "p_value": 0.18333333333333332,
+    "observed_headroom_over_best": 11.32075471698113,
+    "null_headroom_over_best_mean": 12.150943396226412,
+    "excess_over_null_over_best": -0.830188679245282,
+    "p_value_over_best": 0.7233333333333334,
+    "n_simulations": 300,
+    "members": [
+      "deepseek32",
+      "ring26",
+      "grok43",
+      "gpt5mini"
+    ],
+    "best_single_agent": 0.8427672955974843,
+    "oracle_any_agent": 0.9559748427672956
+  },
+  "all8": {
+    "n_test_tasks": 159,
+    "n_organizations": 8,
+    "observed_headroom": 18.867924528301884,
+    "null_headroom_mean": 16.259958071278824,
+    "null_headroom_q95": 21.383647798742132,
+    "excess_over_null": 2.6079664570230605,
+    "p_value": 0.2,
+    "observed_headroom_over_best": 13.83647798742138,
+    "null_headroom_over_best_mean": 14.63941299790356,
+    "excess_over_null_over_best": -0.8029350104821802,
+    "p_value_over_best": 0.69,
+    "n_simulations": 300,
+    "members": [
+      "deepseek32",
+      "gpt5mini",
+      "gptoss120b",
+      "grok43",
+      "llama4scout",
+      "mistral-small",
+      "qwen3-30b",
+      "ring26"
+    ],
+    "best_single_agent": 0.8427672955974843,
+    "oracle_any_agent": 0.9811320754716981
+  },
+  "aggregation_versus_routing": {
+    "strong4": {
+      "n_test": 159,
+      "best_single_agent": 0.7924528301886793,
+      "domain_router_over_agents": 0.8301886792452831,
+      "whole_pool_majority_vote": 0.8364779874213837,
+      "oracle_over_agents": 0.9371069182389937,
+      "best_single_agent_name": "deepseek32"
+    },
+    "decorrelated4": {
+      "n_test": 159,
+      "best_single_agent": 0.8427672955974843,
+      "domain_router_over_agents": 0.7358490566037735,
+      "whole_pool_majority_vote": 0.8113207547169812,
+      "oracle_over_agents": 0.9308176100628931,
+      "best_single_agent_name": "ring26"
+    },
+    "correlated4": {
+      "n_test": 159,
+      "best_single_agent": 0.8050314465408805,
+      "domain_router_over_agents": 0.8805031446540881,
+      "whole_pool_majority_vote": 0.8553459119496856,
+      "oracle_over_agents": 0.9433962264150944,
+      "best_single_agent_name": "deepseek32"
+    }
+  }
+}

@@ -1,0 +1,4674 @@
+{
+  "runs": [
+    "screen-a",
+    "screen-strong",
+    "hard366-a"
+  ],
+  "n_tasks": 120,
+  "agents": {
+    "deepseek32": "deepseek",
+    "gpt5mini": "openai",
+    "gptoss120b": "openai-oss",
+    "grok43": "xai",
+    "llama4scout": "meta",
+    "mistral-small": "mistral",
+    "novalite": "amazon",
+    "qwen3-30b": "qwen",
+    "ring26": "inclusionai"
+  },
+  "commit_rates": {
+    "novalite": 1.0,
+    "gptoss120b": 0.9916666666666667,
+    "llama4scout": 1.0,
+    "gemini25flash-hi": 0.65,
+    "deepseek32": 1.0,
+    "glm45air": 0.6016949152542372,
+    "grok43": 1.0,
+    "ring26": 0.9666666666666667,
+    "minimax-m27": 0.7916666666666666,
+    "kimi-k2-thinking": 0.925,
+    "nemotron3ultra": 0.85,
+    "glm52": 0.8083333333333333,
+    "gpt5mini": 1.0,
+    "gemini25flash": 0.7568306010928961,
+    "qwen3-30b": 0.9836065573770492,
+    "mistral-small": 0.9918032786885246
+  },
+  "excluded_unreliable": {
+    "gemini25flash-hi": 0.65,
+    "glm45air": 0.6016949152542372,
+    "minimax-m27": 0.7916666666666666,
+    "kimi-k2-thinking": 0.925,
+    "nemotron3ultra": 0.85,
+    "glm52": 0.8083333333333333,
+    "gemini25flash": 0.7568306010928961
+  },
+  "min_commit_rate": 0.95,
+  "decision": {
+    "criteria": {
+      "gate_pp": 8.0,
+      "max_dominance_pp": 5.0,
+      "min_best_accuracy": 0.55
+    },
+    "n_scored": 126,
+    "n_admissible": 32,
+    "failed_headroom": 86,
+    "failed_dominance": 31,
+    "failed_too_weak": 0,
+    "recommended": {
+      "names": [
+        "llama4scout",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.6,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.95,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 12.5,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.2788685225927308,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "meta",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    "admissible": [
+      {
+        "names": [
+          "llama4scout",
+          "novalite",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.6,
+          0.5083,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.95,
+        "best": 0.825,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 12.5,
+        "dominance_gap_pp": 4.999999999999993,
+        "competence_spread_pp": 31.666666666666664,
+        "mean_error_correlation": 0.2788685225927308,
+        "max_error_correlation": 0.48996600411694924,
+        "families": [
+          "meta",
+          "amazon",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "llama4scout",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8083,
+          0.6,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.825,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 11.66666666666667,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 31.666666666666664,
+        "mean_error_correlation": 0.30697350546831675,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "openai-oss",
+          "meta",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "novalite",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8083,
+          0.5083,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.825,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 11.66666666666667,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 31.666666666666664,
+        "mean_error_correlation": 0.3589168839042142,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "openai-oss",
+          "amazon",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "mistral-small",
+          "novalite",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.5833,
+          0.5083,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.825,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 11.66666666666667,
+        "dominance_gap_pp": 4.999999999999993,
+        "competence_spread_pp": 31.666666666666664,
+        "mean_error_correlation": 0.29898410700204975,
+        "max_error_correlation": 0.47562178022981744,
+        "families": [
+          "mistral",
+          "amazon",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "llama4scout",
+          "mistral-small",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8083,
+          0.6,
+          0.5833,
+          0.825
+        ],
+        "ceiling": 0.9333333333333333,
+        "best": 0.825,
+        "worst": 0.5833333333333334,
+        "headroom_pp": 10.83333333333334,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 24.166666666666657,
+        "mean_error_correlation": 0.36688394543021324,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "openai-oss",
+          "meta",
+          "mistral",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "llama4scout",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8083,
+          0.6,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9333333333333333,
+        "best": 0.825,
+        "worst": 0.6,
+        "headroom_pp": 10.83333333333334,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 22.499999999999996,
+        "mean_error_correlation": 0.39191387884084133,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "openai-oss",
+          "meta",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "mistral-small",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8083,
+          0.5833,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.9333333333333333,
+        "best": 0.825,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 10.83333333333334,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 31.666666666666664,
+        "mean_error_correlation": 0.33631501864752544,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "openai-oss",
+          "mistral",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "llama4scout",
+          "mistral-small",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.6,
+          0.5833,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9333333333333333,
+        "best": 0.825,
+        "worst": 0.5833333333333334,
+        "headroom_pp": 10.83333333333334,
+        "dominance_gap_pp": 4.999999999999993,
+        "competence_spread_pp": 24.166666666666657,
+        "mean_error_correlation": 0.3523308927607182,
+        "max_error_correlation": 0.4830458915396474,
+        "families": [
+          "meta",
+          "mistral",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "llama4scout",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.6,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.8416666666666667,
+        "worst": 0.6,
+        "headroom_pp": 9.999999999999998,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 24.16666666666667,
+        "mean_error_correlation": 0.3991773583306328,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "meta",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "novalite",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.5083,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 9.999999999999998,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.34562060630651215,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "amazon",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "llama4scout",
+          "novalite",
+          "qwen3-30b"
+        ],
+        "accuracies": [
+          0.8083,
+          0.6,
+          0.5083,
+          0.775
+        ],
+        "ceiling": 0.9083333333333333,
+        "best": 0.8083333333333333,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 9.999999999999998,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 30.000000000000004,
+        "mean_error_correlation": 0.3363763357390838,
+        "max_error_correlation": 0.5995277004652346,
+        "families": [
+          "openai-oss",
+          "meta",
+          "amazon",
+          "qwen"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "mistral-small",
+          "novalite",
+          "qwen3-30b"
+        ],
+        "accuracies": [
+          0.8083,
+          0.5833,
+          0.5083,
+          0.775
+        ],
+        "ceiling": 0.9083333333333333,
+        "best": 0.8083333333333333,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 9.999999999999998,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 30.000000000000004,
+        "mean_error_correlation": 0.3698380982622074,
+        "max_error_correlation": 0.5995277004652346,
+        "families": [
+          "openai-oss",
+          "mistral",
+          "amazon",
+          "qwen"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "llama4scout",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.6,
+          0.825
+        ],
+        "ceiling": 0.9333333333333333,
+        "best": 0.8416666666666667,
+        "worst": 0.6,
+        "headroom_pp": 9.166666666666668,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 24.16666666666667,
+        "mean_error_correlation": 0.4371208737216881,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "meta",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gpt5mini",
+          "llama4scout",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8583,
+          0.6,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.95,
+        "best": 0.8583333333333333,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 9.166666666666668,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 35.0,
+        "mean_error_correlation": 0.2941370199698851,
+        "max_error_correlation": 0.5676205875802839,
+        "families": [
+          "openai",
+          "meta",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gptoss120b",
+          "llama4scout",
+          "mistral-small",
+          "qwen3-30b"
+        ],
+        "accuracies": [
+          0.8083,
+          0.6,
+          0.5833,
+          0.775
+        ],
+        "ceiling": 0.9,
+        "best": 0.8083333333333333,
+        "worst": 0.5833333333333334,
+        "headroom_pp": 9.166666666666668,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 22.499999999999996,
+        "mean_error_correlation": 0.4173410585047103,
+        "max_error_correlation": 0.5995277004652346,
+        "families": [
+          "openai-oss",
+          "meta",
+          "mistral",
+          "qwen"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gpt5mini",
+          "grok43",
+          "llama4scout"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8583,
+          0.875,
+          0.6
+        ],
+        "ceiling": 0.9583333333333334,
+        "best": 0.875,
+        "worst": 0.6,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 27.500000000000004,
+        "mean_error_correlation": 0.4148359697708857,
+        "max_error_correlation": 0.5953366006980607,
+        "families": [
+          "deepseek",
+          "openai",
+          "xai",
+          "meta"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gpt5mini",
+          "llama4scout",
+          "novalite"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8583,
+          0.6,
+          0.5083
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.8583333333333333,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 35.0,
+        "mean_error_correlation": 0.33668417985095583,
+        "max_error_correlation": 0.5438944132882012,
+        "families": [
+          "deepseek",
+          "openai",
+          "meta",
+          "amazon"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gpt5mini",
+          "llama4scout",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8583,
+          0.6,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.8583333333333333,
+        "worst": 0.6,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 25.83333333333333,
+        "mean_error_correlation": 0.4268788945961292,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "openai",
+          "meta",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gpt5mini",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8583,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.8583333333333333,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666607,
+        "competence_spread_pp": 35.0,
+        "mean_error_correlation": 0.36819755018673633,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "openai",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "llama4scout",
+          "mistral-small"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.6,
+          0.5833
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5833333333333334,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 25.83333333333333,
+        "mean_error_correlation": 0.402450610699288,
+        "max_error_correlation": 0.6007362734135056,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "meta",
+          "mistral"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "llama4scout",
+          "novalite"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.6,
+          0.5083
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.3423916712981005,
+        "max_error_correlation": 0.6007362734135056,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "meta",
+          "amazon"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "llama4scout",
+          "qwen3-30b"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.6,
+          0.775
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.6,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 24.16666666666667,
+        "mean_error_correlation": 0.43636298869892975,
+        "max_error_correlation": 0.6007362734135056,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "meta",
+          "qwen"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "mistral-small",
+          "novalite"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.5833,
+          0.5083
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.3571657523452723,
+        "max_error_correlation": 0.6007362734135056,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "mistral",
+          "amazon"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "novalite",
+          "qwen3-30b"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.5083,
+          0.775
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.3886500621909747,
+        "max_error_correlation": 0.6007362734135056,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "amazon",
+          "qwen"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "gptoss120b",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.8083,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.40634198067354815,
+        "max_error_correlation": 0.6672364120133099,
+        "families": [
+          "deepseek",
+          "openai-oss",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "grok43",
+          "llama4scout",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.875,
+          0.6,
+          0.825
+        ],
+        "ceiling": 0.9583333333333334,
+        "best": 0.875,
+        "worst": 0.6,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 27.500000000000004,
+        "mean_error_correlation": 0.4172967935331973,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "xai",
+          "meta",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "llama4scout",
+          "mistral-small",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.6,
+          0.5833,
+          0.825
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5833333333333334,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 25.83333333333333,
+        "mean_error_correlation": 0.3804466797638102,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "meta",
+          "mistral",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "llama4scout",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.6,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.32789009296026184,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "meta",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "deepseek32",
+          "mistral-small",
+          "novalite",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8417,
+          0.5833,
+          0.5083,
+          0.825
+        ],
+        "ceiling": 0.925,
+        "best": 0.8416666666666667,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 33.333333333333336,
+        "mean_error_correlation": 0.329317995893629,
+        "max_error_correlation": 0.6413341968177211,
+        "families": [
+          "deepseek",
+          "mistral",
+          "amazon",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gpt5mini",
+          "grok43",
+          "llama4scout",
+          "novalite"
+        ],
+        "accuracies": [
+          0.8583,
+          0.875,
+          0.6,
+          0.5083
+        ],
+        "ceiling": 0.9583333333333334,
+        "best": 0.875,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 36.66666666666667,
+        "mean_error_correlation": 0.3090536030933852,
+        "max_error_correlation": 0.4967874276041041,
+        "families": [
+          "openai",
+          "xai",
+          "meta",
+          "amazon"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gpt5mini",
+          "grok43",
+          "llama4scout",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8583,
+          0.875,
+          0.6,
+          0.825
+        ],
+        "ceiling": 0.9583333333333334,
+        "best": 0.875,
+        "worst": 0.6,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 1.6666666666666718,
+        "competence_spread_pp": 27.500000000000004,
+        "mean_error_correlation": 0.38152394122277616,
+        "max_error_correlation": 0.5676205875802839,
+        "families": [
+          "openai",
+          "xai",
+          "meta",
+          "inclusionai"
+        ],
+        "n_families": 4
+      },
+      {
+        "names": [
+          "gpt5mini",
+          "novalite",
+          "qwen3-30b",
+          "ring26"
+        ],
+        "accuracies": [
+          0.8583,
+          0.5083,
+          0.775,
+          0.825
+        ],
+        "ceiling": 0.9416666666666667,
+        "best": 0.8583333333333333,
+        "worst": 0.5083333333333333,
+        "headroom_pp": 8.333333333333337,
+        "dominance_gap_pp": 3.3333333333333326,
+        "competence_spread_pp": 35.0,
+        "mean_error_correlation": 0.33691349683453703,
+        "max_error_correlation": 0.6395321008427378,
+        "families": [
+          "openai",
+          "amazon",
+          "qwen",
+          "inclusionai"
+        ],
+        "n_families": 4
+      }
+    ]
+  },
+  "all_subsets": [
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "gptoss120b",
+        "grok43"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.8083,
+        0.875
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.8083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 6.666666666666665,
+      "mean_error_correlation": 0.5788455230045358,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "deepseek",
+        "openai",
+        "openai-oss",
+        "xai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "gptoss120b",
+        "llama4scout"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.8083,
+        0.6
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.6,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.441915989724784,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "deepseek",
+        "openai",
+        "openai-oss",
+        "meta"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "gptoss120b",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.8083,
+        0.5833
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.5012815158351679,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "deepseek",
+        "openai",
+        "openai-oss",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "gptoss120b",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.8083,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.3890784708315567,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "deepseek",
+        "openai",
+        "openai-oss",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "gptoss120b",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.8083,
+        0.775
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8583333333333333,
+      "worst": 0.775,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 8.333333333333325,
+      "mean_error_correlation": 0.594581666810407,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "deepseek",
+        "openai",
+        "openai-oss",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "gptoss120b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.8083,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.8083333333333333,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 4.999999999999993,
+      "mean_error_correlation": 0.6121651241170537,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "deepseek",
+        "openai",
+        "openai-oss",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "grok43",
+        "llama4scout"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.875,
+        0.6
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.4148359697708857,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "openai",
+        "xai",
+        "meta"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "grok43",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.875,
+        0.5833
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.4731044720933047,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "openai",
+        "xai",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "grok43",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.875,
+        0.5083
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.36801899943289645,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "openai",
+        "xai",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "grok43",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.875,
+        0.775
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.775,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 9.999999999999998,
+      "mean_error_correlation": 0.5445477882668907,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "deepseek",
+        "openai",
+        "xai",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "grok43",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.875,
+        0.825
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.825,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 5.000000000000004,
+      "mean_error_correlation": 0.5667273071014881,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "openai",
+        "xai",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "llama4scout",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.6,
+        0.5833
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.41345080043047355,
+      "max_error_correlation": 0.5438944132882012,
+      "families": [
+        "deepseek",
+        "openai",
+        "meta",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "llama4scout",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.6,
+        0.5083
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.33668417985095583,
+      "max_error_correlation": 0.5438944132882012,
+      "families": [
+        "deepseek",
+        "openai",
+        "meta",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "llama4scout",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.6,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.6,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.44939104704179234,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "deepseek",
+        "openai",
+        "meta",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "llama4scout",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.6,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.8583333333333333,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.4268788945961292,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "openai",
+        "meta",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.34026349071520506,
+      "max_error_correlation": 0.5438944132882012,
+      "families": [
+        "deepseek",
+        "openai",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.4995306443822864,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "deepseek",
+        "openai",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.47289824259270835,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "openai",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.3737756691725844,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "deepseek",
+        "openai",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.36819755018673633,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "openai",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gpt5mini",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8583,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.775,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 8.333333333333325,
+      "mean_error_correlation": 0.5510166941351283,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "openai",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "grok43",
+        "llama4scout"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.875,
+        0.6
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.42303566712926344,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "xai",
+        "meta"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "grok43",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.875,
+        0.5833
+      ],
+      "ceiling": 0.925,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.49249893963460495,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "xai",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "grok43",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.875,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.40412114815252703,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "xai",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "grok43",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.875,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.875,
+      "worst": 0.775,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 9.999999999999998,
+      "mean_error_correlation": 0.5619143871965139,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "xai",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "grok43",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.875,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.8083333333333333,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 6.666666666666665,
+      "mean_error_correlation": 0.607363943499533,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "xai",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "llama4scout",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.6,
+        0.5833
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.402450610699288,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "meta",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "llama4scout",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.6,
+        0.5083
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.3423916712981005,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "meta",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "llama4scout",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.6,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 24.16666666666667,
+      "mean_error_correlation": 0.43636298869892975,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "meta",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "llama4scout",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.6,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8416666666666667,
+      "worst": 0.6,
+      "headroom_pp": 9.166666666666668,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 24.16666666666667,
+      "mean_error_correlation": 0.4371208737216881,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "meta",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.3571657523452723,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9,
+      "best": 0.8416666666666667,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.4976973562223464,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8416666666666667,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.4943349919011899,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.3886500621909747,
+      "max_error_correlation": 0.6007362734135056,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.40634198067354815,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "gptoss120b",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.8083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8416666666666667,
+      "worst": 0.775,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 6.666666666666665,
+      "mean_error_correlation": 0.5704255748319329,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "deepseek",
+        "openai-oss",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "llama4scout",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.6,
+        0.5833
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.3998873037844997,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "xai",
+        "meta",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "llama4scout",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.6,
+        0.5083
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3469459367265151,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "xai",
+        "meta",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "llama4scout",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.6,
+        0.775
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.41194284698248823,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "xai",
+        "meta",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "llama4scout",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.6,
+        0.825
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.4172967935331973,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "xai",
+        "meta",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3606229939857221,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "xai",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.47218019071794,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "xai",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.4734138879247342,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "xai",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3702504690297712,
+      "max_error_correlation": 0.5953366006980607,
+      "families": [
+        "deepseek",
+        "xai",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.39253844904029545,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "xai",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "grok43",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.875,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.775,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 9.999999999999998,
+      "mean_error_correlation": 0.5276476360538239,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "xai",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "llama4scout",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8417,
+        0.6,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 24.16666666666667,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.3761693787482163,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "deepseek",
+        "meta",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "llama4scout",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.6,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8416666666666667,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.42390465383727666,
+      "max_error_correlation": 0.5316306512634618,
+      "families": [
+        "deepseek",
+        "meta",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "llama4scout",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.6,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.3804466797638102,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "meta",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "llama4scout",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.6,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.35029378422999824,
+      "max_error_correlation": 0.5316306512634618,
+      "families": [
+        "deepseek",
+        "meta",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "llama4scout",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.6,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.32789009296026184,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "meta",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "llama4scout",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.6,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.8416666666666667,
+      "worst": 0.6,
+      "headroom_pp": 9.999999999999998,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 24.16666666666667,
+      "mean_error_correlation": 0.3991773583306328,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "meta",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "mistral-small",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8417,
+        0.5833,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.35584193650728024,
+      "max_error_correlation": 0.5316306512634618,
+      "families": [
+        "deepseek",
+        "mistral",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "mistral-small",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.5833,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.329317995893629,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "mistral",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "mistral-small",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.5833,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8416666666666667,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.44716554774024475,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "mistral",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "deepseek32",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8417,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.8416666666666667,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 9.999999999999998,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 33.333333333333336,
+      "mean_error_correlation": 0.34562060630651215,
+      "max_error_correlation": 0.6413341968177211,
+      "families": [
+        "deepseek",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "grok43",
+        "llama4scout"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.875,
+        0.6
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.4081205143877143,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "xai",
+        "meta"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "grok43",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.875,
+        0.5833
+      ],
+      "ceiling": 0.925,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.49430262695597493,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "xai",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "grok43",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.875,
+        0.5083
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3818633011372186,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "xai",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "grok43",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.875,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.775,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 9.999999999999998,
+      "mean_error_correlation": 0.5720451979733664,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "xai",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "grok43",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.875,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.8083333333333333,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 6.666666666666665,
+      "mean_error_correlation": 0.5872255778069332,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai",
+        "openai-oss",
+        "xai",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "llama4scout",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.6,
+        0.5833
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.4136167716144618,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "meta",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "llama4scout",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.6,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.32949629787659585,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "meta",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "llama4scout",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.6,
+        0.775
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8583333333333333,
+      "worst": 0.6,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.4558562730695861,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "meta",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "llama4scout",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.6,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.6,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.4263449816228923,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai",
+        "openai-oss",
+        "meta",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.36098921898668673,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 4.166666666666674,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.5339094806559218,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.9,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 4.166666666666674,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.5002779398653131,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai",
+        "openai-oss",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.925,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666677,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.4008006522878716,
+      "max_error_correlation": 0.6521688615893011,
+      "families": [
+        "openai",
+        "openai-oss",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.3882233943009929,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai",
+        "openai-oss",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "gptoss120b",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.8083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.775,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 8.333333333333325,
+      "mean_error_correlation": 0.5846956462515386,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai",
+        "openai-oss",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "llama4scout",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.6,
+        0.5833
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.3860565044880482,
+      "max_error_correlation": 0.4967874276041041,
+      "families": [
+        "openai",
+        "xai",
+        "meta",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "llama4scout",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.6,
+        0.5083
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3090536030933852,
+      "max_error_correlation": 0.4967874276041041,
+      "families": [
+        "openai",
+        "xai",
+        "meta",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "llama4scout",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.6,
+        0.775
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.4064391711415192,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "xai",
+        "meta",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "llama4scout",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.6,
+        0.825
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.38152394122277616,
+      "max_error_correlation": 0.5676205875802839,
+      "families": [
+        "openai",
+        "xai",
+        "meta",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.33944950041551114,
+      "max_error_correlation": 0.4967874276041041,
+      "families": [
+        "openai",
+        "xai",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.48339535493989,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "xai",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.4543598756772321,
+      "max_error_correlation": 0.5676205875802839,
+      "families": [
+        "openai",
+        "xai",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3574040989150428,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "xai",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3494229024561149,
+      "max_error_correlation": 0.5676205875802839,
+      "families": [
+        "openai",
+        "xai",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "grok43",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.875,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.775,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 1.6666666666666718,
+      "competence_spread_pp": 9.999999999999998,
+      "mean_error_correlation": 0.5169207472618044,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "xai",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "llama4scout",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8583,
+        0.6,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 25.83333333333333,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.3643583587718093,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "openai",
+        "meta",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "llama4scout",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.6,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 8.333333333333325,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.4444822916530305,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "meta",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "llama4scout",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.6,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.3707551411101118,
+      "max_error_correlation": 0.5676205875802839,
+      "families": [
+        "openai",
+        "meta",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "llama4scout",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.6,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 8.333333333333325,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.3468098877090737,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "meta",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "llama4scout",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.6,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.95,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 9.166666666666668,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.2941370199698851,
+      "max_error_correlation": 0.5676205875802839,
+      "families": [
+        "openai",
+        "meta",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "llama4scout",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.6,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.6,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 25.83333333333333,
+      "mean_error_correlation": 0.39781294313241694,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "meta",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "mistral-small",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8583,
+        0.5833,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 8.333333333333325,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.36907688004927475,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "mistral",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "mistral-small",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.5833,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.3122837629661713,
+      "max_error_correlation": 0.5676205875802839,
+      "families": [
+        "openai",
+        "mistral",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "mistral-small",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.5833,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8583333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 27.499999999999993,
+      "mean_error_correlation": 0.462519972604948,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "mistral",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gpt5mini",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8583,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.8583333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 35.0,
+      "mean_error_correlation": 0.33691349683453703,
+      "max_error_correlation": 0.6395321008427378,
+      "families": [
+        "openai",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "llama4scout",
+        "mistral-small"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.6,
+        0.5833
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.3801430270409682,
+      "max_error_correlation": 0.5841495614340425,
+      "families": [
+        "openai-oss",
+        "xai",
+        "meta",
+        "mistral"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "llama4scout",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.6,
+        0.5083
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3198478068246355,
+      "max_error_correlation": 0.5841495614340425,
+      "families": [
+        "openai-oss",
+        "xai",
+        "meta",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "llama4scout",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.6,
+        0.775
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.39849782508276227,
+      "max_error_correlation": 0.5995277004652346,
+      "families": [
+        "openai-oss",
+        "xai",
+        "meta",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "llama4scout",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.6,
+        0.825
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.3968526326324407,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "xai",
+        "meta",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3614384743296841,
+      "max_error_correlation": 0.5841495614340425,
+      "families": [
+        "openai-oss",
+        "xai",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 4.1666666666666625,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.4866487790640557,
+      "max_error_correlation": 0.5995277004652346,
+      "families": [
+        "openai-oss",
+        "xai",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.925,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.4808833372698193,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "xai",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 6.666666666666665,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3773652042175388,
+      "max_error_correlation": 0.5995277004652346,
+      "families": [
+        "openai-oss",
+        "xai",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.39265404522703234,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "xai",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "grok43",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.875,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.775,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 9.999999999999998,
+      "mean_error_correlation": 0.5414163402427147,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "xai",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "llama4scout",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.8083,
+        0.6,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.9166666666666666,
+      "best": 0.8083333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 10.833333333333329,
+      "dominance_gap_pp": 20.833333333333336,
+      "competence_spread_pp": 30.000000000000004,
+      "mean_error_correlation": 0.35595267541349634,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "openai-oss",
+        "meta",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "llama4scout",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8083,
+        0.6,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9,
+      "best": 0.8083333333333333,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 9.166666666666668,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 22.499999999999996,
+      "mean_error_correlation": 0.4173410585047103,
+      "max_error_correlation": 0.5995277004652346,
+      "families": [
+        "openai-oss",
+        "meta",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "llama4scout",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.6,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.825,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 10.83333333333334,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 24.166666666666657,
+      "mean_error_correlation": 0.36688394543021324,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "meta",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "llama4scout",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8083,
+        0.6,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8083333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 9.999999999999998,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 30.000000000000004,
+      "mean_error_correlation": 0.3363763357390838,
+      "max_error_correlation": 0.5995277004652346,
+      "families": [
+        "openai-oss",
+        "meta",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "llama4scout",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.6,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 11.66666666666667,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.30697350546831675,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "meta",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "llama4scout",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.6,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.825,
+      "worst": 0.6,
+      "headroom_pp": 10.83333333333334,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 22.499999999999996,
+      "mean_error_correlation": 0.39191387884084133,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "meta",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "mistral-small",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.8083,
+        0.5833,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9083333333333333,
+      "best": 0.8083333333333333,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 9.999999999999998,
+      "dominance_gap_pp": 3.3333333333333326,
+      "competence_spread_pp": 30.000000000000004,
+      "mean_error_correlation": 0.3698380982622074,
+      "max_error_correlation": 0.5995277004652346,
+      "families": [
+        "openai-oss",
+        "mistral",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "mistral-small",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.5833,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 10.83333333333334,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.33631501864752544,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "mistral",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "mistral-small",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.5833,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9,
+      "best": 0.825,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 7.500000000000007,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 24.166666666666657,
+      "mean_error_correlation": 0.46781567849629496,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "mistral",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "gptoss120b",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.8083,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 11.66666666666667,
+      "dominance_gap_pp": 1.6666666666666607,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.3589168839042142,
+      "max_error_correlation": 0.6672364120133099,
+      "families": [
+        "openai-oss",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "llama4scout",
+        "mistral-small",
+        "novalite"
+      ],
+      "accuracies": [
+        0.875,
+        0.6,
+        0.5833,
+        0.5083
+      ],
+      "ceiling": 0.925,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 5.000000000000004,
+      "dominance_gap_pp": 27.500000000000004,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3600266936693956,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "xai",
+        "meta",
+        "mistral",
+        "amazon"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "llama4scout",
+        "mistral-small",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.875,
+        0.6,
+        0.5833,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 9.999999999999998,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.3924406696157534,
+      "max_error_correlation": 0.4830458915396474,
+      "families": [
+        "xai",
+        "meta",
+        "mistral",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "llama4scout",
+        "mistral-small",
+        "ring26"
+      ],
+      "accuracies": [
+        0.875,
+        0.6,
+        0.5833,
+        0.825
+      ],
+      "ceiling": 0.95,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 7.499999999999996,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.34657961806920706,
+      "max_error_correlation": 0.555390616620558,
+      "families": [
+        "xai",
+        "meta",
+        "mistral",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "llama4scout",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.875,
+        0.6,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 9.999999999999998,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.31859351919332973,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "xai",
+        "meta",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "llama4scout",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.875,
+        0.6,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.2937867504505135,
+      "max_error_correlation": 0.555390616620558,
+      "families": [
+        "xai",
+        "meta",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "llama4scout",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.875,
+        0.6,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.6,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 27.500000000000004,
+      "mean_error_correlation": 0.349752716678182,
+      "max_error_correlation": 0.555390616620558,
+      "families": [
+        "xai",
+        "meta",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "mistral-small",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.875,
+        0.5833,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 9.999999999999998,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3509582579284886,
+      "max_error_correlation": 0.47562178022981744,
+      "families": [
+        "xai",
+        "mistral",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "mistral-small",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.875,
+        0.5833,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 6.666666666666665,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3220312398417574,
+      "max_error_correlation": 0.555390616620558,
+      "families": [
+        "xai",
+        "mistral",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "mistral-small",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.875,
+        0.5833,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.875,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 5.833333333333335,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 29.166666666666664,
+      "mean_error_correlation": 0.4245574925456707,
+      "max_error_correlation": 0.555390616620558,
+      "families": [
+        "xai",
+        "mistral",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "grok43",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.875,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9583333333333334,
+      "best": 0.875,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 8.333333333333337,
+      "dominance_gap_pp": 5.000000000000004,
+      "competence_spread_pp": 36.66666666666667,
+      "mean_error_correlation": 0.3227762702967929,
+      "max_error_correlation": 0.555390616620558,
+      "families": [
+        "xai",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "llama4scout",
+        "mistral-small",
+        "novalite",
+        "qwen3-30b"
+      ],
+      "accuracies": [
+        0.6,
+        0.5833,
+        0.5083,
+        0.775
+      ],
+      "ceiling": 0.8833333333333333,
+      "best": 0.775,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 10.833333333333329,
+      "dominance_gap_pp": 17.500000000000004,
+      "competence_spread_pp": 26.66666666666667,
+      "mean_error_correlation": 0.3872452510669544,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "meta",
+        "mistral",
+        "amazon",
+        "qwen"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "llama4scout",
+        "mistral-small",
+        "novalite",
+        "ring26"
+      ],
+      "accuracies": [
+        0.6,
+        0.5833,
+        0.5083,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 10.83333333333334,
+      "dominance_gap_pp": 22.499999999999996,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.31362656169996256,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "meta",
+        "mistral",
+        "amazon",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "llama4scout",
+        "mistral-small",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.6,
+        0.5833,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9333333333333333,
+      "best": 0.825,
+      "worst": 0.5833333333333334,
+      "headroom_pp": 10.83333333333334,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 24.166666666666657,
+      "mean_error_correlation": 0.3523308927607182,
+      "max_error_correlation": 0.4830458915396474,
+      "families": [
+        "meta",
+        "mistral",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "llama4scout",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.6,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.95,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 12.5,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.2788685225927308,
+      "max_error_correlation": 0.48996600411694924,
+      "families": [
+        "meta",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    },
+    {
+      "names": [
+        "mistral-small",
+        "novalite",
+        "qwen3-30b",
+        "ring26"
+      ],
+      "accuracies": [
+        0.5833,
+        0.5083,
+        0.775,
+        0.825
+      ],
+      "ceiling": 0.9416666666666667,
+      "best": 0.825,
+      "worst": 0.5083333333333333,
+      "headroom_pp": 11.66666666666667,
+      "dominance_gap_pp": 4.999999999999993,
+      "competence_spread_pp": 31.666666666666664,
+      "mean_error_correlation": 0.29898410700204975,
+      "max_error_correlation": 0.47562178022981744,
+      "families": [
+        "mistral",
+        "amazon",
+        "qwen",
+        "inclusionai"
+      ],
+      "n_families": 4
+    }
+  ]
+}

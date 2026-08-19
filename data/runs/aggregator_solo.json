@@ -1,0 +1,237 @@
+{
+ "generated_by": "scripts/measure_aggregator_solo.py",
+ "preregistration": "Docs/preregistrations/2026-08-14-aggregator-solo.md",
+ "n_solo_tasks": 568,
+ "solo_commit_rate": 0.9647887323943662,
+ "suites": {
+  "crosscap240": {
+   "strong4": {
+    "n_tasks": 239,
+    "vote": 0.8410041841004184,
+    "solo": 0.8577405857740585,
+    "judge": 0.8786610878661087,
+    "best_single_member": 0.7866108786610879,
+    "judge_minus_solo_pp": 2.092050209205021,
+    "solo_minus_vote_pp": 1.67364016736401,
+    "solo_minus_best_member_pp": 7.112970711297062,
+    "by_class": {
+     "UNANIMOUS_CORRECT": {
+      "n": 71,
+      "share": 0.29707112970711297,
+      "vote": 1.0,
+      "solo": 0.9859154929577465,
+      "judge": 1.0
+     },
+     "UNANIMOUS_WRONG": {
+      "n": 18,
+      "share": 0.07531380753138076,
+      "vote": 0.0,
+      "solo": 0.2222222222222222,
+      "judge": 0.16666666666666666
+     },
+     "DISCRIMINATING": {
+      "n": 150,
+      "share": 0.6276150627615062,
+      "vote": 0.8666666666666667,
+      "solo": 0.8733333333333333,
+      "judge": 0.9066666666666666
+     }
+    }
+   },
+   "decorrelated4": {
+    "n_tasks": 238,
+    "vote": 0.7899159663865546,
+    "solo": 0.8571428571428571,
+    "judge": 0.8697478991596639,
+    "best_single_member": 0.8025210084033614,
+    "judge_minus_solo_pp": 1.260504201680679,
+    "solo_minus_vote_pp": 6.72268907563025,
+    "solo_minus_best_member_pp": 5.462184873949571,
+    "by_class": {
+     "UNANIMOUS_CORRECT": {
+      "n": 49,
+      "share": 0.20588235294117646,
+      "vote": 1.0,
+      "solo": 0.9795918367346939,
+      "judge": 0.9795918367346939
+     },
+     "UNANIMOUS_WRONG": {
+      "n": 22,
+      "share": 0.09243697478991597,
+      "vote": 0.0,
+      "solo": 0.5909090909090909,
+      "judge": 0.2727272727272727
+     },
+     "DISCRIMINATING": {
+      "n": 167,
+      "share": 0.7016806722689075,
+      "vote": 0.8323353293413174,
+      "solo": 0.8562874251497006,
+      "judge": 0.9161676646706587
+     }
+    }
+   },
+   "correlated4": {
+    "n_tasks": 240,
+    "vote": 0.825,
+    "solo": 0.8583333333333333,
+    "judge": 0.8708333333333333,
+    "best_single_member": 0.7875,
+    "judge_minus_solo_pp": 1.2500000000000067,
+    "solo_minus_vote_pp": 3.3333333333333326,
+    "solo_minus_best_member_pp": 7.08333333333333,
+    "by_class": {
+     "UNANIMOUS_CORRECT": {
+      "n": 110,
+      "share": 0.4583333333333333,
+      "vote": 1.0,
+      "solo": 0.9818181818181818,
+      "judge": 0.990909090909091
+     },
+     "UNANIMOUS_WRONG": {
+      "n": 19,
+      "share": 0.07916666666666666,
+      "vote": 0.0,
+      "solo": 0.2631578947368421,
+      "judge": 0.10526315789473684
+     },
+     "DISCRIMINATING": {
+      "n": 111,
+      "share": 0.4625,
+      "vote": 0.7927927927927928,
+      "solo": 0.8378378378378378,
+      "judge": 0.8828828828828829
+     }
+    }
+   }
+  },
+  "hard366": {
+   "strong4": {
+    "n_tasks": 179,
+    "vote": 0.8379888268156425,
+    "solo": 0.8044692737430168,
+    "judge": 0.8491620111731844,
+    "best_single_member": 0.8156424581005587,
+    "judge_minus_solo_pp": 4.469273743016755,
+    "solo_minus_vote_pp": -3.3519553072625663,
+    "solo_minus_best_member_pp": -1.1173184357541888,
+    "by_class": {
+     "UNANIMOUS_CORRECT": {
+      "n": 30,
+      "share": 0.16759776536312848,
+      "vote": 1.0,
+      "solo": 0.9666666666666667,
+      "judge": 1.0
+     },
+     "UNANIMOUS_WRONG": {
+      "n": 3,
+      "share": 0.01675977653631285,
+      "vote": 0.0,
+      "solo": 0.3333333333333333,
+      "judge": 0.0
+     },
+     "DISCRIMINATING": {
+      "n": 146,
+      "share": 0.8156424581005587,
+      "vote": 0.821917808219178,
+      "solo": 0.7808219178082192,
+      "judge": 0.8356164383561644
+     }
+    }
+   },
+   "decorrelated4": {
+    "n_tasks": 210,
+    "vote": 0.8238095238095238,
+    "solo": 0.8666666666666667,
+    "judge": 0.8809523809523809,
+    "best_single_member": 0.8238095238095238,
+    "judge_minus_solo_pp": 1.4285714285714235,
+    "solo_minus_vote_pp": 4.285714285714293,
+    "solo_minus_best_member_pp": 4.285714285714293,
+    "by_class": {
+     "UNANIMOUS_CORRECT": {
+      "n": 25,
+      "share": 0.11904761904761904,
+      "vote": 1.0,
+      "solo": 1.0,
+      "judge": 1.0
+     },
+     "UNANIMOUS_WRONG": {
+      "n": 4,
+      "share": 0.01904761904761905,
+      "vote": 0.0,
+      "solo": 0.25,
+      "judge": 0.25
+     },
+     "DISCRIMINATING": {
+      "n": 181,
+      "share": 0.861904761904762,
+      "vote": 0.8176795580110497,
+      "solo": 0.861878453038674,
+      "judge": 0.8784530386740331
+     }
+    }
+   },
+   "correlated4": {
+    "n_tasks": 129,
+    "vote": 0.8294573643410853,
+    "solo": 0.813953488372093,
+    "judge": 0.875968992248062,
+    "best_single_member": 0.8294573643410853,
+    "judge_minus_solo_pp": 6.2015503875969,
+    "solo_minus_vote_pp": -1.5503875968992276,
+    "solo_minus_best_member_pp": -1.5503875968992276,
+    "by_class": {
+     "UNANIMOUS_CORRECT": {
+      "n": 39,
+      "share": 0.3023255813953488,
+      "vote": 1.0,
+      "solo": 0.9743589743589743,
+      "judge": 1.0
+     },
+     "UNANIMOUS_WRONG": {
+      "n": 4,
+      "share": 0.031007751937984496,
+      "vote": 0.0,
+      "solo": 0.0,
+      "judge": 0.25
+     },
+     "DISCRIMINATING": {
+      "n": 86,
+      "share": 0.6666666666666666,
+      "vote": 0.7906976744186046,
+      "solo": 0.7790697674418605,
+      "judge": 0.8488372093023255
+     }
+    }
+   }
+  }
+ },
+ "decision": {
+  "S1_judge_minus_solo_pp": [
+   2.092050209205021,
+   1.260504201680679,
+   1.2500000000000067,
+   4.469273743016755,
+   1.4285714285714235,
+   6.2015503875969
+  ],
+  "S1_mean_pp": 2.783658328345131,
+  "S1_n_pools_clearing_2pp": 3,
+  "S1_result_survives": false,
+  "S2_solo_on_unanimous_wrong": 0.34285714285714286,
+  "S2_judge_on_unanimous_wrong": 0.18571428571428572,
+  "S3_solo_on_unanimous_correct": 0.9814814814814815,
+  "S3_consensus_deference_is_worth_something": true,
+  "S4_solo_minus_best_member_pp": [
+   7.112970711297062,
+   5.462184873949571,
+   7.08333333333333,
+   -1.1173184357541888,
+   4.285714285714293,
+   -1.5503875968992276
+  ],
+  "solo_commit_rate": 0.9647887323943662,
+  "verdict": "THE JUDGE IS LARGELY THE MODEL"
+ }
+}

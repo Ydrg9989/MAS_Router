@@ -1,0 +1,1561 @@
+{
+  "strong4-a": {
+    "domain x protocol": {
+      "grouping": "domain",
+      "n_groups": 11,
+      "excluded_groups": {
+        "number theory": 2
+      },
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.5106060606060606,
+      "null_reproducibility": 0.488590909090909,
+      "reproducibility_p": 0.41333333333333333,
+      "winners_are_reproducible": false,
+      "dominance": 0.6363636363636364,
+      "null_dominance": 0.5172727272727273,
+      "dominance_p": 0.23,
+      "dominant_configuration": "chair_information_seeking",
+      "reproducibility_dominant": 0.7923809523809524,
+      "reproducibility_off_dominant": 0.0175,
+      "n_off_dominant": 4,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 9,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.8888888888888888,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 9,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.8888888888888888,
+          "reproducibility": 0.4166666666666667,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 9,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.7777777777777778,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 7,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 11,
+          "n_configurations": 7,
+          "winner": "independent_majority",
+          "winner_accuracy": 1.0,
+          "reproducibility": 0.07,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 68,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.8382352941176471,
+          "reproducibility": 0.13,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 20,
+          "n_configurations": 7,
+          "winner": "debate_vote",
+          "winner_accuracy": 0.95,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "math",
+          "n_tasks": 13,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "physics",
+          "n_tasks": 12,
+          "n_configurations": 7,
+          "winner": "expert_verifier",
+          "winner_accuracy": 0.9166666666666666,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 10,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 8,
+          "n_configurations": 7,
+          "winner": "debate_vote",
+          "winner_accuracy": 0.875,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        }
+      ]
+    },
+    "domain x config": {
+      "grouping": "domain",
+      "n_groups": 11,
+      "excluded_groups": {
+        "number theory": 2
+      },
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.4903030303030303,
+      "null_reproducibility": 0.254280303030303,
+      "reproducibility_p": 0.006666666666666667,
+      "winners_are_reproducible": true,
+      "dominance": 0.6363636363636364,
+      "null_dominance": 0.2775757575757576,
+      "dominance_p": 0.0,
+      "dominant_configuration": "chair_information_seeking[0-1-2-3]",
+      "reproducibility_dominant": 0.7604761904761906,
+      "reproducibility_off_dominant": 0.0175,
+      "n_off_dominant": 4,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.76) but the 4 that depart from it do not (0.02 against a 0.25 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 9,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.8888888888888888,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 9,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.8888888888888888,
+          "reproducibility": 0.4166666666666667,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 9,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.7777777777777778,
+          "reproducibility": 0.8233333333333334,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 7,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 11,
+          "n_configurations": 35,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 0.07,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 68,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.8382352941176471,
+          "reproducibility": 0.08333333333333333,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 20,
+          "n_configurations": 35,
+          "winner": "debate_vote[0-1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "math",
+          "n_tasks": 13,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "physics",
+          "n_tasks": 12,
+          "n_configurations": 35,
+          "winner": "expert_verifier[0-1-2-3]",
+          "winner_accuracy": 0.9166666666666666,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 10,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 8,
+          "n_configurations": 35,
+          "winner": "debate_vote[0-1-2-3]",
+          "winner_accuracy": 0.875,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        }
+      ]
+    },
+    "suite x protocol": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.17,
+      "null_reproducibility": 0.17291666666666666,
+      "reproducibility_p": 0.42333333333333334,
+      "winners_are_reproducible": false,
+      "dominance": 0.6666666666666666,
+      "null_dominance": 0.46777777777777774,
+      "dominance_p": 0.37,
+      "dominant_configuration": "chair_information_seeking",
+      "reproducibility_dominant": 0.24333333333333335,
+      "reproducibility_off_dominant": 0.023333333333333334,
+      "n_off_dominant": 1,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 68,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.8382352941176471,
+          "reproducibility": 0.10666666666666667,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "math500",
+          "n_tasks": 67,
+          "n_configurations": 7,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.9552238805970149,
+          "reproducibility": 0.023333333333333334,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 43,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.8837209302325582,
+          "reproducibility": 0.38,
+          "chance": 0.14285714285714285
+        }
+      ]
+    },
+    "suite x config": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.1277777777777778,
+      "null_reproducibility": 0.03566666666666667,
+      "reproducibility_p": 0.08,
+      "winners_are_reproducible": false,
+      "dominance": 0.6666666666666666,
+      "null_dominance": 0.36444444444444446,
+      "dominance_p": 0.09333333333333334,
+      "dominant_configuration": "chair_information_seeking[0-1-2-3]",
+      "reproducibility_dominant": 0.18000000000000002,
+      "reproducibility_off_dominant": 0.023333333333333334,
+      "n_off_dominant": 1,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 68,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.8382352941176471,
+          "reproducibility": 0.06333333333333334,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "math500",
+          "n_tasks": 67,
+          "n_configurations": 35,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9552238805970149,
+          "reproducibility": 0.023333333333333334,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 43,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.8837209302325582,
+          "reproducibility": 0.2966666666666667,
+          "chance": 0.02857142857142857
+        }
+      ]
+    },
+    "domain x coalition (free protocols, all tasks)": {
+      "grouping": "domain",
+      "n_groups": 12,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.6577777777777778,
+      "null_reproducibility": 0.2838055555555556,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.6666666666666666,
+      "null_dominance": 0.295,
+      "dominance_p": 0.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.9816666666666667,
+      "reproducibility_off_dominant": 0.01,
+      "n_off_dominant": 4,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.98) but the 4 that depart from it do not (0.01 against a 0.28 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 27,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9629629629629629,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 31,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.9354838709677419,
+          "reproducibility": 0.016666666666666666,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 31,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-2-3]",
+          "winner_accuracy": 0.9032258064516129,
+          "reproducibility": 0.01,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 13,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8442622950819673,
+          "reproducibility": 0.013333333333333334,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 27,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9629629629629629,
+          "reproducibility": 0.8533333333333334,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "math",
+          "n_tasks": 30,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "number theory",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "physics",
+          "n_tasks": 30,
+          "n_configurations": 30,
+          "winner": "independent_majority[2-3]",
+          "winner_accuracy": 0.9333333333333333,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 19,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9473684210526315,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9166666666666666,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x coalition (free protocols, all tasks)": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.3422222222222222,
+      "null_reproducibility": 0.03836111111111111,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.36222222222222217,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.9966666666666667,
+      "reproducibility_off_dominant": 0.015,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (1.00) but the 2 that depart from it do not (0.01 against a 0.04 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8442622950819673,
+          "reproducibility": 0.03,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "math500",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9672131147540983,
+          "reproducibility": 0.9966666666666667,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "single_expert[0-1-2-3]",
+          "winner_accuracy": 0.9262295081967213,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    }
+  },
+  "decorr4-a": {
+    "domain x protocol": {
+      "grouping": "domain",
+      "n_groups": 11,
+      "excluded_groups": {
+        "number theory": 1
+      },
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.7336363636363636,
+      "null_reproducibility": 0.5169166666666666,
+      "reproducibility_p": 0.043333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.7272727272727273,
+      "null_dominance": 0.5345454545454544,
+      "dominance_p": 0.12,
+      "dominant_configuration": "chair_information_seeking",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.023333333333333334,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (1.00) but the 3 that depart from it do not (0.02 against a 0.52 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 15,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 16,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.875,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 15,
+          "n_configurations": 7,
+          "winner": "debate_vote",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.07,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 6,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 11,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 83,
+          "n_configurations": 7,
+          "winner": "debate_vote",
+          "winner_accuracy": 0.8192771084337349,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 20,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "math",
+          "n_tasks": 16,
+          "n_configurations": 7,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.9375,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "physics",
+          "n_tasks": 11,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.9090909090909091,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 8,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 8,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.875,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        }
+      ]
+    },
+    "domain x config": {
+      "grouping": "domain",
+      "n_groups": 11,
+      "excluded_groups": {
+        "number theory": 1
+      },
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.7136363636363636,
+      "null_reproducibility": 0.15697727272727272,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.7272727272727273,
+      "null_dominance": 0.226969696969697,
+      "dominance_p": 0.0,
+      "dominant_configuration": "chair_information_seeking[0-1-2-3]",
+      "reproducibility_dominant": 0.9775,
+      "reproducibility_off_dominant": 0.01,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.98) but the 3 that depart from it do not (0.01 against a 0.16 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 15,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 16,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.875,
+          "reproducibility": 0.9933333333333333,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 15,
+          "n_configurations": 35,
+          "winner": "debate_vote[0-1-2-3]",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.03,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 6,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 11,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 83,
+          "n_configurations": 35,
+          "winner": "debate_vote[0-1-2-3]",
+          "winner_accuracy": 0.8192771084337349,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 20,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "math",
+          "n_tasks": 16,
+          "n_configurations": 35,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9375,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "physics",
+          "n_tasks": 11,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.9090909090909091,
+          "reproducibility": 0.8266666666666667,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 8,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 8,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.875,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        }
+      ]
+    },
+    "suite x protocol": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.3333333333333333,
+      "null_reproducibility": 0.1818611111111111,
+      "reproducibility_p": 0.15333333333333332,
+      "winners_are_reproducible": false,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.47333333333333333,
+      "dominance_p": 1.0,
+      "dominant_configuration": "chair_information_seeking",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.0,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 83,
+          "n_configurations": 7,
+          "winner": "debate_vote",
+          "winner_accuracy": 0.8192771084337349,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "math500",
+          "n_tasks": 69,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.9855072463768116,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 58,
+          "n_configurations": 7,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.896551724137931,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        }
+      ]
+    },
+    "suite x config": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.3333333333333333,
+      "null_reproducibility": 0.03158333333333333,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.3577777777777778,
+      "dominance_p": 1.0,
+      "dominant_configuration": "chair_information_seeking[0-1-2-3]",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.0,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (1.00) but the 2 that depart from it do not (0.00 against a 0.03 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 83,
+          "n_configurations": 35,
+          "winner": "debate_vote[0-1-2-3]",
+          "winner_accuracy": 0.8192771084337349,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "math500",
+          "n_tasks": 69,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.9855072463768116,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 58,
+          "n_configurations": 35,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.896551724137931,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        }
+      ]
+    },
+    "domain x coalition (free protocols, all tasks)": {
+      "grouping": "domain",
+      "n_groups": 12,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.6938888888888889,
+      "null_reproducibility": 0.20129166666666665,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.75,
+      "null_dominance": 0.24694444444444444,
+      "dominance_p": 0.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.9185185185185186,
+      "reproducibility_off_dominant": 0.02,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.92) but the 3 that depart from it do not (0.02 against a 0.20 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 27,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9629629629629629,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 31,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9354838709677419,
+          "reproducibility": 0.9666666666666667,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 31,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9032258064516129,
+          "reproducibility": 0.44,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2]",
+          "winner_accuracy": 0.8333333333333334,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 13,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9230769230769231,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-3]",
+          "winner_accuracy": 0.8114754098360656,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 27,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.8518518518518519,
+          "reproducibility": 0.9966666666666667,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "math",
+          "n_tasks": 30,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "number theory",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "physics",
+          "n_tasks": 30,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.87,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 19,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.9473684210526315,
+          "reproducibility": 0.06,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.8333333333333334,
+          "reproducibility": 0.9933333333333333,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x coalition (free protocols, all tasks)": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.29777777777777775,
+      "null_reproducibility": 0.04575,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.37111111111111117,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.8933333333333333,
+      "reproducibility_off_dominant": 0.0,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.89) but the 2 that depart from it do not (0.00 against a 0.05 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-3]",
+          "winner_accuracy": 0.8114754098360656,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "math500",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.9016393442622951,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9180327868852459,
+          "reproducibility": 0.8933333333333333,
+          "chance": 0.03333333333333333
+        }
+      ]
+    }
+  },
+  "correlated4-a": {
+    "domain x protocol": {
+      "grouping": "domain",
+      "n_groups": 10,
+      "excluded_groups": {
+        "counting & probability": 3,
+        "number theory": 3
+      },
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.5026666666666666,
+      "null_reproducibility": 0.4996666666666667,
+      "reproducibility_p": 0.49666666666666665,
+      "winners_are_reproducible": false,
+      "dominance": 0.5,
+      "null_dominance": 0.5163333333333333,
+      "dominance_p": 0.6633333333333333,
+      "dominant_configuration": "chair_information_seeking",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.005333333333333334,
+      "n_off_dominant": 5,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 8,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 9,
+          "n_configurations": 7,
+          "winner": "independent_judge",
+          "winner_accuracy": 0.7777777777777778,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 8,
+          "n_configurations": 7,
+          "winner": "expert_verifier",
+          "winner_accuracy": 0.75,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 9,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.8888888888888888,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 48,
+          "n_configurations": 7,
+          "winner": "expert_verifier",
+          "winner_accuracy": 0.8541666666666666,
+          "reproducibility": 0.02666666666666667,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 13,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "math",
+          "n_tasks": 10,
+          "n_configurations": 7,
+          "winner": "independent_majority",
+          "winner_accuracy": 1.0,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "physics",
+          "n_tasks": 8,
+          "n_configurations": 7,
+          "winner": "single_expert",
+          "winner_accuracy": 1.0,
+          "reproducibility": 0.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 6,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 4,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        }
+      ]
+    },
+    "domain x config": {
+      "grouping": "domain",
+      "n_groups": 10,
+      "excluded_groups": {
+        "counting & probability": 3,
+        "number theory": 3
+      },
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.502,
+      "null_reproducibility": 0.3665166666666667,
+      "reproducibility_p": 0.13333333333333333,
+      "winners_are_reproducible": false,
+      "dominance": 0.5,
+      "null_dominance": 0.359,
+      "dominance_p": 0.16333333333333333,
+      "dominant_configuration": "chair_information_seeking[0-1-2-3]",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.004,
+      "n_off_dominant": 5,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 8,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 9,
+          "n_configurations": 35,
+          "winner": "independent_judge[0-1-2-3]",
+          "winner_accuracy": 0.7777777777777778,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 8,
+          "n_configurations": 35,
+          "winner": "expert_verifier[0-1-2-3]",
+          "winner_accuracy": 0.75,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 9,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.8888888888888888,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 48,
+          "n_configurations": 35,
+          "winner": "expert_verifier[0-1-2-3]",
+          "winner_accuracy": 0.8541666666666666,
+          "reproducibility": 0.02,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 13,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "math",
+          "n_tasks": 10,
+          "n_configurations": 35,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "physics",
+          "n_tasks": 8,
+          "n_configurations": 35,
+          "winner": "independent_majority[1-2]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 0.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 6,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 4,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        }
+      ]
+    },
+    "suite x protocol": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.42111111111111116,
+      "null_reproducibility": 0.18172222222222223,
+      "reproducibility_p": 0.07333333333333333,
+      "winners_are_reproducible": false,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.4533333333333333,
+      "dominance_p": 1.0,
+      "dominant_configuration": "chair_information_seeking",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.13166666666666668,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 48,
+          "n_configurations": 7,
+          "winner": "expert_verifier",
+          "winner_accuracy": 0.8541666666666666,
+          "reproducibility": 0.03333333333333333,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "math500",
+          "n_tasks": 46,
+          "n_configurations": 7,
+          "winner": "chair_information_seeking",
+          "winner_accuracy": 0.9782608695652174,
+          "reproducibility": 1.0,
+          "chance": 0.14285714285714285
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 35,
+          "n_configurations": 7,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8571428571428571,
+          "reproducibility": 0.23,
+          "chance": 0.14285714285714285
+        }
+      ]
+    },
+    "suite x config": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.3433333333333333,
+      "null_reproducibility": 0.03688888888888889,
+      "reproducibility_p": 0.01,
+      "winners_are_reproducible": true,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.37333333333333335,
+      "dominance_p": 1.0,
+      "dominant_configuration": "chair_information_seeking[0-1-2-3]",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.015000000000000001,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (1.00) but the 2 that depart from it do not (0.02 against a 0.04 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 48,
+          "n_configurations": 35,
+          "winner": "expert_verifier[0-1-2-3]",
+          "winner_accuracy": 0.8541666666666666,
+          "reproducibility": 0.02666666666666667,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "math500",
+          "n_tasks": 46,
+          "n_configurations": 35,
+          "winner": "chair_information_seeking[0-1-2-3]",
+          "winner_accuracy": 0.9782608695652174,
+          "reproducibility": 1.0,
+          "chance": 0.02857142857142857
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 35,
+          "n_configurations": 35,
+          "winner": "single_expert[0-1-2-3]",
+          "winner_accuracy": 0.8571428571428571,
+          "reproducibility": 0.0033333333333333335,
+          "chance": 0.02857142857142857
+        }
+      ]
+    },
+    "domain x coalition (free protocols, all tasks)": {
+      "grouping": "domain",
+      "n_groups": 12,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.6455555555555555,
+      "null_reproducibility": 0.3797916666666667,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.5833333333333334,
+      "null_dominance": 0.37194444444444447,
+      "dominance_p": 0.07333333333333333,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 1.0,
+      "reproducibility_off_dominant": 0.14933333333333335,
+      "n_off_dominant": 5,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (1.00) but the 5 that depart from it do not (0.15 against a 0.38 null), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "algebra",
+          "n_tasks": 27,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9629629629629629,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "chemistry",
+          "n_tasks": 31,
+          "n_configurations": 30,
+          "winner": "independent_majority[2-3]",
+          "winner_accuracy": 0.9354838709677419,
+          "reproducibility": 0.016666666666666666,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "computer science",
+          "n_tasks": 31,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.9032258064516129,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "counting & probability",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "geometry",
+          "n_tasks": 13,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9230769230769231,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8442622950819673,
+          "reproducibility": 0.25333333333333335,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "intermediate algebra",
+          "n_tasks": 27,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.9629629629629629,
+          "reproducibility": 0.4766666666666667,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "math",
+          "n_tasks": 30,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "number theory",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 1.0,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "physics",
+          "n_tasks": 30,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-2]",
+          "winner_accuracy": 0.9333333333333333,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "prealgebra",
+          "n_tasks": 19,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9473684210526315,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "precalculus",
+          "n_tasks": 12,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.8333333333333334,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x coalition (free protocols, all tasks)": {
+      "grouping": "suite",
+      "n_groups": 3,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.08777777777777777,
+      "null_reproducibility": 0.044055555555555556,
+      "reproducibility_p": 0.18,
+      "winners_are_reproducible": false,
+      "dominance": 0.3333333333333333,
+      "null_dominance": 0.36444444444444446,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-3]",
+      "reproducibility_dominant": 0.0,
+      "reproducibility_off_dominant": 0.13166666666666665,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": true,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8442622950819673,
+          "reproducibility": 0.2633333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "math500",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.9426229508196722,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "mmlu_pro",
+          "n_tasks": 122,
+          "n_configurations": 30,
+          "winner": "single_expert[0-1-2-3]",
+          "winner_accuracy": 0.9262295081967213,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    }
+  }
+}

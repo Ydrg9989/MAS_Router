@@ -1,0 +1,1052 @@
+{
+  "crosscap-strong4": {
+    "domain x protocol": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.6925,
+      "null_reproducibility": 0.5144583333333334,
+      "reproducibility_p": 0.19,
+      "winners_are_reproducible": false,
+      "dominance": 0.5,
+      "null_dominance": 0.6783333333333333,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority",
+      "reproducibility_dominant": 0.895,
+      "reproducibility_off_dominant": 0.49,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 0.0,
+          "chance": 0.5
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.9033333333333333,
+          "chance": 0.5
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.8866666666666667,
+          "chance": 0.5
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8,
+          "reproducibility": 0.98,
+          "chance": 0.5
+        }
+      ]
+    },
+    "domain x config": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.4016666666666666,
+      "null_reproducibility": 0.041979166666666665,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.30333333333333334,
+      "dominance_p": 0.21,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.5833333333333333,
+      "reproducibility_off_dominant": 0.22,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.58) but the 2 that depart from it do not (0.22 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 0.86,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 59,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.847457627118644,
+          "reproducibility": 0.30666666666666664,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2]",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.8,
+          "reproducibility": 0.44,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x protocol": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.6866666666666666,
+      "null_reproducibility": 0.5144583333333334,
+      "reproducibility_p": 0.19333333333333333,
+      "winners_are_reproducible": false,
+      "dominance": 0.5,
+      "null_dominance": 0.6783333333333333,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority",
+      "reproducibility_dominant": 0.8783333333333334,
+      "reproducibility_off_dominant": 0.495,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.8566666666666667,
+          "chance": 0.5
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 0.0,
+          "chance": 0.5
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8,
+          "reproducibility": 0.99,
+          "chance": 0.5
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.9,
+          "chance": 0.5
+        }
+      ]
+    },
+    "suite x config": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.42000000000000004,
+      "null_reproducibility": 0.04145833333333333,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.3,
+      "dominance_p": 0.19666666666666666,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.5933333333333334,
+      "reproducibility_off_dominant": 0.24666666666666667,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.59) but the 2 that depart from it do not (0.25 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 59,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.847457627118644,
+          "reproducibility": 0.3333333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 0.8533333333333334,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.8,
+          "reproducibility": 0.49333333333333335,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2]",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "domain x coalition (free protocols, all tasks)": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.4016666666666666,
+      "null_reproducibility": 0.041979166666666665,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.30333333333333334,
+      "dominance_p": 0.21,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.5833333333333333,
+      "reproducibility_off_dominant": 0.22,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.58) but the 2 that depart from it do not (0.22 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 0.86,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 59,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.847457627118644,
+          "reproducibility": 0.30666666666666664,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2]",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.8,
+          "reproducibility": 0.44,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x coalition (free protocols, all tasks)": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.42000000000000004,
+      "null_reproducibility": 0.04145833333333333,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.3,
+      "dominance_p": 0.19666666666666666,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.5933333333333334,
+      "reproducibility_off_dominant": 0.24666666666666667,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.59) but the 2 that depart from it do not (0.25 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 59,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.847457627118644,
+          "reproducibility": 0.3333333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.9666666666666667,
+          "reproducibility": 0.8533333333333334,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.8,
+          "reproducibility": 0.49333333333333335,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2]",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    }
+  },
+  "crosscap-decorr4": {
+    "domain x protocol": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.795,
+      "null_reproducibility": 0.6461874999999999,
+      "reproducibility_p": 0.16666666666666666,
+      "winners_are_reproducible": false,
+      "dominance": 1.0,
+      "null_dominance": 0.7233333333333334,
+      "dominance_p": 0.2,
+      "dominant_configuration": "independent_majority",
+      "reproducibility_dominant": 0.795,
+      "reproducibility_off_dominant": NaN,
+      "n_off_dominant": 0,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.95,
+          "reproducibility": 1.0,
+          "chance": 0.5
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 1.0,
+          "chance": 0.5
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.75,
+          "reproducibility": 0.9666666666666667,
+          "chance": 0.5
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.5833333333333334,
+          "reproducibility": 0.21333333333333335,
+          "chance": 0.5
+        }
+      ]
+    },
+    "domain x config": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.5583333333333333,
+      "null_reproducibility": 0.03916666666666667,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.2941666666666667,
+      "dominance_p": 0.17666666666666667,
+      "dominant_configuration": "independent_majority[0-3]",
+      "reproducibility_dominant": 0.38166666666666665,
+      "reproducibility_off_dominant": 0.735,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": true,
+      "n_permutations": 300,
+      "verdict": "EVIDENCE - winners reproduce above chance and the departures from the best are real",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 58,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.896551724137931,
+          "reproducibility": 0.47,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7833333333333333,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7,
+          "reproducibility": 0.7633333333333333,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x protocol": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.7966666666666666,
+      "null_reproducibility": 0.6461874999999999,
+      "reproducibility_p": 0.16666666666666666,
+      "winners_are_reproducible": false,
+      "dominance": 1.0,
+      "null_dominance": 0.7233333333333334,
+      "dominance_p": 0.2,
+      "dominant_configuration": "independent_majority",
+      "reproducibility_dominant": 0.7966666666666666,
+      "reproducibility_off_dominant": NaN,
+      "n_off_dominant": 0,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.8666666666666667,
+          "reproducibility": 1.0,
+          "chance": 0.5
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.95,
+          "reproducibility": 1.0,
+          "chance": 0.5
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.5833333333333334,
+          "reproducibility": 0.22333333333333333,
+          "chance": 0.5
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.75,
+          "reproducibility": 0.9633333333333334,
+          "chance": 0.5
+        }
+      ]
+    },
+    "suite x config": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.565,
+      "null_reproducibility": 0.03854166666666667,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.29833333333333334,
+      "dominance_p": 0.19,
+      "dominant_configuration": "independent_majority[0-3]",
+      "reproducibility_dominant": 0.365,
+      "reproducibility_off_dominant": 0.765,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": true,
+      "n_permutations": 300,
+      "verdict": "EVIDENCE - winners reproduce above chance and the departures from the best are real",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 58,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.896551724137931,
+          "reproducibility": 0.53,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7,
+          "reproducibility": 0.73,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7833333333333333,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "domain x coalition (free protocols, all tasks)": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.5583333333333333,
+      "null_reproducibility": 0.03916666666666667,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.2941666666666667,
+      "dominance_p": 0.17666666666666667,
+      "dominant_configuration": "independent_majority[0-3]",
+      "reproducibility_dominant": 0.38166666666666665,
+      "reproducibility_off_dominant": 0.735,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": true,
+      "n_permutations": 300,
+      "verdict": "EVIDENCE - winners reproduce above chance and the departures from the best are real",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 58,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.896551724137931,
+          "reproducibility": 0.47,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7833333333333333,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7,
+          "reproducibility": 0.7633333333333333,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x coalition (free protocols, all tasks)": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.565,
+      "null_reproducibility": 0.03854166666666667,
+      "reproducibility_p": 0.0,
+      "winners_are_reproducible": true,
+      "dominance": 0.5,
+      "null_dominance": 0.29833333333333334,
+      "dominance_p": 0.19,
+      "dominant_configuration": "independent_majority[0-3]",
+      "reproducibility_dominant": 0.365,
+      "reproducibility_off_dominant": 0.765,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": true,
+      "n_permutations": 300,
+      "verdict": "EVIDENCE - winners reproduce above chance and the departures from the best are real",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 58,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-3]",
+          "winner_accuracy": 0.896551724137931,
+          "reproducibility": 0.53,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 1.0,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7,
+          "reproducibility": 0.73,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-3]",
+          "winner_accuracy": 0.7833333333333333,
+          "reproducibility": 0.0,
+          "chance": 0.03333333333333333
+        }
+      ]
+    }
+  },
+  "crosscap-corr4": {
+    "domain x protocol": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.5808333333333333,
+      "null_reproducibility": 0.6338125,
+      "reproducibility_p": 0.6933333333333334,
+      "winners_are_reproducible": false,
+      "dominance": 0.5,
+      "null_dominance": 0.6941666666666667,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority",
+      "reproducibility_dominant": 0.6683333333333333,
+      "reproducibility_off_dominant": 0.49333333333333335,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.9166666666666666,
+          "reproducibility": 1.0,
+          "chance": 0.5
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8333333333333334,
+          "reproducibility": 0.0,
+          "chance": 0.5
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.33666666666666667,
+          "chance": 0.5
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8166666666666667,
+          "reproducibility": 0.9866666666666667,
+          "chance": 0.5
+        }
+      ]
+    },
+    "domain x config": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.4091666666666667,
+      "null_reproducibility": 0.04214583333333333,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.25,
+      "null_dominance": 0.29583333333333334,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.23666666666666666,
+      "reproducibility_off_dominant": 0.4666666666666666,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.24) but the 3 that depart from it do not (0.47 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 0.3566666666666667,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.41333333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.23666666666666666,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8166666666666667,
+          "reproducibility": 0.63,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x protocol": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.5758333333333333,
+      "null_reproducibility": 0.6338125,
+      "reproducibility_p": 0.6933333333333334,
+      "winners_are_reproducible": false,
+      "dominance": 0.5,
+      "null_dominance": 0.6941666666666667,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority",
+      "reproducibility_dominant": 0.6616666666666666,
+      "reproducibility_off_dominant": 0.49,
+      "n_off_dominant": 2,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - per-group winners are not reproducible above chance, so their variety cannot be distinguished from argmax noise",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8333333333333334,
+          "reproducibility": 0.0,
+          "chance": 0.5
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.9166666666666666,
+          "reproducibility": 1.0,
+          "chance": 0.5
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "single_expert",
+          "winner_accuracy": 0.8166666666666667,
+          "reproducibility": 0.98,
+          "chance": 0.5
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 2,
+          "winner": "independent_majority",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.3233333333333333,
+          "chance": 0.5
+        }
+      ]
+    },
+    "suite x config": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.3858333333333333,
+      "null_reproducibility": 0.04214583333333333,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.25,
+      "null_dominance": 0.29583333333333334,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.2,
+      "reproducibility_off_dominant": 0.4477777777777778,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.20) but the 3 that depart from it do not (0.45 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.38666666666666666,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 0.3933333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8166666666666667,
+          "reproducibility": 0.5633333333333334,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.2,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "domain x coalition (free protocols, all tasks)": {
+      "grouping": "domain",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.4091666666666667,
+      "null_reproducibility": 0.04214583333333333,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.25,
+      "null_dominance": 0.29583333333333334,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.23666666666666666,
+      "reproducibility_off_dominant": 0.4666666666666666,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.24) but the 3 that depart from it do not (0.47 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "code_reasoning",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 0.3566666666666667,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "competition_math",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.41333333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_science",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.23666666666666666,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "theory_of_mind",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8166666666666667,
+          "reproducibility": 0.63,
+          "chance": 0.03333333333333333
+        }
+      ]
+    },
+    "suite x coalition (free protocols, all tasks)": {
+      "grouping": "suite",
+      "n_groups": 4,
+      "excluded_groups": {},
+      "min_tasks_per_group": 4,
+      "reproducibility": 0.3858333333333333,
+      "null_reproducibility": 0.04214583333333333,
+      "reproducibility_p": 0.0033333333333333335,
+      "winners_are_reproducible": true,
+      "dominance": 0.25,
+      "null_dominance": 0.29583333333333334,
+      "dominance_p": 1.0,
+      "dominant_configuration": "independent_majority[0-1-2-3]",
+      "reproducibility_dominant": 0.2,
+      "reproducibility_off_dominant": 0.4477777777777778,
+      "n_off_dominant": 3,
+      "variety_is_reproducible": false,
+      "n_permutations": 300,
+      "verdict": "NO EVIDENCE - the groups won by the dominant configuration reproduce (0.20) but the 3 that depart from it do not (0.45 against a 0.04 null and a 0.5 floor), so the variety is noise around a single best configuration",
+      "groups": [
+        {
+          "group": "aime",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.38666666666666666,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "cruxeval",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[1-2-3]",
+          "winner_accuracy": 0.95,
+          "reproducibility": 0.3933333333333333,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "exploretom",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1]",
+          "winner_accuracy": 0.8166666666666667,
+          "reproducibility": 0.5633333333333334,
+          "chance": 0.03333333333333333
+        },
+        {
+          "group": "gpqa_diamond",
+          "n_tasks": 60,
+          "n_configurations": 30,
+          "winner": "independent_majority[0-1-2-3]",
+          "winner_accuracy": 0.85,
+          "reproducibility": 0.2,
+          "chance": 0.03333333333333333
+        }
+      ]
+    }
+  }
+}

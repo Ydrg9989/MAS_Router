@@ -18,10 +18,16 @@ __pycache__/
 .env
 
 # ---- generated experiment data ----
-# Response caches and raw runs are large and reproducible; manifests and
-# analysis outputs are small and ARE tracked (see data/.gitignore).
+# Response caches and raw banked episodes are large and reproducible, so they stay out.
+# The analysis outputs ARE tracked: every claim in Docs/paper/CLAIM_EVIDENCE_MATRIX.md
+# names one of these files as its evidence, and a claim whose evidence is not in the repo
+# is not checkable. Same reasoning for the spend ledger, which PROJECTSTATE.md A7 calls
+# authoritative, and for the figures the report script emits.
 /data/cache/
-/data/runs/
+/data/runs/*
+!/data/runs/*.json
+!/data/runs/spend_ledger.jsonl
+!/data/runs/figures/
 *.parquet
 
 # Embedded checkout, not part of this repo
