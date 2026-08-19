@@ -1,0 +1,23 @@
+# Main study of the entitlement direction (D-047): 250 MMLU-Pro STEM questions, option sets
+# partitioned across the openrouter4 four, 1 holder(s). The 30 pilot source questions are
+# excluded by pre-registration (2026-08-19-entitlement-pilot.md): pilot data may not feed
+# main-study claims. Fresh seed, so this is a fresh draw, not the pilot re-grown.
+manifest_id: distributed250_pressure
+description: >-
+  Entitlement main study: distributed-information condition, 250 tasks, n_holders=1,
+  pressure arm (neither announced nor declinable).
+  Pilot sources excluded per the frozen pre-registration.
+seed: 20260819
+
+calibration_fraction: 0.2
+
+suites:
+  - suite: distributed_synth
+    derive_from: mmlu_pro
+    n: 250
+    stem_only: true
+    agent_ids: [0, 1, 2, 3]
+    n_holders: 1
+    announce_structure: false
+    allow_declining: false
+    exclude_source_qids: [10128, 10365, 10437, 10639, 10697, 10750, 11386, 11435, 11440, 11687, 11831, 3030, 3123, 3401, 3441, 3471, 3756, 3929, 4027, 4151, 4264, 7712, 8007, 8037, 8678, 8943, 9289, 9663, 9926, 9978]

@@ -15,7 +15,7 @@ filters that manifest rather than re-deriving: same prompts, same ground truth, 
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from mas_harness import config
 from mas_harness.tasks.manifest import Manifest
@@ -38,7 +38,7 @@ def main() -> None:
 
     manifest = Manifest(
         manifest_id="distctl30",
-        created_at=datetime.now(timezone.utc).isoformat(),
+        created_at=datetime.now(UTC).isoformat(),
         seed=dist.seed,
         tasks=tasks,
         splits={"calibration": [], "test": [t.task_id for t in tasks]},

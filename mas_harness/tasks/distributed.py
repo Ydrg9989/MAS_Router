@@ -311,6 +311,15 @@ def build_distributed_specs(
         gold = source.ground_truth.strip().upper()
         if gold not in letters:
             continue
+        # Capacity feasibility for multi-holder partitions: gold consumes n_holders slots, and
+        # every other option still needs at least one. Equal visible_size makes this a hard
+        # arithmetic constraint (e.g. 8 options, 4 positions, 2 holders: 4x2-2 = 6 slots for 7
+        # remaining options), so infeasible tasks are dropped here exactly like short-option
+        # tasks — the oversample margin absorbs the loss and partition_options keeps its
+        # assertion as a proof, not a filter.
+        size = visible_size(len(letters), n_positions)
+        if n_positions * size - n_holders < len(letters) - 1:
+            continue
 
         # Round-robin the holder, then take the next n_holders positions cyclically so that
         # multi-holder configurations stay balanced too.

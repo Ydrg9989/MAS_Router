@@ -496,11 +496,18 @@ def _derive_distributed(entry: dict[str, Any], *, seed: int) -> list[TaskSpec]:
             f"{source_suite!r} is not one of {sorted(CHOICE_SUITES)}"
         )
     requested = entry.get("n")
+    excluded = {str(q) for q in entry.get("exclude_source_qids", [])}
     source_entry = dict(entry)
     source_entry["suite"] = source_suite
     if requested:
-        source_entry["n"] = int(requested) + 10
+        # Oversample past both the short-option drops and the exclusion list, so the trim
+        # back to the requested count never comes up short.
+        source_entry["n"] = int(requested) + 10 + len(excluded)
     sources = _select(source_entry, seed=seed)
+    if excluded:
+        # The pilot's source questions are excluded from the main study by pre-registration
+        # (2026-08-19-entitlement-pilot.md): pilot data may not feed main-study claims.
+        sources = [s for s in sources if s.task_id.split("::")[1] not in excluded]
 
     agent_ids = list(entry.get("agent_ids") or range(int(entry.get("n_positions", 4))))
     specs = build_distributed_specs(

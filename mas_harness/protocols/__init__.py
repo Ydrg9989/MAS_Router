@@ -8,6 +8,7 @@ enumerate them without knowing the module layout.
 from . import aggregation as _aggregation  # noqa: F401
 from . import conformity as _conformity  # noqa: F401
 from . import debate as _debate  # noqa: F401
+from . import entitlement as _entitlement  # noqa: F401
 from . import expert as _expert  # noqa: F401
 from . import governance as _governance  # noqa: F401
 from .base import (
