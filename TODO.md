@@ -10,10 +10,10 @@ evidence-base: none (pointers only)
 > ## Active queue, 2026-08-19 (D-047)
 > 1. ~~Entitlement pilot~~ **GO, 2026-08-19** — all four gates pass (+62.2 pp / no kill / 0 gold
 >    leaks / 33.3% wrong-majority), $0.90. `data/runs/entitlement_pilot.json`.
-> 2. On GO: re-run the exact-claim gate (fetch 2606.00820, 2607.01661 in full), freeze the
->    main-study pre-registration, build the access-label protocol pair (~1 day), scale manifests
->    to ~250 tasks/arm excluding the 30 pilot sources ($0), run early September ($50–170).
-> 3. ICLR 2027: abstract 09-18, paper 09-25. Fallback NAACL ARR 10-12.
+> 2. ~~Main study~~ **SCORED, 2026-08-20** — M1 +32.2pp, M2 "labels restore entitlement"
+>    (0.923, +9.6pp, p=8e-7), M3 +10.8pp, M4 ratio 0.29 (obeyed, not derived), inverted arm
+>    −20.8pp (p=2e-13). `data/runs/entitlement_main.json`. Study total $67.73.
+> 3. **WRITE.** ICLR 2027: abstract 09-18, paper 09-25 — four clear weeks. Fallback NAACL ARR 10-12.
 > 4. Hedge (background): direction-B bandit-gap replay harness prototype, scratchpad only.
 
 

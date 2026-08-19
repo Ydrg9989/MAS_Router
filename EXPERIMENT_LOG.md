@@ -1680,3 +1680,51 @@ pre-registered order: the exact-claim gate re-read (2606.00820, 2607.01661 in fu
 main-study pre-registration freezes, then the access-label protocol pair and ~250-task manifests.
 
 **Concluded.** The direction survives its own red team at a cost of ninety cents.
+
+---
+
+## 2026-08-20 — The entitlement main study: labels are obeyed, not derived (M1–M5 scored)
+
+**What.** The full pre-registered study
+([`2026-08-19-entitlement-main.md`](Docs/preregistrations/2026-08-19-entitlement-main.md)): four
+Stage A banks (4,000 answers, $11.11) and 2,250 grand-coalition episodes ($55.8) over the three
+new access-label arms plus `independent_judge` and the competence-label judge. Scored by the
+scorer committed before any Stage B spend; artefact `data/runs/entitlement_main.json`.
+
+**The frozen verdicts.**
+
+- **M1 PASS, +32.2 pp** (bar +10): the judge's adoption follows the *advertised* holder with true
+  status controlled. The stratified table is the finding in miniature — the same true holder is
+  adopted 88.4% when labelled and 56.4% when the label denies it; a non-holder rises from 3.7% to
+  36.0% when falsely labelled. Both channels are real: evidence keeps a 52.7 pp pull the label
+  cannot erase, and the label moves adoption ±32 pp regardless of the truth.
+- **M2 → "LABELS RESTORE ENTITLEMENT."** Follow-the-labelled-holder on the 52 wrong-majority
+  tasks: **0.923** (Wilson 95% CI 0.82–0.97, above the 0.80 branch line); truthful labels beat the
+  plain judge by **+9.60 pp** overall (250 paired tasks, discordants 25 vs 1, McNemar p=8e-7).
+  The wrong-majority base rate came in at 21% (52/250) against the pilot's 33% (n=30) — consistent
+  within the pilot's CI, reported for the record.
+- **M3 NOTABLE, +10.8 pp**: entitlement labels beat measured-competence labels head-to-head — and
+  the competence label on its own is worth nothing here (0.784 vs the judge's 0.796).
+- **M4 NOT notable, ratio 0.29**: given the access *structure* (which options each member saw)
+  without the conclusion, the judge recovers only 29% of the designation gain (0.824 vs 0.892).
+  **The judge can obey entitlement; it largely cannot derive it.**
+- **M5**: n_holders=2 dose-response consistent (0.912 → 0.948, follow-rate 1.0 on 20 events).
+- **The inverted arm is the sharpest number in the study: 0.588,** −20.8 pp below the plain judge
+  (discordants 3 vs 55, McNemar p=2e-13) and −30.4 below truthful. A false entitlement label costs
+  twice what a true one buys (−20.8 vs +9.6) — the 2606.01637 mislead/correct asymmetry,
+  reproduced at the label level in a setting where the label's optimal use is computable.
+- **H2 at scale, kill NOT triggered**: cooperative-arm declining is 80.2% when the member can
+  solve the intact question and 63.4% when it cannot (n=597/153); the 16.8 pp gap is under the
+  38.4 pp kill line but is real and must be reported wherever calibration is claimed.
+
+**The headline, one sentence.** *LLM judges obey epistemic entitlement rather than reason about
+it: true access labels restore near-optimal deference, false ones are twice as damaging, and the
+structure from which entitlement is derivable recovers less than a third of the gain.*
+
+**Cost.** Study total **$67.73** including the pilot — over the ≤$55 plan, under the $75 hard cap.
+The overage is the dry-run inflation assumption failing in the other direction for the first time:
+the press-cell dry-run ($36.18) was near-exact rather than 1.9–3.0× high, because distributed
+prompts plus four member answers make real judge episodes ~$0.028 rather than the $0.0144 anchor.
+
+**Concluded.** Every pre-registered outcome is scored, both headline branches were publishable and
+branch A landed with an obedience twist the design was built to detect. What remains is writing.

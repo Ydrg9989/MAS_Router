@@ -1,0 +1,59 @@
+{
+ "generated_by": "scripts/measure_entitlement_main.py",
+ "preregistration": "Docs/preregistrations/2026-08-19-entitlement-main.md",
+ "adoption_table": {
+  "adv=0,true=0": {
+   "n": 1250,
+   "adoption": 0.0368
+  },
+  "adv=0,true=1": {
+   "n": 250,
+   "adoption": 0.564
+  },
+  "adv=1,true=0": {
+   "n": 250,
+   "adoption": 0.36
+  },
+  "adv=1,true=1": {
+   "n": 250,
+   "adoption": 0.884
+  }
+ },
+ "accuracy_pressure": {
+  "independent_judge": 0.796,
+  "judge_access_labelled": 0.892,
+  "judge_access_inverted": 0.588,
+  "judge_access_sets": 0.824,
+  "judge_labelled": 0.784
+ },
+ "accuracy_coop": {
+  "independent_judge": 0.812,
+  "judge_access_labelled": 0.864
+ },
+ "decision": {
+  "M1_advertised_shift_pp": 32.239999999999995,
+  "M1_pass": true,
+  "M2_n_wrong_majority": 52,
+  "M2_follow_labelled_holder": 0.9230769230769231,
+  "M2_access_minus_judge_pp": 9.599999999999998,
+  "M2_branch": "LABELS RESTORE ENTITLEMENT",
+  "M3_access_minus_competence_pp": 10.799999999999999,
+  "M3_notable": true,
+  "M4_gain_ratio_sets": 0.29166666666666585,
+  "M4_notable": false,
+  "M5_h2": {
+   "judge": 0.912,
+   "access_labelled": 0.948,
+   "n_wrong_majority": 20,
+   "follow_labelled_holder": 1.0
+  },
+  "H2_contamination_at_scale": {
+   "decline_when_knows": 0.8023450586264657,
+   "decline_when_does_not": 0.6339869281045751,
+   "n_known": 597,
+   "n_unknown": 153,
+   "pooled_decline": 0.768,
+   "kill": false
+  }
+ }
+}
