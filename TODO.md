@@ -1,31 +1,21 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — tick items, do not fork
-last-verified: 2026-08-14
+last-verified: 2026-08-19
 evidence-base: none (pointers only)
 -->
 
 # TODO
 
-> ## Nothing is queued, 2026-08-14
->
-> Every experiment this substrate can usefully run has been run, and every result is closed by prior
-> work ([`Docs/literature/ENSEMBLING_NOVELTY.md`](Docs/literature/ENSEMBLING_NOVELTY.md)). The
-> unchecked boxes below are **preserved as a record**, not as a work queue: several of them describe
-> experiments that are no longer worth running, and the ones that are still technically open would
-> not change any conclusion.
->
-> **The only open items are editorial and strategic, and neither is a command to run something:**
->
-> - Decide what, if anything, is written up. The candidate is not a findings paper but a methods
->   one — six pre-registrations in three days, four criteria killed by their own audits, three
->   proposals killed by their own gates before spending, and a novelty check that failed for a
->   nameable and generalisable reason.
-> - Decide whether the substrate is retargeted at a problem far enough from this one that a
->   three-month lead does not decide it. Agentic or tool-using tasks are the obvious candidate and
->   would need a code-execution sandbox the harness does not have (see *Task substrates* below).
->
-> Do not restart experimental work from this file without re-reading `PROJECTSTATE.md` §A2 and §A6.
+> ## Active queue, 2026-08-19 (D-047)
+> 1. **Entitlement pilot** — runs `dist30-coop`, `dist30-press`, `dist30-fullinfo`; score H1–H4
+>    against [`2026-08-19-entitlement-pilot.md`](Docs/preregistrations/2026-08-19-entitlement-pilot.md); GO/NO-GO by ~08-21.
+> 2. On GO: re-run the exact-claim gate (fetch 2606.00820, 2607.01661 in full), freeze the
+>    main-study pre-registration, build the access-label protocol pair (~1 day), scale manifests
+>    to ~250 tasks/arm excluding the 30 pilot sources ($0), run early September ($50–170).
+> 3. ICLR 2027: abstract 09-18, paper 09-25. Fallback NAACL ARR 10-12.
+> 4. Hedge (background): direction-B bandit-gap replay harness prototype, scratchpad only.
+
 
 
 Ordered by what blocks what. `PROJECTSTATE.md` records what already works.

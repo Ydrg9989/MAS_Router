@@ -1,7 +1,7 @@
 <!-- doc-meta
 type:          living
 lifecycle:     update-in-place — never fork a v2; git history is the version record
-last-verified: 2026-08-14
+last-verified: 2026-08-19
 evidence-base: see §A5 traceability table
 supersedes:    Docs/CURRENT_STATE.md (folded in, 2026-08-11)
 -->
@@ -62,6 +62,17 @@ authoritative and the prose figures that predate it are not.
 the time and are deliberately not rewritten; several say things like "is now decisive" or "is the
 highest-priority action", which were true when written and are not now. For current status read only
 the top entry and §A1.
+
+**2026-08-19: a seventh direction is closed and an eighth is adopted, both by the gate
+discipline.** The composition-gated exposure proposal passed its novelty gate and failed its
+arithmetic — a perfect gate is worth +0.97 pp pooled, below the bar that killed RQ5 (D-046,
+[`Docs/proposals/2026-08-19-exposure-gating-REVIEW.md`](Docs/proposals/2026-08-19-exposure-gating-REVIEW.md)).
+The **entitlement direction** replaces it (D-047): deference under provable ignorance on the
+distributed-information substrate (D-010/D-015), where effect sizes are designed rather than
+benchmark accidents and the access-label claim is verifiably unoccupied across two shelves.
+A frozen pilot ([`2026-08-19-entitlement-pilot.md`](Docs/preregistrations/2026-08-19-entitlement-pilot.md))
+gates it before the main study. Target ICLR 2027; NAACL 2027 ARR fallback. §A1's "nothing
+experimental remains open" is superseded by this entry.
 
 **2026-08-14, last: the conformity follow-up is closed at its own gate, for $0.** A three-arm study
 was designed, implemented and tested — `protocols/conformity.py`, `metrics/adoption.py`, 18 tests —

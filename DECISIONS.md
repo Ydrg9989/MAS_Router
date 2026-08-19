@@ -2066,3 +2066,52 @@ mechanistic result with a control** — when a strong model reads peer answers, 
 items, gains slightly on correct consensus, and loses heavily on wrong consensus. Whether the net is
 positive is a property of the *pool's* error profile, which is measurable in advance and which this
 project has 280 pools of.
+
+---
+
+## D-046 — The exposure-gating proposal is closed at step 1, for $0, by its own arithmetic
+
+**What was proposed.** Three documents drafted 2026-08-19 (framework, implementation plan, and a
+proposal never provided to review): a per-task gate deciding whether the judge's prompt includes
+the peers' answers, thresholding P(pool is right | answer pattern), built on D-045's class
+decomposition.
+
+**Why it closes.** The full review is
+[`Docs/proposals/2026-08-19-exposure-gating-REVIEW.md`](Docs/proposals/2026-08-19-exposure-gating-REVIEW.md);
+an 11-agent verification pass fetched every citation and replayed the class shares of all 280
+pools from the banks. Three findings decide it: (1) a perfect class-oracle gate beats
+always-expose by **+0.97 pp pooled — 12 tasks of 1,235** — below the +2.29 pp oracle that D-041
+recorded as "worth little even in principle", and the bound clears 2 pp in 2 of 280 pools; (2) the
+transportability law A1 is broken at birth — delta_W is −18.6 pp on `crosscap240` and exactly
+0.0 pp on `hard366`; (3) the flagship "suspicious unanimity" class is nearly empty — scattered-
+wrong dominates consensus-wrong in 100% of `crosscap240` pools, so the Cor 2.1 rule governs ~1% of
+tasks. The novelty gate itself PASSED (nobody gates aggregator input), which is what makes the
+closure informative: the space is open because the prize on this substrate is not there.
+
+**Kept.** The 280-pool class-share sheet and the verified 15-paper literature map in the review.
+
+## D-047 — The entitlement direction is adopted, gated by a pre-registered pilot
+
+**The claim being pursued.** Deference under provable ignorance: shown peers' answers plus
+per-peer evidence-ACCESS labels (true and in-context verifiable, sourced from the D-010 option
+partition), does an LLM group — members and judge — discount peers who provably could not know,
+measured against the computable optimal discount? Both branches are publishable: restoration of
+discounting, or persistence of conformity under the strongest possible cue (extending 2602.01011's
+"leveraging, not identification" result).
+
+**Why this one.** Step-0 gates run 2026-08-19 across two shelves (hidden-profile MAS; epistemic
+trust/conformity): HiddenBench (arXiv 2505.11556, ICML 2026) owns the latent-asymmetry phenomenon
+and protocol recovery but deliberately never labels access; 2606.01637 owns authority-label
+adoption; 2602.01011 owns expertise-label futility. The access-label contrast and the normative
+gap are verifiably unoccupied as of today. The substrate escapes the symmetry trap that killed six
+directions: effect sizes are set by `n_holders`, not by benchmark accident — with the red team's
+caveat recorded that designed ceilings buy statistical power, not evidence of importance.
+
+**The gate.** [`Docs/preregistrations/2026-08-19-entitlement-pilot.md`](Docs/preregistrations/2026-08-19-entitlement-pilot.md),
+frozen before any spend: H1 manipulation >30 pp, H2 contamination kill (decline explained by
+full-information correctness), H3 gold-leak <10%, H4 wrong-majority on ≥30% of pressure tasks.
+GO requires all four; any failure closes the direction at ~$4, like the last three.
+
+**Target.** ICLR 2027 (paper 2026-09-25), NAACL 2027 ARR (2026-10-12) as fallback. Schedule
+risk is acknowledged: the pilot decides by ~2026-08-21, the main-study pre-registration freezes
+by ~2026-09-01, runs complete early September, leaving two weeks to write.
